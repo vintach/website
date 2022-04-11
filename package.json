@@ -1,0 +1,15 @@
+{
+  "name": "websites",
+  "packageManager": "yarn@3.2.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/eslint": "^8",
+    "@types/prettier": "^2",
+    "eslint": "^8.13.0",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.3"
+  }
+}
