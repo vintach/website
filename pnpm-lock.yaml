@@ -1,12 +1,22 @@
 lockfileVersion: 5.4
 
-specifiers:
-  turbo: 1.7.0
+importers:
 
-devDependencies:
-  turbo: 1.7.0
+  .:
+    specifiers:
+      prettier: 2.8.3
+      turbo: 1.7.0
+    devDependencies:
+      prettier: 2.8.3
+      turbo: 1.7.0
 
 packages:
+
+  /prettier/2.8.3:
+    resolution: {integrity: sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
 
   /turbo-darwin-64/1.7.0:
     resolution: {integrity: sha512-hSGAueSf5Ko8J67mpqjpt9FsP6ePn1nMcl7IVPoJq5dHsgX3anCP/BPlexJ502bNK+87DDyhQhJ/LPSJXKrSYQ==}
