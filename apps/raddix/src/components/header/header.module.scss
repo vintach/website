@@ -25,14 +25,13 @@
 }
 
 .logo {
-  h1 {
-    font-weight: 500;
-    font-size: 24px;
-  }
+  display: flex;
+  align-items: center;
 }
 
 .nav {
   display: flex;
+  padding-left: 50px;
 
   ol {
     display: flex;

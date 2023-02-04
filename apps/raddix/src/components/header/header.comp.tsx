@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from './header.module.scss';
 import classNames from 'classnames';
+import Image from 'next/image';
 
 const HeaderComp = () => {
   const [scrollY, setScrollY] = useState<number>(0);
@@ -25,7 +26,12 @@ const HeaderComp = () => {
     >
       <div className={styles.header}>
         <Link className={styles.logo} href={'/'} locale={router.locale}>
-          <h1>Raddix</h1>
+          <Image
+            src='/raddix.small.png'
+            alt='Raddix logo'
+            width={24}
+            height={36}
+          />
         </Link>
 
         <nav className={styles.nav}>
