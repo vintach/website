@@ -1,0 +1,9 @@
+.wrapper {
+  --spacing-grid: 3rem;
+
+  max-width: var(--max-width);
+  margin: 1.8rem auto 0;
+  display: grid;
+  grid-template-columns: auto 1fr 16%;
+  column-gap: 2rem;
+}
