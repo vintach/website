@@ -1,24 +1,8 @@
 import Link from 'next/link';
 import styles from './sidebar.module.scss';
+import { SideBar, SidebarList } from '@/types/sidebar';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
-
-export interface SidebarItems {
-  title: string;
-  route: {
-    path: string;
-    locale: string;
-  };
-}
-
-export interface SidebarList {
-  title: string;
-  items: SidebarItems[];
-}
-
-export interface SideBar {
-  list: SidebarList[];
-}
 
 const SidebarList = ({ title, items }: SidebarList) => {
   const { asPath } = useRouter();
