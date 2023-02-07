@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { ParsedUrlQuery } from 'querystring';
 import nextConfig from '../../next.config';
+import { SideBar } from '@/types/sidebar';
 
 const ROOT_PATH = process.cwd();
 
@@ -34,4 +35,16 @@ export const getMdxBySlug = ({
     meta: data,
     content
   };
+};
+
+export const getSidebarData = (locale?: string) => {
+  const realLocale = locale ?? nextConfig.i18n.defaultLocale;
+  const srcDirectory = path.join(ROOT_PATH, 'data', 'sidebar');
+  const sidebarData = fs.readFileSync(
+    `${srcDirectory}/${realLocale}.json`,
+    'utf-8'
+  );
+
+  const sidebar: SideBar = JSON.parse(sidebarData);
+  return sidebar.list;
 };

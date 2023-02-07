@@ -1,14 +1,16 @@
 import { DocsLayout } from '@/layouts/docs';
-import { getAllMdx, getMdxBySlug } from '@/lib/mdx';
+import { getAllMdx, getMdxBySlug, getSidebarData } from '@/lib/mdx';
+import { SidebarList } from '@/types/sidebar';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
 const DocsPage = ({
-  mdxSource
+  mdxSource,
+  sidebar
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <DocsLayout>
+    <DocsLayout sidebar={sidebar}>
       <MDXRemote {...mdxSource} />
     </DocsLayout>
   );
@@ -40,6 +42,7 @@ export const getStaticProps: GetStaticProps<{
   meta: {
     [key: string]: any;
   };
+  sidebar: SidebarList[];
 }> = async ({ params, locale }) => {
   const { content, meta, slug } = getMdxBySlug({
     params,
@@ -48,10 +51,13 @@ export const getStaticProps: GetStaticProps<{
   });
   const mdxSource = await serialize(content);
 
+  const sidebar = getSidebarData(locale);
+
   return {
     props: {
       mdxSource: mdxSource,
-      meta
+      meta,
+      sidebar
     }
   };
 };
