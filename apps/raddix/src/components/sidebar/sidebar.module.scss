@@ -1,0 +1,46 @@
+.aside {
+  width: 19rem;
+  box-sizing: border-box;
+}
+
+.list {
+  padding-bottom: 3.5em;
+
+  h5 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 0.9rem;
+  }
+
+  ol {
+    padding-left: 1.1rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+
+    li {
+      padding: 0.5rem 0;
+      opacity: 0.75;
+      a {
+        display: block;
+        font-size: 1.05rem;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.itemActive {
+  font-weight: 500;
+  color: #f9f;
+  position: relative;
+
+  ::before {
+    content: '\2022';
+    font-size: 18px;
+    position: absolute;
+    color: #f9f;
+    display: inline-block;
+    left: -1.45rem;
+    top: 47%;
+    transform: translateY(-50%);
+  }
+}
