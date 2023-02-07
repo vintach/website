@@ -1,0 +1,56 @@
+{
+  "list": [
+    {
+      "title": "Introducción",
+      "items": [
+        {
+          "title": "Empezando",
+          "route": {
+            "path": "/docs/get-started",
+            "locale": "es"
+          }
+        },
+        {
+          "title": "Instalación",
+          "route": {
+            "path": "/docs/installation",
+            "locale": "es"
+          }
+        },
+        {
+          "title": "Construir un componente",
+          "route": {
+            "path": "/docs/build-component",
+            "locale": "es"
+          }
+        },
+        {
+          "title": "Componentes con estado",
+          "route": {
+            "path": "/docs/stateful-component",
+            "locale": "es"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Primitivas",
+      "items": [
+        {
+          "title": "Switch",
+          "route": {
+            "path": "/docs/switch",
+            "locale": "es"
+          }
+        },
+        {
+          "title": "Checkbox",
+          "route": {
+            "path": "/docs/checkbox",
+            "locale": "es"
+          }
+        }
+      ]
+    }
+  ]
+}
