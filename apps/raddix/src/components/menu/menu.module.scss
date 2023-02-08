@@ -1,0 +1,28 @@
+.nav {
+  display: flex;
+  padding-left: 50px;
+
+  ul {
+    display: flex;
+    column-gap: 2rem;
+
+    li {
+      list-style: none;
+      font-size: 16px;
+      transition: opacity 0.1s;
+
+      &:first-child {
+        margin: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.85;
+      }
+
+      a {
+        padding: 15px 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "navList": [
+    {
+      "name": "Docs",
+      "path": "/docs/get-started"
+    },
+    {
+      "name": "Templates",
+      "path": "/templates"
+    },
+    {
+      "name": "Integrations",
+      "path": "/integrations"
+    },
+    {
+      "name": "Primitives",
+      "path": "/docs/primitives"
+    },
+    {
+      "name": "Blog",
+      "path": "/blog"
+    }
+  ]
+}

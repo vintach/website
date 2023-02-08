@@ -1,0 +1,24 @@
+{
+  "navList": [
+    {
+      "name": "Documentación",
+      "path": "/docs/get-started"
+    },
+    {
+      "name": "Plantillas",
+      "path": "/templates"
+    },
+    {
+      "name": "Integraciones",
+      "path": "/integrations"
+    },
+    {
+      "name": "Primitivas",
+      "path": "/docs/primitives"
+    },
+    {
+      "name": "Blog",
+      "path": "/blog"
+    }
+  ]
+}

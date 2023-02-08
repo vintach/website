@@ -4,11 +4,11 @@ import Link from 'next/link';
 import styles from './header.module.scss';
 import classNames from 'classnames';
 import Image from 'next/image';
+import { Menu } from '../menu';
 
 const HeaderComp = () => {
   const [scrollY, setScrollY] = useState<number>(0);
-
-  const router = useRouter();
+  const { locale, locales, asPath } = useRouter();
 
   const updateScroll = () => {
     setScrollY(window.scrollY);
@@ -16,7 +16,6 @@ const HeaderComp = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', updateScroll);
-
     return () => window.removeEventListener('scroll', updateScroll);
   }, []);
 
@@ -25,34 +24,22 @@ const HeaderComp = () => {
       className={classNames(styles.wrapper, { [styles.scroll]: scrollY > 2 })}
     >
       <div className={styles.header}>
-        <Link className={styles.logo} href={'/'} locale={router.locale}>
-          <Image
-            src='/raddix.small.png'
-            alt='Raddix logo'
-            width={24}
-            height={36}
-          />
+        <Link className={styles.logo} href={'/'} locale={locale}>
+          <Image src='/raddix.svg' alt='Raddix logo' width={24} height={36} />
+          <h1>raddix</h1>
         </Link>
 
-        <nav className={styles.nav}>
-          <ol>
-            <li>
-              <Link href={'/docs/get-started'} locale={router.locale}>
-                Documentación
+        <Menu />
+
+        {locales?.map(localName => {
+          return (
+            <div key={localName}>
+              <Link href={asPath} passHref locale={localName}>
+                {localName}
               </Link>
-            </li>
-            <li>
-              <Link href={'/templates'} locale={router.locale}>
-                Plantillas
-              </Link>
-            </li>
-            <li>
-              <Link href={'/get-started'} locale={router.locale}>
-                Blog
-              </Link>
-            </li>
-          </ol>
-        </nav>
+            </div>
+          );
+        })}
       </div>
     </header>
   );
