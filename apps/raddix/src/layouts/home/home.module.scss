@@ -1,0 +1,5 @@
+@import '../../styles/mixins';
+
+.main {
+  @include max-box;
+}
