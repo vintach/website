@@ -1,5 +1,5 @@
 import { Header } from '@/components/header';
-import styles from './app.module.scss';
+import Head from 'next/head';
 
 export interface AppProps {
   children?: React.ReactNode;
@@ -8,8 +8,14 @@ export interface AppProps {
 const AppLayout = ({ children }: AppProps) => {
   return (
     <>
+      <Head>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel='icon' href='/icon.png' />
+      </Head>
+
       <Header />
-      <main className={styles.main}>{children}</main>
+
+      {children}
     </>
   );
 };
