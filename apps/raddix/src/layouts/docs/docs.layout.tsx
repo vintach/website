@@ -10,11 +10,11 @@ interface DocsProps {
 
 const DocsLayout = ({ children, sidebar }: DocsProps) => {
   return (
-    <div className={styles.wrapper}>
+    <main className={styles.wrapper}>
       <Sidebar list={sidebar} />
-      <div>{children}</div>
-      <aside></aside>
-    </div>
+      <div className={styles.content}>{children}</div>
+      <nav></nav>
+    </main>
   );
 };
 
