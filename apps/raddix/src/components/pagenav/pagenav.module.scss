@@ -1,0 +1,23 @@
+.nav {
+  width: var(--width-nav);
+  grid-area: navbar;
+  padding-left: 1rem;
+  position: fixed;
+  right: max(0px, calc(50% - 37.5rem));
+
+  h5 {
+    font-size: 0.985rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+  }
+}
+
+.item {
+  font-size: 0.985rem;
+  opacity: 0.75;
+  padding-bottom: 1rem;
+}
+
+.ul {
+  padding: 1rem 0 0 1rem;
+}
