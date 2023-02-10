@@ -1,5 +1,7 @@
 .aside {
-  width: 19rem;
+  width: var(--width-aside);
+  grid-area: aside;
+  position: fixed;
   box-sizing: border-box;
 }
 
@@ -30,14 +32,14 @@
 
 .itemActive {
   font-weight: 500;
-  color: #f9f;
+  color: var(--color-secondary);
   position: relative;
 
   ::before {
     content: '\2022';
     font-size: 18px;
     position: absolute;
-    color: #f9f;
+    color: var(--color-secondary);
     display: inline-block;
     left: -1.45rem;
     top: 47%;
