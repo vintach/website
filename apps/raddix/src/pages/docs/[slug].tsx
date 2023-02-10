@@ -4,6 +4,7 @@ import { SidebarList } from '@/types/sidebar';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import MDXComponents from '@/components/mdx';
 
 const DocsPage = ({
   mdxSource,
@@ -11,7 +12,7 @@ const DocsPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <DocsLayout sidebar={sidebar}>
-      <MDXRemote {...mdxSource} />
+      <MDXRemote {...mdxSource} components={MDXComponents} />
     </DocsLayout>
   );
 };
