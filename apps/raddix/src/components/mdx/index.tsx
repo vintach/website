@@ -11,10 +11,16 @@ interface Children {
 interface TextProps extends Children {
   as: keyof JSX.IntrinsicElements;
   className: string;
+  isTitle?: boolean;
+  id?: string;
 }
 
-const Text = ({ as: Comp, className, children }: TextProps) => {
-  return <Comp className={className}>{children}</Comp>;
+const Text = ({ as: Comp, className, children, isTitle, id }: TextProps) => {
+  return (
+    <Comp className={className} data-title={isTitle} id={id}>
+      {children}
+    </Comp>
+  );
 };
 
 export const TextPre = (props: Children) => {
@@ -71,18 +77,18 @@ export const TextPre = (props: Children) => {
 };
 
 const MDXComponents = {
-  h1: ({ children }: Children) => (
-    <Text as='h1' className={styles.title}>
+  h1: ({ children, ...props }: Children) => (
+    <Text as='h1' className={styles.title} {...props}>
       {children}
     </Text>
   ),
-  h2: ({ children }: Children) => (
-    <Text as='h2' className={styles.subTitle}>
+  h2: ({ children, ...props }: Children) => (
+    <Text as='h2' className={styles.subTitle} isTitle {...props}>
       {children}
     </Text>
   ),
-  h3: ({ children }: Children) => (
-    <Text as='h3' className={styles.h3}>
+  h3: ({ children, ...props }: Children) => (
+    <Text as='h3' className={styles.h3} isTitle {...props}>
       {children}
     </Text>
   ),
