@@ -2,6 +2,8 @@ import { ReactNode } from 'react';
 import styles from './docs.module.scss';
 import { Sidebar } from '@/components/sidebar';
 import { SidebarList } from '@/types/sidebar';
+import { PageNav } from '@/components/pagenav';
+import useIsMobile from '@/hooks/isMobile';
 
 interface DocsProps {
   children: ReactNode;
@@ -9,11 +11,14 @@ interface DocsProps {
 }
 
 const DocsLayout = ({ children, sidebar }: DocsProps) => {
+  const showNavPage = useIsMobile('1180px');
+  const showAside = useIsMobile('880px');
+
   return (
-    <main className={styles.wrapper}>
-      <Sidebar list={sidebar} />
+    <main className={styles.main}>
+      {!showAside && <Sidebar list={sidebar} />}
       <div className={styles.content}>{children}</div>
-      <nav></nav>
+      {!showNavPage && <PageNav></PageNav>}
     </main>
   );
 };
