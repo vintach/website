@@ -81,6 +81,11 @@ const MDXComponents = {
       {children}
     </Text>
   ),
+  h3: ({ children }: Children) => (
+    <Text as='h3' className={styles.h3}>
+      {children}
+    </Text>
+  ),
   p: ({ children }: Children) => (
     <Text as='p' className={styles.paragraph}>
       {children}
