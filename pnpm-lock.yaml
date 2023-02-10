@@ -22,6 +22,7 @@ importers:
       gray-matter: 4.0.3
       next: 13.1.5
       next-mdx-remote: 4.3.0
+      prism-react-renderer: 1.3.5
       react: 18.2.0
       react-dom: 18.2.0
       sass: 1.57.1
@@ -37,6 +38,7 @@ importers:
       gray-matter: 4.0.3
       next: 13.1.5_3duxcpitbtplz62feflag7fwby
       next-mdx-remote: 4.3.0_biqbaboplfbrettd7655fr4n2y
+      prism-react-renderer: 1.3.5_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       typescript: 4.9.4
@@ -1203,6 +1205,14 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
+
+  /prism-react-renderer/1.3.5_react@18.2.0:
+    resolution: {integrity: sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg==}
+    peerDependencies:
+      react: '>=0.14.9'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /property-information/6.2.0:
     resolution: {integrity: sha512-kma4U7AFCTwpqq5twzC1YVIDXSqg6qQK6JN0smOw8fgRy1OkMi0CYSzFmsy6dnqSenamAtj0CyXMUJ1Mf6oROg==}
