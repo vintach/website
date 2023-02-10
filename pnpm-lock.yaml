@@ -25,6 +25,8 @@ importers:
       prism-react-renderer: 1.3.5
       react: 18.2.0
       react-dom: 18.2.0
+      remark-autolink-headings: 7.0.1
+      remark-slug: 7.0.1
       sass: 1.57.1
       typescript: 4.9.4
     dependencies:
@@ -41,6 +43,8 @@ importers:
       prism-react-renderer: 1.3.5_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      remark-autolink-headings: 7.0.1
+      remark-slug: 7.0.1
       typescript: 4.9.4
     devDependencies:
       sass: 1.57.1
@@ -513,6 +517,10 @@ packages:
     os: [darwin]
     requiresBuild: true
     optional: true
+
+  /github-slugger/1.5.0:
+    resolution: {integrity: sha512-wIh+gKBI9Nshz2o46B0B3f5k/W+WI9ZAv6y5Dn5WJ5SK1t0TnDimB4WE5rmTD05ZAIn8HALCZVmCsvj0w0v0lw==}
+    dev: false
 
   /glob-parent/5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
@@ -1241,6 +1249,16 @@ packages:
     dependencies:
       picomatch: 2.3.1
 
+  /remark-autolink-headings/7.0.1:
+    resolution: {integrity: sha512-a1BIwoJ0cSnX+sPp5u3AFULBFWHGYBt57Fo4a+7IlGiJOQxs8b7uYAE5Iu26Ocl7Y5cvinZy3FaGVruLCKg6vA==}
+    dependencies:
+      '@types/hast': 2.3.4
+      '@types/mdast': 3.0.10
+      extend: 3.0.2
+      unified: 10.1.2
+      unist-util-visit: 4.1.2
+    dev: false
+
   /remark-mdx/2.2.1:
     resolution: {integrity: sha512-R9wcN+/THRXTKyRBp6Npo/mcbGA2iT3N4G8qUqLA5pOEg7kBidHv8K2hHidCMYZ6DXmwK18umu0K4cicgA2PPQ==}
     dependencies:
@@ -1267,6 +1285,17 @@ packages:
       '@types/mdast': 3.0.10
       mdast-util-to-hast: 12.2.6
       unified: 10.1.2
+    dev: false
+
+  /remark-slug/7.0.1:
+    resolution: {integrity: sha512-NRvYePr69LdeCkEGwL4KYAmq7kdWG5rEavCXMzUR4qndLoXHJAOLSUmPY6Qm4NJfKix7/EmgObyVaYivONAFhg==}
+    dependencies:
+      '@types/hast': 2.3.4
+      '@types/mdast': 3.0.10
+      github-slugger: 1.5.0
+      mdast-util-to-string: 3.1.1
+      unified: 10.1.2
+      unist-util-visit: 4.1.2
     dev: false
 
   /sade/1.8.1:

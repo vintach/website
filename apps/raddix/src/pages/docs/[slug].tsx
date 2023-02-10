@@ -6,6 +6,9 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import MDXComponents from '@/components/mdx';
 
+import remarkSlug from 'remark-slug';
+import remarkautolink from 'remark-autolink-headings';
+
 const DocsPage = ({
   mdxSource,
   sidebar
@@ -50,7 +53,11 @@ export const getStaticProps: GetStaticProps<{
     locale,
     file: 'docs'
   });
-  const mdxSource = await serialize(content);
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [remarkSlug, remarkautolink]
+    }
+  });
 
   const sidebar = getSidebarData(locale);
 
