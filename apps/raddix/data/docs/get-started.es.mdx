@@ -6,4 +6,95 @@ subtitle: ''
 
 # Empezar
 
-En esta guía de introducción, le mostraremos cómo crear e implementar una aplicación web3 completa. Aprenderá a:
+En esta guía de introducción, le mostraremos cómo crear su propia biblioteca
+de componentes con Raddix.
+
+## Implementar un componente
+
+En este ejemplo construiremos un componente Switch con el hook useSwitch.
+
+### Instalación
+
+Instale el hook desde su linea de comandos.
+
+```bash
+pnpm add @raddix/switch
+```
+
+### Importar el hook
+
+Comenzemos importando el hook
+
+```jsx
+// switch.tsx
+import useSwitch from '@raddix/switch';
+
+const Switch = props => {
+  const { switchProps, state } = useSwitch.Root(props);
+  const { switchThumbProps } = useSwitch.Thumb(state);
+
+  return (
+    <button {...switchProps}>
+      <span {...switchThumbProps}></span>
+    </button>
+  );
+};
+```
+
+### Agregamos los estilos
+
+En este caso usaremos el preprocesador sass para aplicar los estilos. Recuerde
+que puede usar estilos en linea, CSS-in-JS, etc.
+
+```scss
+/* styles.scss */
+.switch {
+  all: unset;
+  display: block;
+  width: 42px;
+  height: 22px;
+  background-color: rgba(15, 23, 42, 0.2);
+  border-radius: 99px;
+  position: relative;
+  padding: 3px;
+  -webkit-tap-highlight-color: black;
+  cursor: pointer;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+
+  &-thumb {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    border-radius: 99px;
+    transition: transform 100ms;
+    transform: translateX(2px);
+    will-change: transform;
+    cursor: pointer;
+  }
+}
+```
+
+Luego agregamos los estilos en nuestro componente.
+
+```jsx
+// switch.tsx
+import useSwitch from '@raddix/switch';
+import './styles.scss';
+
+const Switch = props => {
+  const { switchProps, state } = useSwitch.Root(props);
+  const { switchThumbProps } = useSwitch.Thumb(state);
+
+  return (
+    <button {...switchProps} className='switch'>
+      <span {...switchThumbProps} className='switch-thumb'></span>
+    </button>
+  );
+};
+```
+
+### Desmostración
+
+Genial! ahora tenemos un componente switch totalmente funcional y accesible.

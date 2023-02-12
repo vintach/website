@@ -4,4 +4,93 @@ title: 'Get Started'
 
 # Get Started
 
-In this getting started guide, we'll show you how to build and deploy a full web3 application! You'll learn how to:
+In this getting started guide, we'll show you how to create your own
+component library with Raddix.
+
+## Implementing a component
+
+In this example we will build a Switch component with the useSwitch hook.
+
+### Install
+
+Install the hook from your command line.
+
+```bash
+pnpm add @raddix/switch
+```
+
+### Import hook
+
+Let's start by importing the hook
+
+```jsx
+// switch.tsx
+import useSwitch from '@raddix/switch';
+
+const Switch = props => {
+  const { switchProps, state } = useSwitch.Root(props);
+  const { switchThumbProps } = useSwitch.Thumb(state);
+
+  return (
+    <button {...switchProps}>
+      <span {...switchThumbProps}></span>
+    </button>
+  );
+};
+```
+
+## Add the styles
+
+In this case we will use the sass preprocessor to apply the styles.
+Remember that you can use inline styles, CSS-in-JS, etc.
+
+```scss
+/* styles.scss */
+.switch {
+  all: unset;
+  display: block;
+  width: 42px;
+  height: 22px;
+  background-color: rgba(15, 23, 42, 0.2);
+  border-radius: 99px;
+  position: relative;
+  padding: 3px;
+  -webkit-tap-highlight-color: black;
+  cursor: pointer;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+
+  &-thumb {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    border-radius: 99px;
+    transition: transform 100ms;
+    transform: translateX(2px);
+    will-change: transform;
+    cursor: pointer;
+  }
+}
+```
+
+Then we add the styles in our component.
+
+```jsx
+// switch.tsx
+import useSwitch from '@raddix/switch';
+import './styles.scss';
+
+const Switch = props => {
+  const { switchProps, state } = useSwitch.Root(props);
+  const { switchThumbProps } = useSwitch.Thumb(state);
+
+  return (
+    <button {...switchProps} className='switch'>
+      <span {...switchThumbProps} className='switch-thumb'></span>
+    </button>
+  );
+};
+```
+
+### Demo
