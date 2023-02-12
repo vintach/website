@@ -27,7 +27,7 @@
         {
           "title": "Stateful components",
           "route": {
-            "path": "/docs/stateful-component",
+            "path": "/docs/stateful-components",
             "locale": "en"
           }
         }

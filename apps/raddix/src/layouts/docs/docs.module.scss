@@ -5,14 +5,14 @@
   --width-content: calc(100% - var(--width-aside) - 2rem);
 
   max-width: var(--max-width);
-  margin: 1.8rem auto 0;
+  margin: var(--spacing-m6) auto 0;
   position: relative;
   padding: 0 1.5rem;
 }
 
 .content {
   grid-area: content;
-  margin: 2rem 0 5rem;
+  margin: var(--spacing-m2) 0 var(--spacing-m5);
 }
 
 @media (min-width: 880px) {

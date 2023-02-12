@@ -8,16 +8,18 @@
   h5 {
     font-size: 0.985rem;
     font-weight: 500;
-    margin-bottom: 1.2rem;
+    margin-bottom: var(--spacing-m2);
   }
 }
 
-.item {
-  font-size: 0.985rem;
-  opacity: 0.75;
-  padding-bottom: 1rem;
+.isChild {
+  padding-left: var(--spacing-m2);
+  padding-top: var(--spacing-m1);
 }
 
-.ul {
-  padding: 1rem 0 0 1rem;
+.list {
+  li {
+    padding: var(--spacing-m1) 0;
+    opacity: 0.75;
+  }
 }

@@ -21,8 +21,8 @@ const Tree = ({ navData, parentPrints = 0 }: TreeProps) => {
 
   return (
     <ul
-      className={classNames({
-        [styles.ul]: parentPrints > 0
+      className={classNames(styles.list, {
+        [styles.isChild]: parentPrints > 0
       })}
     >
       {items.map(item => {
@@ -39,7 +39,7 @@ const Tree = ({ navData, parentPrints = 0 }: TreeProps) => {
 
 export const PageNav = () => {
   const [heading, setHeading] = useState<IdentItem[]>([]);
-  const { asPath } = useRouter();
+  const { asPath, locale } = useRouter();
 
   useEffect(() => {
     const titleElements: HTMLHeadingElement[] = Array.from(
@@ -82,7 +82,7 @@ export const PageNav = () => {
     });
 
     setHeading(newElements);
-  }, [asPath]);
+  }, [asPath, locale]);
 
   return (
     <nav className={styles.nav}>

@@ -48,6 +48,7 @@ export const getStaticProps: GetStaticProps<{
   };
   sidebar: SidebarList[];
 }> = async ({ params, locale }) => {
+  console.log(params);
   const { content, meta, slug } = getMdxBySlug({
     params,
     locale,
@@ -55,7 +56,7 @@ export const getStaticProps: GetStaticProps<{
   });
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [remarkSlug, remarkautolink]
+      remarkPlugins: [remarkSlug]
     }
   });
 

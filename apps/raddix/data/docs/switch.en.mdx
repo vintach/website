@@ -1,0 +1,47 @@
+---
+title: Switch
+---
+
+# useSwitch
+
+@raddix/switch is un hook that provides accessibility and behavior for a switch component.
+
+## Features
+
+- Full support for browser features.
+- Full keyboard navigation.
+- Labeling support for screen readers.
+- Can be controlled or uncontrolled.
+- Fully-typed API
+
+## Installation
+
+Install the primitive from your command line.
+
+```bash
+yarn add @raddix/switch
+```
+
+## Usage
+
+The following examples show how to use the Switch component created in the above example.
+Import all or parts of <code>@raddix/switch</code>
+
+```jsx
+import useSwitch from '@raddix/switch';
+
+const Switch = props => {
+  const { switchProps, state } = useSwitch.Root(props);
+  const { switchThumbProps } = useSwitch.Thumb(state);
+
+  return (
+    <button {...switchProps} className='switch'>
+      <span {...switchThumbProps} className='switch-thumb'></span>
+    </button>
+  );
+};
+```
+
+### Default Checked
+
+Switches are not selected by default. To be checked by default using <code>defaultChecked</code> prop

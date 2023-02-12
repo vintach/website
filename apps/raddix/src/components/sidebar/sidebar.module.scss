@@ -6,20 +6,20 @@
 }
 
 .list {
-  padding-bottom: 3.5em;
+  padding-bottom: var(--spacing-m5);
 
   h5 {
     font-size: 1.15rem;
     font-weight: 500;
-    margin-bottom: 0.9rem;
+    margin-bottom: var(--spacing-m2);
   }
 
   ol {
-    padding-left: 1.1rem;
+    padding-left: var(--spacing-m2);
     border-left: 2px solid rgba(255, 255, 255, 0.1);
 
     li {
-      padding: 0.5rem 0;
+      padding: var(--spacing-m1) 0;
       opacity: 0.75;
       a {
         display: block;
