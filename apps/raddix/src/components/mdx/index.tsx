@@ -3,6 +3,7 @@ import { ReactNode, useState } from 'react';
 import theme from 'prism-react-renderer/themes/dracula';
 import classNames from 'classnames';
 import styles from './mdx.module.scss';
+import { componentsDemo } from '@/demo';
 
 interface Children {
   children?: ReactNode;
@@ -97,7 +98,8 @@ const MDXComponents = {
       {children}
     </Text>
   ),
-  pre: TextPre
+  pre: TextPre,
+  ...componentsDemo
 };
 
 export default MDXComponents;

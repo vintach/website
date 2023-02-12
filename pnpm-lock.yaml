@@ -13,6 +13,7 @@ importers:
   apps/raddix:
     specifiers:
       '@next/font': 13.1.5
+      '@raddix/switch': 0.4.1
       '@types/glob': 8.0.1
       '@types/node': 18.11.18
       '@types/react': 18.0.27
@@ -31,6 +32,7 @@ importers:
       typescript: 4.9.4
     dependencies:
       '@next/font': 13.1.5
+      '@raddix/switch': 0.4.1_biqbaboplfbrettd7655fr4n2y
       '@types/glob': 8.0.1
       '@types/node': 18.11.18
       '@types/react': 18.0.27
@@ -209,6 +211,17 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@raddix/switch/0.4.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-zxa3uZsFJKsGRYBN2a4vM7WsRwhPydJUDtNoLsqsY9H+uL3w2BkRkr4NEUpPjKkTPs6vAAycr0F7VJTrfczeww==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      merge-props: 5.0.3
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /@swc/helpers/0.4.14:
     resolution: {integrity: sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw==}
@@ -815,6 +828,10 @@ packages:
     resolution: {integrity: sha512-tGvhT94e+cVnQt8JWE9/b3cUQZWS732TJxXHktvP+BYo62PpYD53Ls/6cC60rW21dW+txxiM4zMdc6abASvZKA==}
     dependencies:
       '@types/mdast': 3.0.10
+    dev: false
+
+  /merge-props/5.0.3:
+    resolution: {integrity: sha512-TuntFuNELf4ZEMZEDM32hCpACQStDfeEMlN5R499gRQB4XUIaGuLrQhm+nRMDtPwCWEZ2a2KTGnTxfjK8B1zww==}
     dev: false
 
   /micromark-core-commonmark/1.0.6:
