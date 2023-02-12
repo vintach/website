@@ -1,3 +1,4 @@
+import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import Head from 'next/head';
 
@@ -16,6 +17,8 @@ const AppLayout = ({ children }: AppProps) => {
       <Header />
 
       {children}
+
+      <Footer />
     </>
   );
 };
