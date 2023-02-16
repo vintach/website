@@ -7,14 +7,15 @@ import { serialize } from 'next-mdx-remote/serialize';
 import MDXComponents from '@/components/mdx';
 
 import remarkSlug from 'remark-slug';
-import remarkautolink from 'remark-autolink-headings';
+import { getMeta } from '@/utils/mdx';
 
 const DocsPage = ({
   mdxSource,
-  sidebar
+  sidebar,
+  meta
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <DocsLayout sidebar={sidebar}>
+    <DocsLayout sidebar={sidebar} meta={meta}>
       <MDXRemote {...mdxSource} components={MDXComponents} />
     </DocsLayout>
   );
@@ -48,7 +49,6 @@ export const getStaticProps: GetStaticProps<{
   };
   sidebar: SidebarList[];
 }> = async ({ params, locale }) => {
-  console.log(params);
   const { content, meta, slug } = getMdxBySlug({
     params,
     locale,
@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps<{
   return {
     props: {
       mdxSource: mdxSource,
-      meta,
+      meta: getMeta(meta),
       sidebar
     }
   };
