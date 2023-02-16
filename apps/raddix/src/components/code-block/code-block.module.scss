@@ -1,0 +1,63 @@
+.root {
+  --spacing-y: calc(var(--spacing-m2) / 1.3);
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+$tabs: (
+  1: #f31260,
+  2: #f5a524,
+  3: #17c964
+);
+
+.windowTabs {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 5px;
+  padding: var(--spacing-y) var(--spacing-m2) var(--spacing-m1);
+
+  span {
+    width: 11px;
+    height: 11px;
+    background-color: #777;
+    border-radius: 50%;
+
+    @each $i, $bgColor in $tabs {
+      &:nth-child(#{$i}) {
+        background-color: #{$bgColor};
+      }
+    }
+  }
+}
+
+.editorWindows {
+  width: 100%;
+  height: 400px;
+  padding: var(--spacing-y) var(--spacing-m2);
+  font-size: 14.5px;
+  line-height: 20px;
+  overflow: auto;
+
+  .code {
+    position: relative;
+  }
+}
+
+.tokenButton {
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
