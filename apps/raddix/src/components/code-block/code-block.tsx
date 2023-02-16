@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { JetBrains_Mono } from '@next/font/google';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import classNames from 'classnames';
@@ -13,9 +13,10 @@ interface CodeBlockProps {
     [key: string]: string;
   };
   showTabs?: boolean;
+  showLines?: boolean;
 }
 
-export const CodeBlock = ({ tabs, showTabs }: CodeBlockProps) => {
+export const CodeBlock = ({ tabs, showTabs, showLines }: CodeBlockProps) => {
   const [activeTab, setActiveTab] = useState(0);
   const lines = tabs[Object.keys(tabs)[activeTab]].trim();
   const tabName = Object.keys(tabs)[activeTab];
@@ -62,6 +63,20 @@ export const CodeBlock = ({ tabs, showTabs }: CodeBlockProps) => {
               }}
               translate='no'
             >
+              {showLines && (
+                <div className={styles.lines} aria-hidden='true'>
+                  {Array.from({ length: tokens.length + 1 }).map((_, i) => {
+                    return i === 0 ? (
+                      i + 1
+                    ) : (
+                      <Fragment key={i + 1}>
+                        <br />
+                        {i + 1}
+                      </Fragment>
+                    );
+                  })}
+                </div>
+              )}
               <div className={styles.code}>
                 {tokens.map((line, i) => (
                   <div {...getLineProps({ line, key: i })} translate='no'>

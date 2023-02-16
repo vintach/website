@@ -58,13 +58,24 @@ $tabs: (
 .editorWindows {
   width: 100%;
   height: 400px;
-  padding: var(--spacing-y) var(--spacing-m2);
+  display: flex;
+  padding: var(--spacing-y) 0;
   font-size: 14.5px;
   line-height: 20px;
   overflow: auto;
 
+  .lines {
+    flex-basis: 46px;
+    padding-right: var(--spacing-m1);
+    color: rgb(71, 85, 105);
+    text-align: right;
+    user-select: none;
+  }
+
   .code {
+    flex: 1;
     position: relative;
+    padding: 0 var(--spacing-m2);
   }
 }
 
