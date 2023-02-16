@@ -12,9 +12,10 @@ interface CodeBlockProps {
   tabs: {
     [key: string]: string;
   };
+  showTabs?: boolean;
 }
 
-export const CodeBlock = ({ tabs }: CodeBlockProps) => {
+export const CodeBlock = ({ tabs, showTabs }: CodeBlockProps) => {
   const [activeTab, setActiveTab] = useState(0);
   const lines = tabs[Object.keys(tabs)[activeTab]].trim();
   const tabName = Object.keys(tabs)[activeTab];
@@ -27,6 +28,21 @@ export const CodeBlock = ({ tabs }: CodeBlockProps) => {
         <span></span>
         <span></span>
       </div>
+      {showTabs && (
+        <div className={styles.editorTabs}>
+          {Object.keys(tabs).map((tab, index) => (
+            <button
+              className={classNames({
+                [styles.isTabActive]: activeTab === index
+              })}
+              key={tab + index}
+              onClick={() => setActiveTab(index)}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+      )}
       <>
         <Highlight
           {...defaultProps}
