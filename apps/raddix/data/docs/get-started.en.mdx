@@ -51,7 +51,7 @@ Remember that you can use inline styles, CSS-in-JS, etc.
   display: block;
   width: 42px;
   height: 22px;
-  background-color: rgba(15, 23, 42, 0.2);
+  background-color: rgba(15, 23, 42, 0.6);
   border-radius: 99px;
   position: relative;
   padding: 3px;
@@ -59,6 +59,10 @@ Remember that you can use inline styles, CSS-in-JS, etc.
   cursor: pointer;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.2s;
+
+  &[data-state='checked'] {
+    background-color: var(--color-primary);
+  }
 
   &-thumb {
     display: block;
@@ -70,6 +74,10 @@ Remember that you can use inline styles, CSS-in-JS, etc.
     transform: translateX(2px);
     will-change: transform;
     cursor: pointer;
+
+    &[data-state='checked'] {
+      transform: translateX(19px);
+    }
   }
 }
 ```
@@ -94,3 +102,9 @@ const Switch = props => {
 ```
 
 ### Demo
+
+Brilliant! we now have a fully functional and accessible switch component.
+
+<Demo>
+  <Switch />
+</Demo>
