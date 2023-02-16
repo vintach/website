@@ -16,20 +16,6 @@
             "path": "/docs/installation",
             "locale": "en"
           }
-        },
-        {
-          "title": "Building a component",
-          "route": {
-            "path": "/docs/build-component",
-            "locale": "en"
-          }
-        },
-        {
-          "title": "Stateful components",
-          "route": {
-            "path": "/docs/stateful-components",
-            "locale": "en"
-          }
         }
       ]
     },
@@ -37,14 +23,14 @@
       "title": "Primitives",
       "items": [
         {
-          "title": "Switch",
+          "title": "useSwitch",
           "route": {
             "path": "/docs/switch",
             "locale": "en"
           }
         },
         {
-          "title": "Checkbox",
+          "title": "useCheckbox",
           "route": {
             "path": "/docs/checkbox",
             "locale": "en"

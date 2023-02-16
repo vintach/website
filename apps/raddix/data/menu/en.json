@@ -9,16 +9,8 @@
       "path": "/templates"
     },
     {
-      "name": "Integrations",
-      "path": "/integrations"
-    },
-    {
       "name": "Primitives",
       "path": "/docs/primitives"
-    },
-    {
-      "name": "Blog",
-      "path": "/blog"
     }
   ]
 }
