@@ -1,4 +1,8 @@
 import { CodeBlock } from '../code-block';
+import { AntiSubtitle } from '../home/anti-subtitle';
+import Box from '../home/box';
+import { Description } from '../home/description';
+import { SubTitle } from '../home/subtitle';
 
 export const Styling = () => {
   const tabs = {
@@ -83,8 +87,21 @@ export default Switch;
   };
 
   return (
-    <div>
-      <CodeBlock tabs={tabs.Css} showTabs showLines />
-    </div>
+    <Box.Section>
+      <Box.Content>
+        <AntiSubtitle text='Styling' />
+        <SubTitle text='Compatible with any styling solution' />
+        <Description
+          text={`You are in control of all aspects of styling, including functional
+        styles. For example—by default—a Dialog Overlay won't cover the entire
+        viewport. You're responsible for adding those styles, plus any
+        presentation styles.`}
+        />
+      </Box.Content>
+      <Box.GridTwo>
+        <div></div>
+        <CodeBlock tabs={tabs.Css} showTabs showLines />
+      </Box.GridTwo>
+    </Box.Section>
   );
 };
