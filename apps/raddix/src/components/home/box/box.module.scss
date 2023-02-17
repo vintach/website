@@ -1,0 +1,28 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-m6) 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-m8);
+
+  .isCenter {
+    align-items: center;
+  }
+
+  .isLeft {
+    align-items: flex-start;
+  }
+
+  .isRight {
+    align-items: flex-end;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+}
