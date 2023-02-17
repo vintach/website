@@ -62,20 +62,41 @@ $tabs: (
   padding: var(--spacing-y) 0;
   font-size: 14.5px;
   line-height: 20px;
-  overflow: auto;
+  position: relative;
+  overflow: hidden;
 
   .lines {
-    flex-basis: 46px;
+    width: 45px;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
     padding-right: var(--spacing-m1);
     color: rgb(71, 85, 105);
     text-align: right;
     user-select: none;
   }
 
-  .code {
-    flex: 1;
-    position: relative;
-    padding: 0 var(--spacing-m2);
+  .codeWrapper {
+    width: calc(100% - 45px);
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 45px;
+
+    .code {
+      height: 400px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: auto;
+      /* IE, Edge and Firefox */
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
 }
 
@@ -90,5 +111,41 @@ $tabs: (
   &:hover {
     cursor: pointer;
     text-decoration: underline;
+  }
+}
+
+.scrollbarX {
+  position: absolute;
+  transition: opacity 0.8s linear;
+  left: 0;
+  bottom: 0;
+  height: 12px;
+  width: 100%;
+  user-select: none;
+
+  & span {
+    display: block;
+    width: 80%;
+    height: 100%;
+    background-color: rgb(71, 85, 105);
+  }
+}
+
+.scrollbarY {
+  width: 12px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: opacity 0.8s linear;
+  user-select: none;
+
+  & span {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    background-color: rgb(71, 85, 105);
+    z-index: 1;
   }
 }
