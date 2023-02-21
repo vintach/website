@@ -32,3 +32,27 @@ export const BoxContent = ({
 export const BoxGrid = ({ children }: Children) => (
   <div className={styles.grid}>{children}</div>
 );
+
+interface BoxTabsProps {
+  tabs: {
+    name?: string;
+    icon?: () => JSX.Element;
+  }[];
+}
+
+export const BoxTabs = ({ tabs }: BoxTabsProps) => {
+  return (
+    <ul className={styles.tabList}>
+      {tabs.map((itemTab, index) => {
+        return (
+          <li>
+            <button>
+              {itemTab?.icon?.()}
+              {itemTab?.name}
+            </button>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};

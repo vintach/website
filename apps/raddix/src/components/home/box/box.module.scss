@@ -7,7 +7,7 @@
 .content {
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--spacing-m8);
+  margin-bottom: var(--spacing-m6);
 
   .isCenter {
     align-items: center;
@@ -25,4 +25,32 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+  grid-template-columns: calc(45.5% - var(--spacing-m2)) 54.5%;
+  column-gap: var(--spacing-m2);
+}
+
+.tabList {
+  max-width: 450px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: var(--spacing-m4);
+  margin-bottom: var(--spacing-m6);
+
+  li {
+    button {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: transparent;
+      color: #475569;
+      font-size: 15px;
+      font-family: inherit;
+      border: 0;
+
+      svg {
+        margin-bottom: var(--spacing-m2);
+      }
+    }
+  }
 }
