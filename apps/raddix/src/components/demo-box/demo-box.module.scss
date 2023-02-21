@@ -1,0 +1,10 @@
+.container {
+  width: 100%;
+  min-height: 290px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-m2);
+  background: var(--bground-linear);
+  border-radius: 6px;
+}
