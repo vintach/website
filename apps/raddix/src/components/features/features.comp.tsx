@@ -1,3 +1,6 @@
+import { AntiSubtitle } from '../home/anti-subtitle';
+import Box from '../home/box';
+import { SubTitle } from '../home/subtitle';
 import styles from './features.module.scss';
 
 const FeaturesComp = () => {
@@ -23,9 +26,11 @@ const FeaturesComp = () => {
   ];
 
   return (
-    <section className={styles.main}>
-      <h2>Features</h2>
-      <h3>Building for web3 has never been easier.</h3>
+    <Box.Section>
+      <Box.Content alignment='center'>
+        <AntiSubtitle text='Features' />
+        <SubTitle text='Building for web3 has never been easier.' />
+      </Box.Content>
 
       <div className={styles.card}>
         {dataCard.map((card, id) => (
@@ -35,7 +40,7 @@ const FeaturesComp = () => {
           </div>
         ))}
       </div>
-    </section>
+    </Box.Section>
   );
 };
 
