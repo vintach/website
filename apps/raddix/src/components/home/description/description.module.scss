@@ -1,6 +1,7 @@
 .root {
   max-width: 46rem;
-  font-size: 18px;
+  margin-top: var(--spacing-m3);
+  font-size: clamp(18px, 2vw, 20px);
   opacity: 0.75;
   line-height: 28px;
 }

@@ -1,27 +1,33 @@
+// BoxSection styles
 .section {
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-m6) 0;
+  margin-top: var(--spacing-m8);
+  padding: var(--spacing-m8) var(--spacing-m2) 0;
 }
 
+// BoxContent styles
 .content {
   display: flex;
   flex-direction: column;
   margin-bottom: var(--spacing-m6);
-
-  .isCenter {
-    align-items: center;
-  }
-
-  .isLeft {
-    align-items: flex-start;
-  }
-
-  .isRight {
-    align-items: flex-end;
-  }
 }
 
+.isCenter {
+  align-items: center;
+  text-align: center;
+}
+
+.isLeft {
+  align-items: flex-start;
+}
+
+.isRight {
+  align-items: flex-end;
+  text-align: right;
+}
+
+// BoxGrid styles
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
@@ -29,6 +35,7 @@
   column-gap: var(--spacing-m2);
 }
 
+// BoxTabs styles
 .tabList {
   max-width: 450px;
   display: grid;

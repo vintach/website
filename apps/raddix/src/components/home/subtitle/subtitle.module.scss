@@ -1,6 +1,6 @@
 .root {
-  max-width: 39rem;
-  font-size: 48px;
+  max-width: 32rem;
+  font-size: clamp(37px, 4vw, 48px);
   font-weight: 700;
-  margin-bottom: var(--spacing-m4);
+  margin-top: var(--spacing-m2);
 }
