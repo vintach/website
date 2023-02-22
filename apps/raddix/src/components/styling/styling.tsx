@@ -3,11 +3,15 @@ import { AntiSubtitle } from '../home/anti-subtitle';
 import Box from '../home/box';
 import { Description } from '../home/description';
 import { SubTitle } from '../home/subtitle';
+import styles from './styling.module.scss';
+import { useState } from 'react';
+import { Css, Sass, Tailwind } from '@/icons';
+import { Tabs } from '../home/tabs';
+import classNames from 'classnames';
 
-export const Styling = () => {
-  const tabs = {
-    Css: {
-      'Switch.jsx': `
+const codeTabs = {
+  Css: {
+    'Switch.jsx': `
 import useSwitch from '@raddix/switch';
 import './styles.css';
 
@@ -17,14 +21,14 @@ const Switch = props => {
 
   return (
     <button {...switchProps} className='switch'>
-      <span {...switchThumbProps} className='switch-thumb'></span>
+      <span {...switchThumbProps} className='switch-thumb' />
     </button>
   );
 };
 
 export default Switch;
       `,
-      'styles.css': `
+    'styles.css': `
 .switch {
   all: unset;
   display: block;
@@ -58,7 +62,7 @@ export default Switch;
   height: 22px;
   background-color: #fff;
   border-radius: 99px;
-  transition: transform 100ms;
+  transition: transform 150ms;
   transform: translateX(2px);
   will-change: transform;
   cursor: pointer;
@@ -67,41 +71,245 @@ export default Switch;
 .switch-thumb[data-state='checked'] {
   transform: translateX(19px);
 }
-
-.label-switch {
-  margin-right: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5rem;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-}
       `
-    }
-  };
+  },
+  Sass: {
+    'Switch.jsx': `
+import useSwitch from '@raddix/switch';
+import './styles.scss';
+
+const Switch = props => {
+  const { switchProps, state } = useSwitch.Root(props);
+  const { switchThumbProps } = useSwitch.Thumb(state);
 
   return (
+    <button {...switchProps} className='switch'>
+      <span {...switchThumbProps} className='switch-thumb' />
+    </button>
+  );
+};
+
+export default Switch;
+      `,
+    'styles.scss': `
+.switch {
+  all: unset;
+  display: block;
+  width: 42px;
+  height: 22px;
+  background-color: rgba(15, 23, 42, 0.2);
+  border-radius: 99px;
+  position: relative;
+  padding: 3px;
+  -webkit-tap-highlight-color: black;
+  cursor: pointer;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4.5px var(--color-primary);
+  }
+
+  &[data-state='checked'] {
+    background-color: var(--color-primary);
+  }
+
+  &[data-disabled='true'] {
+    opacity: 0.4;
+  }
+}
+
+
+.switch-thumb {
+  display: block;
+  width: 22px;
+  height: 22px;
+  background-color: #fff;
+  border-radius: 99px;
+  transition: transform 150ms;
+  transform: translateX(2px);
+  will-change: transform;
+  cursor: pointer;
+
+  &[data-state='checked'] {
+    transform: translateX(19px);
+  }
+
+}
+      `
+  },
+  Tailwind: {
+    'Switch.jsx': `
+import useSwitch from '@raddix/switch';
+
+const Switch = props => {
+  const { switchProps, state } = useSwitch.Root(props);
+  const { switchThumbProps } = useSwitch.Thumb(state);
+
+  return (
+    <button
+      {...switchProps}
+      class="w-[42px] h-[22px] bg-black-blur rounded-full p-1 box-content data-[state=checked]:bg-primary"
+    >
+      <span
+        {...switchThumbProps}
+        class="w-[22px] h-[22px] block bg-white rounded-full transition-transform translate-x-1" 
+      />
+    </button>
+  );
+};
+
+export default Switch;
+      `,
+    'tailwind.config.js': `
+      /** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'black': {
+          'blur': 'rgba(15, 23, 42, 0.2)',
+          DEFAULT: '#333',
+        },
+        'primary': '#312ff5'
+      },
+      spacing: {
+        '1': '3px',
+      }
+    },
+  },
+  plugins: [],
+}
+
+    `
+  },
+  Emotion: {
+    'Switch.jsx': `
+import useSwitch from '@raddix/switch';
+import { SwithRoot, SwithThumb } from './styles.js';
+
+const Switch = props => {
+  const { switchProps, state } = useSwitch.Root(props);
+  const { switchThumbProps } = useSwitch.Thumb(state);
+
+  return (
+    <SwithRoot {...switchProps} >
+      <SwithThumb {...switchThumbProps} />
+    </SwithRoot>
+  );
+};
+
+export default Switch;
+      `,
+    'styles.js': `
+import styled from '@emotion/styled';
+
+export const SwitchRoot = styled.button({
+  all: 'unset',
+  width: 42,
+  height: 22,
+  padding: 3,
+  background: 'rgba(15, 23, 42, 0.2)',
+  border: 0,
+  borderRadius: 99,
+  boxSizing: 'content-box',
+  cursor: 'pointer',
+
+  '&[data-state="checked"]': {
+    background: '#312ff5',
+  },
+
+  '&:focus-visible': {
+    boxShadow: '0 0 0 2px #fff, 0 0 0 4.5px #312ff5',
+  },
+});
+
+export const SwitchThumb = styled.span({
+  width: 22,
+  height: 22,
+  display: 'block',
+  background: '#fff',
+  borderRadius: 99,
+  transition: 'transform 150ms',
+  transform: 'translateX(2px)',
+
+  '&[data-state="checked"]': {
+    transform: 'translateX(19px)',
+  },
+});
+    `
+  }
+};
+
+type TabStyling = 'Css' | 'Sass' | 'Tailwind' | 'Emotion';
+
+const sizeIcon = 48;
+const stylingTabs = {
+  Css: {
+    name: 'CSS',
+    logo: '/icons/css.svg',
+    icon: () => <Css size={sizeIcon} />
+  },
+  Sass: {
+    name: 'Sass',
+    logo: '/icons/sass.svg',
+    icon: () => <Sass size={sizeIcon} />
+  },
+  Tailwind: {
+    name: 'Tailwind',
+    logo: '/icons/tailwind-css.svg',
+    icon: () => <Tailwind size={sizeIcon} />
+  },
+  Emotion: {
+    name: 'Emotion',
+    logo: '/images/emotion.png',
+    icon: () => <Css size={sizeIcon} />
+  }
+};
+
+const BoxMain = () => {
+  const [styling, setStyling] = useState<TabStyling>('Css');
+
+  return (
+    <div className={styles.main}>
+      <Tabs className={styles.tabs}>
+        {Object.values(stylingTabs).map((item, index) => {
+          const tabName = Object.keys(stylingTabs)[index];
+          return (
+            <Tabs.Item
+              key={item.name}
+              onClick={() => setStyling(tabName as TabStyling)}
+              className={classNames(styles.li, {
+                [styles.isActive]: tabName === styling
+              })}
+            >
+              {item.name}
+            </Tabs.Item>
+          );
+        })}
+      </Tabs>
+      <CodeBlock
+        tabs={codeTabs[styling]}
+        defaultTab={1}
+        showTabs
+        showLines
+        height={470}
+      />
+    </div>
+  );
+};
+
+export const Styling = () => {
+  return (
     <Box.Section>
-      <Box.Content>
+      <Box.Content alignment='center'>
         <AntiSubtitle text='Styling' />
         <SubTitle text='Compatible with any styling solution' />
         <Description
-          text={`You are in control of all aspects of styling, including functional
-        styles. For example—by default—a Dialog Overlay won't cover the entire
-        viewport. You're responsible for adding those styles, plus any
-        presentation styles.`}
+          text={`You have complete control over how you styling and structure your components.`}
         />
       </Box.Content>
-      <Box.GridTwo>
-        <div></div>
-        <CodeBlock tabs={tabs.Css} showTabs showLines />
-      </Box.GridTwo>
+      <BoxMain />
     </Box.Section>
   );
 };
