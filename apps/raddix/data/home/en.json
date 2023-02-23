@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "title": "React Hooks that provides primitives for your",
+    "description": "Accessibility, Customization and Developer experience.",
+    "button": "Get Started"
+  },
+  "accessible": {
+    "antisubtitle": "Accessible",
+    "subtitle": "Accessibility out of the box",
+    "description": "Raddix helps you build accessible components, including full screen reader and keyboard navigation support.",
+    "main": {
+      "dataCard": [
+        {
+          "title": "Keyboard navigation",
+          "icon": "/icons/black-keyboard.svg",
+          "description": "Full keyboard support, allowing faster navigation without lifting your hands from the keyboard."
+        },
+        {
+          "title": "Focus indicator",
+          "icon": "/icons/center-focus.svg",
+          "description": "Raddix provides focus accessibility so you can identify the elements you are interacting with."
+        },
+        {
+          "title": "Screen reader",
+          "icon": "/icons/record-voe-over.svg",
+          "description": "Raddix has been tested with major screen readers such as NVDA, JAWS, and TalkBack."
+        }
+      ]
+    }
+  },
+  "styling": {
+    "antisubtitle": "Styling",
+    "subtitle": "Compatible with any styling solution",
+    "description": "You have complete control over how you styling and structure your components."
+  }
+}

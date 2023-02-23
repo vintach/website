@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "title": "React Hooks que proporcionan primitivas para su",
+    "description": "Accesibilidad, personalización y experiencia del desarrollador.",
+    "button": "Empezar"
+  },
+  "accessible": {
+    "antisubtitle": "Accesible",
+    "subtitle": "Accesibilidad lista para usar",
+    "description": "Raddix lo ayuda a crear componentes accesibles, incluido el lector de pantalla completa y la compatibilidad con la navegación del teclado.",
+    "main": {
+      "dataCard": [
+        {
+          "title": "Navegación por teclado",
+          "icon": "/icons/black-keyboard.svg",
+          "description": "Soporte de teclado completo, permitiendo una navegación más rápida sin levantar las manos del teclado."
+        },
+        {
+          "title": "Indicador de enfoque",
+          "icon": "/icons/center-focus.svg",
+          "description": "Raddix brinda accesibilidad de enfoque para poder identificar los elementos con los que está interactuando."
+        },
+        {
+          "title": "Lector de pantalla",
+          "icon": "/icons/record-voe-over.svg",
+          "description": "Raddix se probó con los principales lectores de pantalla como NVDA, JAWS y TalkBack. "
+        }
+      ]
+    }
+  },
+  "styling": {
+    "antisubtitle": "Estilismo",
+    "subtitle": "Compatible con cualquier solución de estilismo",
+    "description": "Usted tiene el control absoluto sobre el estilo y la estructura de sus componentes."
+  }
+}
