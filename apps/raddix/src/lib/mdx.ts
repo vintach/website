@@ -48,3 +48,16 @@ export const getSidebarData = (locale?: string) => {
   const sidebar: SideBar = JSON.parse(sidebarData);
   return sidebar.list;
 };
+
+interface GETMDXData {
+  locale?: string;
+  file: string;
+}
+export const getMdxData = <T = {}>({ locale, file }: GETMDXData) => {
+  const realLocale = locale ?? nextConfig.i18n.defaultLocale;
+  const srcDirectory = path.join(ROOT_PATH, 'data', file);
+  const source = fs.readFileSync(`${srcDirectory}/${realLocale}.json`, 'utf-8');
+
+  const sourceParse: T = JSON.parse(source);
+  return sourceParse;
+};
