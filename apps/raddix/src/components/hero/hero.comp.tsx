@@ -8,7 +8,7 @@ const HeroComp = () => {
         React hooks that provides primitives for your{' '}
         <span>design system.</span>
       </h1>
-      <p>Accesible, Unstyled and Developer experience</p>
+      <p>Accessibility, Customization and Developer experience.</p>
       <Button text='Get Started' />
       {/* <div className={styles.bgGrad} /> */}
       {/* <div className={styles.bgGrad2} /> */}
