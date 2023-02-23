@@ -1,15 +1,15 @@
+import { HeroProps } from '@/types/home-data';
 import { Button } from '../button';
 import styles from './hero.module.scss';
 
-const HeroComp = () => {
+const HeroComp = ({ title, description, button }: HeroProps) => {
   return (
     <div className={styles.hero}>
       <h1>
-        React hooks that provides primitives for your{' '}
-        <span>design system.</span>
+        {title} <span>design system.</span>
       </h1>
-      <p>Accessibility, Customization and Developer experience.</p>
-      <Button text='Get Started' />
+      <p>{description}</p>
+      <Button text={button} />
       {/* <div className={styles.bgGrad} /> */}
       {/* <div className={styles.bgGrad2} /> */}
     </div>

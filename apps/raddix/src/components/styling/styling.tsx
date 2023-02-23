@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { Css, Sass, Tailwind } from '@/icons';
 import { Tabs } from '../home/tabs';
 import classNames from 'classnames';
+import { StylingProps } from '@/types/home-data';
 
 const codeTabs = {
   Css: {
@@ -299,15 +300,17 @@ const BoxMain = () => {
   );
 };
 
-export const Styling = () => {
+export const Styling = ({
+  antisubtitle,
+  subtitle,
+  description
+}: StylingProps) => {
   return (
     <Box.Section>
       <Box.Content alignment='center'>
-        <AntiSubtitle text='Styling' />
-        <SubTitle text='Compatible with any styling solution' />
-        <Description
-          text={`You have complete control over how you styling and structure your components.`}
-        />
+        <AntiSubtitle text={antisubtitle} />
+        <SubTitle text={subtitle} />
+        <Description text={description} />
       </Box.Content>
       <BoxMain />
     </Box.Section>
