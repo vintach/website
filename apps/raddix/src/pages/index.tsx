@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <HomeLayout>
       <Hero />
+      <Accessible />
       <Styling />
     </HomeLayout>
   );
