@@ -1,0 +1,38 @@
+.language {
+  position: relative;
+
+  button {
+    background: transparent;
+    padding: var(--spacing-m1) var(--spacing-m2);
+    border: 0;
+    cursor: pointer;
+  }
+
+  .menu {
+    position: absolute;
+    top: 50;
+    right: 0;
+
+    ul {
+      border: 1px solid rgb(82 82 89 / 32%);
+      padding: var(--spacing-m1);
+      border-radius: 6px;
+      background-color: var(--bg-primary);
+
+      li {
+        border-radius: 6px;
+
+        &:hover {
+          background-color: #313136;
+        }
+
+        a {
+          display: block;
+          line-height: 32px;
+          padding: 0 var(--spacing-m3);
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
