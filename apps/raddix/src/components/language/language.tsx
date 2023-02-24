@@ -33,7 +33,7 @@ export const Language = () => {
     <div className={styles.language}>
       <button ref={refBtn} onClick={() => setIsActive(!isActive)}>
         <Image
-          src={'/icons/languaje.svg'}
+          src={'/icons/language.svg'}
           alt='language'
           width={25}
           height={25}

@@ -5,10 +5,11 @@ import styles from './header.module.scss';
 import classNames from 'classnames';
 import Image from 'next/image';
 import { Menu } from '../menu';
+import { Language } from '../language';
 
 const HeaderComp = () => {
   const [scrollY, setScrollY] = useState<number>(0);
-  const { locale, locales, asPath } = useRouter();
+  const { locale } = useRouter();
 
   const updateScroll = () => {
     setScrollY(window.scrollY);
@@ -31,15 +32,7 @@ const HeaderComp = () => {
 
         <Menu />
 
-        {locales?.map(localName => {
-          return (
-            <div key={localName}>
-              <Link href={asPath} passHref locale={localName}>
-                {localName}
-              </Link>
-            </div>
-          );
-        })}
+        <Language />
       </div>
     </header>
   );

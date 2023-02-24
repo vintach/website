@@ -12,6 +12,7 @@
     position: absolute;
     top: 50;
     right: 0;
+    transition: opacity 280ms ease-in;
 
     ul {
       border: 1px solid rgb(82 82 89 / 32%);
