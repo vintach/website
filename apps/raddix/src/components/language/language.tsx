@@ -3,17 +3,25 @@ import { useRouter } from 'next/router';
 import styles from './language.module.scss';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import classNames from 'classnames';
 
 export const Language = () => {
   const { locales, asPath } = useRouter();
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const refBtn = useRef<HTMLButtonElement>(null);
+  const refMenu = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (e: MouseEvent | TouchEvent) => {
     const button = refBtn.current;
+    const menu = refMenu.current;
 
-    if (!button || button.contains(e.target as Node)) {
+    if (
+      !button ||
+      button.contains(e.target as Node) ||
+      !menu ||
+      menu.contains(e.target as Node)
+    ) {
       return;
     }
     setIsActive(false);
@@ -27,7 +35,7 @@ export const Language = () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('touchstart', handleClickOutside);
     };
-  }, [refBtn, setIsActive]);
+  }, [refMenu, setIsActive]);
 
   return (
     <div className={styles.language}>
@@ -38,13 +46,27 @@ export const Language = () => {
           width={25}
           height={25}
         />
+        <Image
+          src={'/icons/bottom-arrow.svg'}
+          alt='language-arrow'
+          width={18}
+          height={18}
+        />
       </button>
-      <div className={styles.menu} style={{ opacity: isActive ? 1 : 0 }}>
+      <div
+        ref={refMenu}
+        className={classNames(styles.menu, { [styles.menuActive]: isActive })}
+      >
         <ul>
           {locales?.map(localName => {
             return (
               <li key={localName}>
-                <Link href={asPath} passHref locale={localName}>
+                <Link
+                  href={asPath}
+                  passHref
+                  locale={localName}
+                  onClick={() => setIsActive(false)}
+                >
                   {localName === 'en' ? 'English' : 'Español'}
                 </Link>
               </li>
