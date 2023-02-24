@@ -4,7 +4,8 @@
   top: 0;
   left: 0;
   z-index: 9;
-  transition: all 50ms;
+  transition: background-color 280ms, backdrop-filter 180ms;
+  background-color: var(--bg-primary);
 
   .header {
     width: 100%;
@@ -13,6 +14,7 @@
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
+    justify-items: flex-end;
     margin: 0 auto;
     padding: 15px var(--spacing-m2);
   }

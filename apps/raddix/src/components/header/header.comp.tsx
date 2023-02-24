@@ -6,10 +6,15 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import { Menu } from '../menu';
 import { Language } from '../language';
+import useIsMobile from '@/hooks/isMobile';
+import { MenuMobile } from '../menu-mobile';
 
 const HeaderComp = () => {
   const [scrollY, setScrollY] = useState<number>(0);
+  const [isMenuMobile, setIsMenuMobile] = useState<boolean>(false);
   const { locale } = useRouter();
+
+  const isMobile = useIsMobile('640px');
 
   const updateScroll = () => {
     setScrollY(window.scrollY);
@@ -22,7 +27,9 @@ const HeaderComp = () => {
 
   return (
     <header
-      className={classNames(styles.wrapper, { [styles.scroll]: scrollY > 2 })}
+      className={classNames(styles.wrapper, {
+        [styles.scroll]: scrollY > 2 && !isMenuMobile
+      })}
     >
       <div className={styles.header}>
         <Link className={styles.logo} href={'/'} locale={locale}>
@@ -30,9 +37,16 @@ const HeaderComp = () => {
           <h1>raddix</h1>
         </Link>
 
-        <Menu />
+        {!isMobile && (
+          <>
+            <Menu />
+            <Language />
+          </>
+        )}
 
-        <Language />
+        {isMobile && (
+          <MenuMobile isActive={isMenuMobile} setIsActive={setIsMenuMobile} />
+        )}
       </div>
     </header>
   );

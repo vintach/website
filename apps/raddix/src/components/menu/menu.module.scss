@@ -28,4 +28,25 @@
       }
     }
   }
+
+  @media (max-width: 640px) {
+    width: 100%;
+    padding: 0;
+    border: 0;
+
+    ul {
+      width: 100%;
+      flex-direction: column;
+
+      li {
+        width: 100%;
+        padding-bottom: var(--spacing-m1);
+
+        a {
+          display: block;
+          padding: var(--spacing-m1) 0;
+        }
+      }
+    }
+  }
 }
