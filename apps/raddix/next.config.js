@@ -5,7 +5,8 @@ const nextConfig = {
   reactStrictMode: true,
   i18n: {
     locales: ['en', 'es'],
-    defaultLocale: 'en'
+    defaultLocale: 'en',
+    localeDetection: false
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')]
