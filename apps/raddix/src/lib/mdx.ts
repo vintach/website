@@ -4,11 +4,27 @@ import matter from 'gray-matter';
 import { ParsedUrlQuery } from 'querystring';
 import nextConfig from '../../next.config';
 import { SideBar } from '@/types/sidebar';
+import { glob } from 'glob';
 
 const ROOT_PATH = process.cwd();
+const DATA_PATH = path.join(ROOT_PATH, 'data');
 
-export const getAllMdx = (type: string) =>
-  fs.readdirSync(path.join(ROOT_PATH, 'data', type));
+export const getAllPathsMdx = (type: string) => {
+  const PATH = path.join(DATA_PATH, type);
+  const paths = glob.sync(`${PATH}/**/*.mdx`);
+
+  return paths.map(path => {
+    const newPath = path.replace(`${PATH}/`, '').replace(/\.mdx$/, '');
+    const locale = newPath.replace(/[(\/)?a-zA-Z0-9._-]+\./, '');
+    let slug = newPath.replace(/(\/)?(index)?\.(en|es)$/, '').split('/');
+    slug.pop();
+
+    return {
+      params: { slug },
+      locale
+    };
+  });
+};
 
 interface MDXBySlug {
   params?: ParsedUrlQuery;
@@ -21,11 +37,15 @@ export const getMdxBySlug = ({
   file,
   locale: localeProp
 }: MDXBySlug) => {
-  const slug = params?.slug;
+  const srcDirectory = path.join(ROOT_PATH, 'data', file);
   const locale = localeProp ?? nextConfig.i18n.defaultLocale;
 
-  const srcDirectory = path.join(ROOT_PATH, 'data', file);
-  const mdxPath = path.join(srcDirectory, `${slug}.${locale}.mdx`);
+  let slug = params?.slug as string[];
+  const realSlug = !slug ? [file] : slug[slug.length - 1];
+  const slugPath = !slug ? '' : slug.join('/');
+  const fileName = `${realSlug}.${locale}.mdx`;
+
+  const mdxPath = path.join(srcDirectory, slugPath, fileName);
   const mdxSource = fs.readFileSync(mdxPath, 'utf-8');
 
   const { data, content } = matter(mdxSource);
