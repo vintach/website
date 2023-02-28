@@ -1,5 +1,5 @@
 import { DocsLayout } from '@/layouts/docs';
-import { getAllMdx, getMdxBySlug, getSidebarData } from '@/lib/mdx';
+import { getAllPathsMdx, getMdxBySlug, getSidebarData } from '@/lib/mdx';
 import { SidebarList } from '@/types/sidebar';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -22,19 +22,7 @@ const DocsPage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const docs = getAllMdx('docs');
-
-  const paths = docs.map(doc => {
-    const slug = doc.replace(/\.mdx$/, '');
-    const locale = slug.replace(/^[a-z-.-]+\./, '');
-
-    return {
-      params: {
-        slug: slug.replace(/\.(en|es)$/, '')
-      },
-      locale
-    };
-  });
+  const paths = getAllPathsMdx('docs');
 
   return {
     paths,
