@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 export const Language = () => {
-  const { locales, asPath } = useRouter();
+  const { locales, pathname, query } = useRouter();
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const refBtn = useRef<HTMLButtonElement>(null);
@@ -62,7 +62,10 @@ export const Language = () => {
             return (
               <li key={localName}>
                 <Link
-                  href={asPath}
+                  href={{
+                    pathname,
+                    query
+                  }}
                   passHref
                   locale={localName}
                   onClick={() => setIsActive(false)}
