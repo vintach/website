@@ -1,25 +1,28 @@
 // H1
 .title {
-  font-size: 3rem;
-  font-weight: 900;
+  font-size: clamp(38px, 45vw, 42px);
+  font-weight: 700;
   margin-bottom: var(--spacing-m3);
 }
 
 // H2
 .subTitle {
-  font-size: 1.95rem;
+  font-size: clamp(28px, 32vw, 32px);
+  font-weight: 700;
   margin: var(--spacing-m7) 0 var(--spacing-m2);
 }
 
 // H3
 .h3 {
-  font-size: 1.45rem;
+  font-size: clamp(19px, 32vw, 23px);
+  font-weight: 700;
+
   margin: var(--spacing-m5) 0 var(--spacing-m2);
 }
 
 // P
 .paragraph {
-  font-size: 1.2rem;
+  font-size: clamp(16px, 18vw, 18px);
   line-height: 2rem;
   opacity: 0.75;
 }
