@@ -12,24 +12,25 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.2s;
   transform: scale(1.3);
-}
 
-.switch[data-state='checked'] {
-  background-color: var(--color-primary);
-}
+  &::before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    border-radius: 99px;
+    transition: transform 100ms;
+    transform: translateX(2px);
+    will-change: transform;
+    cursor: pointer;
+  }
 
-.switchThumb {
-  display: block;
-  width: 22px;
-  height: 22px;
-  background-color: #fff;
-  border-radius: 99px;
-  transition: transform 100ms;
-  transform: translateX(2px);
-  will-change: transform;
-  cursor: pointer;
-}
+  &[data-state='checked'] {
+    background-color: var(--color-primary);
+  }
 
-.switchThumb[data-state='checked'] {
-  transform: translateX(19px);
+  &[data-state='checked']::before {
+    transform: translateX(19px);
+  }
 }
