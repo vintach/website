@@ -1,0 +1,42 @@
+---
+title: 'Accesibility'
+keywords: ''
+subtitle: ''
+---
+
+# Accesibility
+
+Raddix helps you create accessible components, including
+full screen reader and keyboard navigation support.
+
+## WAI ARIA
+
+According to the <a href="https://www.w3.org/TR/wai-aria-1.2/" target="_blank">WAI-ARIA</a> specification
+published and maintained by the W3C, it specifies the semantics for
+many user interface controls.
+
+<br />
+When we want to create controls that are not supported by the browser or
+when we cannot use native HTML controls because we lack a control in the styles,
+the use of ARIA is required so that the controls or elements have semantic meaning.
+
+Allowing screen readers and other assistive technologies to understand
+these elements. And this is very important as it provides equal access
+and equal opportunity for people with disabilities.
+
+<br />
+However, Aria only specifies semantics and it is up to the developer to
+implement the behavior and interactions with JavaScript.
+<a href='https://www.w3.org/TR/wai-aria-practices-1.2/' target='_blank'>The WAI-ARIA Authoring Practices</a>
+document provides guidance for implementing behaviors for many user
+interface controls.
+
+<br />
+Raddix provides the semantics and behavior for each component,
+simply extend the props returned from the hook into your element.
+And you will get functionality and accessibility support for each component.
+
+## Keyboard navigation
+
+Raddix also implements keyboard navigation support following WAI-ARIA's
+practical WAI-ARIA authoring guidelines.
