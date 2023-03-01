@@ -99,6 +99,8 @@ const MDXComponents = {
     </Text>
   ),
   pre: TextPre,
+  ul: ({ children }: Children) => <ul className={styles.ul}>{children}</ul>,
+  li: ({ children }: Children) => <li className={styles.li}>{children}</li>,
   ...componentsDemo
 };
 

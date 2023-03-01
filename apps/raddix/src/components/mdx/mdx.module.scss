@@ -78,3 +78,16 @@
   background-color: #312ff5;
   color: #f0f3ff;
 }
+
+// ul and li
+.ul {
+  padding-left: var(--spacing-m4);
+  margin: var(--spacing-m3) 0;
+}
+
+.li {
+  margin-bottom: var(--spacing-m1);
+  opacity: 0.75;
+  font-size: clamp(16px, 18vw, 18px);
+  list-style-type: disc;
+}
