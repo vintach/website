@@ -1,0 +1,59 @@
+---
+title: 'Personalización'
+keywords: ''
+subtitle: ''
+---
+
+# Personalización
+
+Raddix es totalmente personalizable ya que no representa ninguna estructura DOM
+ni impone una metodología de estilo.
+
+## Estilado
+
+Raddix es totalmente compatible con cualquier solución de estilo, brindandole
+un control total. Viene sin nigún estilo predeterminado, depende de usted
+añadirle estilos con la solucion de estilo de su preferencia.
+
+
+### Atributo de datos
+
+Los hooks devuelven atributos de datos en aquellos componente que tienen
+un estado. Esto se hace de forma predeterminada para que pueda estilar el
+estado de un componente mediante css o css-in-js.
+
+<br />
+Por ejemplo, el componente Switch tiene estado checked, esto incluira
+un <code>data-checked</code> atributo cada vez que el switch este checkeado.
+
+
+## Representación
+
+Raddix no impone una estructura DOM específica lo que le permite tener el
+control total sobre la representación de sus componentes.
+
+### Tipo de elemento
+
+Cada hook tiene un <code>elementType</code> prop por defecto. Esto es
+importante ya que según el <code>elementType</code> prop seleccionado
+Raddix brindará la accesibilidad necesaria.
+
+<br />
+Por ejemplo, el hook useSwitch por defecto asume que será representado en
+una etiqueta HTML <code>{'<button>'}</code>, para poder representarlo en una
+etiqueta DOM diferente como un <code>{'<div>'}</code> debera cambiar el
+<code>elementType</code> prop.
+
+```jsx
+// switch.jsx
+import { useSwitch } from '@raddix/switch';
+
+const Switch = props => {
+  const { switchProps } = useSwitch({
+    elementType: 'div',
+    ...props
+  });
+
+  return <div {...switchProps}></div>;
+};
+```
