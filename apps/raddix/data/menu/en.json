@@ -2,15 +2,7 @@
   "navList": [
     {
       "name": "Docs",
-      "path": "/docs/get-started"
-    },
-    {
-      "name": "Templates",
-      "path": "/templates"
-    },
-    {
-      "name": "Primitives",
-      "path": "/docs/primitives"
+      "path": "/docs"
     }
   ]
 }
