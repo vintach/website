@@ -6,19 +6,18 @@ import { useCurrentSlug } from '@/hooks/useCurrentSlug';
 
 const SidebarList = ({ title, route, items }: SidebarList) => {
   const currentSlug = useCurrentSlug();
-  const itemActive = route.path === currentSlug;
+  // const itemActive = route.path === currentSlug;
 
   return (
     <li className={styles.list}>
-      <Link
+      <h5 className={styles.group}>{title}</h5>
+      {/* <Link
         href={route.path}
         locale={route.locale}
-        className={classNames({
+        className={classNames(styles.group,{
           [styles.itemActive]: itemActive
         })}
-      >
-        {title}
-      </Link>
+      ></Link> */}
 
       <ol>
         {items.map((item, i) => {
