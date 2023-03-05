@@ -5,7 +5,6 @@ import { Description } from '../home/description';
 import { SubTitle } from '../home/subtitle';
 import styles from './styling.module.scss';
 import { useState } from 'react';
-import { Css, Sass, Tailwind } from '@/icons';
 import { Tabs } from '../home/tabs';
 import classNames from 'classnames';
 import { StylingProps } from '@/types/home-data';
@@ -248,23 +247,19 @@ const sizeIcon = 48;
 const stylingTabs = {
   Css: {
     name: 'CSS',
-    logo: '/icons/css.svg',
-    icon: () => <Css size={sizeIcon} />
+    logo: '/icons/css.svg'
   },
   Sass: {
     name: 'Sass',
-    logo: '/icons/sass.svg',
-    icon: () => <Sass size={sizeIcon} />
+    logo: '/icons/sass.svg'
   },
   Tailwind: {
     name: 'Tailwind',
-    logo: '/icons/tailwind-css.svg',
-    icon: () => <Tailwind size={sizeIcon} />
+    logo: '/icons/tailwind-css.svg'
   },
   Emotion: {
     name: 'Emotion',
-    logo: '/images/emotion.png',
-    icon: () => <Css size={sizeIcon} />
+    logo: '/images/emotion.png'
   }
 };
 
