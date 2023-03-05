@@ -1,19 +1,53 @@
 {
   "list": [
     {
-      "title": "Introducción",
+      "title": "Empezando",
+      "route": {
+        "path": "/docs/get-started",
+        "locale": "es"
+      },
       "items": [
         {
-          "title": "Empezando",
+          "title": "Agregar a su proyecto",
           "route": {
-            "path": "/docs/get-started",
+            "path": "/docs/get-started/add-to-project",
             "locale": "es"
           }
         },
         {
-          "title": "Instalación",
+          "title": "Crear un componente",
           "route": {
-            "path": "/docs/installation",
+            "path": "/docs/get-started/create-component",
+            "locale": "es"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Conceptos",
+      "route": {
+        "path": "/docs/concepts",
+        "locale": "es"
+      },
+      "items": [
+        {
+          "title": "Por qué Raddix",
+          "route": {
+            "path": "/docs/concepts/why-raddix",
+            "locale": "es"
+          }
+        },
+        {
+          "title": "Accesibilidad",
+          "route": {
+            "path": "/docs/concepts/accesibility",
+            "locale": "es"
+          }
+        },
+        {
+          "title": "Personalización",
+          "route": {
+            "path": "/docs/concepts/customization",
             "locale": "es"
           }
         }
@@ -21,18 +55,15 @@
     },
     {
       "title": "Primitivas",
+      "route": {
+        "path": "/docs/primitives",
+        "locale": "es"
+      },
       "items": [
         {
           "title": "useSwitch",
           "route": {
-            "path": "/docs/switch",
-            "locale": "es"
-          }
-        },
-        {
-          "title": "useCheckbox",
-          "route": {
-            "path": "/docs/checkbox",
+            "path": "/docs/primitives/switch",
             "locale": "es"
           }
         }

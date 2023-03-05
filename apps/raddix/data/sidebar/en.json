@@ -1,19 +1,53 @@
 {
   "list": [
     {
-      "title": "Introduction",
+      "title": "Getting Started",
+      "route": {
+        "path": "/docs/get-started",
+        "locale": "en"
+      },
       "items": [
         {
-          "title": "Getting Started",
+          "title": "Add to your project",
           "route": {
-            "path": "/docs/get-started",
+            "path": "/docs/get-started/add-to-project",
             "locale": "en"
           }
         },
         {
-          "title": "Installation",
+          "title": "Create a component",
           "route": {
-            "path": "/docs/installation",
+            "path": "/docs/get-started/create-component",
+            "locale": "en"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Concepts",
+      "route": {
+        "path": "/docs/concepts",
+        "locale": "en"
+      },
+      "items": [
+        {
+          "title": "Why Raddix",
+          "route": {
+            "path": "/docs/concepts/why-raddix",
+            "locale": "en"
+          }
+        },
+        {
+          "title": "Accesibility",
+          "route": {
+            "path": "/docs/concepts/accesibility",
+            "locale": "en"
+          }
+        },
+        {
+          "title": "Customization",
+          "route": {
+            "path": "/docs/concepts/customization",
             "locale": "en"
           }
         }
@@ -21,18 +55,15 @@
     },
     {
       "title": "Primitives",
+      "route": {
+        "path": "/docs/primitives",
+        "locale": "en"
+      },
       "items": [
         {
           "title": "useSwitch",
           "route": {
-            "path": "/docs/switch",
-            "locale": "en"
-          }
-        },
-        {
-          "title": "useCheckbox",
-          "route": {
-            "path": "/docs/checkbox",
+            "path": "/docs/primitives/switch",
             "locale": "en"
           }
         }
