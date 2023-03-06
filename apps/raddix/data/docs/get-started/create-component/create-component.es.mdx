@@ -1,23 +1,32 @@
 ---
 title: 'Creando un componente'
-keywords: ''
-subtitle: ''
+description: 'En este tutorial rápido, instalaremos y contruiremos el componente Switch.'
 ---
 
 # Creando un componente
 
-Una vez instalado @raddix/switch procederemos a crear nuestro componente.
+En este tutorial rápido, instalaremos y contruiremos el componente Switch.
 
-## Importar el hook
+## Instalar el hook
 
-Comenzemos importando useSwitch en nuestro archivo <code>switch.jsx</code>
+Comenzaremos instalando el hook useSwitch.
+
+```bash
+pnpm add @raddix/switch
+```
+
+## Construyendo el Switch
+
+### Importar el hook
+Una vez instalado procederemos a importar useSwitch en nuestro
+archivo <code>switch.jsx</code>
 
 ```jsx
 // switch.jsx
 import { useSwitch } from '@raddix/switch';
 ```
 
-## Implementar el hook
+### Implementar el hook
 
 useSwitch devuelve <code>switchProps</code> para que se distribuyan en su elemento.
 Obtenga mas información sobre los props que devuelve useSwitch.
@@ -33,7 +42,7 @@ const Switch = props => {
 };
 ```
 
-## Agregar los estilos
+### Agregar los estilos
 
 En este caso usaremos el preprocesador sass para aplicar los estilos. Recuerde
 que puede usar estilos en linea, CSS-in-JS, etc.
