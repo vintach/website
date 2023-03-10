@@ -1,8 +1,8 @@
-import useSwitch from '@raddix/switch';
+import { useSwitch, UseSwitchProps } from '@raddix/switch';
 import styles from './switch.module.scss';
 
-export const Switch = () => {
-  const { switchProps, state } = useSwitch.Root({});
+export const Switch = (props: UseSwitchProps) => {
+  const { switchProps } = useSwitch(props);
 
   return <button {...switchProps} className={styles.switch}></button>;
 };
