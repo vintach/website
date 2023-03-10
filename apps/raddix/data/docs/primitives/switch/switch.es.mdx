@@ -26,30 +26,40 @@ Instale la primitiva desde su línea de comando.
 yarn add @raddix/switch
 ```
 
-## Usage
+## Ejemplo Básico
 
-Los siguientes ejemplos muestran cómo usar el componente Switch creado a continuación.
-Importar todo o partes de <code>@raddix/switch</code>
+Este ejemplo usa una etiqueta HTML button para construir un switch, solo
+importamos el hook useSwitch que devolverá switchProps y lo extendemos
+en nuestra etiqueta button.
 
-```jsx
-import useSwitch from '@raddix/switch';
+```tsx
+// switch.tsx
+import { useSwitch, UseSwitchProps } from '@raddix/switch';
+import './styles.css';
 
-const Switch = props => {
-  const { switchProps, state } = useSwitch.Root(props);
-  const { switchThumbProps } = useSwitch.Thumb(state);
+const Switch = (props: UseSwitchProps) => {
+  const { switchProps } = useSwitch(props);
 
-  return (
-    <button {...switchProps} className='switch'>
-      <span {...switchThumbProps} className='switch-thumb'></span>
-    </button>
-  );
+  return <button {...switchProps} className='switch'></button>;
 };
 ```
 
+## Uso
+
+Los siguientes ejemplos de uso muestran cómo utilizar el componente Switch
+creado en el ejemplo anterior.
+
 ### Default Checked
 
-Switches are not selected by default. To be checked by default
-using <code>defaultChecked</code> prop
+Los Switch no vienen seleccionados por defecto. Para selecionar por default
+use el prop <code>defaultChecked</code>
+
+```tsx
+// switch.tsx
+import Switch from './switch';
+
+<Switch defaultChecked />;
+```
 
 <Demo>
   <Switch defaultChecked />
@@ -57,24 +67,44 @@ using <code>defaultChecked</code> prop
 
 ### Read only
 
-To control the state, use <code>checked</code> property for initial
-value. The <code>onChecked</code> event is fired when the <code>checked</code> prop receives the new value.
+El prop <code>readOnly</code> hace que la selección sea inmutable.
+
+```tsx
+// switch.tsx
+import Switch from './switch';
+
+<Switch defaultChecked readOnly />;
+```
 
 <Demo>
-  <Switch defaultChecked disabled />
+  <Switch defaultChecked readOnly />
 </Demo>
 
 ### Label Form
 
-Switch supports the integration with HTML tag Label
+Admite la integración con la etiqueta HTML Label
+
+```tsx
+// switch.tsx
+import Switch from './switch';
+
+<div>
+  <label htmlFor='room-lights'>Living Room Lights</label>
+  <Switch id='room-lights' />;
+</div>;
+```
 
 <Demo>
-  <label htmlFor='dev' style={{ paddingRight: 20 }} id='dev-3'>
+  <label htmlFor='dev' style={{ paddingRight: 20 }}>
     Living Room Lights
   </label>
-  <Switch defaultChecked id='dev' aria-labelledby='dev-3' />
+  <Switch id='dev' />
 </Demo>
 
 ## Examples
+
+🚧 In progress 🚧
+
+## API
 
 🚧 In progress 🚧

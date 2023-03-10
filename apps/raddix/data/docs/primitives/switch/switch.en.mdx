@@ -26,30 +26,37 @@ Install the primitive from your command line.
 yarn add @raddix/switch
 ```
 
-## Usage
+## Example Basic
 
-The following examples show how to use the Switch component created in the above example.
-Import all or parts of <code>@raddix/switch</code>
+This example uses an HTML button tag to build a switch, we just import
+the useSwitch hook which will return switchProps and spreading it in our
+button tag.
 
-```jsx
-import useSwitch from '@raddix/switch';
+```tsx
+// switch.tsx
+import { useSwitch, UseSwitchProps } from '@raddix/switch';
+import './styles.css';
 
-const Switch = props => {
-  const { switchProps, state } = useSwitch.Root(props);
-  const { switchThumbProps } = useSwitch.Thumb(state);
+const Switch = (props: UseSwitchProps) => {
+  const { switchProps } = useSwitch(props);
 
-  return (
-    <button {...switchProps} className='switch'>
-      <span {...switchThumbProps} className='switch-thumb'></span>
-    </button>
-  );
+  return <button {...switchProps} className='switch'></button>;
 };
 ```
+
+## Usage
 
 ### Default Checked
 
 Switches are not selected by default. To be checked by default
 using <code>defaultChecked</code> prop
+
+```tsx
+// switch.tsx
+import Switch from './switch';
+
+<Switch defaultChecked />;
+```
 
 <Demo>
   <Switch defaultChecked />
@@ -57,11 +64,17 @@ using <code>defaultChecked</code> prop
 
 ### Read only
 
-To control the state, use <code>checked</code> property for initial
-value. The <code>onChecked</code> event is fired when the <code>checked</code> prop receives the new value.
+The <code>readOnly</code> prop makes the selection immutable.
+
+```tsx
+// switch.tsx
+import Switch from './switch';
+
+<Switch defaultChecked readOnly />;
+```
 
 <Demo>
-  <Switch defaultChecked disabled />
+  <Switch defaultChecked readOnly />
 </Demo>
 
 ### Label Form
@@ -76,5 +89,9 @@ Switch supports the integration with HTML tag Label
 </Demo>
 
 ## Examples
+
+🚧 In progress 🚧
+
+## API
 
 🚧 In progress 🚧
