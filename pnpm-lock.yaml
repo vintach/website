@@ -13,7 +13,7 @@ importers:
   apps/raddix:
     specifiers:
       '@next/font': 13.1.5
-      '@raddix/switch': 0.4.1
+      '@raddix/switch': 0.5.0
       '@types/glob': 8.0.1
       '@types/node': 18.11.18
       '@types/react': 18.0.27
@@ -32,7 +32,7 @@ importers:
       typescript: 4.9.4
     dependencies:
       '@next/font': 13.1.5
-      '@raddix/switch': 0.4.1_biqbaboplfbrettd7655fr4n2y
+      '@raddix/switch': 0.5.0_biqbaboplfbrettd7655fr4n2y
       '@types/glob': 8.0.1
       '@types/node': 18.11.18
       '@types/react': 18.0.27
@@ -212,8 +212,8 @@ packages:
     dev: false
     optional: true
 
-  /@raddix/switch/0.4.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-zxa3uZsFJKsGRYBN2a4vM7WsRwhPydJUDtNoLsqsY9H+uL3w2BkRkr4NEUpPjKkTPs6vAAycr0F7VJTrfczeww==}
+  /@raddix/switch/0.5.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-RK4ty9Gg+NPjc0MIEm4iJpZRTJ7ZwQWcFsSCRBnjq2uuNQPeIhbJQ7eKvMWe6P21ATnHJjAMa2yTAzf4w9cOug==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
