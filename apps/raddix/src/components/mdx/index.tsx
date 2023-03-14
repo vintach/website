@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import styles from './mdx.module.scss';
 import { componentsDemo } from '@/demo';
 import { Card, CardGroup } from '../card';
+import Link from 'next/link';
 
 interface Children {
   children?: ReactNode;
@@ -104,6 +105,7 @@ const MDXComponents = {
   li: ({ children }: Children) => <li className={styles.li}>{children}</li>,
   Card,
   CardGroup,
+  a: Link,
   ...componentsDemo
 };
 
