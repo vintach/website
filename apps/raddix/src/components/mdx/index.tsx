@@ -4,6 +4,7 @@ import theme from 'prism-react-renderer/themes/dracula';
 import classNames from 'classnames';
 import styles from './mdx.module.scss';
 import { componentsDemo } from '@/demo';
+import { Card, CardGroup } from '../card';
 
 interface Children {
   children?: ReactNode;
@@ -101,6 +102,8 @@ const MDXComponents = {
   pre: TextPre,
   ul: ({ children }: Children) => <ul className={styles.ul}>{children}</ul>,
   li: ({ children }: Children) => <li className={styles.li}>{children}</li>,
+  Card,
+  CardGroup,
   ...componentsDemo
 };
 
