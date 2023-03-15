@@ -6,6 +6,7 @@ import styles from './mdx.module.scss';
 import { componentsDemo } from '@/demo';
 import { Card, CardGroup } from '../card';
 import Link from 'next/link';
+import { ApiTable } from '../api-table/api-table';
 
 interface Children {
   children?: ReactNode;
@@ -106,6 +107,7 @@ const MDXComponents = {
   Card,
   CardGroup,
   a: Link,
+  ApiTable,
   ...componentsDemo
 };
 
