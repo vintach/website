@@ -26,7 +26,7 @@ Instale la primitiva desde su línea de comando.
 yarn add @raddix/switch
 ```
 
-## Ejemplo Básico
+## Ejemplo
 
 Este ejemplo usa una etiqueta HTML button para construir un switch, solo
 importamos el hook useSwitch que devolverá switchProps y lo extendemos
@@ -101,10 +101,63 @@ import Switch from './switch';
   <Switch id='dev' />
 </Demo>
 
-## Examples
-
-🚧 In progress 🚧
-
 ## API
 
-🚧 In progress 🚧
+### Return value
+
+El hook <code>useSwitch</code> devuelve los siguientes accesorios
+
+<ApiTable
+  data={[
+    {
+      name: 'switchProps',
+      description:
+        'Un objeto con props de accesibilidad y funcionalidad de un switch.'
+    },
+    {
+      name: 'state',
+      description: 'Un objeto que contiene los estados de un switch.'
+    }
+  ]}
+/>
+
+### Parameters
+
+El hook <code>useSwitch</code> acepta un objeto con las siguientes propiedades:
+
+<ApiTable
+  data={[
+    {
+      name: 'defaultChecked',
+      description: 'Proporciona un valor por defecto al estado checked.'
+    },
+    {
+      name: 'checked',
+      description: 'Proporciona su propio estado controlado.'
+    },
+    {
+      name: 'onChecked',
+      description: 'Este evento actualiza el valor de checked.'
+    },
+    {
+      name: 'disabled',
+      description: 'Desabilita toda la funcionalidad del switch.'
+    },
+    {
+      name: 'readOnly',
+      description: 'Hace que el switch sea inmutable.'
+    },
+    {
+      name: 'elementType',
+      description: 'Cambia el tag HTML elemento que será renderizado.'
+    },
+    {
+      name: 'dataAttr',
+      description: 'Permite incluir atributo de datos de switch.'
+    },
+    {
+      name: '...',
+      description: 'Props nativos del elementType seleccionado.'
+    }
+  ]}
+/>
