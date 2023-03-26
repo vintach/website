@@ -13,7 +13,7 @@ importers:
   apps/raddix:
     specifiers:
       '@next/font': 13.1.5
-      '@raddix/switch': 0.5.0
+      '@raddix/switch': 1.0.0-beta.2
       '@types/glob': 8.0.1
       '@types/node': 18.11.18
       '@types/react': 18.0.27
@@ -32,7 +32,7 @@ importers:
       typescript: 4.9.4
     dependencies:
       '@next/font': 13.1.5
-      '@raddix/switch': 0.5.0_biqbaboplfbrettd7655fr4n2y
+      '@raddix/switch': 1.0.0-beta.2_biqbaboplfbrettd7655fr4n2y
       '@types/glob': 8.0.1
       '@types/node': 18.11.18
       '@types/react': 18.0.27
@@ -212,13 +212,35 @@ packages:
     dev: false
     optional: true
 
-  /@raddix/switch/0.5.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-RK4ty9Gg+NPjc0MIEm4iJpZRTJ7ZwQWcFsSCRBnjq2uuNQPeIhbJQ7eKvMWe6P21ATnHJjAMa2yTAzf4w9cOug==}
+  /@raddix/switch/1.0.0-beta.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-UGHDAVVxHpn3BMgbJ0KSLluVCxZROjro/W0f2Z3HjZmZQD/RvEagVyo2VAKI8marbD3xxZzD7SzYY/6+g+dqZA==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
+      '@raddix/use-keyboard': 1.0.0-beta.1_biqbaboplfbrettd7655fr4n2y
+      '@raddix/use-toggle': 1.0.0-beta.1_biqbaboplfbrettd7655fr4n2y
       merge-props: 5.0.3
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@raddix/use-keyboard/1.0.0-beta.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-vPlz90/KRT35141tjQ3ImjFnL01dc+hQq8dbX8+2z2lnpQJmygXXuF4jwr+C0uMD/53u7zj+BiZmUaYs6b0smw==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@raddix/use-toggle/1.0.0-beta.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-acplQ3jzQnf2+ZsJUyOVwLCLcrscwMEpU1DRHfES0a7aQ/NFulemZ9HVXBRXkygP61adLZLRgr193fUR1vNyCA==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
