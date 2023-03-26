@@ -26,7 +26,7 @@ Install the primitive from your command line.
 yarn add @raddix/switch
 ```
 
-## Example Basic
+## Example
 
 This example uses an HTML button tag to build a switch, we just import
 the useSwitch hook which will return switchProps and spreading it in our
@@ -48,18 +48,18 @@ const Switch = (props: UseSwitchProps) => {
 
 ### Default Checked
 
-Switches are not selected by default. To be checked by default
-using <code>defaultChecked</code> prop
+Switches are not selected by default. To be checked
+using <code>checked</code> prop
 
 ```tsx
 // switch.tsx
 import Switch from './switch';
 
-<Switch defaultChecked />;
+<Switch checked />;
 ```
 
 <Demo>
-  <Switch defaultChecked />
+  <Switch checked />
 </Demo>
 
 ### Read only
@@ -70,11 +70,11 @@ The <code>readOnly</code> prop makes the selection immutable.
 // switch.tsx
 import Switch from './switch';
 
-<Switch defaultChecked readOnly />;
+<Switch checked readOnly />;
 ```
 
 <Demo>
-  <Switch defaultChecked readOnly />
+  <Switch checked readOnly />
 </Demo>
 
 ### Label Form
@@ -85,13 +85,52 @@ Switch supports the integration with HTML tag Label
   <label htmlFor='dev' style={{ paddingRight: 20 }} id='dev-3'>
     Living Room Lights
   </label>
-  <Switch defaultChecked id='dev' aria-labelledby='dev-3' />
+  <Switch checked id='dev' aria-labelledby='dev-3' />
 </Demo>
 
-## Examples
+### Return value
 
-🚧 In progress 🚧
+El hook <code>useSwitch</code> devuelve los siguientes accesorios
 
-## API
+<ApiTable
+  data={[
+    {
+      name: 'switchProps',
+      description:
+        'An object with accessibility props and functionality of a switch.'
+    },
+    {
+      name: 'state',
+      description: 'An object that contains the state of a switch.'
+    }
+  ]}
+/>
 
-🚧 In progress 🚧
+### Parameters
+
+El hook <code>useSwitch</code> acepta un objeto con las siguientes propiedades:
+
+<ApiTable
+  data={[
+    {
+      name: 'checked',
+      description: 'Provides its own controlled state.'
+    },
+    {
+      name: 'onChecked',
+      description: 'This event updates the value of checked.'
+    },
+    {
+      name: 'disabled',
+      description: 'Disables all functionality of the switch..'
+    },
+    {
+      name: 'readOnly',
+      description: 'Makes the switch immutable.'
+    },
+    {
+      name: 'elementType',
+      description: 'Change the HTML element tag that will be rendered.'
+    }
+  ]}
+/>

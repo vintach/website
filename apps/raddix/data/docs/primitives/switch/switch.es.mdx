@@ -15,10 +15,9 @@ title: useSwitch
 - Soporte completo para las funciones del navegador.
 - Navegación con teclado completo.
 - Soporte de etiquetado para lectores de pantalla.
-- Puede ser controlado o no controlado.
 - API completamente tipificada
 
-## Installation
+## Instalación
 
 Instale la primitiva desde su línea de comando.
 
@@ -49,20 +48,20 @@ const Switch = (props: UseSwitchProps) => {
 Los siguientes ejemplos de uso muestran cómo utilizar el componente Switch
 creado en el ejemplo anterior.
 
-### Default Checked
+### Checked
 
-Los Switch no vienen seleccionados por defecto. Para selecionar por default
-use el prop <code>defaultChecked</code>
+Los Switch no vienen seleccionados por defecto. Para selecionar
+use el prop <code>checked</code>
 
 ```tsx
 // switch.tsx
 import Switch from './switch';
 
-<Switch defaultChecked />;
+<Switch checked />;
 ```
 
 <Demo>
-  <Switch defaultChecked />
+  <Switch checked />
 </Demo>
 
 ### Read only
@@ -73,11 +72,11 @@ El prop <code>readOnly</code> hace que la selección sea inmutable.
 // switch.tsx
 import Switch from './switch';
 
-<Switch defaultChecked readOnly />;
+<Switch checked readOnly />;
 ```
 
 <Demo>
-  <Switch defaultChecked readOnly />
+  <Switch checked readOnly />
 </Demo>
 
 ### Label Form
@@ -128,10 +127,6 @@ El hook <code>useSwitch</code> acepta un objeto con las siguientes propiedades:
 <ApiTable
   data={[
     {
-      name: 'defaultChecked',
-      description: 'Proporciona un valor por defecto al estado checked.'
-    },
-    {
       name: 'checked',
       description: 'Proporciona su propio estado controlado.'
     },
@@ -150,14 +145,6 @@ El hook <code>useSwitch</code> acepta un objeto con las siguientes propiedades:
     {
       name: 'elementType',
       description: 'Cambia el tag HTML elemento que será renderizado.'
-    },
-    {
-      name: 'dataAttr',
-      description: 'Permite incluir atributo de datos de switch.'
-    },
-    {
-      name: '...',
-      description: 'Props nativos del elementType seleccionado.'
     }
   ]}
 />
