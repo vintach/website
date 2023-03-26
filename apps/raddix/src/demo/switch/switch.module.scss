@@ -33,4 +33,9 @@
   &[data-state='checked']::before {
     transform: translateX(19px);
   }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.6),
+      0 0 0 4.5px var(--color-primary);
+  }
 }
