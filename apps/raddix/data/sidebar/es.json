@@ -54,16 +54,16 @@
       ]
     },
     {
-      "title": "Primitivas",
+      "title": "Aria",
       "route": {
-        "path": "/docs/primitives",
+        "path": "/docs/aria",
         "locale": "es"
       },
       "items": [
         {
           "title": "useSwitch",
           "route": {
-            "path": "/docs/primitives/switch",
+            "path": "/docs/aria/switch",
             "locale": "es"
           }
         }
