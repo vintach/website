@@ -68,6 +68,22 @@
           }
         }
       ]
+    },
+    {
+      "title": "Interactions",
+      "route": {
+        "path": "/docs/interactions",
+        "locale": "en"
+      },
+      "items": [
+        {
+          "title": "useKeyboard",
+          "route": {
+            "path": "/docs/interactions/use-keyboard",
+            "locale": "en"
+          }
+        }
+      ]
     }
   ]
 }
