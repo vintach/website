@@ -46,14 +46,14 @@ Raddix does not impose a specific Dom structure, allowing total control over the
 
 ### Element type
 
-Each hook has a default <code>elementType</code> prop. This is
-important since according to the selected <code>elementType</code>
+Each hook has a default <code>as</code> prop. This is
+important since according to the selected <code>as</code>
 Raddix will provide the necessary accessibility.
 
 <br />
 For example, the useSwitch hook assumes that it will be represented on an
-HTML <code>{'<button>'}</code>, to be able to represent it on a different DOM
-tag as a <code>{'<div>'}</code> should change the <code>elementType</code> prop.
+HTML <code>{'<div>'}</code>, to be able to represent it on a different DOM
+tag as a <code>{'<button>'}</code> should change the <code>as</code> prop.
 
 ```jsx
 // switch.jsx
@@ -61,10 +61,10 @@ import { useSwitch } from '@raddix/switch';
 
 const Switch = props => {
   const { switchProps } = useSwitch({
-    elementType: 'div',
+    as: 'button',
     ...props
   });
 
-  return <div {...switchProps}></div>;
+  return <button {...switchProps}></button>;
 };
 ```

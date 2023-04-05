@@ -48,15 +48,15 @@ control total sobre la representación de sus componentes.
 
 ### Tipo de elemento
 
-Cada hook tiene un prop <code>elementType</code> por defecto. Esto es
-importante ya que según el prop <code>elementType</code> seleccionado
+Cada hook tiene un prop <code>as</code> por defecto. Esto es
+importante ya que según el prop <code>as</code> seleccionado
 Raddix brindará la accesibilidad necesaria.
 
 <br />
 Por ejemplo, el hook useSwitch por defecto asume que será representado en una etiqueta
-HTML <code>{'<button>'}</code>, para poder representarlo en una etiqueta DOM
-diferente como un <code>{'<div>'}</code> debería cambiar la prop
-<code>elementType</code>.
+HTML <code>{'<div>'}</code>, para poder representarlo en una etiqueta DOM
+diferente como un <code>{'<button>'}</code> debería cambiar la prop
+<code>as</code>.
 
 ```jsx
 // switch.jsx
@@ -64,10 +64,10 @@ import { useSwitch } from '@raddix/switch';
 
 const Switch = props => {
   const { switchProps } = useSwitch({
-    elementType: 'div',
+    as: 'button',
     ...props
   });
 
-  return <div {...switchProps}></div>;
+  return <button {...switchProps}></button>;
 };
 ```
