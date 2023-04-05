@@ -8,6 +8,7 @@ import { Menu } from '../menu';
 import { Language } from '../language';
 import useIsMobile from '@/hooks/isMobile';
 import { MenuMobile } from '../menu-mobile';
+import { Message } from '../message';
 
 const HeaderComp = () => {
   const [scrollY, setScrollY] = useState<number>(0);
@@ -39,6 +40,7 @@ const HeaderComp = () => {
 
         {!isMobile && (
           <>
+            <Message text='This site is under costruction' />
             <Menu />
             <Language />
           </>

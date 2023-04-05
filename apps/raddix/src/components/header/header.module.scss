@@ -12,7 +12,7 @@
     height: 80px;
     max-width: var(--max-width);
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr auto auto;
     align-items: center;
     justify-items: flex-end;
     margin: 0 auto;
