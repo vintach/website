@@ -10,10 +10,12 @@ const HomeLayout = ({ children }: HomeProps) => {
   return (
     <>
       <Head>
-        <title>Raddix: React hooks library that provides UI primitives</title>
+        <title>
+          Raddix: A Collection Of React Hooks For Your Design System.
+        </title>
         <meta
           name='description'
-          content='A library of React Hooks that provides accessible UI primitives for your design system.'
+          content='Raddix is a collection of hooks that allows you to quickly create high-quality, adaptable, and accessible design systems.'
         />
       </Head>
       <main className={styles.main}>{children}</main>
