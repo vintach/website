@@ -6,7 +6,7 @@ const Demo = ({ children }: { children: ReactNode }) => {
   return <div className={styles.demo}>{children} </div>;
 };
 
-export const componentsDemo = {
+export const componentsDemo: any = {
   Demo,
   Switch: Switch
 };
