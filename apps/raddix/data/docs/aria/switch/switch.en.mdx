@@ -15,7 +15,6 @@ title: useSwitch
 - Full support for browser features.
 - Full keyboard navigation.
 - Labeling support for screen readers.
-- Can be controlled or uncontrolled.
 - Fully-typed API
 
 ## Installation
@@ -26,67 +25,7 @@ Install the primitive from your command line.
 yarn add @raddix/switch
 ```
 
-## Example
-
-This example uses an HTML button tag to build a switch, we just import
-the useSwitch hook which will return switchProps and spreading it in our
-button tag.
-
-```tsx
-// switch.tsx
-import { useSwitch, UseSwitchProps } from '@raddix/switch';
-import './styles.css';
-
-const Switch = (props: UseSwitchProps) => {
-  const { switchProps } = useSwitch(props);
-
-  return <button {...switchProps} className='switch'></button>;
-};
-```
-
-## Usage
-
-### Default Checked
-
-Switches are not selected by default. To be checked
-using <code>checked</code> prop
-
-```tsx
-// switch.tsx
-import Switch from './switch';
-
-<Switch checked />;
-```
-
-<Demo>
-  <Switch checked />
-</Demo>
-
-### Read only
-
-The <code>readOnly</code> prop makes the selection immutable.
-
-```tsx
-// switch.tsx
-import Switch from './switch';
-
-<Switch checked readOnly />;
-```
-
-<Demo>
-  <Switch checked readOnly />
-</Demo>
-
-### Label Form
-
-Switch supports the integration with HTML tag Label
-
-<Demo>
-  <label htmlFor='dev' style={{ paddingRight: 20 }} id='dev-3'>
-    Living Room Lights
-  </label>
-  <Switch checked id='dev' aria-labelledby='dev-3' />
-</Demo>
+## API
 
 ### Return value
 
@@ -134,3 +73,7 @@ El hook <code>useSwitch</code> acepta un objeto con las siguientes propiedades:
     }
   ]}
 />
+
+## Examples
+
+🚧 In progress, come back later

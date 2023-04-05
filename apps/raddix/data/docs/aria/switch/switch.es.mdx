@@ -25,81 +25,6 @@ Instale la primitiva desde su línea de comando.
 yarn add @raddix/switch
 ```
 
-## Ejemplo
-
-Este ejemplo usa una etiqueta HTML button para construir un switch, solo
-importamos el hook useSwitch que devolverá switchProps y lo extendemos
-en nuestra etiqueta button.
-
-```tsx
-// switch.tsx
-import { useSwitch, UseSwitchProps } from '@raddix/switch';
-import './styles.css';
-
-const Switch = (props: UseSwitchProps) => {
-  const { switchProps } = useSwitch(props);
-
-  return <button {...switchProps} className='switch'></button>;
-};
-```
-
-## Uso
-
-Los siguientes ejemplos de uso muestran cómo utilizar el componente Switch
-creado en el ejemplo anterior.
-
-### Checked
-
-Los Switch no vienen seleccionados por defecto. Para selecionar
-use el prop <code>checked</code>
-
-```tsx
-// switch.tsx
-import Switch from './switch';
-
-<Switch checked />;
-```
-
-<Demo>
-  <Switch checked />
-</Demo>
-
-### Read only
-
-El prop <code>readOnly</code> hace que la selección sea inmutable.
-
-```tsx
-// switch.tsx
-import Switch from './switch';
-
-<Switch checked readOnly />;
-```
-
-<Demo>
-  <Switch checked readOnly />
-</Demo>
-
-### Label Form
-
-Admite la integración con la etiqueta HTML Label
-
-```tsx
-// switch.tsx
-import Switch from './switch';
-
-<div>
-  <label htmlFor='room-lights'>Living Room Lights</label>
-  <Switch id='room-lights' />;
-</div>;
-```
-
-<Demo>
-  <label htmlFor='dev' style={{ paddingRight: 20 }}>
-    Living Room Lights
-  </label>
-  <Switch id='dev' />
-</Demo>
-
 ## API
 
 ### Return value
@@ -148,3 +73,7 @@ El hook <code>useSwitch</code> acepta un objeto con las siguientes propiedades:
     }
   ]}
 />
+
+## Ejemplos
+
+🚧 En progreso
