@@ -9,7 +9,7 @@ const HeroComp = ({ title, description, button }: HeroProps) => {
         {title} <span>design system.</span>
       </h1>
       <p>{description}</p>
-      <Button text={button} />
+      <Button text={button} to='/docs/get-started/create-component' />
       {/* <div className={styles.bgGrad} /> */}
       {/* <div className={styles.bgGrad2} /> */}
     </div>
