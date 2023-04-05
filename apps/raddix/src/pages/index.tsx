@@ -10,8 +10,8 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <HomeLayout>
       <Hero {...data.hero} />
-      <Accessible {...data.accessible} />
-      <Styling {...data.styling} />
+      {/* <Accessible {...data.accessible} /> */}
+      {/* <Styling {...data.styling} /> */}
     </HomeLayout>
   );
 };
