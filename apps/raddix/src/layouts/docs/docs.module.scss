@@ -5,6 +5,7 @@
   --width-content: calc(100% - var(--width-aside) - 2rem);
 
   max-width: var(--max-width);
+  min-height: 80vh;
   margin: var(--spacing-m6) auto 0;
   position: relative;
   padding: 0 1.5rem;

@@ -1,7 +1,9 @@
 .aside {
   width: var(--width-aside);
   grid-area: aside;
-  position: fixed;
+  position: sticky;
+  top: 133px;
+  align-self: start;
   box-sizing: border-box;
 }
 
