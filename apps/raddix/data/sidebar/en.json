@@ -84,6 +84,22 @@
           }
         }
       ]
+    },
+    {
+      "title": "Utilities",
+      "route": {
+        "path": "/docs/utilities",
+        "locale": "en"
+      },
+      "items": [
+        {
+          "title": "useToggle",
+          "route": {
+            "path": "/docs/utilities/use-toggle",
+            "locale": "en"
+          }
+        }
+      ]
     }
   ]
 }
