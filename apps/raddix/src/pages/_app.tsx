@@ -3,6 +3,7 @@ import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { AppLayout } from '@/layouts/app';
 import { Analytics } from '@vercel/analytics/react';
+import { GoogleAnalytics } from '@/components/google-analytics';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
       `}</style>
 
       <AppLayout>
+        <GoogleAnalytics />
         <Component {...pageProps} />
         <Analytics />
       </AppLayout>
