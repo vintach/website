@@ -39,6 +39,10 @@ El hook <code>useSwitch</code> devuelve los siguientes accesorios
         'An object with accessibility props and functionality of a switch.'
     },
     {
+      name: 'inputProps',
+      description: 'An object with props of the input field.'
+    },
+    {
       name: 'state',
       description: 'An object that contains the state of a switch.'
     }
@@ -56,7 +60,7 @@ El hook <code>useSwitch</code> acepta un objeto con las siguientes propiedades:
       description: 'Provides its own controlled state.'
     },
     {
-      name: 'onChecked',
+      name: 'onChange',
       description: 'This event updates the value of checked.'
     },
     {
@@ -68,11 +72,29 @@ El hook <code>useSwitch</code> acepta un objeto con las siguientes propiedades:
       description: 'Makes the switch immutable.'
     },
     {
-      name: 'elementType',
+      name: 'as',
       description: 'Change the HTML element tag that will be rendered.'
     }
   ]}
 />
+
+## Usage
+
+```tsx
+import './styles.css';
+
+export const Switch = props => {
+  const { switchProps, inputProps } = useSwitch(props);
+
+  return (
+    <label>
+      <div {...swithProps} className='switch'></div>
+      <input {...inputProps} className='hidden' />
+      <span className='switch-label'>Low power mode</span>
+    </label>
+  );
+};
+```
 
 ## Examples
 
