@@ -13,9 +13,9 @@ importers:
   apps/raddix:
     specifiers:
       '@next/font': 13.1.5
-      '@raddix/switch': 1.0.0-beta.2
-      '@raddix/use-keyboard': 1.0.0-beta.1
-      '@raddix/use-toggle': 1.0.0-beta.1
+      '@raddix/switch': 1.0.0
+      '@raddix/use-keyboard': 1.0.0
+      '@raddix/use-toggle': 1.0.0
       '@types/glob': 8.0.1
       '@types/node': 18.11.18
       '@types/react': 18.0.27
@@ -35,9 +35,9 @@ importers:
       typescript: 4.9.4
     dependencies:
       '@next/font': 13.1.5
-      '@raddix/switch': 1.0.0-beta.2_biqbaboplfbrettd7655fr4n2y
-      '@raddix/use-keyboard': 1.0.0-beta.1_biqbaboplfbrettd7655fr4n2y
-      '@raddix/use-toggle': 1.0.0-beta.1_biqbaboplfbrettd7655fr4n2y
+      '@raddix/switch': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@raddix/use-keyboard': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@raddix/use-toggle': 1.0.0_biqbaboplfbrettd7655fr4n2y
       '@types/glob': 8.0.1
       '@types/node': 18.11.18
       '@types/react': 18.0.27
@@ -218,21 +218,20 @@ packages:
     dev: false
     optional: true
 
-  /@raddix/switch/1.0.0-beta.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-UGHDAVVxHpn3BMgbJ0KSLluVCxZROjro/W0f2Z3HjZmZQD/RvEagVyo2VAKI8marbD3xxZzD7SzYY/6+g+dqZA==}
+  /@raddix/switch/1.0.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-m2KAV1Q5BNoVf7Tyqn2DFli1UcqSNALgUIf6D22dZ7W7X1eI8riK6sP9CRtOKJAhVL57YaXYNf1FqehtfX46/g==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@raddix/use-keyboard': 1.0.0-beta.1_biqbaboplfbrettd7655fr4n2y
-      '@raddix/use-toggle': 1.0.0-beta.1_biqbaboplfbrettd7655fr4n2y
-      merge-props: 5.0.3
+      '@raddix/use-keyboard': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@raddix/use-toggle': 1.0.0_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@raddix/use-keyboard/1.0.0-beta.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-vPlz90/KRT35141tjQ3ImjFnL01dc+hQq8dbX8+2z2lnpQJmygXXuF4jwr+C0uMD/53u7zj+BiZmUaYs6b0smw==}
+  /@raddix/use-keyboard/1.0.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-o6PJP8B6ZGD6hvWPimWPPtpoBo0TAhWCnitvGI23MbMOIY/9DX9D/neFoh2PQkl+IATcnm4ioVrAeTNe8fJSqQ==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -241,8 +240,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@raddix/use-toggle/1.0.0-beta.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-acplQ3jzQnf2+ZsJUyOVwLCLcrscwMEpU1DRHfES0a7aQ/NFulemZ9HVXBRXkygP61adLZLRgr193fUR1vNyCA==}
+  /@raddix/use-toggle/1.0.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-2Dim+8lhbIBKtlX+RNfepJcQPQBaRm6Xu/Ebgm7HqVVfuiYqNbF7UN1072eOA25HtNgx7I10moSWmD+fIxC+uQ==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -864,10 +863,6 @@ packages:
     resolution: {integrity: sha512-tGvhT94e+cVnQt8JWE9/b3cUQZWS732TJxXHktvP+BYo62PpYD53Ls/6cC60rW21dW+txxiM4zMdc6abASvZKA==}
     dependencies:
       '@types/mdast': 3.0.10
-    dev: false
-
-  /merge-props/5.0.3:
-    resolution: {integrity: sha512-TuntFuNELf4ZEMZEDM32hCpACQStDfeEMlN5R499gRQB4XUIaGuLrQhm+nRMDtPwCWEZ2a2KTGnTxfjK8B1zww==}
     dev: false
 
   /micromark-core-commonmark/1.0.6:
