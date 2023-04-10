@@ -4,7 +4,5 @@ import styles from './switch.module.scss';
 export const Switch = (props: UseSwitchProps) => {
   const { switchProps, dataProps } = useSwitch(props);
 
-  return (
-    <button {...switchProps} {...dataProps} className={styles.switch}></button>
-  );
+  return <div {...switchProps} {...dataProps} className={styles.switch}></div>;
 };
