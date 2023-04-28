@@ -5,12 +5,13 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache  --continue",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format:check": "prettier --check \"{apps,packages}/**/*.{ts,tsx,css}\" --cache",
+    "format:write": "prettier --write \"{apps,packages}/**/*.{ts,tsx,css}\" --cache",
     "clean": "turbo run clean"
   },
   "author": "Moises Rolando Machuca Valverde",
   "devDependencies": {
-    "prettier": "2.8.3",
+    "prettier": "2.8.8",
     "turbo": "1.7.0"
   },
   "engines": {

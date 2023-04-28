@@ -7,8 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  example:
-    name: Example
+  format:
+    name: Format
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout branch
@@ -17,5 +17,5 @@ jobs:
       - name: Install
         uses: ./.github/actions/install
 
-      - name: Run example
-        run: echo Hello, world!
+      - name: Run Prettier
+        run: pnpm format:check
