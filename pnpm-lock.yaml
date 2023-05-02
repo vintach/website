@@ -77,6 +77,9 @@ importers:
         specifier: 4.9.4
         version: 4.9.4
     devDependencies:
+      eslint-config-vintach:
+        specifier: workspace:*
+        version: link:../../packages/eslint-config-vintach
       sass:
         specifier: 1.57.1
         version: 1.57.1
