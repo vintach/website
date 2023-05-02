@@ -1,19 +1,19 @@
 {
   "name": "websites",
-  "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache  --continue",
     "format:check": "prettier --check \"{apps,packages}/**/*.{ts,tsx,css}\" --cache",
     "format:write": "prettier --write \"{apps,packages}/**/*.{ts,tsx,css}\" --cache",
+    "lint": "turbo run lint",
     "clean": "turbo run clean"
   },
   "author": "Moises Rolando Machuca Valverde",
   "devDependencies": {
-    "eslint": "8.39.0",
     "prettier": "2.8.8",
-    "turbo": "1.7.0"
+    "turbo": "1.9.3",
+    "typescript": "5.0.4"
   },
   "engines": {
     "node": ">=18",
