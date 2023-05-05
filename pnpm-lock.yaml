@@ -103,6 +103,9 @@ importers:
       remark-slug:
         specifier: 7.0.1
         version: 7.0.1
+      vintex:
+        specifier: workspace:*
+        version: link:../../packages/vintex
     devDependencies:
       '@types/glob':
         specifier: 8.0.1
