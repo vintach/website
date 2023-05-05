@@ -1,0 +1,16 @@
+{
+  "name": "vintex",
+  "version": "0.1.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "lint": "eslint \"**/*.ts*\""
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "18.0.27",
+    "@types/react-dom": "18.0.10",
+    "react": "18.2.0",
+    "tsconfig": "workspace:*"
+  }
+}
