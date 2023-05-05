@@ -33,6 +33,6 @@
   },
   "devDependencies": {
     "sass": "1.57.1",
-    "eslint-config-vintach": "workspace:*"
+    "tsconfig": "workspace:*"
   }
 }
