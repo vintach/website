@@ -7,7 +7,7 @@
     "format:check": "prettier --check \"{apps,packages}/**/*.{ts,tsx,css}\" --cache",
     "format:write": "prettier --write \"{apps,packages}/**/*.{ts,tsx,css}\" --cache",
     "lint": "turbo run lint",
-    "clean": "turbo run clean"
+    "clean": "turbo run clean && rm -rf node_modules"
   },
   "author": "Moises Rolando Machuca Valverde",
   "devDependencies": {
