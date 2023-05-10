@@ -1,12 +1,14 @@
-import { Children } from '@/types/global';
+import type { Children } from '@/types/global';
 
-type TabsComponent<P = {}> = React.ForwardRefExoticComponent<
+type TabsComponent<P> = React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P>
 > & {
   Item: typeof TabsItem;
 };
 
-type ClassName = { className?: string };
+interface ClassName {
+  className?: string;
+}
 
 interface TabsItemProps extends Children, ClassName {
   active?: boolean;
@@ -24,5 +26,3 @@ export const TabsItem = ({ children, onClick, className }: TabsItemProps) => {
     </button>
   );
 };
-
-export default Tabs;

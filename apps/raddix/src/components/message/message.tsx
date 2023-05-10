@@ -8,7 +8,7 @@ interface MessageProps {
 export const Message = ({ text, status = 'warning' }: MessageProps) => {
   return (
     <div className={styles.container}>
-      {status && <span>🛠️</span>}
+      <span>🛠️</span>
       <p>{text}</p>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Children } from '@/types/global';
+import type { Children } from '@/types/global';
 import styles from './box.module.scss';
 import classNames from 'classnames';
 

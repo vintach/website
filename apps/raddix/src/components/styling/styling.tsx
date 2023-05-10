@@ -7,7 +7,7 @@ import styles from './styling.module.scss';
 import { useState } from 'react';
 import { Tabs } from '../home/tabs';
 import classNames from 'classnames';
-import { StylingProps } from '@/types/home-data';
+import type { StylingProps } from '@/types/home-data';
 
 const codeTabs = {
   Css: {
@@ -243,7 +243,7 @@ export const SwitchThumb = styled.span({
 
 type TabStyling = 'Css' | 'Sass' | 'Tailwind' | 'Emotion';
 
-const sizeIcon = 48;
+// const sizeIcon = 48;
 const stylingTabs = {
   Css: {
     name: 'CSS',

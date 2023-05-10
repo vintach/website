@@ -2,7 +2,8 @@ import { getFileExtension } from '@/utils/global';
 import React, { useState } from 'react';
 import styles from './code-block.module.scss';
 import classNames from 'classnames';
-import Highlight, { defaultProps, Language } from 'prism-react-renderer';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import type { Language } from 'prism-react-renderer';
 import { JetBrains_Mono } from '@next/font/google';
 const inter = JetBrains_Mono({ subsets: ['latin'] });
 import { blameTheme } from './theme';
@@ -10,9 +11,7 @@ import useScroll from '@/hooks/useScroll';
 import useIsomorphicEffect from '@/hooks/useIsomorphicEffect';
 
 interface CodeBlockProps {
-  tabs: {
-    [key: string]: string;
-  };
+  tabs: Record<string, string>;
   showTabs?: boolean;
   showLines?: boolean;
   /**
@@ -54,7 +53,7 @@ export const CodeBlock = ({
               className={classNames({
                 [styles.isTabActive]: activeTab === index
               })}
-              key={tab + index}
+              key={`${tab}${index}`}
               onClick={() => setActiveTab(index)}
             >
               {tab}
@@ -104,7 +103,7 @@ export const CodeBlock = ({
             <div className={styles.codeWrapper} ref={refCodeWindow}>
               <div className={styles.code}>
                 {tokens.map((line, i) => (
-                  <div {...getLineProps({ line, key: i })} translate='no'>
+                  <div {...getLineProps({ line })} translate='no' key={i}>
                     {line.map((token, key) => {
                       if (
                         token.types[token.types.length - 1] === 'string' &&
@@ -138,7 +137,8 @@ export const CodeBlock = ({
 
                       return (
                         <span
-                          {...getTokenProps({ token, key })}
+                          {...getTokenProps({ token })}
+                          key={key}
                           translate='no'
                         />
                       );

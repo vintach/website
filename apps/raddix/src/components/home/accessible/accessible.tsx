@@ -4,7 +4,7 @@ import { AntiSubtitle } from '../anti-subtitle';
 import { SubTitle } from '../subtitle';
 import { Description } from '../description';
 import Image from 'next/image';
-import { AccessibleProps } from '@/types/home-data';
+import type { AccessibleProps } from '@/types/home-data';
 
 export const Accessible = ({
   antisubtitle,

@@ -1,1 +1,1 @@
-export { default as Hero } from './hero.comp';
+export * from './hero.comp';

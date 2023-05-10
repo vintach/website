@@ -1,5 +1,7 @@
-import Highlight, { defaultProps, PrismTheme } from 'prism-react-renderer';
-import { ReactNode, useState } from 'react';
+import type { Language } from 'prism-react-renderer';
+import type { ReactNode } from 'react';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import { useState } from 'react';
 import theme from 'prism-react-renderer/themes/dracula';
 import classNames from 'classnames';
 import styles from './mdx.module.scss';
@@ -27,22 +29,35 @@ const Text = ({ as: Comp, className, children, isTitle, id }: TextProps) => {
   );
 };
 
-export const TextPre = (props: Children) => {
+interface TextPreProps {
+  children: {
+    props: {
+      children: string;
+      className: string;
+    };
+  };
+}
+
+export const TextPre = ({ children }: TextPreProps) => {
   const [isCopied, setIsCopied] = useState(false);
 
-  const children: any = props.children;
-
-  const className = children?.props.className || '';
-  const code = children?.props.children.trim();
-  const language = className.replace(/language-/, '');
+  const classNameRo = children.props.className || '';
+  const code = children.props.children.trim();
+  const language = classNameRo.replace(/language-/, '');
   const btnClass = classNames(styles.textPreBtn, {
     [styles.textPreBtnSuccess]: isCopied
   });
 
-  const handleCopy = (str: any) => {
-    if (isCopied) return;
+  const handleCopy = (str: string) => {
+    if (isCopied) {
+      return;
+    }
 
-    navigator.clipboard.writeText(str).then(() => setIsCopied(true));
+    navigator.clipboard
+      .writeText(str)
+      .then(() => setIsCopied(true))
+      .catch(err => console.log(err));
+
     setTimeout(() => setIsCopied(false), 2000);
   };
 
@@ -54,8 +69,8 @@ export const TextPre = (props: Children) => {
       <Highlight
         {...defaultProps}
         code={code}
-        language={language}
-        theme={theme as PrismTheme}
+        language={language as Language}
+        theme={theme}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre
@@ -67,9 +82,13 @@ export const TextPre = (props: Children) => {
             translate='no'
           >
             {tokens.map((line, i) => (
-              <div {...getLineProps({ line, key: i })} translate='no'>
+              <div {...getLineProps({ line })} key={i} translate='no'>
                 {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} translate='no' />
+                  <span
+                    {...getTokenProps({ token })}
+                    key={key}
+                    translate='no'
+                  />
                 ))}
               </div>
             ))}
@@ -80,7 +99,7 @@ export const TextPre = (props: Children) => {
   );
 };
 
-const MDXComponents = {
+export const MDXComponents = {
   h1: ({ children, ...props }: Children) => (
     <Text as='h1' className={styles.title} {...props}>
       {children}
@@ -110,5 +129,3 @@ const MDXComponents = {
   ApiTable,
   ...componentsDemo
 };
-
-export default MDXComponents;

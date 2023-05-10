@@ -1,6 +1,6 @@
 import { useCurrentSlug } from '@/hooks/useCurrentSlug';
 import styles from './pagination.module.scss';
-import { SidebarItems, SidebarList } from '@/types/sidebar';
+import type { SidebarItems, SidebarList } from '@/types/sidebar';
 import Link from 'next/link';
 
 interface PaginationProps {

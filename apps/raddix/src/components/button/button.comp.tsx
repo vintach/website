@@ -6,12 +6,10 @@ interface ButtonProps {
   to?: string;
 }
 
-const ButtonComp = ({ text, to = '/' }: ButtonProps) => {
+export const Button = ({ text, to = '/' }: ButtonProps) => {
   return (
     <Link href={to} className={styles.button}>
       {text}
     </Link>
   );
 };
-
-export default ButtonComp;
