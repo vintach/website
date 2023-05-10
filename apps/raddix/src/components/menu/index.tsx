@@ -1,1 +1,1 @@
-export { default as Menu } from './menu.comp';
+export * from './menu.comp';

@@ -17,7 +17,9 @@ interface TreeProps {
 const Tree = ({ navData, parentPrints = 0 }: TreeProps) => {
   const items = navData.filter(item => item.parentPrints === parentPrints);
 
-  if (!items.length) return null;
+  if (!items.length) {
+    return null;
+  }
 
   return (
     <ul
@@ -46,15 +48,14 @@ export const PageNav = () => {
       document.querySelectorAll('[data-title]')
     );
 
-    let newElements: IdentItem[] = [];
+    const newElements: IdentItem[] = [];
     let idLevel2 = 0;
     let idLevel3 = 0;
     let idLevel4 = 0;
-    let idLevel5 = 0;
     let parentPrints = 0;
 
     titleElements.map(({ id, nodeName, innerText }, index) => {
-      let prints = index + 1;
+      const prints = index + 1;
 
       const node = Number(nodeName.replace('H', ''));
 

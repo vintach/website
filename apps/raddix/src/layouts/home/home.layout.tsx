@@ -1,12 +1,12 @@
+import type { ReactNode } from 'react';
 import Head from 'next/head';
-import React from 'react';
 import styles from './home.module.scss';
 
 export interface HomeProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
-const HomeLayout = ({ children }: HomeProps) => {
+export const HomeLayout = ({ children }: HomeProps) => {
   return (
     <>
       <Head>
@@ -22,5 +22,3 @@ const HomeLayout = ({ children }: HomeProps) => {
     </>
   );
 };
-
-export default HomeLayout;

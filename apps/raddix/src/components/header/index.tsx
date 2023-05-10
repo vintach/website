@@ -1,1 +1,1 @@
-export { default as Header } from './header.comp';
+export * from './header.comp';

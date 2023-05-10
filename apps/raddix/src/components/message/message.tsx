@@ -5,10 +5,10 @@ interface MessageProps {
   status?: 'warning';
 }
 
-export const Message = ({ text, status = 'warning' }: MessageProps) => {
+export const Message = ({ text }: MessageProps) => {
   return (
     <div className={styles.container}>
-      {status && <span>🛠️</span>}
+      <span>🛠️</span>
       <p>{text}</p>
     </div>
   );

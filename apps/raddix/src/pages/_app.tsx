@@ -4,23 +4,18 @@ import type { AppProps } from 'next/app';
 import { AppLayout } from '@/layouts/app';
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@/components/google-analytics';
+import 'vintex/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <style jsx global>{`
-        html {
-          font-family: ${inter.style.fontFamily};
-        }
-      `}</style>
-
+    <div className={inter.className}>
       <AppLayout>
         <GoogleAnalytics />
         <Component {...pageProps} />
         <Analytics />
       </AppLayout>
-    </>
+    </div>
   );
 }

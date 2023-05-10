@@ -1,4 +1,4 @@
-import { TextProps } from '@/types/global';
+import type { TextProps } from '@/types/global';
 import styles from './subtitle.module.scss';
 
 export const SubTitle = ({ text }: TextProps) => (

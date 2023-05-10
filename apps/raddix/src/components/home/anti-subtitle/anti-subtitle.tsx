@@ -1,4 +1,4 @@
-import { TextProps } from '@/types/global';
+import type { TextProps } from '@/types/global';
 import styles from './anti-subtitle.module.scss';
 
 export const AntiSubtitle = ({ text }: TextProps) => (

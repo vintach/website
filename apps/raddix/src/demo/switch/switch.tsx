@@ -1,4 +1,5 @@
-import { useSwitch, UseSwitchProps } from '@raddix/switch';
+import type { UseSwitchProps } from '@raddix/switch';
+import { useSwitch } from '@raddix/switch';
 import styles from './switch.module.scss';
 
 export const Switch = (props: UseSwitchProps) => {

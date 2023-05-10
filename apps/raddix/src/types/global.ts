@@ -1,4 +1,8 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-export type TextProps = { text?: string };
-export type Children = { children?: ReactNode };
+export interface TextProps {
+  text?: string;
+}
+export interface Children {
+  children?: ReactNode;
+}

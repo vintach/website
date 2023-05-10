@@ -5,7 +5,7 @@ interface Option {
   description: string;
 }
 
-interface ApiTableProps {
+export interface ApiTableProps {
   head: Partial<Option>;
   data: Option[];
 }
@@ -15,9 +15,9 @@ export const ApiTable = ({ head, data }: ApiTableProps) => {
     <table className={styles.table}>
       <thead>
         <tr>
-          <th className={styles.name}>{head?.name || 'Name'}</th>
+          <th className={styles.name}>{head?.name ?? 'Name'}</th>
           <th className={styles.description}>
-            {head?.description || 'Description'}
+            {head?.description ?? 'Description'}
           </th>
         </tr>
       </thead>

@@ -14,13 +14,14 @@ const defaultState: Element = {
   scrollWidth: 0
 };
 
-const useScroll = <T extends HTMLElement = any>() => {
+export const useScroll = <T extends HTMLElement = HTMLElement>() => {
   const [element, setElement] = useState<Element>(defaultState);
   const ref = useRef<T>(null);
 
   const handleScroll = useCallback(() => {
     if (ref.current) {
       const refElement = ref.current;
+
       setElement({
         scrollTop: refElement.scrollTop,
         scrollLeft: refElement.scrollLeft,
@@ -28,18 +29,18 @@ const useScroll = <T extends HTMLElement = any>() => {
         scrollWidth: refElement.scrollWidth
       });
     }
-  }, [element]);
+  }, []);
 
   useEffect(() => {
     const refElement = ref.current;
-    if (!refElement) return;
+    if (!refElement) {
+      return;
+    }
     refElement.addEventListener('scroll', handleScroll);
     return () => {
       refElement.removeEventListener('scroll', handleScroll);
     };
-  }, [ref.current]);
+  }, [handleScroll]);
 
   return [ref, element] as const;
 };
-
-export default useScroll;

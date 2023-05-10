@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import styles from './sidebar.module.scss';
-import { SideBar, SidebarList } from '@/types/sidebar';
+import type {
+  SideBar as SideBarProp,
+  SidebarList as SidebarListProp
+} from '@/types/sidebar';
 import classNames from 'classnames';
 import { useCurrentSlug } from '@/hooks/useCurrentSlug';
 
-const SidebarList = ({ title, route, items }: SidebarList) => {
+const SidebarList = ({ title, items }: SidebarListProp) => {
   const currentSlug = useCurrentSlug();
   // const itemActive = route.path === currentSlug;
 
@@ -25,7 +28,7 @@ const SidebarList = ({ title, route, items }: SidebarList) => {
 
           return (
             <li
-              key={item.title + i}
+              key={`${item.title}${i}`}
               className={classNames({
                 [styles.subItemActive]: isActive
               })}
@@ -41,14 +44,14 @@ const SidebarList = ({ title, route, items }: SidebarList) => {
   );
 };
 
-const SidebarComp = ({ list: sidebarList }: SideBar) => {
+export const Sidebar = ({ list: sidebarList }: SideBarProp) => {
   return (
     <aside className={styles.aside}>
       <ol>
         {sidebarList.map((list, i) => {
           return (
             <SidebarList
-              key={list.title + i}
+              key={`${list.title}${i}`}
               items={list.items}
               title={list.title}
               route={list.route}
@@ -59,5 +62,3 @@ const SidebarComp = ({ list: sidebarList }: SideBar) => {
     </aside>
   );
 };
-
-export default SidebarComp;

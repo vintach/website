@@ -1,8 +1,8 @@
-import { HeroProps } from '@/types/home-data';
+import type { HeroProps } from '@/types/home-data';
 import { Button } from '../button';
 import styles from './hero.module.scss';
 
-const HeroComp = ({ title, description, button }: HeroProps) => {
+export const Hero = ({ title, description, button }: HeroProps) => {
   return (
     <div className={styles.hero}>
       <h1>
@@ -15,5 +15,3 @@ const HeroComp = ({ title, description, button }: HeroProps) => {
     </div>
   );
 };
-
-export default HeroComp;

@@ -10,7 +10,7 @@ import useIsMobile from '@/hooks/isMobile';
 import { MenuMobile } from '../menu-mobile';
 import { Message } from '../message';
 
-const HeaderComp = () => {
+export const Header = () => {
   const [scrollY, setScrollY] = useState<number>(0);
   const [isMenuMobile, setIsMenuMobile] = useState<boolean>(false);
   const { locale } = useRouter();
@@ -53,5 +53,3 @@ const HeaderComp = () => {
     </header>
   );
 };
-
-export default HeaderComp;
