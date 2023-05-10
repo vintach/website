@@ -28,11 +28,15 @@
     "vintex": "workspace:*"
   },
   "devDependencies": {
+    "@types/glob": "8.0.1",
+    "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
-    "@types/node": "18.11.18",
-    "@types/glob": "8.0.1",
+    "autoprefixer": "10.4.14",
+    "postcss": "8.4.23",
     "sass": "1.57.1",
-    "tsconfig": "workspace:*"
+    "tailwindcss": "3.3.2",
+    "tsconfig": "workspace:*",
+    "tailwind-config": "workspace:*"
   }
 }
