@@ -1,6 +1,6 @@
 import { CodeBlock } from '../code-block';
 import { AntiSubtitle } from '../home/anti-subtitle';
-import Box from '../home/box';
+import { BoxSection, BoxContent } from '../home/box';
 import { Description } from '../home/description';
 import { SubTitle } from '../home/subtitle';
 import styles from './styling.module.scss';
@@ -301,13 +301,13 @@ export const Styling = ({
   description
 }: StylingProps) => {
   return (
-    <Box.Section>
-      <Box.Content alignment='center'>
+    <BoxSection>
+      <BoxContent alignment='center'>
         <AntiSubtitle text={antisubtitle} />
         <SubTitle text={subtitle} />
         <Description text={description} />
-      </Box.Content>
+      </BoxContent>
       <BoxMain />
-    </Box.Section>
+    </BoxSection>
   );
 };

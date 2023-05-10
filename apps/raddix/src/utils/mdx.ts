@@ -1,9 +1,7 @@
-interface Meta {
-  [key: string]: any;
-}
+type Meta = Record<string, string>;
 
 export const getMeta = (meta: Meta) => {
   return {
-    title: `${meta.title} | Raddix`
+    title: `${meta.title!} | Raddix`
   };
 };

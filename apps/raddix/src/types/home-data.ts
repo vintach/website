@@ -10,13 +10,15 @@ export interface HeroProps {
   button: string;
 }
 
+interface DataCard {
+  title: string;
+  icon: string;
+  description: string;
+}
+
 export interface AccessibleProps extends Content {
   main: {
-    dataCard: {
-      title: string;
-      icon: string;
-      description: string;
-    }[];
+    dataCard: DataCard[];
   };
 }
 

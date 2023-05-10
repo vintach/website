@@ -7,8 +7,8 @@ import type { Language } from 'prism-react-renderer';
 import { JetBrains_Mono } from '@next/font/google';
 const inter = JetBrains_Mono({ subsets: ['latin'] });
 import { blameTheme } from './theme';
-import useScroll from '@/hooks/useScroll';
-import useIsomorphicEffect from '@/hooks/useIsomorphicEffect';
+import { useScroll } from '@/hooks/useScroll';
+import { useIsomorphicEffect } from '@/hooks/useIsomorphicEffect';
 
 interface CodeBlockProps {
   tabs: Record<string, string>;

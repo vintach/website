@@ -1,10 +1,15 @@
 import { DocsLayout } from '@/layouts/docs';
 import { getAllPathsMdx, getMdxBySlug, getSidebarData } from '@/lib/mdx';
-import { SidebarList } from '@/types/sidebar';
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import type { SidebarList } from '@/types/sidebar';
+import type {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType
+} from 'next';
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import MDXComponents from '@/components/mdx';
+import { MDXComponents } from '@/components/mdx';
 
 import remarkSlug from 'remark-slug';
 import { getMeta } from '@/utils/mdx';
@@ -21,7 +26,7 @@ const DocsPage = ({
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = () => {
   const paths = getAllPathsMdx('docs');
 
   return {
@@ -32,12 +37,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<{
   mdxSource: MDXRemoteSerializeResult;
-  meta: {
-    [key: string]: any;
-  };
+  meta: Record<string, string>;
   sidebar: SidebarList[];
 }> = async ({ params, locale }) => {
-  const { content, meta, slug } = getMdxBySlug({
+  const { content, meta } = getMdxBySlug({
     params,
     locale,
     file: 'docs'

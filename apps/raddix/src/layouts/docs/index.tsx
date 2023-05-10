@@ -1,1 +1,1 @@
-export { default as DocsLayout } from './docs.layout';
+export * from './docs.layout';

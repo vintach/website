@@ -1,10 +1,10 @@
 import { Hero } from '@/components/hero';
 import { HomeLayout } from '@/layouts/home';
-import { Styling } from '@/components/styling';
-import { Accessible } from '@/components/home/accessible';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+// import { Styling } from '@/components/styling';
+// import { Accessible } from '@/components/home/accessible';
+import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getMdxData } from '@/lib/mdx';
-import { HomeData } from '@/types/home-data';
+import type { HomeData } from '@/types/home-data';
 
 const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -18,7 +18,7 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps: GetStaticProps<{
   data: HomeData;
-}> = async ({ locale }) => {
+}> = ({ locale }) => {
   const homeData = getMdxData<HomeData>({ locale, file: 'home' });
 
   return {

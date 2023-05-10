@@ -1,5 +1,5 @@
 import styles from './accessible.module.scss';
-import Box from '../box';
+import { BoxContent, BoxSection } from '../box';
 import { AntiSubtitle } from '../anti-subtitle';
 import { SubTitle } from '../subtitle';
 import { Description } from '../description';
@@ -13,12 +13,12 @@ export const Accessible = ({
   main
 }: AccessibleProps) => {
   return (
-    <Box.Section>
-      <Box.Content alignment='center'>
+    <BoxSection>
+      <BoxContent alignment='center'>
         <AntiSubtitle text={antisubtitle} />
         <SubTitle text={subtitle} />
         <Description text={description} />
-      </Box.Content>
+      </BoxContent>
 
       <div className={styles.card}>
         {main.dataCard.map((card, id) => (
@@ -29,6 +29,6 @@ export const Accessible = ({
           </div>
         ))}
       </div>
-    </Box.Section>
+    </BoxSection>
   );
 };
