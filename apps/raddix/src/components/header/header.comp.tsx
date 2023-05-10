@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import { Menu } from '../menu';
 import { Language } from '../language';
-import useIsMobile from '@/hooks/isMobile';
+import { useIsMobile } from '@/hooks/useIsMobile';
 import { MenuMobile } from '../menu-mobile';
 import { Message } from '../message';
 

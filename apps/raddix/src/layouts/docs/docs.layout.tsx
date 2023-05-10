@@ -3,7 +3,7 @@ import styles from './docs.module.scss';
 import { Sidebar } from '@/components/sidebar';
 import type { SidebarList } from '@/types/sidebar';
 import { PageNav } from '@/components/pagenav';
-import useIsMobile from '@/hooks/isMobile';
+import { useIsMobile } from '@/hooks/useIsMobile';
 import Head from 'next/head';
 import { Pagination } from '@/components/pagination';
 
