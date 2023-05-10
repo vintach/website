@@ -5,7 +5,7 @@ interface Option {
   description: string;
 }
 
-interface ApiTableProps {
+export interface ApiTableProps {
   head: Partial<Option>;
   data: Option[];
 }

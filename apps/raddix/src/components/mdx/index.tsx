@@ -7,14 +7,13 @@ import classNames from 'classnames';
 import styles from './mdx.module.scss';
 import { componentsDemo } from '@/demo';
 import { Card, CardGroup } from '../card';
-import Link from 'next/link';
 import { ApiTable } from '../api-table/api-table';
 
-interface Children {
+export interface Children {
   children?: ReactNode;
 }
 
-interface TextProps extends Children {
+export interface TextProps extends Children {
   as: keyof JSX.IntrinsicElements;
   className: string;
   isTitle?: boolean;
@@ -29,17 +28,17 @@ const Text = ({ as: Comp, className, children, isTitle, id }: TextProps) => {
   );
 };
 
-interface TextPreProps {
-  children: {
-    props: {
-      children: string;
-      className: string;
-    };
+export interface TextPreProps {
+  props: {
+    children: string;
+    className: string;
   };
 }
 
-export const TextPre = ({ children }: TextPreProps) => {
+export const TextPre = (props: Children) => {
   const [isCopied, setIsCopied] = useState(false);
+
+  const children = props.children as TextPreProps;
 
   const classNameRo = children.props.className || '';
   const code = children.props.children.trim();
@@ -125,7 +124,6 @@ export const MDXComponents = {
   li: ({ children }: Children) => <li className={styles.li}>{children}</li>,
   Card,
   CardGroup,
-  a: Link,
   ApiTable,
   ...componentsDemo
 };
