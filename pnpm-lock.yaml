@@ -126,6 +126,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/tsconfig
 
+  packages/tailwind-config: {}
+
   packages/tsconfig: {}
 
   packages/vintex:
