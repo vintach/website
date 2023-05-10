@@ -100,6 +100,7 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
     'no-unused-vars': 'off',
     'no-await-in-loop': 'off',
     'class-methods-use-this': 'off',
@@ -145,7 +146,7 @@ module.exports = {
      * -----------------------------------------------------
      */
     {
-      files: ['./apps/**/pages/*', './apps/**/app/*'],
+      files: ['./apps/**/pages/**', './apps/**/app/*'],
       rules: {
         'import/no-default-export': 'off'
       }
