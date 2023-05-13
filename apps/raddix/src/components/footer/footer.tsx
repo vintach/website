@@ -27,12 +27,12 @@ export const Footer = () => {
           <ul>
             <li>
               <Link href={'/docs/get-started/add-to-project'}>
-                Add a your project
+                Add to your project
               </Link>
             </li>
             <li>
               <Link href={'/docs/get-started/create-component'}>
-                Creating a component
+                Create a component
               </Link>
             </li>
           </ul>
@@ -54,14 +54,14 @@ export const Footer = () => {
         </div>
 
         <div>
-          <h3>Comnity</h3>
+          <h3>Community</h3>
           <ul>
             <li>
               <Link href={'https://github.com/vintach/raddix'}>Github</Link>
             </li>
             <li>
               <Link href={'https://github.com/vintach/raddix/issues'}>
-                Issuses
+                Issues
               </Link>
             </li>
           </ul>
