@@ -6,17 +6,17 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    spacing: {
-      m1: '.5625rem',
-      m2: '1.0625rem',
-      m3: '1.6875rem',
-      m4: '2.1875rem',
-      m5: '2.8125rem',
-      m6: '3.3125rem',
-      m7: '3.9375rem',
-      m8: '4.5rem'
-    },
     extend: {
+      spacing: {
+        m1: '.5625rem',
+        m2: '1.0625rem',
+        m3: '1.6875rem',
+        m4: '2.1875rem',
+        m5: '2.8125rem',
+        m6: '3.3125rem',
+        m7: '3.9375rem',
+        m8: '4.5rem'
+      },
       colors: {
         brand: {
           primary: '#312ff5',
