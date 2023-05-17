@@ -7,94 +7,46 @@ module.exports = {
   ],
   theme: {
     screen: {
-      tablet: '40rem', //640px
-      laptop: '56.25rem', //900px
-      desktop: '73.75rem' //1180px
+      sm: '40rem', //640px
+      md: '56.25rem', //900px
+      lg: '73.75rem' //1180px
     },
     fontSize: {
       xs: [
         '.875rem', //14px
-        {
-          lineHeight: '1.5rem', //24px
-          fontWeight: '400'
-        }
+        '1.5rem' // 24px
       ],
       sm: [
         '1rem', //16px
-        {
-          lineHeight: '1.625rem', //26px
-          fontWeight: '400'
-        }
+        '1.625rem' //26px
       ],
       md: [
         '1.125rem', //18px
-        {
-          lineHeight: '1.875rem', //30px
-          fontWeight: '400'
-        }
+        '1.875rem' //30px
       ],
       lg: [
         '1.3125rem', //21px
-        {
-          lineHeight: '2rem', //32px
-          fontWeight: '400'
-        }
+        '2rem' //32px
       ],
       xl: [
         '1.5rem', //24px
-        {
-          lineHeight: '2.125rem', //34px
-          fontWeight: '400'
-        }
+        '2.125rem' //34px
       ],
-      'h1-desktop': [
-        '2.625rem', //42px
-        {
-          lineHeight: '3.25rem', //52px
-          fontWeight: '600'
-        }
-      ],
-      'h1-mobile': [
-        '2.1875rem', //35px
-        {
-          lineHeight: '2.5rem', //40px
-          fontWeight: '600'
-        }
-      ],
-      'h2-desktop': [
-        '2rem', //32px
-        {
-          lineHeight: '2.4375rem', //39px
-          fontWeight: '600'
-        }
-      ],
-      'h2-mobile': [
+      '2xl': [
         '1.625rem', //26px
-        {
-          lineHeight: '2rem', //32px
-          fontWeight: '600'
-        }
+        '2rem' //32px
       ],
-      'h3-desktop': [
-        '1.5rem', //24px
-        {
-          lineHeight: '2rem', //32px
-          fontWeight: '600'
-        }
+      '3xl': [
+        '2rem ', //32px
+        '2.4375rem' // 39px
       ],
-      'h3-mobile': [
-        '1.1875rem', //19px
-        {
-          lineHeight: '1.625rem', //26px
-          fontWeight: '600'
-        }
+      '4xl': [
+        '2.1875rem', //35px
+        '2.5rem' //40px
       ],
-      h4: [
-        '1.0625rem', //17px
-        {
-          lineHeight: '1.5rem', //24px
-          fontWeight: '500'
-        }
+      '5xl': [
+        '2.625rem', //42px
+        '3.25rem' //52px
       ]
     },
     fontFamily: {
