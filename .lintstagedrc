@@ -1,0 +1,3 @@
+{
+  "**/*.{ts,tsx,js,jsx}": ["pnpm format:write", "eslint"]
+}
