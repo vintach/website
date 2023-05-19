@@ -7,14 +7,16 @@
     "format:check": "prettier --check \"{apps,packages}/**/*.{ts,tsx,css}\" --cache",
     "format:write": "prettier --write \"{apps,packages}/**/*.{ts,tsx,css}\" --cache",
     "lint": "turbo run lint",
-    "clean": "turbo run clean && rm -rf node_modules"
+    "clean": "turbo run clean && rm -rf node_modules",
+    "prepare": "husky install"
   },
   "author": "Moises Rolando Machuca Valverde",
   "devDependencies": {
-    "prettier": "2.8.8",
-    "turbo": "1.9.3",
-    "typescript": "5.0.4",
+    "@types/eslint": "8.37.0",
+    "@typescript-eslint/eslint-plugin": "5.59.0",
+    "@typescript-eslint/parser": "5.59.0",
     "eslint": "8.39.0",
+    "eslint-config-next": "13.3.4",
     "eslint-config-prettier": "8.5.0",
     "eslint-config-standard": "17.0.0",
     "eslint-import-resolver-typescript": "3.5.5",
@@ -24,10 +26,11 @@
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-storybook": "0.6.11",
-    "@types/eslint": "8.37.0",
-    "@typescript-eslint/eslint-plugin": "5.59.0",
-    "@typescript-eslint/parser": "5.59.0",
-    "eslint-config-next": "13.3.4"
+    "husky": "8.0.3",
+    "lint-staged": "13.2.2",
+    "prettier": "2.8.8",
+    "turbo": "1.9.3",
+    "typescript": "5.0.4"
   },
   "engines": {
     "node": ">=18",
