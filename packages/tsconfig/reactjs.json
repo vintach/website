@@ -3,7 +3,7 @@
   "display": "React.js",
   "extends": "./base.json",
   "compilerOptions": {
-    "lib": ["dom", "es2016"],
+    "lib": ["dom", "esnext"],
     "jsx": "react-jsx",
     "moduleResolution": "node",
     "declaration": true,
