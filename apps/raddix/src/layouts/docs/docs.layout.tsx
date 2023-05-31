@@ -1,11 +1,12 @@
 import type { ReactNode } from 'react';
-import styles from './docs.module.scss';
-import { Sidebar } from '@/components/sidebar';
 import type { SidebarList } from '@/types/sidebar';
-import { PageNav } from '@/components/pagenav';
-import { useIsMobile } from '@/hooks/useIsMobile';
 import Head from 'next/head';
+import { PageNav } from 'vintex';
+import { useRouter } from 'next/router';
+import { Sidebar } from '@/components/sidebar';
+import { useIsMobile } from '@/hooks/useIsMobile';
 import { Pagination } from '@/components/pagination';
+import styles from './docs.module.scss';
 
 interface DocsProps {
   children: ReactNode;
@@ -16,9 +17,9 @@ interface DocsProps {
 }
 
 export const DocsLayout = ({ children, sidebar, meta }: DocsProps) => {
+  const { asPath, locale } = useRouter();
   const showNavPage = useIsMobile('1180px');
   const showAside = useIsMobile('880px');
-
   return (
     <>
       <Head>
@@ -31,7 +32,7 @@ export const DocsLayout = ({ children, sidebar, meta }: DocsProps) => {
           <article>{children}</article>
           <Pagination sidebar={sidebar} />
         </div>
-        {!showNavPage && <PageNav></PageNav>}
+        {!showNavPage && <PageNav path={asPath} locale={locale!} />}
       </main>
     </>
   );
