@@ -8,7 +8,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "tsconfig": "workspace:*",
-    "tailwind-config": "workspace:*"
+    "tsconfig": "workspace:*"
   }
 }
