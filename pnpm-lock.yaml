@@ -147,6 +147,15 @@ importers:
         specifier: workspace:*
         version: link:../../packages/tsconfig
 
+  packages/colors:
+    devDependencies:
+      tailwind-config:
+        specifier: workspace:*
+        version: link:../tailwind-config
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+
   packages/tailwind-config: {}
 
   packages/tsconfig: {}
