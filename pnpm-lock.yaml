@@ -149,14 +149,15 @@ importers:
 
   packages/colors:
     devDependencies:
-      tailwind-config:
-        specifier: workspace:*
-        version: link:../tailwind-config
       tsconfig:
         specifier: workspace:*
         version: link:../tsconfig
 
-  packages/tailwind-config: {}
+  packages/tailwind-config:
+    devDependencies:
+      '@vintach/colors':
+        specifier: workspace:*
+        version: link:../colors
 
   packages/tsconfig: {}
 
