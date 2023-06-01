@@ -9,7 +9,7 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    screen: {
+    screens: {
       sm: '40rem', //640px
       md: '56.25rem', //900px
       lg: '73.75rem' //1180px
@@ -30,6 +30,10 @@ module.exports = {
       inter: ['Inter', 'sans-serif']
     },
     extend: {
+      gridTemplateColumns: {
+        ax1xa: 'auto 1fr auto',
+        ax1: 'auto 1fr'
+      },
       spacing: {
         xs: '.5625rem', //9px
         sm: '1.0625rem', //17px

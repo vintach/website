@@ -15,7 +15,7 @@ export const SidebarMenu = ({ menu, currentRoute }: SideBarMenuProps) => {
     <nav className='px-[4.5px]'>
       {menu.map(({ title, items }, i) => (
         <li key={`${title}-${i}`} className='pb-md'>
-          <h5 className='pb-xs text-sm font-medium'>{title}</h5>
+          <h5 className='pb-sm text-sm font-medium'>{title}</h5>
 
           <ol>
             {items.map((item, ii) => {
