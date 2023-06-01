@@ -5,7 +5,6 @@ import { PageNav, Sidebar, SidebarMenu } from 'vintex';
 import { useRouter } from 'next/router';
 import { useIsMobile } from '@/hooks/useIsMobile';
 import { Pagination } from '@/components/pagination';
-import styles from './docs.module.scss';
 import { useCurrentSlug } from '@/hooks/useCurrentSlug';
 
 interface DocsProps {
@@ -19,7 +18,7 @@ interface DocsProps {
 export const DocsLayout = ({ children, sidebar, meta }: DocsProps) => {
   const { asPath, locale } = useRouter();
   const showNavPage = useIsMobile('1180px');
-  const showAside = useIsMobile('880px');
+  const showAside = useIsMobile('900px');
   const currentSlug = useCurrentSlug();
 
   return (
@@ -28,16 +27,16 @@ export const DocsLayout = ({ children, sidebar, meta }: DocsProps) => {
         <title>{meta.title}</title>
       </Head>
 
-      <main className={styles.main}>
+      <main className='mx-auto max-w-std px-sm py-xl md:grid md:grid-cols-ax1  lg:grid-cols-ax1xa'>
         {!showAside && (
           <Sidebar>
             <SidebarMenu menu={sidebar} currentRoute={currentSlug} />
           </Sidebar>
         )}
-        <div className={styles.content}>
-          <article>{children}</article>
+        <article>
+          <section>{children}</section>
           <Pagination sidebar={sidebar} />
-        </div>
+        </article>
         {!showNavPage && <PageNav path={asPath} locale={locale!} />}
       </main>
     </>
