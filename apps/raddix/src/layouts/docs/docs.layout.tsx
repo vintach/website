@@ -1,12 +1,12 @@
 import type { ReactNode } from 'react';
 import type { SidebarList } from '@/types/sidebar';
 import Head from 'next/head';
-import { PageNav } from 'vintex';
+import { PageNav, Sidebar, SidebarMenu } from 'vintex';
 import { useRouter } from 'next/router';
-import { Sidebar } from '@/components/sidebar';
 import { useIsMobile } from '@/hooks/useIsMobile';
 import { Pagination } from '@/components/pagination';
 import styles from './docs.module.scss';
+import { useCurrentSlug } from '@/hooks/useCurrentSlug';
 
 interface DocsProps {
   children: ReactNode;
@@ -20,6 +20,8 @@ export const DocsLayout = ({ children, sidebar, meta }: DocsProps) => {
   const { asPath, locale } = useRouter();
   const showNavPage = useIsMobile('1180px');
   const showAside = useIsMobile('880px');
+  const currentSlug = useCurrentSlug();
+
   return (
     <>
       <Head>
@@ -27,7 +29,11 @@ export const DocsLayout = ({ children, sidebar, meta }: DocsProps) => {
       </Head>
 
       <main className={styles.main}>
-        {!showAside && <Sidebar list={sidebar} />}
+        {!showAside && (
+          <Sidebar>
+            <SidebarMenu menu={sidebar} currentRoute={currentSlug} />
+          </Sidebar>
+        )}
         <div className={styles.content}>
           <article>{children}</article>
           <Pagination sidebar={sidebar} />
