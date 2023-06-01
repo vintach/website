@@ -16,6 +16,7 @@
     "@types/react-dom": "18.0.10",
     "react": "18.2.0",
     "tsconfig": "workspace:*",
-    "tailwind-config": "workspace:*"
+    "tailwind-config": "workspace:*",
+    "next": "13.1.5"
   }
 }
