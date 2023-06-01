@@ -30,6 +30,10 @@ module.exports = {
       inter: ['Inter', 'sans-serif']
     },
     extend: {
+      gridTemplateColumns: {
+        ax1xa: 'auto 1fr auto',
+        ax1: 'auto 1fr'
+      },
       spacing: {
         xs: '.5625rem', //9px
         sm: '1.0625rem', //17px
