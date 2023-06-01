@@ -22,7 +22,10 @@ const Tree = ({ navData }: TreeProps) => {
     <ul className={`${childStyle}`}>
       {navData.map(item => {
         return (
-          <li key={`${item.name}-${item.depth}`} className='py-xs opacity-75'>
+          <li
+            key={`${item.name}-${item.depth}`}
+            className='py-xs text-gray-30 hover:text-gray-20'
+          >
             <a href={`#${item.id}`}>{item.name}</a>
             {item.children && <Tree navData={item.children} />}
           </li>
@@ -77,10 +80,7 @@ export const PageNav = ({ locale, path }: PageNavProps) => {
   const pageNavTitle = locale === 'en' ? 'On this page' : 'En esta página';
 
   return (
-    <nav
-      className='fixed right-[max(0px,calc(50%_-_37.5rem))] w-60 pl-4'
-      style={{ gridArea: 'navbar' }}
-    >
+    <nav className='sticky top-[125px] w-64 self-start pl-md'>
       <h5 className='mb-sm text-sm font-medium'>{pageNavTitle}</h5>
       <Tree navData={headings} />
     </nav>
