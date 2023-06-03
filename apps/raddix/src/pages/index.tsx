@@ -1,10 +1,10 @@
+import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import type { HomeData } from '@/types/home-data';
 import { Hero } from '@/components/hero';
 import { HomeLayout } from '@/layouts/home';
+import { getMdxData } from '@/lib/mdx';
 // import { Styling } from '@/components/styling';
 // import { Accessible } from '@/components/home/accessible';
-import type { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { getMdxData } from '@/lib/mdx';
-import type { HomeData } from '@/types/home-data';
 
 const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
