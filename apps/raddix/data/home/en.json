@@ -1,7 +1,7 @@
 {
   "hero": {
-    "title": "A collection of React hooks for your",
-    "description": "Accessible, adaptable and high quality.",
+    "title": "The React hook Library",
+    "description": "Raddix is a collection of hooks and utilities for React",
     "button": "Get Started"
   },
   "accessible": {
