@@ -16,7 +16,7 @@ export const Button = ({ text, type, to = '/' }: ButtonProps) => {
   return (
     <Link
       href={to}
-      className={`cursor-pointer rounded-3xl px-7 py-2.5 text-sm duration-100 ${colorStyles[type]}`}
+      className={`cursor-pointer rounded-3xl px-7 py-2.5 text-sm transition-colors duration-100 ${colorStyles[type]}`}
     >
       {text}
     </Link>
