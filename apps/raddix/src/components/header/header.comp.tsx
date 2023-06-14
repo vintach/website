@@ -40,7 +40,7 @@ export const Header = () => {
 
         {!isMobile && (
           <>
-            <Message text='This site is under costruction' />
+            <Message text='This site is under construction' />
             <Menu />
             <Language />
           </>

@@ -1,9 +1,7 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import styles from './language.module.scss';
-import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import classNames from 'classnames';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export const Language = () => {
   const { locales, pathname, query } = useRouter();
@@ -12,19 +10,23 @@ export const Language = () => {
   const refBtn = useRef<HTMLButtonElement>(null);
   const refMenu = useRef<HTMLDivElement>(null);
 
+  const activeMenuStyle = isActive
+    ? 'opacity-1 visible'
+    : 'invisible opacity-0';
+
   const handleClickOutside = (e: MouseEvent | TouchEvent) => {
     const button = refBtn.current;
     const menu = refMenu.current;
+    const target = e.target as Node;
 
-    if (
-      !button ||
-      button.contains(e.target as Node) ||
-      !menu ||
-      menu.contains(e.target as Node)
-    ) {
+    if (button?.contains(target) || menu?.contains(target)) {
       return;
     }
     setIsActive(false);
+  };
+
+  const toggleMenu = () => {
+    setIsActive(!isActive);
   };
 
   useEffect(() => {
@@ -35,11 +37,15 @@ export const Language = () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('touchstart', handleClickOutside);
     };
-  }, [refMenu, setIsActive]);
+  }, []);
 
   return (
-    <div className={styles.language}>
-      <button ref={refBtn} onClick={() => setIsActive(!isActive)}>
+    <div className='relative w-full sm:w-auto'>
+      <button
+        ref={refBtn}
+        onClick={toggleMenu}
+        className='flex w-full cursor-pointer items-center justify-between border-0 bg-[transparent] py-sm sm:w-auto sm:justify-normal sm:px-sm sm:py-xs'
+      >
         <Image
           src={'/icons/language.svg'}
           alt='language'
@@ -55,20 +61,20 @@ export const Language = () => {
       </button>
       <div
         ref={refMenu}
-        className={classNames(styles.menu, { [styles.menuActive]: isActive })}
+        className={`absolute left-0 top-16 w-full min-w-max transition-opacity duration-150 ease-in sm:left-auto sm:right-0 ${activeMenuStyle}`}
       >
-        <ul>
+        <ul className='w-full space-y-1 border border-solid border-gray-50/30 bg-black sm:p-xs'>
           {locales?.map(localName => {
             return (
-              <li key={localName}>
+              <li key={localName} className='rounded-md sm:hover:bg-gray-90'>
                 <Link
                   href={{
                     pathname,
                     query
                   }}
-                  passHref
                   locale={localName}
-                  onClick={() => setIsActive(false)}
+                  onClick={toggleMenu}
+                  className='block px-sm text-sm leading-10 sm:px-md sm:leading-8'
                 >
                   {localName === 'en' ? 'English' : 'Español'}
                 </Link>
