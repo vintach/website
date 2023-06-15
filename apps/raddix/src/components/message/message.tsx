@@ -1,13 +1,10 @@
-import styles from './message.module.scss';
-
 interface MessageProps {
   text: string;
-  status?: 'warning';
 }
 
 export const Message = ({ text }: MessageProps) => {
   return (
-    <div className={styles.container}>
+    <div className='mr-md flex items-center gap-1 rounded-md bg-white/5 p-xs text-sm'>
       <span>🛠️</span>
       <p>{text}</p>
     </div>
