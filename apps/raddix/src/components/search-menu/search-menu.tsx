@@ -106,8 +106,8 @@ export const SearchMenu = ({ toggle }: SearchMenuProps) => {
         className='fixed inset-0 h-screen w-screen bg-black/50'
         onClick={leaveModal}
       >
-        <div className='absolute inset-0 m-auto h-[80vw] max-h-[468px] w-5/6 max-w-lg rounded-xl border border-solid border-gray-100 bg-gray-120'>
-          <div className='relative h-16 border-b border-solid border-gray-100 text-gray-30'>
+        <div className='absolute inset-0 m-auto flex h-[80vw] max-h-[468px] w-5/6 max-w-lg flex-col rounded-xl border border-solid border-gray-100 bg-gray-120'>
+          <div className='relative h-16 shrink-0 border-b border-solid border-gray-100 text-gray-30'>
             <input
               className='h-full w-full bg-black/0 px-4 py-2'
               ref={inputRef}
@@ -120,7 +120,7 @@ export const SearchMenu = ({ toggle }: SearchMenuProps) => {
               Esc
             </span>
           </div>
-          <ul>
+          <ul className='overflow-y-auto'>
             {autocompleteState.isOpen && (
               <div ref={panelRef} {...panelProps}>
                 {autocompleteState.collections.map((collection, index) => {
@@ -152,11 +152,13 @@ export const SearchMenu = ({ toggle }: SearchMenuProps) => {
 
 function AutocompleteItem({ title, route }: AutocompleteItemProps) {
   return (
-    <Link
-      href={route.path}
-      className='block cursor-pointer border-b border-solid border-gray-30 border-opacity-25 p-5 text-gray-10 transition-colors duration-100 hover:bg-gray-110'
-    >
-      <li>{title}</li>
-    </Link>
+    <li>
+      <Link
+        href={route.path}
+        className='block cursor-pointer border-b border-solid border-gray-30 border-opacity-25 p-5 text-gray-10 transition-colors duration-100 hover:bg-gray-110'
+      >
+        {title}
+      </Link>
+    </li>
   );
 }
