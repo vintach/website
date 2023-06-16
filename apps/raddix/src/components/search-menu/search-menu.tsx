@@ -1,4 +1,6 @@
-import type { MouseEventHandler } from 'react';
+import type { BaseSyntheticEvent, KeyboardEvent, MouseEvent } from 'react';
+import type { AutocompleteState as InternalAutocompleteState } from '@algolia/autocomplete-core';
+import type { Hit } from '@algolia/client-search';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useRouter } from 'next/router';
@@ -11,30 +13,44 @@ interface SearchMenuProps {
   toggle: () => void;
 }
 
-interface AutocompleteItemProps {
+type AutocompleteItemProps = Hit<{
   title: string;
   route: {
     path: string;
     locale: string;
   };
-}
+}>;
+
+type AutocompleteState = InternalAutocompleteState<AutocompleteItemProps>;
 
 export const SearchMenu = ({ toggle }: SearchMenuProps) => {
   const modal = useRef<HTMLElement | null>(null);
   const [mounted, setMounted] = useState<boolean>(false);
   const { locale } = useRouter();
 
-  const [autocompleteState, setAutocompleteState] = useState({
-    collections: [],
-    isOpen: false
-  });
+  const [autocompleteState, setAutocompleteState] = useState<AutocompleteState>(
+    {
+      collections: [],
+      isOpen: false,
+      activeItemId: null,
+      completion: null,
+      context: {},
+      query: '',
+      status: 'idle'
+    }
+  );
 
   const searchSources =
     locale === 'en' ? SEARCH_DATA_EN.list : SEARCH_DATA_ES.list;
 
   const autocomplete = useMemo(
     () =>
-      createAutocomplete({
+      createAutocomplete<
+        AutocompleteItemProps,
+        BaseSyntheticEvent,
+        MouseEvent,
+        KeyboardEvent
+      >({
         placeholder: 'Search',
         onStateChange: ({ state }) => setAutocompleteState(state),
         getSources: () => [
@@ -49,6 +65,7 @@ export const SearchMenu = ({ toggle }: SearchMenuProps) => {
                   return loweredTitle.includes(loweredQuery.toLowerCase());
                 });
               }
+              return [];
             }
           }
         ]
@@ -70,7 +87,7 @@ export const SearchMenu = ({ toggle }: SearchMenuProps) => {
 
   const panelProps = autocomplete.getPanelProps();
 
-  const leaveModal: MouseEventHandler<HTMLFormElement> = event => {
+  const leaveModal = (event: MouseEvent<HTMLFormElement>) => {
     if (event.target === modal.current?.firstChild) {
       toggle();
     }
@@ -92,7 +109,6 @@ export const SearchMenu = ({ toggle }: SearchMenuProps) => {
         <div className='absolute inset-0 m-auto h-[80vw] max-h-[468px] w-5/6 max-w-lg rounded-xl border border-solid border-gray-100 bg-gray-120'>
           <div className='relative h-16 border-b border-solid border-gray-100 text-gray-30'>
             <input
-              type='text'
               className='h-full w-full bg-black/0 px-4 py-2'
               ref={inputRef}
               {...inputProps}

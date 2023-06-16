@@ -10,7 +10,8 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf .next"
   },
   "dependencies": {
-    "@algolia/autocomplete-core": "1.9.3",
+    "@algolia/autocomplete-core": "1.7.4",
+    "@algolia/client-search": "4.17.2",
     "@next/font": "13.1.5",
     "@raddix/switch": "1.0.0",
     "@raddix/use-keyboard": "1.0.0",
