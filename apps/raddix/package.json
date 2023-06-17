@@ -37,8 +37,8 @@
     "autoprefixer": "10.4.14",
     "postcss": "8.4.23",
     "sass": "1.57.1",
-    "tailwind-config": "workspace:*",
     "tailwindcss": "3.3.2",
-    "tsconfig": "workspace:*"
+    "@vintach/tsconfig": "workspace:*",
+    "@vintach/tailwind": "workspace:*"
   }
 }

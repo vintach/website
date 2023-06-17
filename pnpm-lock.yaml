@@ -138,6 +138,12 @@ importers:
       '@types/react-dom':
         specifier: 18.0.10
         version: 18.0.10
+      '@vintach/tailwind':
+        specifier: workspace:*
+        version: link:../../settings/tailwind
+      '@vintach/tsconfig':
+        specifier: workspace:*
+        version: link:../../settings/tsconfig
       autoprefixer:
         specifier: 10.4.14
         version: 10.4.14(postcss@8.4.23)
@@ -147,29 +153,15 @@ importers:
       sass:
         specifier: 1.57.1
         version: 1.57.1
-      tailwind-config:
-        specifier: workspace:*
-        version: link:../../packages/tailwind-config
       tailwindcss:
         specifier: 3.3.2
         version: 3.3.2
-      tsconfig:
-        specifier: workspace:*
-        version: link:../../packages/tsconfig
 
   packages/colors:
     devDependencies:
-      tsconfig:
+      '@vintach/tsconfig':
         specifier: workspace:*
-        version: link:../tsconfig
-
-  packages/tailwind-config:
-    devDependencies:
-      '@vintach/colors':
-        specifier: workspace:*
-        version: link:../colors
-
-  packages/tsconfig: {}
+        version: link:../../settings/tsconfig
 
   packages/vintex:
     devDependencies:
@@ -179,18 +171,26 @@ importers:
       '@types/react-dom':
         specifier: 18.0.10
         version: 18.0.10
+      '@vintach/tailwind':
+        specifier: workspace:*
+        version: link:../../settings/tailwind
+      '@vintach/tsconfig':
+        specifier: workspace:*
+        version: link:../../settings/tsconfig
       next:
         specifier: 13.1.5
         version: 13.1.5(react-dom@18.2.0)(react@18.2.0)(sass@1.57.1)
       react:
         specifier: 18.2.0
         version: 18.2.0
-      tailwind-config:
+
+  settings/tailwind:
+    devDependencies:
+      '@vintach/colors':
         specifier: workspace:*
-        version: link:../tailwind-config
-      tsconfig:
-        specifier: workspace:*
-        version: link:../tsconfig
+        version: link:../../packages/colors
+
+  settings/tsconfig: {}
 
 packages:
 
