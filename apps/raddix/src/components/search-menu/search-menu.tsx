@@ -73,9 +73,9 @@ export const SearchMenu = ({ toggle }: SearchMenuProps) => {
     [searchSources]
   );
 
-  const formRef = useRef(null);
-  const inputRef = useRef(null);
-  const panelRef = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   const formProps = autocomplete.getFormProps({
     inputElement: inputRef.current
@@ -107,11 +107,12 @@ export const SearchMenu = ({ toggle }: SearchMenuProps) => {
         onClick={leaveModal}
       >
         <div className='absolute inset-0 m-auto flex h-[80vw] max-h-[468px] w-5/6 max-w-lg flex-col rounded-xl border border-solid border-gray-100 bg-gray-120'>
-          <div className='relative h-16 shrink-0 border-b border-solid border-gray-100 text-gray-30'>
+          <div className='relative h-16 shrink-0  border-b border-solid border-gray-100 text-gray-30'>
             <input
-              className='h-full w-full bg-black/0 px-4 py-2'
+              className='h-full w-full rounded-t-xl bg-black/0 px-4 py-2 focus:caret-white focus:outline focus:outline-gray-100'
               ref={inputRef}
               {...inputProps}
+              autoFocus
             />
             <span
               className='absolute bottom-0 right-4 top-0 my-auto h-min cursor-pointer'
