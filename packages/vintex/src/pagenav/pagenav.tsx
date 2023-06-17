@@ -22,11 +22,10 @@ const Tree = ({ navData }: TreeProps) => {
     <ul className={`${childStyle}`}>
       {navData.map(item => {
         return (
-          <li
-            key={`${item.name}-${item.depth}`}
-            className='py-xs text-gray-30 hover:text-gray-20'
-          >
-            <a href={`#${item.id}`}>{item.name}</a>
+          <li key={`${item.name}-${item.depth}`} className='py-xs'>
+            <a href={`#${item.id}`} className='text-gray-30 hover:text-gray-20'>
+              {item.name}
+            </a>
             {item.children && <Tree navData={item.children} />}
           </li>
         );
