@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useActiveNavItem } from '@raddix/use-active-nav-item';
 
 interface PageNavProps {
   locale: string;
@@ -14,19 +15,29 @@ interface IdentItem {
 
 interface TreeProps {
   navData: IdentItem[];
+  activeItem: string;
 }
 
-const Tree = ({ navData }: TreeProps) => {
+const Tree = ({ navData, activeItem }: TreeProps) => {
   const childStyle = navData.at(0)?.depth ? 'pl-sm pt-xs' : '';
   return (
     <ul className={`${childStyle}`}>
       {navData.map(item => {
         return (
           <li key={`${item.name}-${item.depth}`} className='py-xs'>
-            <a href={`#${item.id}`} className='text-gray-30 hover:text-gray-20'>
+            <a
+              href={`#${item.id}`}
+              className={
+                activeItem === item.id
+                  ? 'text-purple-50'
+                  : 'text-gray-30 hover:text-gray-20'
+              }
+            >
               {item.name}
             </a>
-            {item.children && <Tree navData={item.children} />}
+            {item.children && (
+              <Tree navData={item.children} activeItem={activeItem} />
+            )}
           </li>
         );
       })}
@@ -36,6 +47,7 @@ const Tree = ({ navData }: TreeProps) => {
 
 export const PageNav = ({ locale, path }: PageNavProps) => {
   const [headings, setHeadings] = useState<IdentItem[]>([]);
+  const [headingIds, setHeadingIds] = useState<string[]>([]);
 
   useEffect(() => {
     const titleElements: HTMLHeadingElement[] = Array.from(
@@ -43,10 +55,12 @@ export const PageNav = ({ locale, path }: PageNavProps) => {
     );
 
     const newHeadings: IdentItem[] = [];
+    const itemIds: string[] = [];
 
     titleElements.forEach(({ id, nodeName, innerText }) => {
       const headingNumber = parseInt(nodeName.at(1)!);
       const depth = headingNumber - 2;
+      itemIds.push(id);
 
       const newHeading: IdentItem = {
         id,
@@ -74,14 +88,18 @@ export const PageNav = ({ locale, path }: PageNavProps) => {
     });
 
     setHeadings(newHeadings);
+    setHeadingIds(itemIds);
   }, [path, locale]);
 
   const pageNavTitle = locale === 'en' ? 'On this page' : 'En esta página';
+  const activeHeading = useActiveNavItem(headingIds, {
+    rootMargin: '0% 0% -90% 0%'
+  });
 
   return (
     <nav className='sticky top-[125px] w-64 self-start pl-md'>
       <h5 className='mb-sm text-sm font-medium'>{pageNavTitle}</h5>
-      <Tree navData={headings} />
+      <Tree navData={headings} activeItem={activeHeading} />
     </nav>
   );
 };
