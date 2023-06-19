@@ -18,5 +18,8 @@
     "@vintach/tsconfig": "workspace:*",
     "@vintach/tailwind": "workspace:*",
     "next": "13.1.5"
+  },
+  "peerDependencies": {
+    "@raddix/use-active-nav-item": "0.1.0"
   }
 }
