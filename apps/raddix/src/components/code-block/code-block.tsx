@@ -1,14 +1,12 @@
-import { getFileExtension } from '@/utils/global';
 import React, { useState } from 'react';
-import styles from './code-block.module.scss';
-import classNames from 'classnames';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import type { Language } from 'prism-react-renderer';
 import { JetBrains_Mono } from '@next/font/google';
 const inter = JetBrains_Mono({ subsets: ['latin'] });
-import { blameTheme } from './theme';
 import { useScroll } from '@/hooks/useScroll';
 import { useIsomorphicEffect } from '@/hooks/useIsomorphicEffect';
+import { getFileExtension } from '@/utils/global';
+import { blameTheme } from './theme';
 
 interface CodeBlockProps {
   tabs: Record<string, string>;
@@ -40,19 +38,21 @@ export const CodeBlock = ({
   }, [tabs]);
 
   return (
-    <div className={styles.root}>
-      <div className={styles.windowTabs}>
-        <span></span>
-        <span></span>
-        <span></span>
+    <div className='flex w-full flex-col rounded-xl border border-solid border-white/5 bg-gray-120/80 backdrop-blur backdrop-saturate-100'>
+      <div className='flex justify-start gap-1.5 px-sm py-4'>
+        <span className='h-3 w-3 rounded-full bg-[#f31260]'></span>
+        <span className='h-3 w-3 rounded-full bg-[#f5a524]'></span>
+        <span className='h-3 w-3 rounded-full bg-[#17c964]'></span>
       </div>
       {showTabs && (
-        <div className={styles.editorTabs}>
+        <div className='flex border-b border-solid border-white/5'>
           {Object.keys(tabs).map((tab, index) => (
             <button
-              className={classNames({
-                [styles.isTabActive]: activeTab === index
-              })}
+              className={`cursor-pointer select-none border-0 bg-[transparent] px-sm py-xs text-sm text-purple-10 ${
+                activeTab === index
+                  ? 'text-purple-60 shadow-[0_1px_0] shadow-purple-60'
+                  : ''
+              }`}
               key={`${tab}${index}`}
               onClick={() => setActiveTab(index)}
             >
@@ -69,11 +69,7 @@ export const CodeBlock = ({
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre
-            className={classNames(
-              className,
-              inter.className,
-              styles.editorWindows
-            )}
+            className={`${className} ${inter.className} relative box-content flex w-full overflow-hidden py-xs text-xs leading-5`}
             style={{
               ...style,
               height
@@ -81,9 +77,9 @@ export const CodeBlock = ({
             translate='no'
           >
             {showLines && (
-              <div className={styles.lineWrapper}>
+              <div className='relative w-12 overflow-hidden'>
                 <div
-                  className={styles.lines}
+                  className='absolute top-0 min-h-full w-12 select-none pr-xs text-right text-[#475569]'
                   aria-hidden='true'
                   style={{ top: -codeWindow.scrollTop }}
                 >
@@ -100,8 +96,11 @@ export const CodeBlock = ({
                 </div>
               </div>
             )}
-            <div className={styles.codeWrapper} ref={refCodeWindow}>
-              <div className={styles.code}>
+            <div
+              className='h-[inherit] w-[calc(100%_-_52px)] overflow-auto scrollbar-thin scrollbar-track-[transparent] scrollbar-thumb-gray-40/50 scrollbar-thumb-rounded-lg'
+              ref={refCodeWindow}
+            >
+              <div className='w-fit min-w-full overflow-hidden px-sm pb-sm'>
                 {tokens.map((line, i) => (
                   <div {...getLineProps({ line })} translate='no' key={i}>
                     {line.map((token, key) => {
@@ -127,7 +126,7 @@ export const CodeBlock = ({
                               onClick={() =>
                                 setActiveTab(Object.keys(tabs).indexOf(tab))
                               }
-                              className={styles.tokenButton}
+                              className='font-[inherit]border-0 bg-[transparent] p-0 text-[inherit] hover:cursor-pointer hover:underline'
                             >
                               {myToken.children}
                             </button>

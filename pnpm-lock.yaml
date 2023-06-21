@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -179,6 +183,9 @@ importers:
       '@vintach/colors':
         specifier: workspace:*
         version: link:../../packages/colors
+      tailwind-scrollbar:
+        specifier: 3.0.4
+        version: 3.0.4(tailwindcss@3.3.2)
 
   settings/tsconfig: {}
 
@@ -4162,6 +4169,15 @@ packages:
     dependencies:
       '@pkgr/utils': 2.4.0
       tslib: 2.5.0
+    dev: true
+
+  /tailwind-scrollbar@3.0.4(tailwindcss@3.3.2):
+    resolution: {integrity: sha512-X/QBsn/C5u9x6/YvTc1Zo7b09Gqs5BfDe0UK/8LDQUv8IEBKF+p2ISTRwvAr50MH0hn/wTyCEOann7uXoa1/2Q==}
+    engines: {node: '>=12.13.0'}
+    peerDependencies:
+      tailwindcss: 3.x
+    dependencies:
+      tailwindcss: 3.3.2
     dev: true
 
   /tailwindcss@3.3.2:
