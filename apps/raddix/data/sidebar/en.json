@@ -98,6 +98,13 @@
             "path": "/docs/utilities/use-toggle",
             "locale": "en"
           }
+        },
+        {
+          "title": "useScrollSpy",
+          "route": {
+            "path": "/docs/utilities/use-scroll-spy",
+            "locale": "en"
+          }
         }
       ]
     }
