@@ -83,9 +83,6 @@ importers:
       '@raddix/switch':
         specifier: 1.0.0
         version: 1.0.0(react-dom@18.2.0)(react@18.2.0)
-      '@raddix/use-active-nav-item':
-        specifier: 0.1.0
-        version: 0.1.0(react-dom@18.2.0)(react@18.2.0)
       '@raddix/use-keyboard':
         specifier: 1.0.0
         version: 1.0.0(react-dom@18.2.0)(react@18.2.0)
@@ -168,7 +165,7 @@ importers:
 
   packages/vintex:
     dependencies:
-      '@raddix/use-active-nav-item':
+      '@raddix/use-scroll-spy':
         specifier: 0.1.0
         version: 0.1.0(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
@@ -545,8 +542,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@raddix/use-active-nav-item@0.1.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-WWJk9VWS5K6FmYzgMvfQHszkWmIFg5lf/Ai41QKFzJ7orGaTtAC4Y8qZ1d8uFzIiVGq//S6ZL93HXbV3a+JNJg==}
+  /@raddix/use-keyboard@1.0.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-o6PJP8B6ZGD6hvWPimWPPtpoBo0TAhWCnitvGI23MbMOIY/9DX9D/neFoh2PQkl+IATcnm4ioVrAeTNe8fJSqQ==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -555,8 +552,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@raddix/use-keyboard@1.0.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-o6PJP8B6ZGD6hvWPimWPPtpoBo0TAhWCnitvGI23MbMOIY/9DX9D/neFoh2PQkl+IATcnm4ioVrAeTNe8fJSqQ==}
+  /@raddix/use-scroll-spy@0.1.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-vMy5Lo7YHxB9qocfi1JnsKPYcoGZdZiRVRy+K6rarYsc6SP6feXr4lv+2LRfQhY7ldDbdwfO7bwMGu4RcgZxzA==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
