@@ -14,7 +14,6 @@
     "@algolia/client-search": "4.17.2",
     "@next/font": "13.1.5",
     "@raddix/switch": "1.0.0",
-    "@raddix/use-active-nav-item": "0.1.0",
     "@raddix/use-keyboard": "1.0.0",
     "@raddix/use-toggle": "1.0.0",
     "@vercel/analytics": "0.1.11",

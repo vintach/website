@@ -11,6 +11,9 @@
     "lint": "eslint \"**/*.ts*\""
   },
   "license": "MIT",
+  "dependencies": {
+    "@raddix/use-scroll-spy": "0.1.0"
+  },
   "devDependencies": {
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
@@ -18,8 +21,5 @@
     "@vintach/tsconfig": "workspace:*",
     "@vintach/tailwind": "workspace:*",
     "next": "13.1.5"
-  },
-  "peerDependencies": {
-    "@raddix/use-active-nav-item": "0.1.0"
   }
 }
