@@ -3,10 +3,8 @@ import { AntiSubtitle } from '../home/anti-subtitle';
 import { BoxSection, BoxContent } from '../home/box';
 import { Description } from '../home/description';
 import { SubTitle } from '../home/subtitle';
-import styles from './styling.module.scss';
 import { useState } from 'react';
 import { Tabs } from '../home/tabs';
-import classNames from 'classnames';
 import type { StylingProps } from '@/types/home-data';
 
 const codeTabs = {
@@ -267,17 +265,17 @@ const BoxMain = () => {
   const [styling, setStyling] = useState<TabStyling>('Css');
 
   return (
-    <div className={styles.main}>
-      <Tabs className={styles.tabs}>
+    <div className='mx-auto w-full max-w-5xl'>
+      <Tabs className='mb-xl flex justify-center md:gap-sm'>
         {Object.values(stylingTabs).map((item, index) => {
           const tabName = Object.keys(stylingTabs)[index];
+          const activeTabStyles =
+            tabName === styling ? 'bg-white/5 text-white' : '';
           return (
             <Tabs.Item
               key={item.name}
               onClick={() => setStyling(tabName as TabStyling)}
-              className={classNames(styles.li, {
-                [styles.isActive]: tabName === styling
-              })}
+              className={`cursor-pointer select-none rounded-md border-0 bg-[transparent] px-sm py-xs text-sm text-gray-20 ${activeTabStyles} md:px-md md:py-sm md:text-sm`}
             >
               {item.name}
             </Tabs.Item>
