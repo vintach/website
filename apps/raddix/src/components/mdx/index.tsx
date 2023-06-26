@@ -60,7 +60,7 @@ export const TextPre = (props: Children) => {
   return (
     <div className='group relative my-6 overflow-auto rounded-lg border border-solid border-white/10 bg-white/5 px-8 py-5 text-[1.05rem] scrollbar-thumb-gray-40 scrollbar-track-rounded-xl'>
       <button
-        className={`absolute right-8 top-4 cursor-pointer rounded-lg border-0 px-2 py-1 text-sm opacity-0 transition-all duration-200 ease-in group-hover:opacity-100 active:scale-95 ${copyButtonStyles}`}
+        className={`fixed right-8 top-4 cursor-pointer rounded-lg border-0 px-2 py-1 text-sm opacity-0 transition-all duration-200 ease-in group-hover:opacity-100 active:scale-95 ${copyButtonStyles}`}
         onClick={() => handleCopy(code)}
       >
         {isCopied ? '🎉 Copied!' : 'Copy'}
@@ -100,18 +100,14 @@ export const TextPre = (props: Children) => {
 
 export const MDXComponents = {
   h1: ({ children, ...props }: Children) => (
-    <Text
-      as='h1'
-      className='mb-md text-[clamp(38px,_45vw,_42px)] font-bold'
-      {...props}
-    >
+    <Text as='h1' className='mb-md text-4xl font-bold md:text-5xl' {...props}>
       {children}
     </Text>
   ),
   h2: ({ children, ...props }: Children) => (
     <Text
       as='h2'
-      className='mb-sm mt-3xl text-[clamp(28px,_32vw,_32px)] font-bold'
+      className='mb-sm mt-3xl text-2xl font-bold sm:text-3xl'
       isTitle
       {...props}
     >
@@ -121,7 +117,7 @@ export const MDXComponents = {
   h3: ({ children, ...props }: Children) => (
     <Text
       as='h3'
-      className='mb-sm mt-xl text-[clamp(19px,_32vw,_23px)] font-semibold'
+      className='mb-sm mt-xl text-xl font-semibold md:text-2xl'
       isTitle
       {...props}
     >
@@ -129,19 +125,14 @@ export const MDXComponents = {
     </Text>
   ),
   p: ({ children }: Children) => (
-    <Text
-      as='p'
-      className='text-[clamp(16px,_18vw,_18px)] leading-8 opacity-75'
-    >
+    <Text as='p' className='text-md leading-8 opacity-75'>
       {children}
     </Text>
   ),
   pre: TextPre,
   ul: ({ children }: Children) => <ul className='my-md pl-lg'>{children}</ul>,
   li: ({ children }: Children) => (
-    <li className='mb-xs list-disc text-[clamp(16px,_18vw,_18px)] opacity-75'>
-      {children}
-    </li>
+    <li className='mb-xs list-disc text-md opacity-75'>{children}</li>
   ),
   Card,
   CardGroup,

@@ -63,10 +63,10 @@ export const Language = () => {
         ref={refMenu}
         className={`absolute left-0 top-16 w-full min-w-max transition-opacity duration-150 ease-in sm:left-auto sm:right-0 ${activeMenuStyle}`}
       >
-        <ul className='w-full space-y-1 border border-solid border-gray-50/30 bg-black sm:p-xs'>
+        <ul className='w-full space-y-1 rounded-md border-solid border-gray-50/30 bg-black sm:border sm:p-xs'>
           {locales?.map(localName => {
             return (
-              <li key={localName} className='rounded-md sm:hover:bg-gray-90'>
+              <li key={localName} className='rounded-lg sm:hover:bg-gray-90'>
                 <Link
                   href={{
                     pathname,
