@@ -43,7 +43,7 @@ export const TextPre = (props: Children) => {
   const language = classNameRo.replace(/language-/, '');
   const copyButtonStyles = isCopied
     ? 'bg-blue-60 text-white'
-    : 'bg-white/60 text-gray-80';
+    : 'bg-white/70 text-gray-90';
   const handleCopy = (str: string) => {
     if (isCopied) {
       return;
@@ -58,42 +58,44 @@ export const TextPre = (props: Children) => {
   };
 
   return (
-    <div className='group relative my-6 overflow-auto rounded-lg border border-solid border-white/10 bg-white/5 px-8 py-5 text-[1.05rem] scrollbar-thumb-gray-40 scrollbar-track-rounded-xl'>
-      <button
-        className={`fixed right-8 top-4 cursor-pointer rounded-lg border-0 px-2 py-1 text-sm opacity-0 transition-all duration-200 ease-in group-hover:opacity-100 active:scale-95 ${copyButtonStyles}`}
-        onClick={() => handleCopy(code)}
-      >
-        {isCopied ? '🎉 Copied!' : 'Copy'}
-      </button>
-      <Highlight
-        {...defaultProps}
-        code={code}
-        language={language as Language}
-        theme={theme}
-      >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre
-            className={className}
-            style={{
-              ...style,
-              backgroundColor: 'transparent'
-            }}
-            translate='no'
-          >
-            {tokens.map((line, i) => (
-              <div {...getLineProps({ line })} key={i} translate='no'>
-                {line.map((token, key) => (
-                  <span
-                    {...getTokenProps({ token })}
-                    key={key}
-                    translate='no'
-                  />
-                ))}
-              </div>
-            ))}
-          </pre>
-        )}
-      </Highlight>
+    <div className='relative'>
+      <div className='group my-6 overflow-auto rounded-lg border border-solid border-white/10 bg-white/5 px-8 py-5 text-[1.05rem] scrollbar-thumb-gray-40 scrollbar-track-rounded-xl'>
+        <button
+          className={`absolute right-8 top-4 cursor-pointer rounded-lg border-0 px-2.5 py-0.5 text-sm opacity-0 transition-all duration-200 ease-in group-hover:opacity-100 active:scale-95 ${copyButtonStyles}`}
+          onClick={() => handleCopy(code)}
+        >
+          {isCopied ? '🎉 Copied!' : 'Copy'}
+        </button>
+        <Highlight
+          {...defaultProps}
+          code={code}
+          language={language as Language}
+          theme={theme}
+        >
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <pre
+              className={className}
+              style={{
+                ...style,
+                backgroundColor: 'transparent'
+              }}
+              translate='no'
+            >
+              {tokens.map((line, i) => (
+                <div {...getLineProps({ line })} key={i} translate='no'>
+                  {line.map((token, key) => (
+                    <span
+                      {...getTokenProps({ token })}
+                      key={key}
+                      translate='no'
+                    />
+                  ))}
+                </div>
+              ))}
+            </pre>
+          )}
+        </Highlight>
+      </div>
     </div>
   );
 };
