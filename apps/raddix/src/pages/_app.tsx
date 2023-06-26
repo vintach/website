@@ -1,5 +1,4 @@
 import { Inter } from '@next/font/google';
-import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { AppLayout } from '@/layouts/app';
 import { Analytics } from '@vercel/analytics/react';
