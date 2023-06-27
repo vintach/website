@@ -7,6 +7,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@vintach/colors": "workspace:*"
+    "@vintach/colors": "workspace:*",
+    "tailwind-scrollbar": "3.0.4"
   }
 }

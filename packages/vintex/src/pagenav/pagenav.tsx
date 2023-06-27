@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useActiveNavItem } from '@raddix/use-active-nav-item';
+import { useScrollSpy } from '@raddix/use-scroll-spy';
 
 interface PageNavProps {
   locale: string;
@@ -29,7 +29,7 @@ const Tree = ({ navData, activeItem }: TreeProps) => {
               href={`#${item.id}`}
               className={
                 activeItem === item.id
-                  ? 'text-purple-50'
+                  ? 'text-purple-40'
                   : 'text-gray-30 hover:text-gray-20'
               }
             >
@@ -92,7 +92,7 @@ export const PageNav = ({ locale, path }: PageNavProps) => {
   }, [path, locale]);
 
   const pageNavTitle = locale === 'en' ? 'On this page' : 'En esta página';
-  const activeHeading = useActiveNavItem(headingIds, {
+  const activeHeading = useScrollSpy(headingIds, {
     rootMargin: '0% 0% -90% 0%'
   });
 

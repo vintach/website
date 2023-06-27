@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 const { colors } = require('@vintach/colors');
+const scrollbarPlugin = require('tailwind-scrollbar');
 
 module.exports = {
   content: [
@@ -52,5 +53,5 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [scrollbarPlugin({ nocompatible: true })]
 };

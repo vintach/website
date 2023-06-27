@@ -1,9 +1,7 @@
-import Image from 'next/image';
-import styles from './menu-mobile.module.scss';
-import { Menu } from '../menu';
 import { useEffect } from 'react';
+import Image from 'next/image';
+import { Menu } from '../menu';
 import { Language } from '../language';
-import classNames from 'classnames';
 
 interface MenuAMobileProps {
   isActive: boolean;
@@ -11,6 +9,14 @@ interface MenuAMobileProps {
 }
 
 export const MenuMobile = ({ isActive, setIsActive }: MenuAMobileProps) => {
+  const activeMenuStyles = isActive
+    ? 'opacity-1 visible'
+    : 'opacity-0 invisible';
+
+  const toggleMenu = () => {
+    setIsActive(!isActive);
+  };
+
   useEffect(() => {
     if (isActive) {
       document.body.style.overflow = 'hidden';
@@ -24,8 +30,11 @@ export const MenuMobile = ({ isActive, setIsActive }: MenuAMobileProps) => {
   }, [isActive]);
 
   return (
-    <div className={styles.mobile}>
-      <button onClick={() => setIsActive(!isActive)}>
+    <div>
+      <button
+        className='cursor-pointer border-0 bg-[transparent] px-sm py-xs'
+        onClick={toggleMenu}
+      >
         <Image
           src={'/icons/right-menu.svg'}
           alt='menu'
@@ -33,12 +42,10 @@ export const MenuMobile = ({ isActive, setIsActive }: MenuAMobileProps) => {
           height={25}
         />
       </button>
-
       <div
-        className={classNames(styles.menu, { [styles.menuActive]: isActive })}
+        className={`absolute left-0 top-20 z-20 h-[calc(100vh-80px)] w-full bg-black px-3xl py-lg transition-all duration-200 ease-in ${activeMenuStyles}`}
       >
         <Menu />
-
         <Language />
       </div>
     </div>
