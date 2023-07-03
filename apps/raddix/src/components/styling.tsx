@@ -1,10 +1,10 @@
-import { CodeBlock } from '../code-block';
-import { AntiSubtitle } from '../home/anti-subtitle';
-import { BoxSection, BoxContent } from '../home/box';
-import { Description } from '../home/description';
-import { SubTitle } from '../home/subtitle';
+import { CodeBlock } from './code-block';
+import { AntiSubtitle } from './home/anti-subtitle';
+import { BoxSection, BoxContent } from './home/box';
+import { Description } from './home/description';
+import { SubTitle } from './home/subtitle';
 import { useState } from 'react';
-import { Tabs } from '../home/tabs';
+import { Tabs } from './home/tabs';
 import type { StylingProps } from '@/types/home-data';
 
 const codeTabs = {

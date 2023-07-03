@@ -4,8 +4,8 @@ import { useState } from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/dracula';
 import { componentsDemo } from '@/demo';
-import { Card, CardGroup } from '../card';
-import { ApiTable } from '../api-table/api-table';
+import { Card, CardGroup } from './card';
+import { ApiTable } from './api-table';
 
 export interface Children {
   children?: ReactNode;

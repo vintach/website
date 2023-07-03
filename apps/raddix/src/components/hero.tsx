@@ -1,6 +1,6 @@
 import type { HeroProps } from '@/types/home-data';
 import Image from 'next/image';
-import { Button } from '../button';
+import { Button } from './button';
 
 export const Hero = ({ title, description, button }: HeroProps) => {
   return (

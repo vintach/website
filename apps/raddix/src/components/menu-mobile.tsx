@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Image from 'next/image';
-import { Menu } from '../menu';
-import { Language } from '../language';
+import { Menu } from './menu';
+import { Language } from './language';
 
 interface MenuAMobileProps {
   isActive: boolean;
