@@ -4,13 +4,11 @@ import { Hero } from '@/components/hero';
 import { HomeLayout } from '@/layouts/home';
 import { getMdxData } from '@/lib/mdx';
 // import { Styling } from '@/components/styling';
-// import { Accessible } from '@/components/home/accessible';
 
 const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <HomeLayout>
       <Hero {...data.hero} />
-      {/* <Accessible {...data.accessible} /> */}
       {/* <Styling {...data.styling} /> */}
     </HomeLayout>
   );
