@@ -6,7 +6,7 @@ export interface AppProps {
   children?: React.ReactNode;
 }
 
-const AppLayout = ({ children }: AppProps) => {
+export const AppLayout = ({ children }: AppProps) => {
   return (
     <>
       <Head>
@@ -22,5 +22,3 @@ const AppLayout = ({ children }: AppProps) => {
     </>
   );
 };
-
-export default AppLayout;

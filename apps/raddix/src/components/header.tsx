@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu } from '../menu';
-import { Language } from '../language';
+import { Menu } from './menu';
+import { Language } from './language';
 import { useIsMobile } from '@/hooks/useIsMobile';
-import { MenuMobile } from '../menu-mobile';
-import { Message } from '../message';
+import { MenuMobile } from './menu-mobile';
+import { Message } from './message';
 
 export const Header = () => {
   const [scrollY, setScrollY] = useState<number>(0);
