@@ -150,6 +150,20 @@ module.exports = {
       rules: {
         'import/no-default-export': 'off'
       }
+    },
+    /**
+     * -----------------------------------------------------
+     * STORYBOOK
+     * -----------------------------------------------------
+     */
+    {
+      files: ['*.stories.ts', '*.stories.tsx'],
+      extends: ['plugin:storybook/recommended'],
+      rules: {
+        '@typescript-eslint/consistent-type-assertions': ['off'],
+        'import/no-default-export': ['off'],
+        '@typescript-eslint/explicit-module-boundary-types': 'off'
+      }
     }
   ]
 };
