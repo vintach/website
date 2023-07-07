@@ -1,11 +1,11 @@
 ---
 title: useScrollSpy
-description: Automatically update navigation based on scroll position.
+description: Actualice automáticamente la navegación en función de la posición del usuario.
 ---
 
 # useScrollSpy
 
-Es un custom hook usado para actualizar automáticamente la navegación en función de la posición de desplazamiento
+@raddix/useScrollSpy es un custom hook que actualiza la sección activa de la pagina basándose en la posición del usuario, mejorando así la navegación de la página. Este hook monitoriza la posicion del usuario y lo sincroniza con el índice correspondiente.
 
 ## Instalación
 
@@ -23,7 +23,7 @@ import { useScrollSpy } from '@raddix/use-scroll-spy';
 export default function TableOfContent() {
   const headings = [
     {id: 'overview', text: 'Overview'},
-    {id: 'components', text: 'Creating and nesting components '},
+    {id: 'components', text: 'Creating and nesting components'},
     {id: 'styles', text: 'Adding styles'},
   ]
   const headingIds = headings.map(({id}) => id)
@@ -51,6 +51,8 @@ export default function TableOfContent() {
 
 ## API
 
+Detrás de cámaras, el hook utiliza el Intersection Observer Web API, así que puedes obtener los mejores estándares de rendimiento mientras no te tienes que preocupar por implementarlo tú mismo.
+
 ### Resultado
 
 <ApiTable
@@ -65,7 +67,7 @@ export default function TableOfContent() {
 
 ### Parametros
 
-The <code>useScrollSpy</code> hook accepts an object with the Intersection Observer API options.
+El hook `useScrollSpy` acepta un objeto con propiedades del Intersection Observer API.
 
 <ApiTable
   data={[
