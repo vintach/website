@@ -13,6 +13,7 @@ import { MDXComponents } from '@/components/mdx';
 
 import remarkSlug from 'remark-slug';
 import { getMeta } from '@/utils/mdx';
+import { rehypeFolderCodeBlock } from '@/lib/rehype-folder-code-block';
 
 const DocsPage = ({
   mdxSource,
@@ -47,7 +48,8 @@ export const getStaticProps: GetStaticProps<{
   });
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [remarkSlug]
+      remarkPlugins: [remarkSlug],
+      rehypePlugins: [rehypeFolderCodeBlock]
     }
   });
 
