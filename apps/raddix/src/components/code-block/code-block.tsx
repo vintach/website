@@ -5,9 +5,9 @@ import { JetBrains_Mono } from '@next/font/google';
 import { useScroll } from '@/hooks/useScroll';
 import { blameTheme } from './theme';
 
-const inter = JetBrains_Mono({ subsets: ['cyrillic'] });
+const inter = JetBrains_Mono({ subsets: ['latin'] });
 
-interface CodeBlockProps {
+export interface CodeBlockProps {
   source: string;
   language: string;
   showLines?: boolean;
