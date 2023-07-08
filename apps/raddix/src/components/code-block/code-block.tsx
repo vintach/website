@@ -1,41 +1,24 @@
-import React, { useState } from 'react';
+import { useState, Fragment } from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import type { Language } from 'prism-react-renderer';
 import { JetBrains_Mono } from '@next/font/google';
-const inter = JetBrains_Mono({ subsets: ['latin'] });
 import { useScroll } from '@/hooks/useScroll';
-import { useIsomorphicEffect } from '@/hooks/useIsomorphicEffect';
-import { getFileExtension } from '@/utils/global';
 import { blameTheme } from './theme';
 
-interface CodeBlockProps {
-  tabs: Record<string, string>;
-  showTabs?: boolean;
+const inter = JetBrains_Mono({ subsets: ['latin'] });
+
+export interface CodeBlockProps {
+  source: string;
+  language: string;
   showLines?: boolean;
-  /**
-   * Position of tab
-   * @default 0
-   */
-  defaultTab?: number;
-  height?: number | string;
 }
 
 export const CodeBlock = ({
-  tabs,
-  showLines,
-  showTabs,
-  defaultTab = 0,
-  height = 350
+  source,
+  language,
+  showLines = true
 }: CodeBlockProps) => {
-  const [activeTab, setActiveTab] = useState(defaultTab);
-  const lines = tabs[Object.keys(tabs)[activeTab]]?.trim();
-  const tabName = Object.keys(tabs)[activeTab];
-  const language = getFileExtension(tabName);
   const [refCodeWindow, codeWindow] = useScroll<HTMLDivElement>();
-
-  useIsomorphicEffect(() => {
-    setActiveTab(defaultTab);
-  }, [tabs]);
 
   return (
     <div className='flex w-full flex-col rounded-xl border border-solid border-white/5 bg-gray-120/80 backdrop-blur backdrop-saturate-100'>
@@ -44,26 +27,9 @@ export const CodeBlock = ({
         <span className='h-3 w-3 rounded-full bg-[#f5a524]'></span>
         <span className='h-3 w-3 rounded-full bg-[#17c964]'></span>
       </div>
-      {showTabs && (
-        <div className='flex border-b border-solid border-white/5'>
-          {Object.keys(tabs).map((tab, index) => (
-            <button
-              className={`cursor-pointer select-none border-0 bg-[transparent] px-sm py-xs text-sm text-purple-10 ${
-                activeTab === index
-                  ? 'text-purple-60 shadow-[0_1px_0] shadow-purple-60'
-                  : ''
-              }`}
-              key={`${tab}${index}`}
-              onClick={() => setActiveTab(index)}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-      )}
       <Highlight
         {...defaultProps}
-        code={lines}
+        code={source.trim()}
         language={language as Language}
         theme={blameTheme}
       >
@@ -71,8 +37,7 @@ export const CodeBlock = ({
           <pre
             className={`${className} ${inter.className} relative box-content flex w-full overflow-hidden py-xs text-xs leading-5`}
             style={{
-              ...style,
-              height
+              ...style
             }}
             translate='no'
           >
@@ -87,10 +52,10 @@ export const CodeBlock = ({
                     return i === 0 ? (
                       i + 1
                     ) : (
-                      <React.Fragment key={i + 1}>
+                      <Fragment key={i + 1}>
                         <br />
                         {i + 1}
-                      </React.Fragment>
+                      </Fragment>
                     );
                   })}
                 </div>
@@ -103,45 +68,13 @@ export const CodeBlock = ({
               <div className='w-fit min-w-full overflow-hidden px-sm pb-sm'>
                 {tokens.map((line, i) => (
                   <div {...getLineProps({ line })} translate='no' key={i}>
-                    {line.map((token, key) => {
-                      if (
-                        token.types[token.types.length - 1] === 'string' &&
-                        /^(['"`])\.\/.*?\.(js|jsx|css|scss)\1$/.test(
-                          token.content
-                        )
-                      ) {
-                        const tab = token.content.substring(
-                          3,
-                          token.content.length - 1
-                        );
-                        const myToken = { ...getTokenProps({ token, key }) };
-
-                        return (
-                          <span
-                            className={myToken.className}
-                            style={myToken.style}
-                            key={myToken.key}
-                          >
-                            <button
-                              onClick={() =>
-                                setActiveTab(Object.keys(tabs).indexOf(tab))
-                              }
-                              className='font-[inherit]border-0 bg-[transparent] p-0 text-[inherit] hover:cursor-pointer hover:underline'
-                            >
-                              {myToken.children}
-                            </button>
-                          </span>
-                        );
-                      }
-
-                      return (
-                        <span
-                          {...getTokenProps({ token })}
-                          key={key}
-                          translate='no'
-                        />
-                      );
-                    })}
+                    {line.map((token, key) => (
+                      <span
+                        {...getTokenProps({ token })}
+                        key={key}
+                        translate='no'
+                      />
+                    ))}
                   </div>
                 ))}
               </div>

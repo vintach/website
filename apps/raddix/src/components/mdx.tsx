@@ -6,6 +6,7 @@ import theme from 'prism-react-renderer/themes/dracula';
 import { componentsDemo } from '@/demo';
 import { Card, CardGroup } from './card';
 import { ApiTable } from './api-table';
+import { CodeBlock } from './code-block';
 
 export interface Children {
   children?: ReactNode;
@@ -137,6 +138,7 @@ export const MDXComponents = {
     <li className='mb-xs list-disc text-md opacity-75'>{children}</li>
   ),
   Card,
+  CodeBlock,
   CardGroup,
   ApiTable,
   ...componentsDemo
