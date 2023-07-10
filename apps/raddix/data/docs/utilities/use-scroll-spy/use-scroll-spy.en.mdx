@@ -73,17 +73,20 @@ The `useScrollSpy` hook accepts an object with the Intersection Observer API opt
     {
       name: 'root',
       description:
-        'The element that is used as the viewport for checking visibility of the target.'
+        'The element that is used as the viewport for checking visibility of the target.',
+      required: 'No'
     },
     {
       name: 'rootMargin',
       description:
-        'Margin around the root. Can have values similar to the CSS margin property.'
+        'Margin around the root. Can have values similar to the CSS margin property.',
+      required: 'No'
     },
     {
       name: 'threshold',
       description:
-        "Either a single number or an array of numbers which indicate at what percentage of the target's visibility the observer's callback should be executed."
+        "Either a single number or an array of numbers which indicate at what percentage of the target's visibility the observer's callback should be executed.",
+      required: 'No'
     }
   ]}
 />
