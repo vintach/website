@@ -1,7 +1,39 @@
 ---
 title: useKeyboard
+description: Es un custom hook que maneja las interacciones del teclado.
 ---
 
 # useKeyboard
 
-🚧 This page is under construction
+Es un custom hook que maneja las interacciones del teclado.
+
+## Features
+
+- Coincidencia de valores de teclado.
+- La propagación se detiene por defecto.
+- Puedes cambiar el tipo de verificador.
+- API completamente tipada.
+
+## Installation
+
+Instale el custom hook desde su terminal.
+
+```bash
+yarn add @raddix/use-keyboard
+```
+
+## Usage
+
+### Basic example
+
+En este ejemplo, al presionar una tecla dentro del campo de texto se establece un color de fondo rojo
+y al soltar la tecla se establece un color de fondo azul.
+
+<CodeBlock folder='use-keyboard' file='example1.tsx' />
+
+### Key matching
+
+Este ejemplo muestra un elemento de entrada que no permite caracteres semigráficos.
+Ejecuta una función según la coincidencia de los caracteres de la matriz.
+
+<CodeBlock folder='use-keyboard' file='example2.tsx' />

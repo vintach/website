@@ -1,7 +1,39 @@
 ---
 title: useKeyboard
+description: Is a custom hook that handles keyboard interactions
 ---
 
 # useKeyboard
 
-🚧 This page is under construction
+Is a custom hook that handles keyboard interactions
+
+## Features
+
+- Keyboard value matching.
+- Propagation stops by default.
+- You can change the verifier type.
+- Fully-typed API.
+
+## Installation
+
+Install the custom hook from your command line.
+
+```bash
+yarn add @raddix/use-keyboard
+```
+
+## Usage
+
+### Basic example
+
+In this example pressing a key inside the text field sets a red background color
+and releasing the key sets a blue background color.
+
+<CodeBlock folder='use-keyboard' file='example1.tsx' />
+
+### Key matching
+
+This example shows an input element that does not allow semigraphic characters.
+Executes a function according to the match of the characters of the array.
+
+<CodeBlock folder='use-keyboard' file='example2.tsx' />
