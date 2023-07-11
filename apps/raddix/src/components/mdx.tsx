@@ -103,14 +103,18 @@ export const TextPre = (props: Children) => {
 
 export const MDXComponents = {
   h1: ({ children, ...props }: Children) => (
-    <Text as='h1' className='mb-md text-4xl font-bold md:text-5xl' {...props}>
+    <Text
+      as='h1'
+      className='mb-sm text-4xl font-semibold md:text-5xl'
+      {...props}
+    >
       {children}
     </Text>
   ),
   h2: ({ children, ...props }: Children) => (
     <Text
       as='h2'
-      className='mb-sm mt-3xl text-2xl font-bold sm:text-3xl'
+      className='mb-sm mt-2xl text-2xl font-medium sm:text-3xl'
       isTitle
       {...props}
     >
@@ -120,7 +124,7 @@ export const MDXComponents = {
   h3: ({ children, ...props }: Children) => (
     <Text
       as='h3'
-      className='mb-sm mt-xl text-xl font-semibold md:text-2xl'
+      className='mb-sm mt-lg text-xl font-medium md:text-2xl'
       isTitle
       {...props}
     >
@@ -128,14 +132,18 @@ export const MDXComponents = {
     </Text>
   ),
   p: ({ children }: Children) => (
-    <Text as='p' className='text-md leading-8 opacity-75'>
+    <Text as='p' className='mb-xs text-sm text-gray-10 md:text-md'>
       {children}
     </Text>
   ),
   pre: TextPre,
-  ul: ({ children }: Children) => <ul className='my-md pl-lg'>{children}</ul>,
+  ul: ({ children }: Children) => (
+    <ul className='my-md pl-[20px]'>{children}</ul>
+  ),
   li: ({ children }: Children) => (
-    <li className='mb-xs list-disc text-md opacity-75'>{children}</li>
+    <li className='mb-[4.5px] list-disc pl-2 text-sm text-gray-10 md:text-md'>
+      {children}
+    </li>
   ),
   Card,
   CodeBlock,
