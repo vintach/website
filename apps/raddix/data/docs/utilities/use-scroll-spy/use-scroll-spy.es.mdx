@@ -56,6 +56,11 @@ Detrás de cámaras, el hook utiliza el Intersection Observer Web API, así que 
 ### Resultado
 
 <ApiTable
+  head={{
+    name: 'Nombre',
+    description: 'Descripción',
+    type: 'Tipo'
+  }}
   data={[
     {
       name: 'activeId',
@@ -70,21 +75,34 @@ Detrás de cámaras, el hook utiliza el Intersection Observer Web API, así que 
 El hook `useScrollSpy` acepta un objeto con propiedades del Intersection Observer API.
 
 <ApiTable
+  head={
+    {
+      name: 'Nombre',
+      description: 'Descripción',
+      required: 'Requerido',
+      type: 'Tipo'
+    }
+  }
   data={[
     {
       name: 'root',
       description:
-        'El elemento que se utiliza como ventana gráfica para comprobar la visibilidad del objetivo.'
+        'El elemento que se utiliza como ventana gráfica para comprobar la visibilidad del objetivo.',
+      required: 'No',
+
     },
     {
       name: 'rootMargin',
       description:
-        'Margen alrededor de la raíz. Puede tener valores similares a la margin propiedad CSS.'
+        'Margen alrededor de la raíz. Puede tener valores similares a la margin propiedad CSS.',
+      required: 'No',
     },
     {
       name: 'threshold',
       description:
-        'Ya sea un solo número o una serie de números que indican en qué porcentaje de la visibilidad del objetivo se debe ejecutar la devolución de llamada del observador.'
+        'Ya sea un solo número o una serie de números que indican en qué porcentaje de la visibilidad del objetivo se debe ejecutar la devolución de llamada del observador.',
+      required: 'No',
     }
-  ]}
+
+]}
 />

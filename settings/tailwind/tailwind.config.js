@@ -32,7 +32,7 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        ax1xa: 'auto 1fr auto',
+        ax1xa: 'auto minmax(0, 1fr) auto',
         ax1: 'auto 1fr'
       },
       spacing: {
