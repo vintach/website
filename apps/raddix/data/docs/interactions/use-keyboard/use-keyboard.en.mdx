@@ -37,3 +37,56 @@ This example shows an input element that does not allow semigraphic characters.
 Executes a function according to the match of the characters of the array.
 
 <CodeBlock folder='use-keyboard' file='example2.tsx' />
+
+## API
+
+### Parameters
+
+<ApiTable
+  data={[
+    {
+      name: 'handler',
+      description: 'Function that is called once the keys have been pressed',
+      required: 'Yes',
+      type: '(e:KeyboardEvent)=>void'
+    },
+    {
+      name: 'shortcut',
+      description: 'List of keys to match',
+      required: 'No',
+      type: 'Array<string | number>'
+    },
+    {
+      name: 'options',
+      description: 'Configuration options',
+      required: 'No',
+      type: 'Object'
+    }
+
+]}
+/>
+
+### Options
+
+<ApiTable
+  data={[
+    {
+      name: 'stopPropagation',
+      description: 'Stop event Propagation',
+      required: 'No',
+      type: 'boolean'
+    },
+    {
+      name: 'preventDefault',
+      description: 'Block the default behavior of event',
+      required: 'No',
+      type: 'boolean'
+    },
+    {
+      name: 'checker',
+      description: 'The verifier type',
+      required: 'No',
+      type: '"key" | "code"'
+    }
+  ]}
+/>

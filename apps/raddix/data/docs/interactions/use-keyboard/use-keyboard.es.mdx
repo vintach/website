@@ -7,14 +7,14 @@ description: Es un custom hook que maneja las interacciones del teclado.
 
 Es un custom hook que maneja las interacciones del teclado.
 
-## Features
+## Característica
 
 - Coincidencia de valores de teclado.
 - La propagación se detiene por defecto.
 - Puedes cambiar el tipo de verificador.
 - API completamente tipada.
 
-## Installation
+## Instalación
 
 Instale el custom hook desde su terminal.
 
@@ -22,18 +22,70 @@ Instale el custom hook desde su terminal.
 yarn add @raddix/use-keyboard
 ```
 
-## Usage
+## Uso
 
-### Basic example
+### Ejemplo Básico
 
 En este ejemplo, al presionar una tecla dentro del campo de texto se establece un color de fondo rojo
 y al soltar la tecla se establece un color de fondo azul.
 
 <CodeBlock folder='use-keyboard' file='example1.tsx' />
 
-### Key matching
+### Coincidir keys
 
 Este ejemplo muestra un elemento de entrada que no permite caracteres semigráficos.
 Ejecuta una función según la coincidencia de los caracteres de la matriz.
 
 <CodeBlock folder='use-keyboard' file='example2.tsx' />
+
+## API
+
+### Parametros
+
+<ApiTable
+  data={[
+    {
+      name: 'handler',
+      description: 'Función que se llama una vez pulsadas las teclas.',
+      required: 'Yes',
+      type: '(e:KeyboardEvent)=>void'
+    },
+    {
+      name: 'shortcut',
+      description: 'Lista de teclas para coincidir',
+      required: 'No',
+      type: 'Array<string | number>'
+    },
+    {
+      name: 'options',
+      description: 'Opciones de configuración',
+      required: 'No',
+      type: 'Object'
+    }
+  ]}
+/>
+
+### Opciones
+
+<ApiTable
+  data={[
+    {
+      name: 'stopPropagation',
+      description: 'Detiene la propagación del evento',
+      required: 'No',
+      type: 'boolean'
+    },
+    {
+      name: 'preventDefault',
+      description: 'Bloquea el comportamiento predeterminado del evento',
+      required: 'No',
+      type: 'boolean'
+    },
+    {
+      name: 'checker',
+      description: 'El tipo de verificador',
+      required: 'No',
+      type: '"key" | "code"'
+    }
+  ]}
+/>
