@@ -1,7 +1,100 @@
 ---
 title: useKeyboard
+description: Es un custom hook que maneja las interacciones del teclado.
 ---
 
 # useKeyboard
 
-🚧 This page is under construction
+`useKeyboard` es un custom hook que maneja las interacciones del teclado.
+
+## Características
+
+- Soporta verificación de teclas, usando bajo el capó la propiedad `event.key` y si necesitas usar otras propiedades como `event.code` puede cambiarlo en la configuración mediante la opción `checker`.
+- La propagación se detiene de forma predeterminada si hay un controlador de eventos, de modo que un componente principal no responda a un evento que ya manejó un elemento secundario.
+
+## Instalación
+
+Instale el custom hook desde su terminal.
+
+```bash
+yarn add @raddix/use-keyboard
+```
+
+## Uso
+
+### Ejemplo Básico
+
+En este ejemplo, al presionar una tecla dentro del campo de texto se establece un color de fondo rojo
+y al soltar la tecla se establece un color de fondo azul.
+
+<CodeBlock folder='use-keyboard' file='example1.tsx' />
+
+### Verificación de teclas
+
+Este ejemplo muestra un elemento de entrada que no permite caracteres semigráficos.
+Se agrega los caracteres semigráficos al Array del `useKeyboard` para que haga la verificación de teclas cuando se ejecute el evento `onKeyDown`.
+
+<CodeBlock folder='use-keyboard' file='example2.tsx' />
+
+## API
+
+### Parámetros
+
+<ApiTable
+  head={{
+    name: 'Nombre',
+    description: 'Descripción',
+    required: 'Requerido'
+  }}
+  data={[
+    {
+      name: 'handler',
+      description: 'Función que se llama una vez pulsadas las teclas.',
+      required: 'Yes',
+      type: '(e:KeyboardEvent)=>void'
+    },
+    {
+      name: 'shortcut',
+      description: 'Lista de teclas para la verificación ',
+      required: 'No',
+      type: 'Array<string | number>'
+    },
+    {
+      name: 'options',
+      description: 'Opciones de configuración',
+      required: 'No',
+      type: 'Object'
+    }
+  ]}
+/>
+
+### Opciones de Configuración
+
+<ApiTable
+  head={{
+    name: 'Nombre',
+    description: 'Descripción',
+    required: 'Requerido'
+  }}
+  data={[
+    {
+      name: 'stopPropagation',
+      description: 'Detiene la propagación del evento',
+      required: 'No',
+      type: 'boolean'
+    },
+    {
+      name: 'preventDefault',
+      description: 'Bloquea el comportamiento predeterminado del evento',
+      required: 'No',
+      type: 'boolean'
+    },
+    {
+      name: 'checker',
+      description:
+        'Propiedad del objeto KeyboardEvent para identificar una tecla',
+      required: 'No',
+      type: '"key" | "code"'
+    }
+  ]}
+/>
