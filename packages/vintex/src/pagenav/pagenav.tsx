@@ -97,7 +97,7 @@ export const PageNav = ({ locale, path }: PageNavProps) => {
   });
 
   return (
-    <nav className='sticky top-[125px] w-64 self-start pl-md'>
+    <nav className='sticky top-[125px] w-56 self-start'>
       <h5 className='mb-sm text-sm font-medium'>{pageNavTitle}</h5>
       <Tree navData={headings} activeItem={activeHeading} />
     </nav>
