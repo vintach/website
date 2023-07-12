@@ -38,7 +38,7 @@ export const DocsLayout = ({ children, sidebar, meta }: DocsProps) => {
             <SidebarMenu menu={sidebar} currentRoute={currentSlug} />
           </Sidebar>
         )}
-        <article>
+        <article className='box-border overflow-hidden md:px-md'>
           <section>{children}</section>
           <Pagination menu={sidebar} currentRoute={currentSlug} />
         </article>
