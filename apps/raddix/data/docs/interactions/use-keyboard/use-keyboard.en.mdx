@@ -5,14 +5,12 @@ description: Is a custom hook that handles keyboard interactions
 
 # useKeyboard
 
-Is a custom hook that handles keyboard interactions
+`useKeyboard` is a custom hook that handles keyboard interactions
 
 ## Features
 
-- Keyboard value matching.
-- Propagation stops by default.
-- You can change the verifier type.
-- Fully-typed API.
+- It supports key checking, using under the hood the `event.key` property and if you need to use other properties like `event.code` you can change it in the configuration using the `checker` option.
+- Propagation is stopped by default if there is an event handler, so that a parent component does not respond to an event already handled by a child element.
 
 ## Installation
 
@@ -31,10 +29,10 @@ and releasing the key sets a blue background color.
 
 <CodeBlock folder='use-keyboard' file='example1.tsx' />
 
-### Key matching
+### Key verification
 
 This example shows an input element that does not allow semigraphic characters.
-Executes a function according to the match of the characters of the array.
+Add semigraphic characters to the `useKeyboard` Array so that it does the key checking when the `onKeyDown` event is executed.
 
 <CodeBlock folder='use-keyboard' file='example2.tsx' />
 
@@ -52,7 +50,7 @@ Executes a function according to the match of the characters of the array.
     },
     {
       name: 'shortcut',
-      description: 'List of keys to match',
+      description: 'List of keys for verification',
       required: 'No',
       type: 'Array<string | number>'
     },
@@ -66,7 +64,7 @@ Executes a function according to the match of the characters of the array.
 ]}
 />
 
-### Options
+### Configuration Options
 
 <ApiTable
   data={[
@@ -84,7 +82,7 @@ Executes a function according to the match of the characters of the array.
     },
     {
       name: 'checker',
-      description: 'The verifier type',
+      description: 'Property of the KeyboardEvent object to identify a key',
       required: 'No',
       type: '"key" | "code"'
     }
