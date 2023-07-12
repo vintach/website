@@ -3,6 +3,14 @@
     {
       "name": "Documentación",
       "path": "/docs"
+    },
+    {
+      "name": "Comunidad",
+      "path": "https://github.com/vintach/raddix/discussions"
+    },
+    {
+      "name": "Lanzamientos",
+      "path": "https://github.com/vintach/raddix/releases"
     }
   ]
 }

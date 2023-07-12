@@ -40,11 +40,11 @@ export const Language = () => {
   }, []);
 
   return (
-    <div className='relative w-full sm:w-auto'>
+    <div className='py relative w-full border-solid border-white/5 sm:mr-5 sm:flex sm:w-auto sm:border-r-2 sm:pr-4'>
       <button
         ref={refBtn}
         onClick={toggleMenu}
-        className='flex w-full cursor-pointer items-center justify-between border-0 bg-[transparent] py-sm sm:w-auto sm:justify-normal sm:px-sm sm:py-xs'
+        className='flex w-full cursor-pointer items-center justify-between border-0 bg-[transparent] py-sm sm:w-auto sm:justify-normal sm:py-0 '
       >
         <Image
           src={'/icons/language.svg'}
