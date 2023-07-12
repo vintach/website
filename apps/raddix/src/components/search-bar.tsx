@@ -5,7 +5,7 @@ interface SearchBarProps {
 export const SearchBar = ({ toggle }: SearchBarProps) => {
   return (
     <button
-      className='flex w-60 max-w-full items-center justify-between rounded-xl bg-gray-120 px-4 py-2 transition-colors duration-100 hover:bg-gray-110'
+      className='flex w-full max-w-full items-center justify-between rounded-xl bg-gray-120 px-4 py-2 transition-colors duration-100 hover:bg-gray-110'
       type='button'
       onClick={toggle}
     >
