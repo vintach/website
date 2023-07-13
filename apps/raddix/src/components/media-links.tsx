@@ -4,7 +4,7 @@ import Image from 'next/image';
 export const MediaLinks = () => {
   return (
     <div className='flex space-x-4'>
-      <Link href='https://discord.gg/mSdGGRrbVF'>
+      <Link href='https://discord.gg/mSdGGRrbVF' target='_blank'>
         <Image
           src='/icons/discord.svg'
           alt='GitHub Logo'
@@ -13,7 +13,7 @@ export const MediaLinks = () => {
           className='transition-[filter] duration-100 hover:invert-[25%]'
         />
       </Link>
-      <Link href='https://twitter.com/raddix_lib'>
+      <Link href='https://twitter.com/raddix_lib' target='_blank'>
         <Image
           src='/icons/twitter.svg'
           alt='GitHub Logo'
@@ -22,7 +22,7 @@ export const MediaLinks = () => {
           className='transition-[filter] duration-100 hover:invert-[25%]'
         />
       </Link>
-      <Link href='https://github.com/vintach/raddix'>
+      <Link href='https://github.com/vintach/raddix' target='_blank'>
         <Image
           src='/icons/github.svg'
           alt='GitHub Logo'
