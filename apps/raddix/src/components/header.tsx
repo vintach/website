@@ -6,7 +6,7 @@ import { Menu } from './menu';
 import { Language } from './language';
 import { useIsMobile } from '@/hooks/useIsMobile';
 import { MenuMobile } from './menu-mobile';
-import { Message } from './message';
+import { MediaLinks } from './media-links';
 
 export const Header = () => {
   const [scrollY, setScrollY] = useState<number>(0);
@@ -35,18 +35,20 @@ export const Header = () => {
     <header
       className={`sticky left-0 top-0 z-20 w-full bg-black transition-all duration-100 ${onScrollHeaderStyles}`}
     >
-      <div className='mx-auto flex h-20 w-full max-w-std justify-between px-sm py-4 '>
+      <div className='mx-auto flex h-20 w-full max-w-std items-center justify-between px-sm py-4'>
         <Link className='flex items-center gap-1.5' href='/' locale={locale}>
           <Image src='/raddix.svg' alt='Raddix logo' width={24} height={36} />
           <h1 className='text-[1.8rem] font-semibold'>raddix</h1>
         </Link>
 
         {!isMobile && (
-          <div className='flex items-center'>
-            <Message text='This site is under construction' />
+          <>
             <Menu />
-            <Language />
-          </div>
+            <div className='flex items-center'>
+              <Language />
+              <MediaLinks />
+            </div>
+          </>
         )}
 
         {isMobile && (

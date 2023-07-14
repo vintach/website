@@ -25,8 +25,8 @@ export const Menu = () => {
   }, [locale, getMenuItems]);
 
   return (
-    <nav className='w-full justify-end border-solid border-white/5 sm:mr-sm sm:w-auto sm:border-r sm:pr-lg'>
-      <ul className='flex w-full flex-col items-center justify-center sm:flex-row sm:gap-lg'>
+    <nav className='w-full sm:w-auto'>
+      <ul className='flex w-full flex-col items-center justify-center sm:flex-row sm:gap-md'>
         {menuItems.map((item, id) => (
           <li
             key={id}
