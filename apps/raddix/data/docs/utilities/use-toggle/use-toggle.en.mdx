@@ -1,7 +1,66 @@
 ---
 title: useToggle
+description: Is a custom hook to toggle a boolean value
 ---
 
 # useToggle
 
-🚧 This page is under construction
+`useToggle` is a custom hook to toggle a boolean value
+
+## Installation
+
+Install the custom hook from your command line.
+
+```bash
+yarn add @raddix/use-keyboard
+```
+
+## Usage
+
+### Basic example
+
+In this example, we'll toggle between showing more/showing less text.
+
+<CodeBlock folder='use-toggle' file='example1.tsx' />
+
+## API
+
+### Result
+
+The `useToggle` hook returns an array with the following elements:
+
+<ApiTable
+  head={{
+    name: 'Index'
+  }}
+  data={[
+    {
+      name: '0',
+      description: 'The current value of the state.',
+      type: 'boolean'
+    },
+    {
+      name: '1',
+      description: 'A function to change the state.',
+      type: 'function'
+    },
+    {
+      name: '2',
+      description: 'A function to toggle the state.',
+      type: 'function'
+    }
+  ]}
+/>
+
+### Parameters
+
+<ApiTable
+  data={[
+    {
+      name: 'initialValue',
+      description: 'The initial value of the boolean state.',
+      required: 'No',
+      type: 'boolean'
+    }
+  ]}
+/>
