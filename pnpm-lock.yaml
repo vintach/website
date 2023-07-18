@@ -125,6 +125,9 @@ importers:
       '@raddix/switch':
         specifier: 1.0.0
         version: 1.0.0(react-dom@18.2.0)(react@18.2.0)
+      '@raddix/use-click-outside':
+        specifier: 0.1.0
+        version: 0.1.0(react-dom@18.2.0)(react@18.2.0)
       '@raddix/use-keyboard':
         specifier: 1.0.0
         version: 1.0.0(react-dom@18.2.0)(react@18.2.0)
@@ -3297,6 +3300,16 @@ packages:
     dependencies:
       '@raddix/use-keyboard': 1.0.0(react-dom@18.2.0)(react@18.2.0)
       '@raddix/use-toggle': 1.0.0(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@raddix/use-click-outside@0.1.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-sjCYZvAqNfYV/V4DklrymMKhTQ6ahe0VtW8BBRBmjeClIGdrZQ7Fkh8owtVnPdjK54pySaFItOUfljwTdyZcsw==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
