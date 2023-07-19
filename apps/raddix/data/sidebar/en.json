@@ -82,6 +82,13 @@
             "path": "/docs/interactions/use-keyboard",
             "locale": "en"
           }
+        },
+        {
+          "title": "useClickOutside",
+          "route": {
+            "path": "/docs/interactions/use-click-outside",
+            "locale": "en"
+          }
         }
       ]
     },
