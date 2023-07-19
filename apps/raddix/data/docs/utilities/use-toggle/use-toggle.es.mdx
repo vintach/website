@@ -1,7 +1,76 @@
 ---
 title: useToggle
+description: Es un custom hook para alternar un valor booleano
 ---
 
 # useToggle
 
-🚧 This page is under construction
+`useToggle` es un custom hook para alternar un valor booleano.
+
+## Instalación
+
+Instale el custom hook desde su terminal.
+
+```bash
+yarn add @raddix/use-toggle
+```
+
+## Uso
+
+### Ejemplo Básico
+
+En este ejemplo, vamos a expandir o esconder texto de un parrafo
+dando click en un botón(leer más/leer menos).
+
+<CodeBlock folder='use-toggle' file='example1.tsx' />
+
+## API
+
+### Resultado
+
+El hook `useToggle` devuelve un array con los siguientes elementos:
+
+<ApiTable
+  head={{
+    name: 'Índice',
+    description: 'Descripción',
+    required: 'Requerido'
+  }}
+  data={[
+    {
+      name: '0',
+      description: 'El valor actual del estado.',
+      type: 'boolean'
+    },
+    {
+      name: '1',
+      description: 'Una función para cambiar el estado.',
+      type: 'function'
+    },
+    {
+      name: '2',
+      description: 'Una función para alternar el estado.',
+      type: 'function'
+    }
+  ]}
+/>
+
+### Parámetros
+
+<ApiTable
+  head={{
+    name: 'Nombre',
+    description: 'Descripción',
+    required: 'Requerido',
+    defaultValue: 'Valor por defecto'
+  }}
+  data={[
+    {
+      name: 'initialValue',
+      description: 'El valor inicial del estado booleano.',
+      required: 'No',
+      type: 'boolean',
+      defaultValue: 'false'
+    }
+  ]}
+/>
