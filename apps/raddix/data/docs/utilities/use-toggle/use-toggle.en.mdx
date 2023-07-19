@@ -5,21 +5,22 @@ description: Is a custom hook to toggle a boolean value
 
 # useToggle
 
-`useToggle` is a custom hook to toggle a boolean value
+`useToggle` is a custom hook to toggle a boolean value.
 
 ## Installation
 
 Install the custom hook from your command line.
 
 ```bash
-yarn add @raddix/use-toggle
+yarn add @raddix/use-keyboard
 ```
 
 ## Usage
 
 ### Basic example
 
-In this example, we'll toggle between showing more/showing less text.
+In this example, we are going to expand or hide the text of a paragraph.
+by clicking a button (read more/read less).
 
 <CodeBlock folder='use-toggle' file='example1.tsx' />
 
@@ -60,7 +61,8 @@ The `useToggle` hook returns an array with the following elements:
       name: 'initialValue',
       description: 'The initial value of the boolean state.',
       required: 'No',
-      type: 'boolean'
+      type: 'boolean',
+      defaultValue: 'false'
     }
   ]}
 />

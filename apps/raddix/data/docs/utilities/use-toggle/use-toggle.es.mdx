@@ -19,15 +19,16 @@ yarn add @raddix/use-toggle
 
 ### Ejemplo Básico
 
-En este ejemplo, alternaremos entre mostrar más/mostrar menos texto.
+En este ejemplo, vamos a expandir o esconder texto de un parrafo
+dando click en un botón(leer más/leer menos).
 
 <CodeBlock folder='use-toggle' file='example1.tsx' />
 
 ## API
 
-## Resultado
+### Resultado
 
-El hook `useToggle` devuelve una matriz con los siguientes elementos:
+El hook `useToggle` devuelve un array con los siguientes elementos:
 
 <ApiTable
   head={{
@@ -60,14 +61,16 @@ El hook `useToggle` devuelve una matriz con los siguientes elementos:
   head={{
     name: 'Nombre',
     description: 'Descripción',
-    required: 'Requerido'
+    required: 'Requerido',
+    defaultValue: 'Valor por defecto'
   }}
   data={[
     {
-      name: 'valor inicial',
+      name: 'initialValue',
       description: 'El valor inicial del estado booleano.',
       required: 'No',
-      type: 'boolean'
+      type: 'boolean',
+      defaultValue: 'false'
     }
   ]}
 />
