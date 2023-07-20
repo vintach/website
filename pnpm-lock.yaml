@@ -129,8 +129,8 @@ importers:
         specifier: 0.1.0
         version: 0.1.0(react-dom@18.2.0)(react@18.2.0)
       '@raddix/use-keyboard':
-        specifier: 1.0.0
-        version: 1.0.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 1.2.0
+        version: 1.2.0(react-dom@18.2.0)(react@18.2.0)
       '@raddix/use-toggle':
         specifier: 1.0.0
         version: 1.0.0(react-dom@18.2.0)(react@18.2.0)
@@ -3316,6 +3316,16 @@ packages:
 
   /@raddix/use-keyboard@1.0.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-o6PJP8B6ZGD6hvWPimWPPtpoBo0TAhWCnitvGI23MbMOIY/9DX9D/neFoh2PQkl+IATcnm4ioVrAeTNe8fJSqQ==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@raddix/use-keyboard@1.2.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-qjJRc8mcn1MwiS+8fwtUlcd7g/e8h5doqVBNdbd5RbZg8OD9S8kRS7WSJ/AZ/49yoOq8a8+5DxJntPwni7OGWQ==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'

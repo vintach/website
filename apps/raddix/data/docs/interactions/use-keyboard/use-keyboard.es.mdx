@@ -36,6 +36,14 @@ Se agrega los caracteres semigráficos al Array del `useKeyboard` para que haga 
 
 <CodeBlock folder='use-keyboard' file='example2.tsx' />
 
+### Eventos de teclado globales
+
+En este ejemplo, lanzaremos una alerta cuando la tecla `a` es precionada.
+Para que el hook `useKeyboard` detecte eventos globales necesitamos activar
+la opción `globalEvent: true`
+
+<CodeBlock folder='use-keyboard' file='example3.tsx' />
+
 ## API
 
 ### Parámetros
@@ -74,27 +82,40 @@ Se agrega los caracteres semigráficos al Array del `useKeyboard` para que haga 
   head={{
     name: 'Nombre',
     description: 'Descripción',
-    required: 'Requerido'
+    required: 'Requerido',
+    defaultValue: 'Valor por defecto'
   }}
   data={[
+    {
+      name: 'globalEvent',
+      description: 'Habilita eventos globales desde el documento',
+      required: 'No',
+      type: 'boolean',
+      defaultValue: 'false'
+    },
     {
       name: 'stopPropagation',
       description: 'Detiene la propagación del evento',
       required: 'No',
-      type: 'boolean'
+      type: 'boolean',
+      defaultValue: 'true'
     },
     {
       name: 'preventDefault',
       description: 'Bloquea el comportamiento predeterminado del evento',
       required: 'No',
-      type: 'boolean'
+      type: 'boolean',
+      defaultValue: 'false'
     },
     {
       name: 'checker',
       description:
         'Propiedad del objeto KeyboardEvent para identificar una tecla',
       required: 'No',
-      type: '"key" | "code"'
+      type: '"key" | "code"',
+      defaultValue: 'key'
+
     }
-  ]}
+
+]}
 />
