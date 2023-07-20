@@ -82,27 +82,40 @@ la opción `globalEvent: true`
   head={{
     name: 'Nombre',
     description: 'Descripción',
-    required: 'Requerido'
+    required: 'Requerido',
+    defaultValue: 'Valor por defecto'
   }}
   data={[
+    {
+      name: 'globalEvent',
+      description: 'Habilita eventos globales desde el documento',
+      required: 'No',
+      type: 'boolean',
+      defaultValue: 'false'
+    },
     {
       name: 'stopPropagation',
       description: 'Detiene la propagación del evento',
       required: 'No',
-      type: 'boolean'
+      type: 'boolean',
+      defaultValue: 'true'
     },
     {
       name: 'preventDefault',
       description: 'Bloquea el comportamiento predeterminado del evento',
       required: 'No',
-      type: 'boolean'
+      type: 'boolean',
+      defaultValue: 'false'
     },
     {
       name: 'checker',
       description:
         'Propiedad del objeto KeyboardEvent para identificar una tecla',
       required: 'No',
-      type: '"key" | "code"'
+      type: '"key" | "code"',
+      defaultValue: 'key'
+
     }
-  ]}
+
+]}
 />

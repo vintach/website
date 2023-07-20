@@ -77,22 +77,32 @@ set the `globalEvent: true` option.
 <ApiTable
   data={[
     {
+      name: 'globalEvent',
+      description: 'Enable global events from the document',
+      required: 'No',
+      type: 'boolean',
+      defaultValue: 'false'
+    },
+    {
       name: 'stopPropagation',
       description: 'Stop event Propagation',
       required: 'No',
-      type: 'boolean'
+      type: 'boolean',
+      defaultValue: 'true'
     },
     {
       name: 'preventDefault',
       description: 'Block the default behavior of event',
       required: 'No',
-      type: 'boolean'
+      type: 'boolean',
+      defaultValue: 'false'
     },
     {
       name: 'checker',
       description: 'Property of the KeyboardEvent object to identify a key',
       required: 'No',
-      type: '"key" | "code"'
+      type: '"key" | "code"',
+      defaultValue: 'key'
     }
   ]}
 />
