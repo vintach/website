@@ -4,7 +4,7 @@ import type { SideBarMenuProps } from './sidebar.types';
 
 export const Sidebar = ({ children }: { children: ReactNode }) => {
   return (
-    <aside className='sticky top-[125px] box-border flex w-64 flex-col gap-y-md self-start'>
+    <aside className='sticky top-[125px] box-border flex max-h-[calc(100vh_-_165px)] w-64 flex-col gap-y-md self-start'>
       {children}
     </aside>
   );
@@ -12,7 +12,7 @@ export const Sidebar = ({ children }: { children: ReactNode }) => {
 
 export const SidebarMenu = ({ menu, currentRoute }: SideBarMenuProps) => {
   return (
-    <nav className='px-[4.5px]'>
+    <nav className='overflow-y-auto px-[4.5px] scrollbar-thin scrollbar-track-gray-20/10 scrollbar-thumb-gray-40/50 scrollbar-track-rounded scrollbar-thumb-rounded-lg'>
       <ol>
         {menu.map(({ title, items }, i) => (
           <li key={`${title}-${i}`} className='pb-md'>
