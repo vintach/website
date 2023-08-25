@@ -19,7 +19,20 @@ yarn add @raddix/useCountDown
 
 ## Usage
 
+### Basic example
+
+This example showcases how you could setup a timer for your application.
+
 <CodeBlock folder='use-count-down' file='example1.tsx' />
+
+### Callbacks based on the countdown state
+
+You could setup two callbacks to get called on certain countdown states.
+
+- `onFinished`: Gets called when the countdown reaches zero.
+- `onTick`: Gets called on each countdown interval.
+
+<CodeBlock folder='use-count-down' file='example2.tsx' />
 
 ## API
 

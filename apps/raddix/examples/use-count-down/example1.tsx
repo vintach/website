@@ -1,26 +1,27 @@
 import { useCountDown } from '@raddix/use-count-down';
 
-export function Modal() {
-  const initialTime = 10 * 1000; // ten seconds expressed in miliseconds
-
-  const exitPage = () => {
-    /* ... */
-  };
-
-  const closeModal = () => {
-    /* ... */
-  };
-
-  const [count, actions] = useCountDown(initialTime, { onFinished: exitPage });
+export function Timer() {
+  const initialTime = 30 * 1000; // thirty seconds expressed in miliseconds
+  const [count, actions] = useCountDown(initialTime, { autoStart: false });
 
   return (
-    <div>
-      <p>Are you sure want to exit?</p>
+    <section>
+      <h1>Pomodoro Timer</h1>
       <div>
-        <button onClick={exitPage}>Yes, exit</button>
-        <button onClick={closeModal}>No, stay here</button>
+        <sub>Time left</sub>
+        <p>{count}</p>
       </div>
-      <sub>Exiting in {count}...</sub>
-    </div>
+      {count > 0 ? (
+        <div>
+          <button onClick={() => actions.start}>Start</button>
+          <button onClick={actions.stop}>Pause</button>
+        </div>
+      ) : (
+        <div>
+          <p>Time is over!</p>
+          <button onClick={actions.reset}>Reset timer</button>
+        </div>
+      )}
+    </section>
   );
 }

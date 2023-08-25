@@ -14,12 +14,25 @@ Puedes renderizar su valor actual en el DOM a medida que se refresca y manipular
 Instala el custom hook desde tu línea de comandos.
 
 ```bash
-yarn add @raddix/useCountDown
+yarn add @raddix/use-count-down
 ```
 
 ## Uso
 
+### Ejemplo básico
+
+Este ejemplo muestra cómo podrías configurar un temporizador para tu aplicación.
+
 <CodeBlock folder='use-count-down' file='example1.tsx' />
+
+### Callbacks basados en el estado de la cuenta regresiva
+
+Podrías configurar dos callbacks para ser llamados en ciertos estados de cuenta regresiva.
+
+- `onFinished`: Se llama cuando la cuenta regresiva llega a cero.
+- `onTick`: Se llama en cada intervalo de la cuenta regresiva.
+
+<CodeBlock folder='use-count-down' file='example2.tsx' />
 
 ## API
 
@@ -38,13 +51,13 @@ Devuelve un arreglo que puede ser desestructurado en dos variables: _count_ y _a
       name: '0 (count)',
       description:
         'Valor actual del temporizador de cuenta regresiva. Se detiene cuando llega a 0.',
-      type: 'número'
+      type: 'number'
     },
     {
       name: '1 (actions)',
       description:
         'Objeto que contiene métodos de manipulación del temporizador.',
-      type: 'Objeto'
+      type: 'Object'
     }
   ]}
 />
@@ -62,18 +75,18 @@ Devuelve un arreglo que puede ser desestructurado en dos variables: _count_ y _a
       name: 'start',
       description:
         'Inicia el temporizador si está detenido o configurado con `autoStart: false`. Opcionalmente se puede definir un nuevo tiempo inicial pasándolo como prop. Esto es útil si necesitas agregar otro segundo al temporizador.',
-      type: 'función'
+      type: 'function'
     },
     {
       name: 'stop',
       description: 'Detiene el temporizador.',
-      type: 'función'
+      type: 'function'
     },
     {
       name: 'reset',
       description:
         'Reinicia el valor del temporizador a su estado inicial. Si el temporizador estaba configurado con `autoStart: true`, se activará inmediatamente.',
-      type: 'función'
+      type: 'function'
     }
   ]}
 />
@@ -85,7 +98,7 @@ El hook `useCountDown` acepta dos valores de inicialización.
 <ApiTable
   head={{
     name: 'Nombre',
-    description: 'Description',
+    description: 'Descripción',
     required: 'Requerido',
     type: 'Tipo'
   }}
@@ -95,13 +108,13 @@ El hook `useCountDown` acepta dos valores de inicialización.
       description:
         'Valor inicial de la cuenta regresiva. Se expresa en milisegundos.',
       required: 'Sí',
-      type: 'número'
+      type: 'number'
     },
     {
       name: 'options',
       description: 'Objeto de configuración de la cuenta regresiva.',
       required: 'No',
-      type: 'Objeto'
+      type: 'Object'
     }
   ]}
 />
@@ -111,19 +124,19 @@ El hook `useCountDown` acepta dos valores de inicialización.
 <ApiTable
   head={{
     name: 'Nombre',
-    description: 'Description',
+    description: 'Descripción',
     required: 'Requerido',
     defaultValue: 'Valor por defecto',
     type: 'Tipo'
   }}
   data={[
     {
-      name: 'intervalo',
+      name: 'interval',
       description:
-        'Intervalo de tiempo para refrescar el valor de la cuenta. IMPORTANTE: este intervalo no afecta la velocidad de la cuenta regresiva. Esto es útil si necesitas refrescar a una velocidad lenta (como 1 segundo) o rápida (como 10 ms).',
+        'Intervalo de tiempo para refrescar el valor de la cuenta regresiva. IMPORTANTE: Este intervalo no afecta la velocidad de la cuenta. Esto es útil si necesitas refrescar a una velocidad lenta (como 1 segundo) o rápida (como 10 ms).',
       required: 'No',
       defaultValue: '1000',
-      type: 'número'
+      type: 'number'
     },
     {
       name: 'autoStart',
@@ -139,7 +152,7 @@ El hook `useCountDown` acepta dos valores de inicialización.
         'Callback que se ejecuta cuando el valor de la cuenta llega a 0.',
       required: 'No',
       defaultValue: 'undefined',
-      type: 'función'
+      type: 'function'
     },
     {
       name: 'onTick',
@@ -147,7 +160,7 @@ El hook `useCountDown` acepta dos valores de inicialización.
         'Callback que se ejecuta en cada actualización del valor de la cuenta.',
       required: 'No',
       defaultValue: 'undefined',
-      type: 'función'
+      type: 'function'
     }
   ]}
 />
