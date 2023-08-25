@@ -100,6 +100,13 @@
       },
       "items": [
         {
+          "title": "useCountDown",
+          "route": {
+            "path": "/docs/utilities/use-count-down",
+            "locale": "en"
+          }
+        },
+        {
           "title": "useToggle",
           "route": {
             "path": "/docs/utilities/use-toggle",

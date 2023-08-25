@@ -1,0 +1,128 @@
+---
+title: useCountDown
+description: Make countdown features and callbacks calls as easy as possible.
+---
+
+# useCountDown
+
+@raddix/useCountDown is a custom hook that does the job of handling a countdown timer for you.
+
+You can render its current value into the DOM as it refreshes, and manipulate its behavior as you wish (like specifying an _onFinished_ callback).
+
+## Installation
+
+Install the custom hook from your command line.
+
+```bash
+yarn add @raddix/useCountDown
+```
+
+## Usage
+
+<CodeBlock folder='use-count-down' file='example1.tsx' />
+
+## API
+
+### Return Value
+
+It returns an array that can be destructured in two variables: _count_ and _actions_. These are reference names, as you can name them as preference.
+
+<ApiTable
+  head={{
+    name: 'Index'
+  }}
+  data={[
+    {
+      name: '0 (count))',
+      description:
+        'Current value of the countdown timer. It stops when it reaches 0.',
+      type: 'number'
+    },
+    {
+      name: '1 (actions)',
+      description: 'Object that contains timer manipulation methods.',
+      type: 'Object'
+    }
+  ]}
+/>
+
+### Action Functions
+
+<ApiTable
+  data={[
+    {
+      name: 'start',
+      description:
+        "Starts the timer if it's stopped or configured with `autoStart: false`. It can optionally define a new initial time by passing it as prop. This is useful if you need to add another one second to the timer.",
+      type: 'function'
+    },
+    {
+      name: 'stop',
+      description: 'Stops the timer.',
+      type: 'function'
+    },
+    {
+      name: 'reset',
+      description:
+        'Resets the timer count value. If the timer was configured with `autoStart: true`, it will restart inmmediately.',
+      type: 'function'
+    }
+  ]}
+/>
+
+### Parameters
+
+The `useCountDown` hook accepts two setup values.
+
+<ApiTable
+  data={[
+    {
+      name: 'initialTime',
+      description: 'Countdown initial value. It is expressed in miliseconds.',
+      required: 'Yes',
+      type: 'number'
+    },
+    {
+      name: 'options',
+      description: 'Countdown configuration object.',
+      required: 'No',
+      type: 'Object'
+    }
+  ]}
+/>
+
+### Configuration Options
+
+<ApiTable
+  data={[
+    {
+      name: 'interval',
+      description:
+        "Time interval of refresing the count value. IMPORTANT: this interval doesn't affect the countdown rate. This is useful if you require to refresh in slow (like 1 second) or fast (like 10ms) rate.",
+      required: 'No',
+      defaultValue: '1000',
+      type: 'number'
+    },
+    {
+      name: 'autoStart',
+      description: 'Specefies if the timer will auto start after being set.',
+      required: 'No',
+      defaultValue: 'true',
+      type: 'boolean'
+    },
+    {
+      name: 'onFinished',
+      description: 'Callback that get executed when count value reaches 0.',
+      required: 'No',
+      defaultValue: 'undefined',
+      type: 'function'
+    },
+    {
+      name: 'onTick',
+      description: 'Callback that get executed on each count value refresh.',
+      required: 'No',
+      defaultValue: 'undefined',
+      type: 'function'
+    }
+  ]}
+/>
