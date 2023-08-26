@@ -13,7 +13,7 @@ export function Timer() {
       </div>
       {count > 0 ? (
         <div>
-          <button onClick={() => actions.start}>Start</button>
+          <button onClick={() => actions.start()}>Start</button>
           <button onClick={actions.stop}>Pause</button>
         </div>
       ) : (
