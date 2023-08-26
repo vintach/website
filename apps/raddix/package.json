@@ -15,6 +15,7 @@
     "@next/font": "13.1.5",
     "@raddix/switch": "1.0.0",
     "@raddix/use-click-outside": "0.1.0",
+    "@raddix/use-count-down": "1.0.0",
     "@raddix/use-keyboard": "1.2.0",
     "@raddix/use-toggle": "1.0.0",
     "@vercel/analytics": "0.1.11",
