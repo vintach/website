@@ -31,7 +31,7 @@ export const blameTheme: PrismTheme = {
       }
     },
     {
-      types: ['punctuation'],
+      types: ['punctuation', 'signo'],
       style: {
         color: '#999'
       }
@@ -96,6 +96,12 @@ export const blameTheme: PrismTheme = {
       types: ['property'],
       style: {
         color: '#56b6c2'
+      }
+    },
+    {
+      types: ['plain-text'],
+      style: {
+        color: '#ddd'
       }
     }
   ]

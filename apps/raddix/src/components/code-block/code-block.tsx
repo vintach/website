@@ -1,11 +1,8 @@
-import { useState, Fragment } from 'react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import type { Language } from 'prism-react-renderer';
-import { JetBrains_Mono } from '@next/font/google';
+import { Fragment } from 'react';
+import { Highlight } from 'prism-react-renderer';
+import type { TokenOutputProps } from 'prism-react-renderer';
 import { useScroll } from '@/hooks/useScroll';
 import { blameTheme } from './theme';
-
-const inter = JetBrains_Mono({ subsets: ['latin'] });
 
 export interface CodeBlockProps {
   source: string;
@@ -16,9 +13,26 @@ export interface CodeBlockProps {
 export const CodeBlock = ({
   source,
   language,
-  showLines = true
+  showLines = false
 }: CodeBlockProps) => {
   const [refCodeWindow, codeWindow] = useScroll<HTMLDivElement>();
+
+  const convert = (opt: TokenOutputProps): TokenOutputProps => {
+    const operators = /[&?:=!<>*+-]/;
+
+    if (opt.className === 'token operator' && operators.test(opt.children)) {
+      return {
+        className: 'text-[#56b6c2]',
+        children: opt.children
+      };
+    }
+
+    return {
+      className: opt.className,
+      children: opt.children,
+      style: opt.style
+    };
+  };
 
   return (
     <div className='flex w-full flex-col rounded-xl border border-solid border-white/5 bg-gray-120/80 backdrop-blur backdrop-saturate-100'>
@@ -27,15 +41,10 @@ export const CodeBlock = ({
         <span className='h-3 w-3 rounded-full bg-[#f5a524]'></span>
         <span className='h-3 w-3 rounded-full bg-[#17c964]'></span>
       </div>
-      <Highlight
-        {...defaultProps}
-        code={source.trim()}
-        language={language as Language}
-        theme={blameTheme}
-      >
+      <Highlight code={source.trim()} language={language} theme={blameTheme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre
-            className={`${className} ${inter.className} relative box-content flex w-full overflow-hidden py-xs text-xs leading-5`}
+            className={`${className} relative box-content flex w-full overflow-hidden py-xs text-xs leading-5`}
             style={{
               ...style
             }}
@@ -62,21 +71,25 @@ export const CodeBlock = ({
               </div>
             )}
             <div
-              className='h-[inherit] w-[calc(100%_-_52px)] overflow-auto scrollbar-thin scrollbar-track-[transparent] scrollbar-thumb-gray-40/50 scrollbar-thumb-rounded-lg'
+              className='h-[inherit] w-[calc(100%_-_12px)] overflow-auto scrollbar-thin scrollbar-track-[transparent] scrollbar-thumb-gray-40/50 scrollbar-thumb-rounded-lg'
               ref={refCodeWindow}
             >
               <div className='w-fit min-w-full overflow-hidden px-sm pb-sm'>
-                {tokens.map((line, i) => (
-                  <div {...getLineProps({ line })} translate='no' key={i}>
-                    {line.map((token, key) => (
-                      <span
-                        {...getTokenProps({ token })}
-                        key={key}
-                        translate='no'
-                      />
-                    ))}
-                  </div>
-                ))}
+                {tokens.map((line, i) => {
+                  return (
+                    <div {...getLineProps({ line })} translate='no' key={i}>
+                      {line.map((token, key) => {
+                        return (
+                          <span
+                            {...convert(getTokenProps({ token }))}
+                            key={key}
+                            translate='no'
+                          />
+                        );
+                      })}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </pre>
