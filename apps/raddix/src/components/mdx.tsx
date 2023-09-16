@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react';
 import type { Language } from 'prism-react-renderer';
 import { useState } from 'react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/dracula';
+import { Highlight, themes } from 'prism-react-renderer';
 import { componentsDemo } from '@/demo';
 import { Card, CardGroup } from './card';
 import { ApiTable } from './api-table';
@@ -67,12 +66,7 @@ export const TextPre = (props: Children) => {
         >
           {isCopied ? '🎉 Copied!' : 'Copy'}
         </button>
-        <Highlight
-          {...defaultProps}
-          code={code}
-          language={language as Language}
-          theme={theme}
-        >
+        <Highlight code={code} language={language} theme={themes.dracula}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre
               className={className}
