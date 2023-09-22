@@ -30,7 +30,7 @@ export const DocsLayout = ({ children, sidebar, meta }: DocsProps) => {
         <title>{meta.title}</title>
       </Head>
 
-      <main className='mx-auto max-w-std px-sm py-xl md:grid md:grid-cols-ax1  lg:grid-cols-ax1xa'>
+      <main className='mx-auto max-w-std gap-2xl px-sm py-xl md:grid md:grid-cols-ax1 lg:grid-cols-ax1xa'>
         {isSearchMenuOpen && <SearchMenu toggle={toggleSearchMenu} />}
         {!showAside && (
           <Sidebar>
@@ -38,7 +38,7 @@ export const DocsLayout = ({ children, sidebar, meta }: DocsProps) => {
             <SidebarMenu menu={sidebar} currentRoute={currentSlug} />
           </Sidebar>
         )}
-        <article className='box-border overflow-hidden md:px-md'>
+        <article className='box-border overflow-hidden'>
           <section>{children}</section>
           <Pagination menu={sidebar} currentRoute={currentSlug} />
         </article>

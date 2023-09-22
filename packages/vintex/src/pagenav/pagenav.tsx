@@ -19,12 +19,12 @@ interface TreeProps {
 }
 
 const Tree = ({ navData, activeItem }: TreeProps) => {
-  const childStyle = navData.at(0)?.depth ? 'pl-sm pt-xs' : '';
+  const childStyle = navData.at(0)?.depth ? 'pl-sm pt-[4.5px]' : '';
   return (
     <ul className={`${childStyle}`}>
       {navData.map(item => {
         return (
-          <li key={`${item.name}-${item.depth}`} className='py-xs'>
+          <li key={`${item.name}-${item.depth}`} className='py-[4.5px] text-sm'>
             <a
               href={`#${item.id}`}
               className={
