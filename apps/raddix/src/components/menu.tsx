@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import nextConfig from 'next.config';
+import { DEFAULT_LOCALE } from '@/utils/constants';
 
 interface MenuItems {
   name: string;
@@ -13,7 +13,7 @@ export const Menu = () => {
   const { locale } = useRouter();
 
   const getMenuItems = useCallback(async () => {
-    const realLocale = locale ?? nextConfig.i18n.defaultLocale;
+    const realLocale = locale ?? DEFAULT_LOCALE;
     const response: { navList: MenuItems[] } = await import(
       `data/menu/${realLocale}.json`
     );

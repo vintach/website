@@ -46,7 +46,7 @@ module.exports = {
         '4xl': '4.5rem' //72px
       },
       maxWidth: {
-        std: '75rem' //1200px
+        std: '85rem' //1360px
       },
       borderRadius: {
         std: '.75rem' //12px

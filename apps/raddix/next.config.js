@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
@@ -8,9 +7,6 @@ const nextConfig = {
     locales: ['en', 'es'],
     defaultLocale: 'en',
     localeDetection: false
-  },
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')]
   }
 };
 
