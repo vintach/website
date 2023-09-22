@@ -20,6 +20,6 @@
     "react": "18.2.0",
     "@vintach/tsconfig": "workspace:*",
     "@vintach/tailwind": "workspace:*",
-    "next": "13.1.5"
+    "next": "13.4.19"
   }
 }
