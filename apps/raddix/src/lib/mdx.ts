@@ -3,8 +3,8 @@ import type { ParsedUrlQuery } from 'querystring';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import nextConfig from '../../next.config';
 import { glob } from 'glob';
+import { DEFAULT_LOCALE } from '@/utils/constants';
 
 const ROOT_PATH = process.cwd();
 const DATA_PATH = path.join(ROOT_PATH, 'data');
@@ -38,7 +38,7 @@ export const getMdxBySlug = ({
   locale: localeProp
 }: MDXBySlug) => {
   const srcDirectory = path.join(ROOT_PATH, 'data', file);
-  const locale = localeProp ?? nextConfig.i18n.defaultLocale;
+  const locale = localeProp ?? DEFAULT_LOCALE;
 
   const slug = params?.slug as string[];
   const realSlug = !slug ? [file] : slug[slug.length - 1];
@@ -58,7 +58,7 @@ export const getMdxBySlug = ({
 };
 
 export const getSidebarData = (locale?: string) => {
-  const realLocale = locale ?? nextConfig.i18n.defaultLocale;
+  const realLocale = locale ?? DEFAULT_LOCALE;
   const srcDirectory = path.join(ROOT_PATH, 'data', 'sidebar');
   const sidebarData = fs.readFileSync(
     `${srcDirectory}/${realLocale}.json`,
@@ -74,7 +74,7 @@ interface GETMDXData {
   file: string;
 }
 export const getMdxData = <T = {}>({ locale, file }: GETMDXData) => {
-  const realLocale = locale ?? nextConfig.i18n.defaultLocale;
+  const realLocale = locale ?? DEFAULT_LOCALE;
   const srcDirectory = path.join(ROOT_PATH, 'data', file);
   const source = fs.readFileSync(`${srcDirectory}/${realLocale}.json`, 'utf-8');
 
