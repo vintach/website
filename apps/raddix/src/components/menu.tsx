@@ -13,7 +13,7 @@ export const Menu = () => {
   const { locale } = useRouter();
 
   const getMenuItems = useCallback(async () => {
-    const realLocale = locale ?? nextConfig.i18n.defaultLocale;
+    const realLocale = locale ?? nextConfig.i18n?.defaultLocale;
     const response: { navList: MenuItems[] } = await import(
       `data/menu/${realLocale}.json`
     );
