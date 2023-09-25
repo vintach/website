@@ -1,36 +1,33 @@
 {
   "hero": {
-    "title": "La Librería de Hooks para React",
-    "description": "Raddix es una colección de Hooks y utilidades para React.",
+    "title": "Colección esencial de React hooks",
+    "description": "Libreria de React hook, moderna, ligera, fácil de usar y type-safe.",
     "button": "Empezar"
   },
-  "accessible": {
-    "antisubtitle": "Accesible",
-    "subtitle": "Accesibilidad lista para usar",
-    "description": "Raddix lo ayuda a crear componentes accesibles, incluido el lector de pantalla completa y la compatibilidad con la navegación del teclado.",
-    "main": {
-      "dataCard": [
-        {
-          "title": "Navegación por teclado",
-          "icon": "/icons/black-keyboard.svg",
-          "description": "Soporte de teclado completo, permitiendo una navegación más rápida sin levantar las manos del teclado."
-        },
-        {
-          "title": "Indicador de enfoque",
-          "icon": "/icons/center-focus.svg",
-          "description": "Raddix brinda accesibilidad de enfoque para poder identificar los elementos con los que está interactuando."
-        },
-        {
-          "title": "Lector de pantalla",
-          "icon": "/icons/record-voe-over.svg",
-          "description": "Raddix se probó con los principales lectores de pantalla como NVDA, JAWS y TalkBack. "
-        }
-      ]
+  "features": [
+    {
+      "title": "🔑 Seguridad de tipos",
+      "description": "Todos los hooks están escritos en TypeScript con soporte de seguridad de tipos."
+    },
+    {
+      "title": "📦 Ligero",
+      "description": "Raddix es una libreria ligera, sin dependencias externas."
+    },
+    {
+      "title": "🧩 Fácil de usar",
+      "description": "Todos los hooks tienen una API intuitiva y fácil de usar."
+    },
+    {
+      "title": "🌿 Tree-Shakable",
+      "description": "Simplemente importa lo que desea y elimina el código no utilizado."
+    },
+    {
+      "title": "🔬 Totalmente probado",
+      "description": "Todos los hooks están completamente probados y tienen una cobertura de prueba del 100%."
+    },
+    {
+      "title": "🎡 Demostraciones interactivas",
+      "description": "Cada hook tiene una demostración interactiva para demostrar su uso."
     }
-  },
-  "styling": {
-    "antisubtitle": "Estilismo",
-    "subtitle": "Compatible con cualquier solución de estilismo",
-    "description": "Usted tiene el control absoluto sobre el estilo y la estructura de sus componentes."
-  }
+  ]
 }

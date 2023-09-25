@@ -1,36 +1,33 @@
 {
   "hero": {
-    "title": "The React hook Library",
-    "description": "Raddix is a collection of hooks and utilities for React",
+    "title": "Collection of Essential React Hooks",
+    "description": "React hook library, modern, light, easy to use, and type-safe.",
     "button": "Get Started"
   },
-  "accessible": {
-    "antisubtitle": "Accessible",
-    "subtitle": "Accessibility out of the box",
-    "description": "Raddix helps you build accessible components, including full screen reader and keyboard navigation support.",
-    "main": {
-      "dataCard": [
-        {
-          "title": "Keyboard navigation",
-          "icon": "/icons/black-keyboard.svg",
-          "description": "Full keyboard support, allowing faster navigation without lifting your hands from the keyboard."
-        },
-        {
-          "title": "Focus indicator",
-          "icon": "/icons/center-focus.svg",
-          "description": "Raddix provides focus accessibility so you can identify the elements you are interacting with."
-        },
-        {
-          "title": "Screen reader",
-          "icon": "/icons/record-voe-over.svg",
-          "description": "Raddix has been tested with major screen readers such as NVDA, JAWS, and TalkBack."
-        }
-      ]
+  "features": [
+    {
+      "title": "🔑 Type-Safe",
+      "description": "All hooks are written in typescript, and full typescript support."
+    },
+    {
+      "title": "📦 Lightweight",
+      "description": "Raddix is a lightweight library, no extra dependencies."
+    },
+    {
+      "title": "🧩 Easy to use",
+      "description": "All hooks are easy to use, just import and use it."
+    },
+    {
+      "title": "🔬 Fully tested",
+      "description": "All hooks are fully tested, and 100% test coverage."
+    },
+    {
+      "title": "🌳 Tree-Shakable",
+      "description": "Just import what you want and remove unused code."
+    },
+    {
+      "title": "🎡 Interactive demos",
+      "description": "Each hook has an interactive demo to demonstrate its use"
     }
-  },
-  "styling": {
-    "antisubtitle": "Styling",
-    "subtitle": "Compatible with any styling solution",
-    "description": "You have complete control over how you styling and structure your components."
-  }
+  ]
 }
