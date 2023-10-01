@@ -1,0 +1,111 @@
+---
+title: useCounter
+description: A hook that manage a counter value with minimum and maximum limits.
+---
+
+# useCounter
+
+`useCounter` is a hook that manage a counter value with minimum and maximum limits.
+
+## Installation
+
+```sh
+yarn add @raddix/use-counter
+```
+
+## API
+
+### Return value
+
+The `useCounter` hook returns an array with the following elements:
+
+<ApiTable
+  head={{ name: 'Index' }}
+  data={[
+    {
+      name: '0 (counter)',
+      type: 'number',
+      description: 'The current counter value.'
+    },
+    {
+      name: '1 (actions)',
+      type: 'object',
+      description: 'An object containing the actions to manage the counter.'
+    }
+  ]}
+/>
+
+### Actions
+
+<ApiTable
+  data={[
+    {
+      name: 'inc',
+      type: '(value?: number) => void',
+      description: 'Increments the counter, default by 1.'
+    },
+    {
+      name: 'dec',
+      type: '(value?: number) => void',
+      description: 'Decrements the counter, default by 1.'
+    },
+    {
+      name: 'reset',
+      type: '() => void',
+      description: 'Resets the counter value to the initial value.'
+    },
+    {
+      name: 'set',
+      type: '(value: number) => void',
+      description: 'Sets the counter value to the given value.'
+    }
+  ]}
+/>
+
+### Parameters
+
+The `useCounter` hook accepts the following parameters:
+
+<ApiTable
+  data={[
+    {
+      name: 'initialValue',
+      type: 'number',
+      description: 'The initial value of the counter.'
+    },
+    {
+      name: 'options',
+      type: 'object',
+      description: 'An object containing the options to manage the counter.'
+    }
+  ]}
+/>
+
+### Options
+
+<ApiTable
+  data={[
+    {
+      name: 'min',
+      type: 'number',
+      description: 'The minimum value of the counter.'
+    },
+    {
+      name: 'max',
+      type: 'number',
+      description: 'The maximum value of the counter.'
+    },
+    {
+      name: 'onMin',
+      type: '() => void',
+      description:
+        'Function to execute when the counter reaches the minimum value'
+    },
+    {
+      name: 'onMax',
+      type: '() => void',
+      description:
+        'Function to execute when the counter reaches the maximum value'
+    }
+  ]}
+/>
