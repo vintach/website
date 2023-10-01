@@ -107,6 +107,13 @@
           }
         },
         {
+          "title": "useCounter",
+          "route": {
+            "path": "/docs/utilities/use-counter",
+            "locale": "en"
+          }
+        },
+        {
           "title": "useToggle",
           "route": {
             "path": "/docs/utilities/use-toggle",

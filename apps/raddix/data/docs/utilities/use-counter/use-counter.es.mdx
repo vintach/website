@@ -1,0 +1,111 @@
+---
+title: useCounter
+description: Un hook para manejar un contador con límites mínimo y máximo.
+---
+
+# useCounter
+
+`useCounter` es un hook para manejar un contador con límites mínimo y máximo.
+
+## Instalación
+
+```sh
+yarn add @raddix/use-counter
+```
+
+## API
+
+### Valor de retorno
+
+El hook `useCounter` devuelve un array con dos elementos:
+
+<ApiTable
+  head={{ name: 'Index' }}
+  data={[
+    {
+      name: '0 (counter)',
+      type: 'number',
+      description: 'El valor actual del contador.'
+    },
+    {
+      name: '1 (actions)',
+      type: 'object',
+      description: 'Un objeto con las acciones para manejar el contador.'
+    }
+  ]}
+/>
+
+### Acciones
+
+<ApiTable
+  data={[
+    {
+      name: 'inc',
+      type: '(value?: number) => void',
+      description: 'Incrementa el contador, por defecto en 1.'
+    },
+    {
+      name: 'dec',
+      type: '(value?: number) => void',
+      description: 'Decrementa el contador, por defecto en 1.'
+    },
+    {
+      name: 'reset',
+      type: '() => void',
+      description: 'Resetea el contador al valor inicial.'
+    },
+    {
+      name: 'set',
+      type: '(value: number) => void',
+      description: 'Establece el contador a un valor específico.'
+    }
+  ]}
+/>
+
+### Parámetros
+
+El hook `useCounter` acepta dos parámetros:
+
+<ApiTable
+  data={[
+    {
+      name: 'initialValue',
+      type: 'number',
+      description: 'El valor inicial del contador.'
+    },
+    {
+      name: 'options',
+      type: 'object',
+      description: 'Un objeto con las opciones del contador.'
+    }
+  ]}
+/>
+
+### Opciones del contador
+
+<ApiTable
+  data={[
+    {
+      name: 'min',
+      type: 'number',
+      description: 'El valor mínimo del contador.'
+    },
+    {
+      name: 'max',
+      type: 'number',
+      description: 'El valor máximo del contador.'
+    },
+    {
+      name: 'onMin',
+      type: '() => void',
+      description:
+        'Función a ejecutar cuando el contador alcanza el valor mínimo.'
+    },
+    {
+      name: 'onMax',
+      type: '() => void',
+      description:
+        'Función a ejecutar cuando el contador alcanza el valor máximo.'
+    }
+  ]}
+/>
