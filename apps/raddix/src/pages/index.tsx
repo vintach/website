@@ -3,13 +3,13 @@ import type { HomeData } from '@/types/home-data';
 import { Hero } from '@/components/hero';
 import { HomeLayout } from '@/layouts/home';
 import { getMdxData } from '@/lib/mdx';
-// import { Styling } from '@/components/styling';
+import { Features } from '@/components/features';
 
 const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <HomeLayout>
       <Hero {...data.hero} />
-      {/* <Styling {...data.styling} /> */}
+      <Features features={data.features} />
     </HomeLayout>
   );
 };
