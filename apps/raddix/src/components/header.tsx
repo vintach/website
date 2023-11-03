@@ -39,7 +39,13 @@ export const Header = () => {
     >
       <div className='mx-auto flex h-20 w-full max-w-std items-center justify-between px-sm py-4'>
         <Link className='flex items-center gap-1.5' href='/' locale={locale}>
-          <Image src='/raddix.svg' alt='Raddix logo' width={24} height={36} />
+          <Image
+            src='/raddix.svg'
+            alt='Raddix logo'
+            priority
+            width={24}
+            height={36}
+          />
           <h1 className='text-[1.8rem] font-semibold'>raddix</h1>
         </Link>
 
