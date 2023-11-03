@@ -3,120 +3,79 @@
     {
       "title": "Getting Started",
       "route": {
-        "path": "/docs/get-started",
+        "path": "/docs/getting-started",
         "locale": "en"
       },
       "items": [
         {
-          "title": "Add to your project",
+          "title": "Introduction",
           "route": {
-            "path": "/docs/get-started/add-to-project",
+            "path": "/docs/getting-started/introduction",
             "locale": "en"
           }
         },
         {
-          "title": "Create a component",
+          "title": "Installation",
           "route": {
-            "path": "/docs/get-started/create-component",
+            "path": "/docs/getting-started/installation",
             "locale": "en"
           }
         }
       ]
     },
     {
-      "title": "Concepts",
+      "title": "Hooks",
       "route": {
-        "path": "/docs/concepts",
-        "locale": "en"
-      },
-      "items": [
-        {
-          "title": "Why Raddix",
-          "route": {
-            "path": "/docs/concepts/why-raddix",
-            "locale": "en"
-          }
-        },
-        {
-          "title": "Accesibility",
-          "route": {
-            "path": "/docs/concepts/accesibility",
-            "locale": "en"
-          }
-        },
-        {
-          "title": "Customization",
-          "route": {
-            "path": "/docs/concepts/customization",
-            "locale": "en"
-          }
-        }
-      ]
-    },
-    {
-      "title": "Aria",
-      "route": {
-        "path": "/docs/aria",
-        "locale": "en"
-      },
-      "items": [
-        {
-          "title": "useSwitch",
-          "route": {
-            "path": "/docs/aria/switch",
-            "locale": "en"
-          }
-        }
-      ]
-    },
-    {
-      "title": "Interactions",
-      "route": {
-        "path": "/docs/interactions",
+        "path": "/docs/hooks",
         "locale": "en"
       },
       "items": [
         {
           "title": "useKeyboard",
           "route": {
-            "path": "/docs/interactions/use-keyboard",
+            "path": "/docs/hooks/use-keyboard",
             "locale": "en"
           }
         },
         {
           "title": "useClickOutside",
           "route": {
-            "path": "/docs/interactions/use-click-outside",
+            "path": "/docs/hooks/use-click-outside",
             "locale": "en"
           }
-        }
-      ]
-    },
-    {
-      "title": "Utilities",
-      "route": {
-        "path": "/docs/utilities",
-        "locale": "en"
-      },
-      "items": [
+        },
         {
           "title": "useCountDown",
           "route": {
-            "path": "/docs/utilities/use-count-down",
+            "path": "/docs/hooks/use-count-down",
             "locale": "en"
           }
         },
         {
           "title": "useToggle",
           "route": {
-            "path": "/docs/utilities/use-toggle",
+            "path": "/docs/hooks/use-toggle",
             "locale": "en"
           }
         },
         {
-          "title": "useScrollSpy",
+          "title": "usencrollSpy",
           "route": {
-            "path": "/docs/utilities/use-scroll-spy",
+            "path": "/docs/hooks/use-scroll-spy",
+            "locale": "en"
+          }
+        },
+        {
+          "title": "useTimeout",
+          "route": {
+            "path": "/docs/hooks/use-timeout",
+            "locale": "en"
+          }
+        },
+        {
+          "title": "useInterval",
+          "route": {
+            "path": "/docs/hooks/use-interval",
             "locale": "en"
           }
         }
