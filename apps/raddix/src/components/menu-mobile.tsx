@@ -47,10 +47,10 @@ export const MenuMobile = ({ isActive, setIsActive }: MenuAMobileProps) => {
         className={`absolute left-0 top-20 z-20 h-[calc(100vh-80px)] w-full bg-black px-3xl py-lg transition-all duration-200 ease-in ${activeMenuStyles}`}
       >
         <Menu />
-        <div className='my-2'>
+        <Language menuAbsolute={false} showActive />
+        <div className='mt-lg border-t border-gray-120 pt-md'>
           <MediaLinks />
         </div>
-        <Language />
       </div>
     </div>
   );

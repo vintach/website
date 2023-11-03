@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const MediaLinks = () => {
   return (
-    <div className='flex space-x-4'>
+    <div className='flex justify-center space-x-4'>
       <Link href='https://discord.gg/mSdGGRrbVF' target='_blank'>
         <Image
           src='/icons/discord.svg'

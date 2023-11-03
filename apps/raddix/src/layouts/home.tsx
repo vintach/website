@@ -9,15 +9,18 @@ export const HomeLayout = ({ children }: HomeProps) => {
   return (
     <>
       <Head>
-        <title>
-          Raddix: A Collection Of React Hooks For Your Design System.
-        </title>
+        <title>Raddix - The React Hooks Library</title>
         <meta
           name='description'
-          content='Raddix is a collection of hooks that allows you to quickly create high-quality, adaptable, and accessible design systems.'
+          content='Collection of Essential React Hooks'
         />
+        <meta
+          name='keywords'
+          content='react, hooks, react hooks, react hooks library, raddix'
+        />
+        <meta name='author' content='Raddix' />
       </Head>
-      <main className='mx-auto max-w-std'>{children}</main>
+      <main className='mx-auto max-w-std px-6 lg:px-0'>{children}</main>
     </>
   );
 };

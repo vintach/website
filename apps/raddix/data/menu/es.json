@@ -2,15 +2,15 @@
   "navList": [
     {
       "name": "Documentación",
-      "path": "/docs"
+      "path": "/docs/introduction"
     },
     {
-      "name": "Comunidad",
-      "path": "https://github.com/vintach/raddix/discussions"
+      "name": "Hooks",
+      "path": "/hooks"
     },
     {
-      "name": "Lanzamientos",
-      "path": "https://github.com/vintach/raddix/releases"
+      "name": "Blog",
+      "path": "/blog"
     }
   ]
 }
