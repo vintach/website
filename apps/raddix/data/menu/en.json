@@ -1,8 +1,8 @@
 {
   "navList": [
     {
-      "name": "Docs",
-      "path": "/docs/introduction"
+      "name": "Documentation",
+      "path": "/docs/getting-started/introduction"
     },
     {
       "name": "Hooks",
