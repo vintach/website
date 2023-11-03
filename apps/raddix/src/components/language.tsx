@@ -3,16 +3,24 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const Language = () => {
-  const { locales, pathname, query } = useRouter();
+const codeLanguage = {
+  en: 'English',
+  es: 'Español'
+};
+type CodeLanguage = keyof typeof codeLanguage;
+
+export const Language = ({ showActive = false, menuAbsolute = true }) => {
+  const { locales, pathname, query, locale } = useRouter();
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const refBtn = useRef<HTMLButtonElement>(null);
   const refMenu = useRef<HTMLDivElement>(null);
 
-  const activeMenuStyle = isActive
-    ? 'opacity-1 visible'
-    : 'invisible opacity-0';
+  const activeMenuStyle = isActive ? 'opacity-1 block' : 'hidden opacity-0';
+
+  const activeItemStyle = (localName: string) => {
+    return locale === localName ? 'text-purple-40' : 'sm:hover:bg-gray-120';
+  };
 
   const handleClickOutside = (e: MouseEvent | TouchEvent) => {
     const button = refBtn.current;
@@ -40,18 +48,21 @@ export const Language = () => {
   }, []);
 
   return (
-    <div className='py relative w-full border-solid border-white/5 sm:mr-5 sm:flex sm:w-auto sm:border-r-2 sm:pr-4'>
+    <div className='py none relative w-full border-solid border-white/5 sm:mr-5 sm:flex sm:w-auto sm:border-r-2 sm:pr-4'>
       <button
         ref={refBtn}
         onClick={toggleMenu}
-        className='flex w-full cursor-pointer items-center justify-between border-0 bg-[transparent] py-sm sm:w-auto sm:justify-normal sm:py-0 '
+        className='flex w-full cursor-pointer items-center border-0 bg-[transparent] py-xs sm:w-auto sm:justify-normal sm:py-0 '
       >
         <Image
           src={'/icons/language.svg'}
           alt='language'
-          width={25}
-          height={25}
+          width={22}
+          height={22}
         />
+        {showActive && (
+          <span className='px-1'>{codeLanguage[locale as CodeLanguage]}</span>
+        )}
         <Image
           src={'/icons/bottom-arrow.svg'}
           alt='language-arrow'
@@ -61,12 +72,17 @@ export const Language = () => {
       </button>
       <div
         ref={refMenu}
-        className={`absolute left-0 top-16 w-full min-w-max transition-opacity duration-150 ease-in sm:left-auto sm:right-0 ${activeMenuStyle}`}
+        className={`${
+          menuAbsolute ? 'absolute left-0 top-9' : 'top-0'
+        } w-full min-w-max transition-opacity duration-150 ease-in sm:left-auto sm:right-0 ${activeMenuStyle}`}
       >
         <ul className='w-full space-y-1 rounded-md border-solid border-gray-50/30 bg-black sm:border sm:p-xs'>
           {locales?.map(localName => {
             return (
-              <li key={localName} className='rounded-lg sm:hover:bg-gray-90'>
+              <li
+                key={localName}
+                className={`${activeItemStyle(localName)} rounded-lg`}
+              >
                 <Link
                   href={{
                     pathname,
@@ -74,9 +90,9 @@ export const Language = () => {
                   }}
                   locale={localName}
                   onClick={toggleMenu}
-                  className='block px-sm text-sm leading-10 sm:px-md sm:leading-8'
+                  className='block px-sm text-xs leading-10 sm:px-md sm:leading-8'
                 >
-                  {localName === 'en' ? 'English' : 'Español'}
+                  {codeLanguage[localName as CodeLanguage]}
                 </Link>
               </li>
             );

@@ -26,6 +26,8 @@ export const Header = () => {
       ? 'bg-black/80 backdrop-saturate-100 backdrop-blur shadow-sm shadow-white/10'
       : '';
 
+  const activeMenuStyles = isMenuMobile ? 'bg-black' : '';
+
   useEffect(() => {
     window.addEventListener('scroll', updateScroll);
     return () => window.removeEventListener('scroll', updateScroll);
@@ -33,7 +35,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`sticky left-0 top-0 z-20 w-full bg-black transition-all duration-100 ${onScrollHeaderStyles}`}
+      className={`sticky left-0 top-0 z-20 w-full transition-all duration-100 ${onScrollHeaderStyles} ${activeMenuStyles}`}
     >
       <div className='mx-auto flex h-20 w-full max-w-std items-center justify-between px-sm py-4'>
         <Link className='flex items-center gap-1.5' href='/' locale={locale}>
