@@ -7,6 +7,15 @@ const nextConfig = {
     locales: ['en', 'es'],
     defaultLocale: 'en',
     localeDetection: false
+  },
+  async redirects() {
+    return [
+      {
+        source: '/hooks/:slug',
+        destination: '/docs/hooks/:slug',
+        permanent: true
+      }
+    ];
   }
 };
 
