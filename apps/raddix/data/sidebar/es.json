@@ -85,6 +85,13 @@
             "path": "/docs/hooks/use-interval",
             "locale": "es"
           }
+        },
+        {
+          "title": "useMediaQuery",
+          "route": {
+            "path": "/docs/hooks/use-media-query",
+            "locale": "es"
+          }
         }
       ]
     }
