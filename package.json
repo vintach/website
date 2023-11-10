@@ -52,5 +52,9 @@
   "engines": {
     "node": ">=18",
     "pnpm": ">=8"
+  },
+  "dependencies": {
+    "@raddix/use-interval": "1.1.1",
+    "@raddix/use-timeout": "1.1.0"
   }
 }
