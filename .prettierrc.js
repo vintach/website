@@ -9,5 +9,5 @@ module.exports = {
   bracketSpacing: true,
   arrowParens: 'avoid',
   plugins: [tailwindPlugin],
-  tailwindConfig: './settings/tailwind/tailwind.config.js'
+  tailwindConfig: './settings/tailwind/tailwind.config.ts'
 };

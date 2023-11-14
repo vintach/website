@@ -1,14 +1,9 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from 'tailwindcss';
+import { colors } from '@vintach/colors';
+import scrollbarPlugin from 'tailwind-scrollbar';
 
-const { colors } = require('@vintach/colors');
-const scrollbarPlugin = require('tailwind-scrollbar');
-
-module.exports = {
-  content: [
-    'src/**/*.{js,ts,jsx,tsx}',
-    '../../packages/**/*.{js,ts,jsx,tsx}',
-    './pages/**/*.{js,ts,jsx,tsx}'
-  ],
+const config: Config = {
+  content: ['src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
       sm: '40rem', //640px
@@ -55,3 +50,5 @@ module.exports = {
   },
   plugins: [scrollbarPlugin({ nocompatible: true })]
 };
+
+export default config;
