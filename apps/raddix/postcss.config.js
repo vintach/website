@@ -1,1 +1,6 @@
-module.exports = require('@vintach/tailwind/postcss.config');
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {}
+  }
+};

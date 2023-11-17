@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
+  "main": "index.ts",
+  "types": "index.ts",
   "devDependencies": {
     "@vintach/colors": "workspace:*",
+    "tailwindcss": "^3.3.5",
     "tailwind-scrollbar": "3.0.4"
   }
 }

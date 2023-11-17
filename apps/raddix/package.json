@@ -21,11 +21,11 @@
     "classnames": "2.3.2",
     "glob": "8.1.0",
     "gray-matter": "4.0.3",
-    "next": "13.4.19",
+    "next": "^13.5.4",
     "next-mdx-remote": "4.3.0",
     "prism-react-renderer": "2.0.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "remark-autolink-headings": "7.0.1",
     "remark-slug": "7.0.1",
     "vintex": "workspace:*"
@@ -33,14 +33,15 @@
   "devDependencies": {
     "@types/glob": "8.0.1",
     "@types/node": "18.11.18",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
+    "@types/react": "^18.2.5",
+    "@types/react-dom": "^18.2.4",
     "@types/unist": "2.0.6",
     "@vintach/tailwind": "workspace:*",
     "@vintach/tsconfig": "workspace:*",
-    "autoprefixer": "10.4.14",
-    "postcss": "8.4.23",
-    "tailwindcss": "3.3.2",
-    "unist-util-visit": "4.1.2"
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "unist-util-visit": "4.1.2",
+    "typescript": "^5.1.6"
   }
 }

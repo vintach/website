@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app';
 import { AppLayout } from '@/layouts/app';
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@/components/google-analytics';
-import 'vintex/globals.css';
+import 'vintex/styles.css';
 import '@/styles/main.css';
 
 const inter = Inter({
