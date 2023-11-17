@@ -146,7 +146,7 @@ module.exports = {
      * -----------------------------------------------------
      */
     {
-      files: ['./apps/**/pages/**', './apps/**/app/*'],
+      files: ['./apps/**/pages/**', './apps/**/app/*', '**/*.config.ts'],
       rules: {
         'import/no-default-export': 'off'
       }
