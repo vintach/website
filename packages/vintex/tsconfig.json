@@ -1,5 +1,5 @@
 {
   "extends": "@vintach/tsconfig/reactjs.json",
   "include": ["."],
-  "exclude": ["node_modules"]
+  "exclude": ["dist", "build", "node_modules"]
 }

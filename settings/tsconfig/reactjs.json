@@ -4,17 +4,9 @@
   "extends": "./base.json",
   "compilerOptions": {
     "lib": ["dom", "esnext"],
+    "module": "ESNext",
+    "target": "ES6",
     "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "declaration": true,
-    "sourceMap": true,
-    "allowSyntheticDefaultImports": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noEmit": true
   }
 }
