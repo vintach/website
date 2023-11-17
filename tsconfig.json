@@ -1,0 +1,3 @@
+{
+  "extends": "@vintach/tsconfig/base.json"
+}
