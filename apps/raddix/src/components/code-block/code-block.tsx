@@ -36,15 +36,10 @@ export const CodeBlock = ({
 
   return (
     <div className='flex w-full flex-col rounded-xl border border-solid border-white/5 bg-gray-120/80 backdrop-blur backdrop-saturate-100'>
-      <div className='flex justify-start gap-1.5 px-sm py-4'>
-        <span className='h-3 w-3 rounded-full bg-[#f31260]'></span>
-        <span className='h-3 w-3 rounded-full bg-[#f5a524]'></span>
-        <span className='h-3 w-3 rounded-full bg-[#17c964]'></span>
-      </div>
       <Highlight code={source.trim()} language={language} theme={blameTheme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre
-            className={`${className} relative box-content flex w-full overflow-hidden py-xs text-xs leading-5`}
+            className={`${className} relative box-content flex w-full overflow-hidden py-md text-xs leading-5 md:text-[14.5px] md:leading-[21px]`}
             style={{
               ...style
             }}
@@ -71,10 +66,10 @@ export const CodeBlock = ({
               </div>
             )}
             <div
-              className='h-[inherit] w-[calc(100%_-_12px)] overflow-auto scrollbar-thin scrollbar-track-[transparent] scrollbar-thumb-gray-40/50 scrollbar-thumb-rounded-lg'
+              className='mx-auto h-[inherit] w-[calc(100%_-_45px)] overflow-auto scrollbar-thin scrollbar-track-[transparent] scrollbar-thumb-gray-40/50 scrollbar-thumb-rounded-lg'
               ref={refCodeWindow}
             >
-              <div className='w-fit min-w-full overflow-hidden px-sm pb-sm'>
+              <div className='w-fit min-w-full overflow-hidden'>
                 {tokens.map((line, i) => {
                   return (
                     <div {...getLineProps({ line })} translate='no' key={i}>
