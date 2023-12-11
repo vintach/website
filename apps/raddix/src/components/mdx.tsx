@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react';
-import type { Language } from 'prism-react-renderer';
 import { useState } from 'react';
-import { Highlight, themes } from 'prism-react-renderer';
 import { componentsDemo } from '@/demo';
 import { Card, CardGroup } from './card';
 import { ApiTable } from './api-table';
 import { CodeBlock } from './code-block';
+import { Snippet } from './snippet';
+import { Code } from './code';
 
 export interface Children {
   children?: ReactNode;
@@ -39,8 +39,9 @@ export const TextPre = (props: Children) => {
   const children = props.children as TextPreProps;
 
   const classNameRo = children.props.className || '';
-  const code = children.props.children.trim();
+  const code = children.props.children;
   const language = classNameRo.replace(/language-/, '');
+
   const copyButtonStyles = isCopied
     ? 'bg-blue-60 text-white'
     : 'bg-white/70 text-gray-90';
@@ -57,42 +58,11 @@ export const TextPre = (props: Children) => {
     setTimeout(() => setIsCopied(false), 2000);
   };
 
-  return (
-    <div className='relative'>
-      <div className='group my-6 overflow-auto rounded-lg border border-solid border-white/10 bg-white/5 px-8 py-5 text-[1.05rem] scrollbar-thumb-gray-40 scrollbar-track-rounded-xl'>
-        <button
-          className={`absolute right-8 top-4 cursor-pointer rounded-lg border-0 px-2.5 py-0.5 text-sm opacity-0 transition-all duration-200 ease-in group-hover:opacity-100 active:scale-95 ${copyButtonStyles}`}
-          onClick={() => handleCopy(code)}
-        >
-          {isCopied ? '🎉 Copied!' : 'Copy'}
-        </button>
-        <Highlight code={code} language={language} theme={themes.dracula}>
-          {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre
-              className={className}
-              style={{
-                ...style,
-                backgroundColor: 'transparent'
-              }}
-              translate='no'
-            >
-              {tokens.map((line, i) => (
-                <div {...getLineProps({ line })} key={i} translate='no'>
-                  {line.map((token, key) => (
-                    <span
-                      {...getTokenProps({ token })}
-                      key={key}
-                      translate='no'
-                    />
-                  ))}
-                </div>
-              ))}
-            </pre>
-          )}
-        </Highlight>
-      </div>
-    </div>
-  );
+  if (language === 'sh' || language === 'bash') {
+    return <Snippet text={code} />;
+  }
+
+  return <CodeBlock source={code} language={language} />;
 };
 
 export const MDXComponents = {
@@ -133,6 +103,7 @@ export const MDXComponents = {
   li: ({ children }: Children) => (
     <li className='mb-xs list-disc pl-1 text-md text-gray-10 '>{children}</li>
   ),
+  code: Code,
   Card,
   CodeBlock,
   CardGroup,
