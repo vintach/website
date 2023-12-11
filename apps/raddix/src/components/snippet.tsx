@@ -1,8 +1,5 @@
+import type { TextStr } from '@/types/global';
 import { Copy } from './copy';
-
-interface SnippetProps {
-  text: string;
-}
 
 const getTokenProps = (str: string) => {
   if (
@@ -27,7 +24,7 @@ const getValues = (str: string) => {
   return { command, tokens };
 };
 
-export const Snippet = ({ text }: SnippetProps) => {
+export const Snippet = ({ text }: TextStr) => {
   const { command, tokens } = getValues(text);
 
   return (

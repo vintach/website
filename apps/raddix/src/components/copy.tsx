@@ -1,6 +1,7 @@
+import type { TextStr } from '@/types/global';
 import { useState } from 'react';
 
-export const Copy = ({ text }: { text: string }) => {
+export const Copy = ({ text }: TextStr) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const copyButtonStyles = isCopied

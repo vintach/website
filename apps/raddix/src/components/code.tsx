@@ -1,4 +1,4 @@
-import { type Children } from './mdx';
+import type { Children } from '@/types/global';
 
 export const Code = ({ children }: Children) => {
   return (

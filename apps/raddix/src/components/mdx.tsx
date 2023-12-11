@@ -1,15 +1,10 @@
-import type { ReactNode } from 'react';
-import { useState } from 'react';
 import { componentsDemo } from '@/demo';
 import { Card, CardGroup } from './card';
 import { ApiTable } from './api-table';
 import { CodeBlock } from './code-block';
 import { Snippet } from './snippet';
 import { Code } from './code';
-
-export interface Children {
-  children?: ReactNode;
-}
+import type { Children } from '@/types/global';
 
 export interface TextProps extends Children {
   as: keyof JSX.IntrinsicElements;

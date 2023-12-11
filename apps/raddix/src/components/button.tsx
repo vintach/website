@@ -1,7 +1,7 @@
+import type { TextStr } from '@/types/global';
 import Link from 'next/link';
 
-interface ButtonProps {
-  text: string;
+interface ButtonProps extends TextStr {
   to?: string;
   type: 'primary' | 'secondary';
 }
