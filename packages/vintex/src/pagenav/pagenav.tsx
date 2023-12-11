@@ -93,7 +93,7 @@ export const PageNav = ({ locale, path }: PageNavProps) => {
 
   const pageNavTitle = locale === 'en' ? 'On this page' : 'En esta página';
   const activeHeading = useScrollSpy(headingIds, {
-    rootMargin: '0% 0% -90% 0%'
+    rootMargin: '-80px 0px -72% 0px'
   });
 
   return (
