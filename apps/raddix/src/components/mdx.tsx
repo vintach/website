@@ -73,7 +73,10 @@ export const MDXComponents = {
     </Text>
   ),
   p: ({ children }: Children) => (
-    <Text as='p' className='my-sm text-sm tracking-[-.010em] md:text-md'>
+    <Text
+      as='p'
+      className='my-sm text-sm tracking-[-.010em] text-white/90 md:text-md'
+    >
       {children}
     </Text>
   ),
@@ -82,7 +85,7 @@ export const MDXComponents = {
     <ul className='my-sm pl-[20px]'>{children}</ul>
   ),
   li: ({ children }: Children) => (
-    <li className='mb-xs list-disc pl-1 text-sm text-gray-10 md:text-md '>
+    <li className='mb-xs list-disc pl-1 text-sm text-white/90 md:text-md '>
       {children}
     </li>
   ),
