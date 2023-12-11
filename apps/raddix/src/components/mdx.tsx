@@ -34,29 +34,11 @@ export interface TextPreProps {
 }
 
 export const TextPre = (props: Children) => {
-  const [isCopied, setIsCopied] = useState(false);
-
   const children = props.children as TextPreProps;
 
   const classNameRo = children.props.className || '';
   const code = children.props.children;
   const language = classNameRo.replace(/language-/, '');
-
-  const copyButtonStyles = isCopied
-    ? 'bg-blue-60 text-white'
-    : 'bg-white/70 text-gray-90';
-  const handleCopy = (str: string) => {
-    if (isCopied) {
-      return;
-    }
-
-    navigator.clipboard
-      .writeText(str)
-      .then(() => setIsCopied(true))
-      .catch(err => console.log(err));
-
-    setTimeout(() => setIsCopied(false), 2000);
-  };
 
   if (language === 'sh' || language === 'bash') {
     return <Snippet text={code} />;

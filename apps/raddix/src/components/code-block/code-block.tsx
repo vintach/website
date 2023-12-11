@@ -3,6 +3,7 @@ import { Highlight } from 'prism-react-renderer';
 import type { TokenOutputProps } from 'prism-react-renderer';
 import { useScroll } from '@/hooks/useScroll';
 import { blameTheme } from './theme';
+import { Copy } from '../copy';
 
 export interface CodeBlockProps {
   source: string;
@@ -35,7 +36,8 @@ export const CodeBlock = ({
   };
 
   return (
-    <div className='flex w-full flex-col rounded-xl border border-solid border-white/5 bg-gray-120/80 backdrop-blur backdrop-saturate-100'>
+    <div className='relative flex w-full flex-col rounded-xl border border-solid border-white/5 bg-gray-120/80 backdrop-blur backdrop-saturate-100'>
+      <Copy text={source} />
       <Highlight code={source.trim()} language={language} theme={blameTheme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre

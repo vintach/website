@@ -1,3 +1,5 @@
+import { Copy } from './copy';
+
 interface SnippetProps {
   text: string;
 }
@@ -29,7 +31,7 @@ export const Snippet = ({ text }: SnippetProps) => {
   const { command, tokens } = getValues(text);
 
   return (
-    <div className='my-sm rounded-xl border border-gray-100 bg-gray-120 p-sm md:px-6 md:py-[21px]'>
+    <div className='relative my-sm rounded-xl border border-gray-100 bg-gray-120 p-sm md:px-6 md:py-[21px]'>
       <pre className='text-xs md:text-[15px]'>
         <div className='w-full'>
           <span className='text-[#56b6c2]'>{command}</span>
@@ -40,6 +42,7 @@ export const Snippet = ({ text }: SnippetProps) => {
           ))}
         </div>
       </pre>
+      <Copy text={text} />
     </div>
   );
 };
