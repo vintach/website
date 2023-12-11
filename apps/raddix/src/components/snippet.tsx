@@ -28,7 +28,7 @@ export const Snippet = ({ text }: TextStr) => {
   const { command, tokens } = getValues(text);
 
   return (
-    <div className='relative my-sm rounded-xl border border-gray-100 bg-gray-120 p-sm md:px-6 md:py-[21px]'>
+    <div className='relative my-sm rounded-xl border border-gray-100 bg-gray-120/80 p-sm md:px-6 md:py-[21px]'>
       <pre className='text-xs md:text-[15px]'>
         <div className='w-full'>
           <span className='text-[#56b6c2]'>{command}</span>

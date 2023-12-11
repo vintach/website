@@ -6,7 +6,7 @@ export const Copy = ({ text }: TextStr) => {
 
   const copyButtonStyles = isCopied
     ? 'bg-blue-40 text-white'
-    : 'hover:bg-gray-100';
+    : 'hover:bg-gray-100 bg-[#141419]';
 
   const handleCopy = (str: string) => {
     if (isCopied) {
