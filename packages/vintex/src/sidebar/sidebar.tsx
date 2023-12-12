@@ -16,7 +16,7 @@ export const SidebarMenu = ({ menu, currentRoute }: SideBarMenuProps) => {
       <ol>
         {menu.map(({ title, items }, i) => (
           <li key={`${title}-${i}`} className='pb-md'>
-            <span className='block pb-xs text-sm font-medium'>{title}</span>
+            <span className='mb-sm block text-sm font-medium'>{title}</span>
 
             <ol>
               {items.map((item, ii) => {
@@ -30,7 +30,7 @@ export const SidebarMenu = ({ menu, currentRoute }: SideBarMenuProps) => {
                     className={isActive ? styleLiActive : undefined}
                   >
                     <Link
-                      className={`block border-l-2 border-gray-100 py-[4.5px] pl-[14px] text-sm text-gray-30  ${
+                      className={`block border-l-[1px]  border-gray-100 py-[4.5px] pl-[14px] text-sm tracking-[-0.12px] text-gray-30  ${
                         isActive ? styleLinkActive : `hover:text-gray-20`
                       }`}
                       href={item.route.path}

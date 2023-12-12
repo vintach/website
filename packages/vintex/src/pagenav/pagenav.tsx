@@ -24,7 +24,10 @@ const Tree = ({ navData, activeItem }: TreeProps) => {
     <ul className={`${childStyle}`}>
       {navData.map(item => {
         return (
-          <li key={`${item.name}-${item.depth}`} className='py-[4.5px] text-sm'>
+          <li
+            key={`${item.name}-${item.depth}`}
+            className='py-[4.5px] text-sm tracking-[-0.12px]'
+          >
             <a
               href={`#${item.id}`}
               className={
