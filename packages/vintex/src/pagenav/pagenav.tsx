@@ -24,7 +24,10 @@ const Tree = ({ navData, activeItem }: TreeProps) => {
     <ul className={`${childStyle}`}>
       {navData.map(item => {
         return (
-          <li key={`${item.name}-${item.depth}`} className='py-[4.5px] text-sm'>
+          <li
+            key={`${item.name}-${item.depth}`}
+            className='py-[4.5px] text-sm tracking-[-0.12px]'
+          >
             <a
               href={`#${item.id}`}
               className={
@@ -93,7 +96,7 @@ export const PageNav = ({ locale, path }: PageNavProps) => {
 
   const pageNavTitle = locale === 'en' ? 'On this page' : 'En esta página';
   const activeHeading = useScrollSpy(headingIds, {
-    rootMargin: '0% 0% -90% 0%'
+    rootMargin: '-80px 0px -72% 0px'
   });
 
   return (

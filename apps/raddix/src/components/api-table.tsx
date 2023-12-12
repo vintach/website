@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router';
-
 interface Option {
   name: string;
   description: string;

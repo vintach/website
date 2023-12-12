@@ -1,15 +1,10 @@
-import type { ReactNode } from 'react';
-import type { Language } from 'prism-react-renderer';
-import { useState } from 'react';
-import { Highlight, themes } from 'prism-react-renderer';
 import { componentsDemo } from '@/demo';
 import { Card, CardGroup } from './card';
 import { ApiTable } from './api-table';
 import { CodeBlock } from './code-block';
-
-export interface Children {
-  children?: ReactNode;
-}
+import { Snippet } from './snippet';
+import { Code } from './code';
+import type { Children } from '@/types/global';
 
 export interface TextProps extends Children {
   as: keyof JSX.IntrinsicElements;
@@ -34,77 +29,33 @@ export interface TextPreProps {
 }
 
 export const TextPre = (props: Children) => {
-  const [isCopied, setIsCopied] = useState(false);
-
   const children = props.children as TextPreProps;
 
   const classNameRo = children.props.className || '';
-  const code = children.props.children.trim();
+  const code = children.props.children;
   const language = classNameRo.replace(/language-/, '');
-  const copyButtonStyles = isCopied
-    ? 'bg-blue-60 text-white'
-    : 'bg-white/70 text-gray-90';
-  const handleCopy = (str: string) => {
-    if (isCopied) {
-      return;
-    }
 
-    navigator.clipboard
-      .writeText(str)
-      .then(() => setIsCopied(true))
-      .catch(err => console.log(err));
+  if (language === 'sh' || language === 'bash') {
+    return <Snippet text={code} />;
+  }
 
-    setTimeout(() => setIsCopied(false), 2000);
-  };
-
-  return (
-    <div className='relative'>
-      <div className='group my-6 overflow-auto rounded-lg border border-solid border-white/10 bg-white/5 px-8 py-5 text-[1.05rem] scrollbar-thumb-gray-40 scrollbar-track-rounded-xl'>
-        <button
-          className={`absolute right-8 top-4 cursor-pointer rounded-lg border-0 px-2.5 py-0.5 text-sm opacity-0 transition-all duration-200 ease-in group-hover:opacity-100 active:scale-95 ${copyButtonStyles}`}
-          onClick={() => handleCopy(code)}
-        >
-          {isCopied ? '🎉 Copied!' : 'Copy'}
-        </button>
-        <Highlight code={code} language={language} theme={themes.dracula}>
-          {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre
-              className={className}
-              style={{
-                ...style,
-                backgroundColor: 'transparent'
-              }}
-              translate='no'
-            >
-              {tokens.map((line, i) => (
-                <div {...getLineProps({ line })} key={i} translate='no'>
-                  {line.map((token, key) => (
-                    <span
-                      {...getTokenProps({ token })}
-                      key={key}
-                      translate='no'
-                    />
-                  ))}
-                </div>
-              ))}
-            </pre>
-          )}
-        </Highlight>
-      </div>
-    </div>
-  );
+  return <CodeBlock source={code} language={language} />;
 };
 
 export const MDXComponents = {
   h1: ({ children, ...props }: Children) => (
-    <Text as='h1' className='text-3xl font-semibold md:text-4xl' {...props}>
+    <Text
+      as='h1'
+      className='pb-[3px] text-[2.6rem] font-bold leading-[1.16] tracking-[-.04em] md:pb-[6px] md:text-[3.2rem] md:leading-[1.12] md:tracking-[-.042em]'
+      {...props}
+    >
       {children}
     </Text>
   ),
   h2: ({ children, ...props }: Children) => (
     <Text
       as='h2'
-      className='mb-sm mt-2xl text-2xl font-semibold md:pt-xs'
+      className='mb-sm mt-2xl text-2xl font-semibold tracking-[-.032em] md:pt-xs md:text-3xl md:tracking-[-.034em]'
       isTitle
       {...props}
     >
@@ -114,7 +65,7 @@ export const MDXComponents = {
   h3: ({ children, ...props }: Children) => (
     <Text
       as='h3'
-      className='mb-sm mt-lg text-lg font-semibold'
+      className='mb-sm mt-lg text-lg font-semibold tracking-[-.018em]'
       isTitle
       {...props}
     >
@@ -122,7 +73,10 @@ export const MDXComponents = {
     </Text>
   ),
   p: ({ children }: Children) => (
-    <Text as='p' className='my-sm text-sm md:text-md'>
+    <Text
+      as='p'
+      className='my-sm text-sm tracking-[-.010em] text-white/90 md:text-md'
+    >
       {children}
     </Text>
   ),
@@ -131,8 +85,11 @@ export const MDXComponents = {
     <ul className='my-sm pl-[20px]'>{children}</ul>
   ),
   li: ({ children }: Children) => (
-    <li className='mb-xs list-disc pl-1 text-md text-gray-10 '>{children}</li>
+    <li className='mb-xs list-disc pl-1 text-sm text-white/90 md:text-md '>
+      {children}
+    </li>
   ),
+  code: Code,
   Card,
   CodeBlock,
   CardGroup,
