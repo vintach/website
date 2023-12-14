@@ -92,6 +92,13 @@
             "path": "/docs/hooks/use-media-query",
             "locale": "en"
           }
+        },
+        {
+          "title": "useEventListener",
+          "route": {
+            "path": "/docs/hooks/use-event-listener",
+            "locale": "en"
+          }
         }
       ]
     }
