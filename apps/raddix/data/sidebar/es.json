@@ -99,6 +99,13 @@
             "path": "/docs/hooks/use-event-listener",
             "locale": "es"
           }
+        },
+        {
+          "title": "useScrollPosition",
+          "route": {
+            "path": "/docs/hooks/use-scroll-position",
+            "locale": "es"
+          }
         }
       ]
     }
