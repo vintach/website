@@ -106,6 +106,13 @@
             "path": "/docs/hooks/use-scroll-position",
             "locale": "en"
           }
+        },
+        {
+          "title": "useWindowSize",
+          "route": {
+            "path": "/docs/hooks/use-window-size",
+            "locale": "en"
+          }
         }
       ]
     }
