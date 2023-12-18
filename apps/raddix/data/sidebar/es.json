@@ -54,7 +54,7 @@
         {
           "title": "useCounter",
           "route": {
-            "path": "/docs/utilities/use-counter",
+            "path": "/docs/hooks/use-counter",
             "locale": "es"
           }
         },

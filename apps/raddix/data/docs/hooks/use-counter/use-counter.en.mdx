@@ -1,16 +1,75 @@
 ---
 title: useCounter
-description: A hook that manage a counter value with minimum and maximum limits.
+description: A hook to manage a counter.
 ---
 
 # useCounter
 
-`useCounter` is a hook that manage a counter value with minimum and maximum limits.
+The `useCounter` hook allows you to manage a counter.
+
+## Features
+
+- Reset the counter to the initial value.
+- Set the minimum and maximum values of the counter.
+- Set the counter to a given value.
+- Execute a function when the counter reaches the minimum or maximum value.
+
 
 ## Installation
 
 ```sh
-yarn add @raddix/use-counter
+npm i @raddix/use-counter
+```
+
+## Usage
+
+### Counter basic
+
+To begin, we will create a counter with the possibility of incrementing and decrementing
+it by 1, and resetting it to the initial value.
+
+```jsx
+import { useCounter } from '@raddix/use-counter';
+
+const Counter = () => {
+  const [counter, { inc, dec, reset }] = useCounter(0);
+
+  return (
+    <div>
+      <p>Counter: {counter}</p>
+      <button onClick={() => inc()}>Increment</button>
+      <button onClick={() => dec()}>Decrement</button>
+      <button onClick={() => reset()}>Reset</button>
+    </div>
+  );
+};
+```
+
+### Add minimum and maximum values
+
+Now, we will add a minimum and maximum value to the counter, and execute a function
+when the counter reaches the minimum or maximum value.
+
+```jsx
+import { useCounter } from '@raddix/use-counter';
+
+const Counter = () => {
+  const [counter, { inc, dec, reset }] = useCounter(0, {
+    min: 0,
+    max: 10,
+    onMin: () => console.log('Counter reached the minimum value'),
+    onMax: () => console.log('Counter reached the maximum value')
+  });
+
+  return (
+    <div>
+      <p>Counter: {counter}</p>
+      <button onClick={() => inc()}>Increment</button>
+      <button onClick={() => dec()}>Decrement</button>
+      <button onClick={() => reset()}>Reset</button>
+    </div>
+  );
+};
 ```
 
 ## API
