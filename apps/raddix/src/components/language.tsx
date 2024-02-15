@@ -1,7 +1,10 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import { locales, defaultLocale, useLocal } from '@/i18n';
 
 const codeLanguage = {
   en: 'English',
@@ -10,7 +13,22 @@ const codeLanguage = {
 type CodeLanguage = keyof typeof codeLanguage;
 
 export const Language = ({ showActive = false, menuAbsolute = true }) => {
-  const { locales, pathname, query, locale } = useRouter();
+  const currentPath = usePathname();
+  const currentLocale = useLocal();
+
+  const redirectedPathName = (locale: string) => {
+    // eslint-disable-next-line curly
+    if (!currentPath) return '/';
+
+    if (currentLocale === defaultLocale) {
+      return `/${locale}${currentPath}`;
+    } else {
+      const segments = currentPath.split('/');
+      segments[1] = locale;
+      return segments.join('/');
+    }
+  };
+
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const refBtn = useRef<HTMLButtonElement>(null);
@@ -19,7 +37,9 @@ export const Language = ({ showActive = false, menuAbsolute = true }) => {
   const activeMenuStyle = isActive ? 'opacity-1 block' : 'hidden opacity-0';
 
   const activeItemStyle = (localName: string) => {
-    return locale === localName ? 'text-purple-40' : 'sm:hover:bg-gray-120';
+    return currentLocale === localName
+      ? 'text-purple-40'
+      : 'sm:hover:bg-gray-120';
   };
 
   const handleClickOutside = (e: MouseEvent | TouchEvent) => {
@@ -61,7 +81,9 @@ export const Language = ({ showActive = false, menuAbsolute = true }) => {
           height={22}
         />
         {showActive && (
-          <span className='px-1'>{codeLanguage[locale as CodeLanguage]}</span>
+          <span className='px-1'>
+            {codeLanguage[currentLocale as CodeLanguage]}
+          </span>
         )}
         <Image
           src={'/icons/bottom-arrow.svg'}
@@ -77,18 +99,14 @@ export const Language = ({ showActive = false, menuAbsolute = true }) => {
         } w-full min-w-max transition-opacity duration-150 ease-in sm:left-auto sm:right-0 ${activeMenuStyle}`}
       >
         <ul className='w-full space-y-1 rounded-md border-solid border-gray-50/30 bg-black sm:border sm:p-xs'>
-          {locales?.map(localName => {
+          {locales.map(localName => {
             return (
               <li
                 key={localName}
                 className={`${activeItemStyle(localName)} rounded-lg`}
               >
                 <Link
-                  href={{
-                    pathname,
-                    query
-                  }}
-                  locale={localName}
+                  href={redirectedPathName(localName)}
                   onClick={toggleMenu}
                   className='block px-sm text-xs leading-10 sm:px-md sm:leading-8'
                 >
