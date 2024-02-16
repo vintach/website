@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { locales, defaultLocale, useLocal } from '@/i18n';
+import { locales, defaultLocale, useLocale } from '@/i18n';
 
 const codeLanguage = {
   en: 'English',
@@ -14,7 +14,7 @@ type CodeLanguage = keyof typeof codeLanguage;
 
 export const Language = ({ showActive = false, menuAbsolute = true }) => {
   const currentPath = usePathname();
-  const currentLocale = useLocal();
+  const currentLocale = useLocale();
 
   const redirectedPathName = (locale: string) => {
     // eslint-disable-next-line curly

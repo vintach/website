@@ -1,15 +1,22 @@
+'use client';
+
 import { useEffect } from 'react';
 import Image from 'next/image';
-import { Menu } from './menu';
+import { Menu, type MenuItems } from './menu';
 import { Language } from './language';
 import { MediaLinks } from './media-links';
 
 interface MenuAMobileProps {
   isActive: boolean;
   setIsActive: (active: boolean) => void;
+  menu: MenuItems[];
 }
 
-export const MenuMobile = ({ isActive, setIsActive }: MenuAMobileProps) => {
+export const MenuMobile = ({
+  isActive,
+  setIsActive,
+  menu
+}: MenuAMobileProps) => {
   const activeMenuStyles = isActive
     ? 'opacity-1 visible'
     : 'opacity-0 invisible';
@@ -46,7 +53,7 @@ export const MenuMobile = ({ isActive, setIsActive }: MenuAMobileProps) => {
       <div
         className={`absolute left-0 top-20 z-20 h-[calc(100vh-80px)] w-full bg-black px-3xl py-lg transition-all duration-200 ease-in ${activeMenuStyles}`}
       >
-        <Menu />
+        <Menu menu={menu} />
         <Language menuAbsolute={false} showActive />
         <div className='mt-lg border-t border-gray-120 pt-md'>
           <MediaLinks />

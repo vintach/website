@@ -1,3 +1,5 @@
+'use client';
+
 import type { TextStr } from '@/types/global';
 import { useState } from 'react';
 
