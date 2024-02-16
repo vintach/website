@@ -16,5 +16,5 @@ export interface SidebarList {
 
 export interface SideBarMenuProps {
   menu: SidebarList[];
-  currentRoute: string;
+  // currentRoute: string;
 }

@@ -1,13 +1,14 @@
-import { defineConfig, type Options } from 'tsup';
+import { defineConfig } from 'tsup';
 
-export default defineConfig((options: Options) => ({
-  treeshake: true,
-  splitting: true,
-  entry: ['src/**/*.tsx'],
+export default defineConfig(() => ({
+  // treeshake: true,
+  // splitting: true,
+  entry: ['src/**/*.ts'],
+  target: 'es2019',
   format: ['esm'],
   dts: true,
   minify: true,
   clean: true,
   external: ['react', 'next'],
-  ...options
+  banner: { js: '"use client"' }
 }));

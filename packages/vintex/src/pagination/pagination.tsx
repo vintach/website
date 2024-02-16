@@ -1,19 +1,21 @@
+import { usePathname } from 'next/navigation';
 import type { SidebarList, SidebarItems } from '../sidebar';
 import Link from 'next/link';
 
 interface PaginationProps {
   menu: SidebarList[];
-  currentRoute: string;
 }
 
-export const Pagination = ({ menu, currentRoute }: PaginationProps) => {
+export const Pagination = ({ menu }: PaginationProps) => {
+  const pathname = usePathname();
+
   const allRoutes = menu.reduce((acc: SidebarItems[], cur) => {
     acc = [...acc, ...cur.items];
     return acc;
   }, []);
 
   const currentPageIndex = allRoutes.findIndex(
-    page => page.route.path === currentRoute
+    page => page.route.path === pathname
   );
 
   const prevPage = allRoutes[currentPageIndex - 1];
