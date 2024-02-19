@@ -1,5 +1,3 @@
-import './globals.css';
-
 export * from './button';
 export * from './footer';
 export * from './sidebar';

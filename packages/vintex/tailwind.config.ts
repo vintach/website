@@ -1,8 +1,9 @@
 import type { Config } from 'tailwindcss';
 import sharedConfig from '@vintach/tailwind/tailwind.config';
 
-const config: Pick<Config, 'presets'> = {
-  presets: [sharedConfig]
+const config: Config = {
+  presets: [sharedConfig],
+  content: ['./src/**/*.{js,ts,jsx,tsx}']
 };
 
 export default config;

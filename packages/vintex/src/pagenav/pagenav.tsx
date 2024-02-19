@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useScrollSpy } from '@raddix/use-scroll-spy';
+import { usePathname } from 'next/navigation';
 
 interface PageNavProps {
   locale: string;
-  path: string;
 }
 
 interface IdentItem {
@@ -48,7 +48,8 @@ const Tree = ({ navData, activeItem }: TreeProps) => {
   );
 };
 
-export const PageNav = ({ locale, path }: PageNavProps) => {
+export const PageNav = ({ locale }: PageNavProps) => {
+  const currentPath = usePathname();
   const [headings, setHeadings] = useState<IdentItem[]>([]);
   const [headingIds, setHeadingIds] = useState<string[]>([]);
 
@@ -92,7 +93,7 @@ export const PageNav = ({ locale, path }: PageNavProps) => {
 
     setHeadings(newHeadings);
     setHeadingIds(itemIds);
-  }, [path, locale]);
+  }, [currentPath, locale]);
 
   const pageNavTitle = locale === 'en' ? 'On this page' : 'En esta página';
   const activeHeading = useScrollSpy(headingIds, {
@@ -100,7 +101,7 @@ export const PageNav = ({ locale, path }: PageNavProps) => {
   });
 
   return (
-    <nav className='sticky top-[125px] w-56 self-start'>
+    <nav className='sticky top-[125px] hidden w-56 self-start lg:block'>
       <h5 className='mb-sm text-sm font-medium'>{pageNavTitle}</h5>
       <Tree navData={headings} activeItem={activeHeading} />
     </nav>

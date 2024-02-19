@@ -5,7 +5,7 @@ export default defineConfig(() => ({
   // splitting: true,
   entry: ['src/**/*.ts'],
   target: 'es2019',
-  format: ['esm'],
+  format: ['esm', 'cjs'],
   dts: true,
   minify: true,
   clean: true,

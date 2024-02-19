@@ -14,9 +14,7 @@ export const Pagination = ({ menu }: PaginationProps) => {
     return acc;
   }, []);
 
-  const currentPageIndex = allRoutes.findIndex(
-    page => page.route.path === pathname
-  );
+  const currentPageIndex = allRoutes.findIndex(page => page.route === pathname);
 
   const prevPage = allRoutes[currentPageIndex - 1];
   const nextPage = allRoutes[currentPageIndex + 1];
@@ -25,8 +23,7 @@ export const Pagination = ({ menu }: PaginationProps) => {
     <div className='mb-md mt-4xl grid grid-cols-2 gap-x-sm'>
       {prevPage && (
         <Link
-          href={prevPage.route.path}
-          locale={prevPage.route.locale}
+          href={prevPage.route}
           className=' box-border block w-fit rounded-xl p-xs text-start'
         >
           <span className='mb-xs block text-xs text-gray-10'>Previous</span>
@@ -36,8 +33,7 @@ export const Pagination = ({ menu }: PaginationProps) => {
 
       {nextPage && (
         <Link
-          href={nextPage.route.path}
-          locale={nextPage.route.locale}
+          href={nextPage.route}
           className='col-start-2 col-end-3 ml-auto w-fit rounded-xl p-xs text-end'
         >
           <span className='mb-xs block text-xs text-gray-10'>Next</span>
