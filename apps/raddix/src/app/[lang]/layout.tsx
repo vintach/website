@@ -37,7 +37,7 @@ export default async function RootLayout({
   return (
     <html lang={lang}>
       <body className={inter.className}>
-        <Header menu={menu.navbar} />
+        <Header menu={menu.navbar} locale={lang} />
         {children}
         <Footer />
       </body>

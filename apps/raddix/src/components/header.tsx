@@ -9,7 +9,13 @@ import { useIsMobile } from '@/hooks/useIsMobile';
 import { MenuMobile } from './menu-mobile';
 import { MediaLinks } from './media-links';
 
-export const Header = ({ menu }: { menu: MenuItems[] }) => {
+export const Header = ({
+  menu,
+  locale
+}: {
+  menu: MenuItems[];
+  locale: string;
+}) => {
   const [scrollY, setScrollY] = useState<number>(0);
   const [isMenuMobile, setIsMenuMobile] = useState<boolean>(false);
 
@@ -38,7 +44,10 @@ export const Header = ({ menu }: { menu: MenuItems[] }) => {
       className={`sticky left-0 top-0 z-20 w-full transition-all duration-100 ${onScrollHeaderStyles} ${activeMenuStyles}`}
     >
       <div className='mx-auto flex h-20 w-full max-w-std items-center justify-between px-sm py-4'>
-        <Link className='flex items-center gap-1.5' href='/'>
+        <Link
+          className='flex items-center gap-1.5'
+          href={locale === 'en' ? '/' : '/es'}
+        >
           <Image
             src='/raddix.svg'
             alt='Raddix logo'
