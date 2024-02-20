@@ -10,7 +10,10 @@ interface Props {
 }
 
 export function generateStaticParams() {
-  return getAllPathsMdx('docs');
+  const paths = getAllPathsMdx('docs');
+
+  const newPaths = paths.filter(path => path.slug.length > 0);
+  return newPaths;
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
