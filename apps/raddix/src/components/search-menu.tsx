@@ -1,12 +1,14 @@
+'use client';
+
 import type { BaseSyntheticEvent, KeyboardEvent, MouseEvent } from 'react';
 import type { AutocompleteState as InternalAutocompleteState } from '@algolia/autocomplete-core';
 import type { Hit } from '@algolia/client-search';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { createAutocomplete } from '@algolia/autocomplete-core';
 import SEARCH_DATA_EN from 'data/sidebar/en.json';
-import SEARCH_DATA_ES from 'data/sidebar/es.json';
+// import SEARCH_DATA_ES from 'data/sidebar/es.json';
 import Link from 'next/link';
 
 interface SearchMenuProps {
@@ -26,7 +28,7 @@ type AutocompleteState = InternalAutocompleteState<AutocompleteItemProps>;
 export const SearchMenu = ({ toggle }: SearchMenuProps) => {
   const modal = useRef<HTMLElement | null>(null);
   const [mounted, setMounted] = useState<boolean>(false);
-  const { locale } = useRouter();
+  // const { locale } = useRouter();
 
   const [autocompleteState, setAutocompleteState] = useState<AutocompleteState>(
     {
@@ -40,8 +42,7 @@ export const SearchMenu = ({ toggle }: SearchMenuProps) => {
     }
   );
 
-  const searchSources =
-    locale === 'en' ? SEARCH_DATA_EN.list : SEARCH_DATA_ES.list;
+  const searchSources = SEARCH_DATA_EN.list;
 
   const autocomplete = useMemo(
     () =>

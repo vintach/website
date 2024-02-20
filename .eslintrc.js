@@ -22,7 +22,8 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:react/jsx-runtime',
     'plugin:import/warnings',
-    'plugin:import/typescript'
+    'plugin:import/typescript',
+    'next/core-web-vitals'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -146,7 +147,7 @@ module.exports = {
      * -----------------------------------------------------
      */
     {
-      files: ['./apps/**/pages/**', './apps/**/app/*', '**/*.config.ts'],
+      files: ['./apps/**/pages/**', './apps/**/app/**', '**/*.config.{ts,js}'],
       rules: {
         'import/no-default-export': 'off'
       }

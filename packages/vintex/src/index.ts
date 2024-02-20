@@ -1,7 +1,5 @@
-import './globals.css';
-
 export * from './button';
-export * from './pagenav';
 export * from './footer';
 export * from './sidebar';
+export * from './pagenav';
 export * from './pagination';

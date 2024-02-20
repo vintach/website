@@ -2,7 +2,10 @@
   "hero": {
     "title": "Collection of Essential React Hooks",
     "description": "React hook library, modern, light, easy to use, and type-safe.",
-    "button": "Get Started"
+    "button": {
+      "text": "Get Started",
+      "to": "/docs/getting-started/installation"
+    }
   },
   "features": [
     {

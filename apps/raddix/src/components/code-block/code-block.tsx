@@ -1,3 +1,4 @@
+'use client';
 import { Fragment } from 'react';
 import { Highlight } from 'prism-react-renderer';
 import type { TokenOutputProps } from 'prism-react-renderer';

@@ -1,7 +1,10 @@
 export interface HeroProps {
   title: string;
   description: string;
-  button: string;
+  button: {
+    text: string;
+    to: string;
+  };
 }
 
 export interface Feature {

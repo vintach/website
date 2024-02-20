@@ -1,5 +1,3 @@
-import { componentsDemo } from '@/demo';
-import { Card, CardGroup } from './card';
 import { ApiTable } from './api-table';
 import { CodeBlock } from './code-block';
 import { Snippet } from './snippet';
@@ -12,14 +10,6 @@ export interface TextProps extends Children {
   isTitle?: boolean;
   id?: string;
 }
-
-const Text = ({ as: Comp, className, children, isTitle, id }: TextProps) => {
-  return (
-    <Comp className={className} data-title={isTitle} id={id}>
-      {children}
-    </Comp>
-  );
-};
 
 export interface TextPreProps {
   props: {
@@ -42,7 +32,15 @@ export const TextPre = (props: Children) => {
   return <CodeBlock source={code} language={language} />;
 };
 
-export const MDXComponents = {
+const Text = ({ as: Comp, className, children, isTitle, id }: TextProps) => {
+  return (
+    <Comp className={className} data-title={isTitle} id={id}>
+      {children}
+    </Comp>
+  );
+};
+
+export const components = {
   h1: ({ children, ...props }: Children) => (
     <Text
       as='h1'
@@ -80,7 +78,6 @@ export const MDXComponents = {
       {children}
     </Text>
   ),
-  pre: TextPre,
   ul: ({ children }: Children) => (
     <ul className='my-sm pl-[20px]'>{children}</ul>
   ),
@@ -89,10 +86,8 @@ export const MDXComponents = {
       {children}
     </li>
   ),
+  pre: TextPre,
   code: Code,
-  Card,
   CodeBlock,
-  CardGroup,
-  ApiTable,
-  ...componentsDemo
+  ApiTable
 };

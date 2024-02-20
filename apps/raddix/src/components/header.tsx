@@ -1,17 +1,23 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu } from './menu';
+import { Menu, type MenuItems } from './menu';
 import { Language } from './language';
 import { useIsMobile } from '@/hooks/useIsMobile';
 import { MenuMobile } from './menu-mobile';
 import { MediaLinks } from './media-links';
 
-export const Header = () => {
+export const Header = ({
+  menu,
+  locale
+}: {
+  menu: MenuItems[];
+  locale: string;
+}) => {
   const [scrollY, setScrollY] = useState<number>(0);
   const [isMenuMobile, setIsMenuMobile] = useState<boolean>(false);
-  const { locale } = useRouter();
 
   const isMobile = useIsMobile('640px');
 
@@ -38,7 +44,10 @@ export const Header = () => {
       className={`sticky left-0 top-0 z-20 w-full transition-all duration-100 ${onScrollHeaderStyles} ${activeMenuStyles}`}
     >
       <div className='mx-auto flex h-20 w-full max-w-std items-center justify-between px-sm py-4'>
-        <Link className='flex items-center gap-1.5' href='/' locale={locale}>
+        <Link
+          className='flex items-center gap-1.5'
+          href={locale === 'en' ? '/' : '/es'}
+        >
           <Image
             src='/raddix.svg'
             alt='Raddix logo'
@@ -51,7 +60,7 @@ export const Header = () => {
 
         {!isMobile && (
           <>
-            <Menu />
+            <Menu menu={menu} />
             <div className='flex items-center'>
               <Language />
               <MediaLinks />
@@ -60,7 +69,11 @@ export const Header = () => {
         )}
 
         {isMobile && (
-          <MenuMobile isActive={isMenuMobile} setIsActive={setIsMenuMobile} />
+          <MenuMobile
+            menu={menu}
+            isActive={isMenuMobile}
+            setIsActive={setIsMenuMobile}
+          />
         )}
       </div>
     </header>

@@ -1,5 +1,5 @@
 {
-  "navList": [
+  "navbar": [
     {
       "name": "Documentation",
       "path": "/docs/getting-started/introduction"

@@ -1,8 +1,8 @@
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 
 export const useCurrentSlug = () => {
-  const router = useRouter();
-  let slug = router.query.slug;
+  const query = useSearchParams();
+  let slug = query.get('slug');
   if (Array.isArray(slug)) {
     return (slug = `/docs/${slug.join('/')}`);
   }

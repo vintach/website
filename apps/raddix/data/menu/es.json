@@ -1,16 +1,16 @@
 {
-  "navList": [
+  "navbar": [
     {
       "name": "Documentación",
-      "path": "/docs/introduction"
+      "path": "/es/docs/getting-started/introduction"
     },
     {
       "name": "Hooks",
-      "path": "/hooks"
+      "path": "/es/docs/hooks/use-keyboard"
     },
     {
       "name": "Blog",
-      "path": "/blog"
+      "path": "/es/blog"
     }
   ]
 }

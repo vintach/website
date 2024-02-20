@@ -27,11 +27,7 @@ export const Hero = ({ title, description, button }: HeroProps) => {
           {description}
         </p>
         <div className='flex flex-wrap justify-center gap-5 md:justify-start'>
-          <Button
-            type='primary'
-            text={button}
-            to='/docs/get-started/create-component'
-          />
+          <Button type='primary' text={button.text} to={button.to} />
           <Button
             type='secondary'
             text='GitHub'

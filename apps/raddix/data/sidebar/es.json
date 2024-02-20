@@ -1,118 +1,70 @@
 {
   "list": [
     {
-      "title": "Empezando",
-      "route": {
-        "path": "/docs/getting-started",
-        "locale": "es"
-      },
+      "title": "Getting Started",
+      "route": "/es/docs/getting-started",
       "items": [
         {
           "title": "Introducción",
-          "route": {
-            "path": "/docs/getting-started/introduction",
-            "locale": "es"
-          }
+          "route": "/es/docs/getting-started/introduction"
         },
         {
           "title": "Instalación",
-          "route": {
-            "path": "/docs/getting-started/installation",
-            "locale": "es"
-          }
+          "route": "/es/docs/getting-started/installation"
         }
       ]
     },
     {
       "title": "Hooks",
-      "route": {
-        "path": "/docs/hooks",
-        "locale": "es"
-      },
+      "route": "/es/docs/hooks",
       "items": [
         {
           "title": "useKeyboard",
-          "route": {
-            "path": "/docs/hooks/use-keyboard",
-            "locale": "es"
-          }
+          "route": "/es/docs/hooks/use-keyboard"
         },
         {
           "title": "useClickOutside",
-          "route": {
-            "path": "/docs/hooks/use-click-outside",
-            "locale": "es"
-          }
+          "route": "/es/docs/hooks/use-click-outside"
         },
         {
           "title": "useCountDown",
-          "route": {
-            "path": "/docs/hooks/use-count-down",
-            "locale": "es"
-          }
+          "route": "/es/docs/hooks/use-count-down"
         },
         {
           "title": "useCounter",
-          "route": {
-            "path": "/docs/hooks/use-counter",
-            "locale": "es"
-          }
+          "route": "/es/docs/hooks/use-counter"
         },
         {
           "title": "useToggle",
-          "route": {
-            "path": "/docs/hooks/use-toggle",
-            "locale": "es"
-          }
+          "route": "/es/docs/hooks/use-toggle"
         },
         {
           "title": "useScrollSpy",
-          "route": {
-            "path": "/docs/hooks/use-scroll-spy",
-            "locale": "es"
-          }
+          "route": "/es/docs/hooks/use-scroll-spy"
         },
         {
           "title": "useTimeout",
-          "route": {
-            "path": "/docs/hooks/use-timeout",
-            "locale": "es"
-          }
+          "route": "/es/docs/hooks/use-timeout"
         },
         {
           "title": "useInterval",
-          "route": {
-            "path": "/docs/hooks/use-interval",
-            "locale": "es"
-          }
+          "route": "/es/docs/hooks/use-interval"
         },
         {
           "title": "useMediaQuery",
-          "route": {
-            "path": "/docs/hooks/use-media-query",
-            "locale": "es"
-          }
+          "route": "/es/docs/hooks/use-media-query"
         },
         {
           "title": "useEventListener",
-          "route": {
-            "path": "/docs/hooks/use-event-listener",
-            "locale": "es"
-          }
+          "route": "/es/docs/hooks/use-event-listener"
         },
         {
           "title": "useScrollPosition",
-          "route": {
-            "path": "/docs/hooks/use-scroll-position",
-            "locale": "es"
-          }
+          "route": "/es/docs/hooks/use-scroll-position"
         },
         {
           "title": "useWindowSize",
-          "route": {
-            "path": "/docs/hooks/use-window-size",
-            "locale": "es"
-          }
+          "route": "/es/docs/hooks/use-window-size"
         }
       ]
     }

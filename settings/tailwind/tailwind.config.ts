@@ -2,8 +2,7 @@ import type { Config } from 'tailwindcss';
 import { colors } from '@vintach/colors';
 import scrollbarPlugin from 'tailwind-scrollbar';
 
-const config: Config = {
-  content: ['src/**/*.{js,ts,jsx,tsx}'],
+const config: Omit<Config, 'content'> = {
   theme: {
     screens: {
       sm: '40rem', //640px

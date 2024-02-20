@@ -2,7 +2,10 @@
   "hero": {
     "title": "Colección esencial de React hooks",
     "description": "Libreria de React hook, moderna, ligera, fácil de usar y type-safe.",
-    "button": "Empezar"
+    "button": {
+      "text": "Empezar",
+      "to": "/es/docs/getting-started/installation"
+    }
   },
   "features": [
     {
