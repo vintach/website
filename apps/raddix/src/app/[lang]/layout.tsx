@@ -3,13 +3,15 @@ import { Inter } from 'next/font/google';
 import { Footer } from 'vintex';
 import { Header } from '@/components/header';
 import { locales } from '@/i18n';
-
-import 'vintex/styles.css';
-import '@/styles/main.css';
 import { getMenu } from 'data/menu/get-menu';
 
+import '@/styles/main.css';
+
 export const metadata: Metadata = {
-  title: 'Raddix - The React Hooks Library',
+  title: {
+    template: '%s | Raddix',
+    default: 'Raddix - The React Hooks Library'
+  },
   description: 'Collection of Essential React Hooks',
   keywords: ['react', 'hooks', 'react hooks', 'react hooks library', 'raddix']
 };

@@ -20,25 +20,20 @@ export const getAllPathsMdx = (type: string) => {
     slug.pop();
 
     return {
-      params: { slug },
-      locale
+      slug,
+      lang: locale
     };
   });
 };
 
 interface MDXBySlug {
   params?: ParsedUrlQuery;
-  locale?: string;
   file: string;
 }
 
-export const getMdxBySlug = ({
-  params,
-  file,
-  locale: localeProp
-}: MDXBySlug) => {
+export const getMdxBySlug = ({ params, file }: MDXBySlug) => {
   const srcDirectory = path.join(ROOT_PATH, 'data', file);
-  const locale = localeProp ?? DEFAULT_LOCALE;
+  const locale = params?.lang ?? DEFAULT_LOCALE;
 
   const slug = params?.slug as string[];
   const realSlug = !slug ? [file] : slug[slug.length - 1];
@@ -48,13 +43,9 @@ export const getMdxBySlug = ({
   const mdxPath = path.join(srcDirectory, slugPath, fileName);
   const mdxSource = fs.readFileSync(mdxPath, 'utf-8');
 
-  const { data, content } = matter(mdxSource);
+  const { data: meta, content } = matter(mdxSource);
 
-  return {
-    slug,
-    meta: data,
-    content
-  };
+  return { slug, meta, content };
 };
 
 export const getSidebarData = (locale?: string) => {
