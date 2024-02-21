@@ -1,0 +1,26 @@
+{
+  "rootPath": "/es",
+  "menu": {
+    "label": "Menú principal",
+    "items": [
+      {
+        "name": "Documentación",
+        "path": "/es/docs/getting-started"
+      },
+      {
+        "name": "Hooks",
+        "path": "/es/docs/hooks/use-keyboard"
+      },
+      {
+        "name": "Blog",
+        "path": "/es/blog"
+      }
+    ]
+  },
+  "options": {
+    "language": {
+      "label": "Cambiador de idioma",
+      "description": "Cambiar idioma a inglés"
+    }
+  }
+}

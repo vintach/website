@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import { Footer } from 'vintex';
 import { Header } from '@/components/header';
 import { locales } from '@/i18n';
-import { getMenu } from 'data/menu/get-menu';
+import { getHeader } from 'data/header/get-header';
 
 import '@/styles/main.css';
 
@@ -32,12 +32,12 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { lang: string };
 }) {
-  const menu = await getMenu(lang);
+  const headerProps = await getHeader(lang);
 
   return (
     <html lang={lang}>
       <body className={inter.className}>
-        <Header menu={menu.navbar} locale={lang} />
+        <Header {...headerProps} />
         {children}
         <Footer />
       </body>
