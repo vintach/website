@@ -1,0 +1,26 @@
+{
+  "rootPath": "/",
+  "menu": {
+    "label": "Main menu",
+    "items": [
+      {
+        "name": "Documentation",
+        "path": "/docs/getting-started"
+      },
+      {
+        "name": "Hooks",
+        "path": "/docs/hooks/use-keyboard"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog"
+      }
+    ]
+  },
+  "options": {
+    "language": {
+      "label": "Language switcher",
+      "description": "Change language to Spanish"
+    }
+  }
+}

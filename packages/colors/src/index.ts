@@ -7,5 +7,6 @@ export const colors = {
   white: 'rgb(240, 240, 240)',
   purple,
   blue,
-  gray
+  gray,
+  transparent: 'rgba(0, 0, 0, 0)'
 };

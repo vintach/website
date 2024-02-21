@@ -1,80 +1,103 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { Menu, type MenuItems } from './menu';
-import { Language } from './language';
-import { useIsMobile } from '@/hooks/useIsMobile';
-import { MenuMobile } from './menu-mobile';
-import { MediaLinks } from './media-links';
+import { Logo } from './logo';
+import { RightMenu } from '@/icons/right-menu';
+import { Close } from '@/icons/close';
+import { usePathname } from 'next/navigation';
+import {
+  LanguageSwitcher,
+  type LanguageSwitcherProps
+} from './language-switcher';
 
-export const Header = ({
-  menu,
-  locale
-}: {
-  menu: MenuItems[];
-  locale: string;
-}) => {
-  const [scrollY, setScrollY] = useState<number>(0);
+export interface MenuItems {
+  name: string;
+  path: string;
+}
+
+interface HeaderProps {
+  rootPath: string;
+  menu: {
+    label: string;
+    items: MenuItems[];
+  };
+  options: {
+    language: LanguageSwitcherProps;
+  };
+}
+
+export const Header = ({ menu, rootPath, options }: HeaderProps) => {
   const [isMenuMobile, setIsMenuMobile] = useState<boolean>(false);
+  const currentPath = usePathname();
 
-  const isMobile = useIsMobile('640px');
+  const activeMenuStyles = isMenuMobile
+    ? 'opacity-100 visible'
+    : 'opacity-0 invisible md:visible md:opacity-100';
 
-  const updateScroll = () => {
-    if (window.scrollY < 10) {
-      setScrollY(window.scrollY);
-    }
+  const openMenu = () => {
+    document.body.style.overflow = 'hidden';
+    setIsMenuMobile(true);
   };
 
-  const onScrollHeaderStyles =
-    scrollY > 2 && !isMenuMobile
-      ? 'bg-black/80 backdrop-saturate-100 backdrop-blur shadow-sm shadow-white/10'
-      : '';
-
-  const activeMenuStyles = isMenuMobile ? 'bg-black' : '';
+  const closeMenu = () => {
+    document.body.style.overflow = 'auto';
+    setIsMenuMobile(false);
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', updateScroll);
-    return () => window.removeEventListener('scroll', updateScroll);
-  }, []);
+    if (isMenuMobile) {
+      closeMenu();
+      console.log('Me ejecute');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPath]);
 
   return (
-    <header
-      className={`sticky left-0 top-0 z-20 w-full transition-all duration-100 ${onScrollHeaderStyles} ${activeMenuStyles}`}
-    >
+    <header className='sticky left-0 top-0 z-20 w-full bg-black/80 shadow-sm shadow-white/10 backdrop-blur backdrop-saturate-100 transition-colors duration-100'>
       <div className='mx-auto flex h-20 w-full max-w-std items-center justify-between px-sm py-4'>
-        <Link
-          className='flex items-center gap-1.5'
-          href={locale === 'en' ? '/' : '/es'}
+        <Logo to={rootPath} />
+
+        <nav
+          aria-label={menu.label}
+          className={`fixed inset-0 z-30 flex h-screen flex-col items-center justify-center bg-black transition-all duration-100 md:static md:h-auto md:flex-1 md:flex-row md:justify-end md:bg-transparent ${activeMenuStyles}`}
         >
-          <Image
-            src='/raddix.svg'
-            alt='Raddix logo'
-            priority
-            width={24}
-            height={36}
-          />
-          <h1 className='text-[1.8rem] font-semibold'>raddix</h1>
-        </Link>
+          <button
+            className='absolute right-5 top-6 p-xs md:hidden'
+            onClick={closeMenu}
+          >
+            <Close size={18} />
+          </button>
+          <ul className='flex flex-col items-center gap-md md:flex-1 md:flex-row md:justify-center'>
+            {menu.items.map((item, id) => (
+              <li
+                key={id}
+                className='list-none text-md transition-colors duration-100 hover:text-white md:text-sm md:text-gray-20'
+              >
+                <Link className='md:py-sm' href={item.path}>
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        {!isMobile && (
-          <>
-            <Menu menu={menu} />
-            <div className='flex items-center'>
-              <Language />
-              <MediaLinks />
-            </div>
-          </>
-        )}
+          <div className='mt-lg grid w-64 grid-cols-3 border-t border-gray-110 pt-md md:m-0 md:flex md:w-auto md:gap-1.5 md:border-0 md:p-0 md:text-gray-20'>
+            <LanguageSwitcher
+              label={options.language.label}
+              description={options.language.description}
+            />
+          </div>
+        </nav>
 
-        {isMobile && (
-          <MenuMobile
-            menu={menu}
-            isActive={isMenuMobile}
-            setIsActive={setIsMenuMobile}
-          />
-        )}
+        <div className='flex items-center justify-center gap-1.5 md:hidden'>
+          <button
+            className='cursor-pointer border-0 bg-[transparent] p-xs hover:text-white md:hidden'
+            type='button'
+            aria-label='Toggle menu'
+            onClick={openMenu}
+          >
+            <RightMenu size={21} />
+          </button>
+        </div>
       </div>
     </header>
   );
