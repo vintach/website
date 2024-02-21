@@ -5,7 +5,7 @@ import { Logo } from './logo';
 import { RightMenu } from '@/icons/right-menu';
 import { Close } from '@/icons/close';
 import { usePathname } from 'next/navigation';
-import { Language } from './language';
+import { LanguageSwitcher } from './language-switcher';
 
 export interface MenuItems {
   name: string;
@@ -73,7 +73,10 @@ export const Header = ({
           </ul>
 
           <div className='mt-lg grid w-64 grid-cols-3 border-t border-gray-110 pt-md md:m-0 md:flex md:w-auto md:gap-1.5 md:border-0 md:p-0 md:text-gray-20'>
-            <Language />
+            <LanguageSwitcher
+              label='Language switcher'
+              description='Change language to Spanish'
+            />
           </div>
         </nav>
 
