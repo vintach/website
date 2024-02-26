@@ -5,7 +5,7 @@
     "items": [
       {
         "name": "Documentación",
-        "path": "/es/docs/getting-started"
+        "path": "/es/docs/getting-started/introduction"
       },
       {
         "name": "Hooks",
