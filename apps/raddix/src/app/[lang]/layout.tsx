@@ -4,6 +4,8 @@ import { Footer } from 'vintex';
 import { Header } from '@/components/header';
 import { locales } from '@/i18n';
 import { getHeader } from 'data/header/get-header';
+import { getTheme } from '@/utils/get-theme';
+import { Providers } from './providers';
 
 import '@/styles/main.css';
 
@@ -35,11 +37,13 @@ export default async function RootLayout({
   const headerProps = await getHeader(lang);
 
   return (
-    <html lang={lang}>
+    <html lang={lang} className={getTheme()}>
       <body className={inter.className}>
-        <Header {...headerProps} />
-        {children}
-        <Footer />
+        <Providers defaultTheme={getTheme()}>
+          <Header {...headerProps} />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
