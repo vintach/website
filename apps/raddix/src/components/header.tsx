@@ -10,7 +10,7 @@ import {
   LanguageSwitcher,
   type LanguageSwitcherProps
 } from './language-switcher';
-import { ThemeSwitcher } from './theme-switcher';
+import { ThemeSwitcher, type ThemeSwitcherProps } from './theme-switcher';
 
 export interface MenuItems {
   name: string;
@@ -25,6 +25,7 @@ interface HeaderProps {
   };
   options: {
     language: LanguageSwitcherProps;
+    theme: ThemeSwitcherProps;
   };
 }
 
@@ -83,7 +84,7 @@ export const Header = ({ menu, rootPath, options }: HeaderProps) => {
           </ul>
 
           <div className='mt-lg grid w-64 grid-cols-3 border-t border-gray-110 pt-md md:m-0 md:flex md:w-auto md:gap-1.5 md:border-0 md:p-0 md:text-gray-20'>
-            <ThemeSwitcher />
+            <ThemeSwitcher {...options.theme} />
             <LanguageSwitcher
               label={options.language.label}
               description={options.language.description}

@@ -21,6 +21,13 @@
     "language": {
       "label": "Language switcher",
       "description": "Change language to Spanish"
+    },
+    "theme": {
+      "label": "Theme switcher",
+      "description": {
+        "light": "Switch to dark mode",
+        "dark": "Switch to light mode"
+      }
     }
   }
 }

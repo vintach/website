@@ -21,6 +21,13 @@
     "language": {
       "label": "Cambiador de idioma",
       "description": "Cambiar idioma a inglés"
+    },
+    "theme": {
+      "label": "Cambiador de tema",
+      "description": {
+        "light": "Cambiar a tema oscuro",
+        "dark": "Cambiar a tema claro"
+      }
     }
   }
 }
