@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Logo } from './logo';
@@ -9,6 +10,7 @@ import {
   LanguageSwitcher,
   type LanguageSwitcherProps
 } from './language-switcher';
+import { ThemeSwitcher } from './theme-switcher';
 
 export interface MenuItems {
   name: string;
@@ -81,6 +83,7 @@ export const Header = ({ menu, rootPath, options }: HeaderProps) => {
           </ul>
 
           <div className='mt-lg grid w-64 grid-cols-3 border-t border-gray-110 pt-md md:m-0 md:flex md:w-auto md:gap-1.5 md:border-0 md:p-0 md:text-gray-20'>
+            <ThemeSwitcher />
             <LanguageSwitcher
               label={options.language.label}
               description={options.language.description}
