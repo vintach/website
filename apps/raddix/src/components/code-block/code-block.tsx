@@ -22,9 +22,16 @@ export const CodeBlock = ({
   const convert = (opt: TokenOutputProps): TokenOutputProps => {
     const operators = /[&?:=!<>*+-]/;
 
+    if (opt.className === 'token plain-text') {
+      return {
+        className: 'text-gray-50 dark:text-[#ddd]',
+        children: opt.children
+      };
+    }
+
     if (opt.className === 'token operator' && operators.test(opt.children)) {
       return {
-        className: 'text-[#56b6c2]',
+        className: 'dark:text-[#56b6c2]',
         children: opt.children
       };
     }
@@ -37,7 +44,7 @@ export const CodeBlock = ({
   };
 
   return (
-    <div className='relative flex w-full flex-col rounded-xl border border-solid border-white/5 bg-gray-120/80 backdrop-blur backdrop-saturate-100'>
+    <div className='relative flex w-full flex-col rounded-xl border border-solid border-black/5 bg-gray-10/35 dark:border-white/5 dark:bg-gray-120/80 dark:backdrop-blur dark:backdrop-saturate-100'>
       <Copy text={source} />
       <Highlight code={source.trim()} language={language} theme={blameTheme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
@@ -51,7 +58,7 @@ export const CodeBlock = ({
             {showLines && (
               <div className='relative w-12 overflow-hidden'>
                 <div
-                  className='absolute top-0 min-h-full w-12 select-none pr-xs text-right text-[#475569]'
+                  className='absolute top-0 min-h-full w-12 select-none pr-xs text-right dark:text-[#475569]'
                   aria-hidden='true'
                   style={{ top: -codeWindow.scrollTop }}
                 >

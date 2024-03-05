@@ -33,7 +33,7 @@ const Tree = ({ navData, activeItem }: TreeProps) => {
               className={
                 activeItem === item.id
                   ? 'text-purple-40'
-                  : 'text-gray-30 hover:text-gray-20'
+                  : 'text-gray-50 hover:text-gray-100 dark:text-gray-30 dark:hover:text-gray-20'
               }
             >
               {item.name}

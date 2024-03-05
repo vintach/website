@@ -11,10 +11,10 @@ const getTokenProps = (str: string) => {
     str === 'npx' ||
     str === 'run'
   ) {
-    return { className: 'text-[#56b6c2]' };
+    return { className: 'text-[#0d8a99] dark:text-[#56b6c2]' };
   }
 
-  return { className: 'text-[#D3D7CF]' };
+  return { className: 'dark:text-[#D3D7CF]' };
 };
 
 const getValues = (str: string) => {
@@ -28,10 +28,10 @@ export const Snippet = ({ text }: TextStr) => {
   const { command, tokens } = getValues(text);
 
   return (
-    <div className='relative my-sm rounded-xl border border-gray-100 bg-gray-120/80 p-sm md:px-6 md:py-[21px]'>
+    <div className='relative my-sm rounded-xl border border-black/5 bg-gray-10/35 p-sm md:px-6 md:py-[21px] dark:border-gray-100 dark:bg-gray-120/80'>
       <pre className='text-xs md:text-[15px]'>
         <div className='w-full'>
-          <span className='text-[#56b6c2]'>{command}</span>
+          <span className='text-[#0d8a99] dark:text-[#56b6c2]'>{command}</span>
           {tokens.map((value, i) => (
             <span key={i} {...getTokenProps(value)}>
               &nbsp;{value}

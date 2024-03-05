@@ -56,7 +56,7 @@ export const Header = ({ menu, rootPath, options }: HeaderProps) => {
   }, [currentPath]);
 
   return (
-    <header className='sticky left-0 top-0 z-20 w-full bg-black/80 shadow-sm shadow-white/10 backdrop-blur backdrop-saturate-100 transition-colors duration-100'>
+    <header className='sticky left-0 top-0 z-20 w-full bg-white/80 shadow-sm shadow-black/10 backdrop-blur backdrop-saturate-100 transition-colors duration-100 dark:bg-black/80 dark:shadow-white/10'>
       <div className='mx-auto flex h-20 w-full max-w-std items-center justify-between px-sm py-4'>
         <Logo to={rootPath} />
 
@@ -74,7 +74,7 @@ export const Header = ({ menu, rootPath, options }: HeaderProps) => {
             {menu.items.map((item, id) => (
               <li
                 key={id}
-                className='list-none text-md transition-colors duration-100 hover:text-white md:text-sm md:text-gray-20'
+                className='list-none text-md transition-colors duration-100 hover:text-black md:text-sm md:text-gray-50 dark:hover:text-white dark:md:text-gray-20'
               >
                 <Link className='md:py-sm' href={item.path}>
                   {item.name}
@@ -83,12 +83,9 @@ export const Header = ({ menu, rootPath, options }: HeaderProps) => {
             ))}
           </ul>
 
-          <div className='mt-lg grid w-64 grid-cols-3 border-t border-gray-110 pt-md md:m-0 md:flex md:w-auto md:gap-1.5 md:border-0 md:p-0 md:text-gray-20'>
+          <div className='mt-lg grid w-64 grid-cols-3 border-t border-gray-110 pt-md md:m-0 md:flex md:w-auto md:gap-1.5 md:border-0 md:p-0 md:text-gray-50 dark:md:text-gray-20'>
             <ThemeSwitcher {...options.theme} />
-            <LanguageSwitcher
-              label={options.language.label}
-              description={options.language.description}
-            />
+            <LanguageSwitcher {...options.language} />
           </div>
         </nav>
 

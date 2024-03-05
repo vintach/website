@@ -30,7 +30,7 @@ export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
       title={props.description}
       aria-label={props.label}
       aria-description={props.description}
-      className='relative flex flex-col items-center justify-center gap-1 p-xs hover:text-white md:flex-row'
+      className='flex flex-col items-center justify-center gap-1 p-xs hover:text-black md:flex-row dark:hover:text-white'
       onClick={handleChangeLanguage}
     >
       <p className='text-sm font-medium uppercase'>{currentLocale}</p>

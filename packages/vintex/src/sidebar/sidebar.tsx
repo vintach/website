@@ -19,7 +19,9 @@ export const SidebarMenu = ({ menu }: SideBarMenuProps) => {
         {menu
           ? menu.map(({ title, items }, i) => (
               <li key={`${title}-${i}`} className='pb-md'>
-                <span className='mb-sm block text-sm font-medium'>{title}</span>
+                <span className='mb-sm block  text-sm font-medium'>
+                  {title}
+                </span>
 
                 <ol>
                   {items
@@ -34,10 +36,10 @@ export const SidebarMenu = ({ menu }: SideBarMenuProps) => {
                             className={isActive ? styleLiActive : undefined}
                           >
                             <Link
-                              className={`block border-l-[1px]  border-gray-100 py-[4.5px] pl-[14px] text-sm tracking-[-0.12px] text-gray-30  ${
+                              className={`block border-l-[1px]  border-gray-100 py-[4.5px] pl-[14px] text-sm tracking-[-0.12px] ${
                                 isActive
                                   ? styleLinkActive
-                                  : `hover:text-gray-20`
+                                  : `text-gray-50 hover:text-gray-100 dark:text-gray-30 dark:hover:text-gray-20`
                               }`}
                               href={item.route}
                             >

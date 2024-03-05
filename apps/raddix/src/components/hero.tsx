@@ -13,6 +13,7 @@ export const Hero = ({ title, description, button }: HeroProps) => {
             alt='Raddix Logo'
             fill
             sizes='(max-width: 900px) 160px, 300px'
+            priority
           />
         </div>
       </div>
@@ -23,7 +24,7 @@ export const Hero = ({ title, description, button }: HeroProps) => {
         <h2 className='text-[32px] font-semibold leading-[40px] md:text-[60px] md:font-bold md:leading-[66px]'>
           {title}
         </h2>
-        <p className='mb-lg pt-xs text-md font-medium text-gray-20 md:pt-sm md:text-lg'>
+        <p className='mb-lg pt-xs text-md font-medium text-gray-40 md:pt-sm md:text-lg dark:text-gray-20'>
           {description}
         </p>
         <div className='flex flex-wrap justify-center gap-5 md:justify-start'>
