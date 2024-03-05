@@ -62,7 +62,7 @@ export const Header = ({ menu, rootPath, options }: HeaderProps) => {
 
         <nav
           aria-label={menu.label}
-          className={`fixed inset-0 z-30 flex h-screen flex-col items-center justify-center bg-black transition-all duration-100 md:static md:h-auto md:flex-1 md:flex-row md:justify-end md:bg-transparent ${activeMenuStyles}`}
+          className={`fixed inset-0 z-30 flex h-screen flex-col items-center justify-center bg-white transition-all duration-100 md:static md:h-auto md:flex-1 md:flex-row md:justify-end md:bg-transparent dark:bg-black ${activeMenuStyles}`}
         >
           <button
             className='absolute right-5 top-6 p-xs md:hidden'
