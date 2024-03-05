@@ -73,7 +73,7 @@ export const components = {
   p: ({ children }: Children) => (
     <Text
       as='p'
-      className='my-sm text-sm tracking-[-.010em] text-white/90 md:text-md'
+      className='my-sm text-sm tracking-[-.010em] text-gray-80 md:text-md dark:text-gray-10'
     >
       {children}
     </Text>
@@ -82,7 +82,7 @@ export const components = {
     <ul className='my-sm pl-[20px]'>{children}</ul>
   ),
   li: ({ children }: Children) => (
-    <li className='mb-xs list-disc pl-1 text-sm text-white/90 md:text-md '>
+    <li className='mb-xs list-disc pl-1 text-sm text-gray-80 md:text-md dark:text-gray-10 '>
       {children}
     </li>
   ),

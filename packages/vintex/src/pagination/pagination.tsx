@@ -26,7 +26,9 @@ export const Pagination = ({ menu }: PaginationProps) => {
           href={prevPage.route}
           className=' box-border block w-fit rounded-xl p-xs text-start'
         >
-          <span className='mb-xs block text-xs text-gray-10'>Previous</span>
+          <span className='mb-xs block text-xs text-gray-40 dark:text-gray-10'>
+            Previous
+          </span>
           <span className='text-md text-purple-40'>{prevPage.title}</span>
         </Link>
       )}
@@ -36,7 +38,9 @@ export const Pagination = ({ menu }: PaginationProps) => {
           href={nextPage.route}
           className='col-start-2 col-end-3 ml-auto w-fit rounded-xl p-xs text-end'
         >
-          <span className='mb-xs block text-xs text-gray-10'>Next</span>
+          <span className='mb-xs block text-xs text-gray-40 dark:text-gray-10'>
+            Next
+          </span>
           <span className=' text-md text-purple-40'>{nextPage.title}</span>
         </Link>
       )}

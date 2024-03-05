@@ -97,12 +97,12 @@ export const blameTheme: PrismTheme = {
       style: {
         color: '#56b6c2'
       }
-    },
-    {
-      types: ['plain-text'],
-      style: {
-        color: '#ddd'
-      }
     }
+    // {
+    //   types: ['plain-text'],
+    //   style: {
+    //     color: '#ddd'
+    //   }
+    // }
   ]
 };
