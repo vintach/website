@@ -12,7 +12,7 @@ export interface PackageManagerChangerProps {
 export const PackageManagerChanger = ({
   label
 }: PackageManagerChangerProps) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const { pkgManager, setPkgManager } = useContext(PackageManagerContext);
 
   const handleChangePkg = (manager: string) => {
