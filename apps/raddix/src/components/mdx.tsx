@@ -89,5 +89,6 @@ export const components = {
   pre: TextPre,
   code: Code,
   CodeBlock,
-  ApiTable
+  ApiTable,
+  Snippet
 };
