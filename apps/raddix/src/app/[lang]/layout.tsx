@@ -8,6 +8,7 @@ import { getTheme } from '@/utils/get-theme';
 import { Providers } from './providers';
 
 import '@/styles/main.css';
+import { getPkgManager } from '@/utils/get-pkg-manager';
 
 export const metadata: Metadata = {
   title: {
@@ -39,7 +40,10 @@ export default async function RootLayout({
   return (
     <html lang={lang} className={getTheme()}>
       <body className={inter.className}>
-        <Providers defaultTheme={getTheme()}>
+        <Providers
+          defaultTheme={getTheme()}
+          defaultPkgManager={getPkgManager()}
+        >
           <Header {...headerProps} />
           {children}
           <Footer />
