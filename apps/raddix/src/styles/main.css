@@ -38,7 +38,7 @@ body::-webkit-scrollbar-thumb:active {
 
 pre,
 code {
-  font-family: 'JetBrains Mono', monospace;
+  @apply font-mono;
 }
 
 code {

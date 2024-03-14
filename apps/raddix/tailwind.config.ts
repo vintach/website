@@ -7,7 +7,16 @@ const config: Config = {
     './node_modules/vintex/dist/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
     './src/app/**/*.{js,ts,jsx,tsx}'
-  ]
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        mono: ['var(--font-jetbrains-mono)'],
+        inter: ['var(--font-inter)'],
+        days: ['var(--font-days-one)']
+      }
+    }
+  }
 };
 
 export default config;

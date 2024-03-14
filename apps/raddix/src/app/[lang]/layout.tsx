@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import { Footer } from 'vintex';
 import { Header } from '@/components/header';
 import { locales } from '@/i18n';
@@ -9,6 +8,7 @@ import { Providers } from './providers';
 
 import '@/styles/main.css';
 import { getPkgManager } from '@/utils/get-pkg-manager';
+import { fonts } from '../fonts';
 
 export const metadata: Metadata = {
   title: {
@@ -18,11 +18,6 @@ export const metadata: Metadata = {
   description: 'Collection of Essential React Hooks',
   keywords: ['react', 'hooks', 'react hooks', 'react hooks library', 'raddix']
 };
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700']
-});
 
 export function generateStaticParams() {
   return locales.map(locale => ({ lang: locale }));
@@ -38,8 +33,8 @@ export default async function RootLayout({
   const headerProps = await getHeader(lang);
 
   return (
-    <html lang={lang} className={getTheme()}>
-      <body className={inter.className}>
+    <html lang={lang} className={`${getTheme()} ${fonts}`}>
+      <body className='font-inter'>
         <Providers
           defaultTheme={getTheme()}
           defaultPkgManager={getPkgManager()}

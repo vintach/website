@@ -4,8 +4,8 @@ export const Logo = ({ to = '/' }) => {
   return (
     <Link className='flex items-center gap-1.5' href={to}>
       <svg
-        width={22}
-        height={35}
+        // width={22}
+        height={30}
         viewBox='0 0 144 216'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
@@ -101,7 +101,9 @@ export const Logo = ({ to = '/' }) => {
           </linearGradient>
         </defs>
       </svg>
-      <span className='text-[26px] font-semibold'>raddix</span>
+      <span className='font-days text-[24px] tracking-tight text-gray-90 dark:text-gray-10'>
+        raddix
+      </span>
     </Link>
   );
 };
