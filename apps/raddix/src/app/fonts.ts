@@ -7,12 +7,14 @@ export const inter = Inter({
 });
 
 export const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
   weight: ['400', '500', '600'],
   display: 'swap',
   variable: '--font-jetbrains-mono'
 });
 
 export const daysOne = Days_One({
+  subsets: ['latin'],
   weight: ['400'],
   display: 'swap',
   variable: '--font-days-one'

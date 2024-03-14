@@ -8,7 +8,7 @@ import { Providers } from './providers';
 
 import '@/styles/main.css';
 import { getPkgManager } from '@/utils/get-pkg-manager';
-import { fonts } from './fonts';
+import { fonts } from '../fonts';
 
 export const metadata: Metadata = {
   title: {
