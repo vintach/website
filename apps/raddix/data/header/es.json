@@ -28,6 +28,9 @@
         "light": "Cambiar a tema oscuro",
         "dark": "Cambiar a tema claro"
       }
+    },
+    "packageManager": {
+      "label": "Cambiar el administrador de paquete"
     }
   }
 }

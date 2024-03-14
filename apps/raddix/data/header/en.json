@@ -28,6 +28,9 @@
         "light": "Switch to dark mode",
         "dark": "Switch to light mode"
       }
+    },
+    "packageManager": {
+      "label": "Change package manager"
     }
   }
 }

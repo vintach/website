@@ -1,5 +1,10 @@
+'use client';
+
 import type { TextStr } from '@/types/global';
 import { Copy } from './copy';
+import { useContext } from 'react';
+import { PackageManagerContext } from '@/contexts/package-manager-context';
+import { COMMANDS } from '@/utils/constants';
 
 const getTokenProps = (str: string) => {
   if (
@@ -17,15 +22,25 @@ const getTokenProps = (str: string) => {
   return { className: 'dark:text-[#D3D7CF]' };
 };
 
-const getValues = (str: string) => {
-  const tokens = str.split(' ');
-  const command = tokens.shift();
+const getValues = (code: string, pkg: boolean, pkgManager = '') => {
+  let text = code;
+  if (pkg) {
+    const command = COMMANDS[pkgManager];
+    text = `${command} ${code}`;
+  }
 
-  return { command, tokens };
+  const tokens = text.split(' ');
+  const command = tokens.shift();
+  return { command, tokens, text };
 };
 
-export const Snippet = ({ text }: TextStr) => {
-  const { command, tokens } = getValues(text);
+export interface SnippetProps extends TextStr {
+  pkg?: boolean;
+}
+
+export const Snippet = ({ text: textProp, pkg = false }: SnippetProps) => {
+  const { pkgManager } = useContext(PackageManagerContext);
+  const { command, tokens, text } = getValues(textProp, pkg, pkgManager);
 
   return (
     <div className='relative my-sm rounded-xl border border-black/5 bg-gray-10/35 p-sm md:px-6 md:py-[21px] dark:border-gray-100 dark:bg-gray-120/80'>
