@@ -6,15 +6,12 @@ import { Logo } from './logo';
 import { RightMenu } from '@/icons/right-menu';
 import { Close } from '@/icons/close';
 import { usePathname } from 'next/navigation';
-import {
-  LanguageSwitcher,
-  type LanguageSwitcherProps
-} from './language-switcher';
 import { ThemeSwitcher, type ThemeSwitcherProps } from './theme-switcher';
 import {
   PackageManagerChanger,
   type PackageManagerChangerProps
 } from './package-manager-changer';
+import { LanguageChanger, type LanguageChangerProps } from './language-changer';
 
 export interface MenuItems {
   name: string;
@@ -28,7 +25,7 @@ interface HeaderProps {
     items: MenuItems[];
   };
   options: {
-    language: LanguageSwitcherProps;
+    language: LanguageChangerProps;
     theme: ThemeSwitcherProps;
     packageManager: PackageManagerChangerProps;
   };
@@ -88,10 +85,10 @@ export const Header = ({ menu, rootPath, options }: HeaderProps) => {
             ))}
           </ul>
 
-          <div className='mt-lg grid w-64 grid-cols-3 border-t border-gray-110 pt-md md:m-0 md:flex md:w-auto md:items-center md:gap-1.5 md:border-0 md:p-0 md:text-gray-50 dark:md:text-gray-20'>
+          <div className='mt-lg grid w-64 grid-cols-3 border-t border-gray-110 pt-md md:m-0 md:flex md:w-auto md:items-center md:gap-2 md:border-0 md:p-0 md:text-gray-50 dark:md:text-gray-20'>
             <PackageManagerChanger {...options.packageManager} />
+            <LanguageChanger {...options.language} />
             <ThemeSwitcher {...options.theme} />
-            <LanguageSwitcher {...options.language} />
           </div>
         </nav>
 

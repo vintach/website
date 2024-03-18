@@ -1,5 +1,10 @@
 // locales and languages
 export const DEFAULT_LOCALE = 'en';
+export const LANGUAGES = [
+  { label: 'English', value: 'en' },
+  { label: 'Español', value: 'es' }
+];
+export const LOCALES = LANGUAGES.map(lang => lang.value);
 
 // package manager
 export const COMMANDS = {

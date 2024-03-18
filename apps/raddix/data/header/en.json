@@ -19,8 +19,7 @@
   },
   "options": {
     "language": {
-      "label": "Language switcher",
-      "description": "Change language to Spanish"
+      "label": "Change language"
     },
     "theme": {
       "label": "Theme switcher",

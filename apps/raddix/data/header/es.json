@@ -19,8 +19,7 @@
   },
   "options": {
     "language": {
-      "label": "Cambiador de idioma",
-      "description": "Cambiar idioma a inglés"
+      "label": "Cambiar idioma"
     },
     "theme": {
       "label": "Cambiador de tema",

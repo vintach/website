@@ -22,10 +22,10 @@ export const ThemeSwitcher = ({ label, description }: ThemeSwitcherProps) => {
       title={isDarkMode ? description.dark : description.light}
       aria-label={label}
       aria-description={isDarkMode ? description.dark : description.light}
-      className='flex flex-col items-center justify-center gap-1 p-xs hover:text-black md:flex-row dark:hover:text-white'
+      className='p-[7px] hover:text-black dark:hover:text-white'
       onClick={toggle}
     >
-      {isDarkMode ? <Moon /> : <Sun />}
+      {isDarkMode ? <Moon size={21} /> : <Sun size={21} />}
     </button>
   );
 };
