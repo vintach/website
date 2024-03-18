@@ -21,22 +21,22 @@ export const PackageManagerChanger = ({
   };
 
   return (
-    <div className='relative' onMouseLeave={() => setOpen(false)}>
+    <div className='group/term relative' onMouseLeave={() => setOpen(false)}>
       <button
         aria-expanded={open}
         aria-haspopup='true'
         type='button'
-        className='p-xs transition-colors'
+        className='p-[7px] transition-colors duration-100 group-hover/term:text-black dark:group-hover/term:text-white'
         aria-label={label}
         title={label}
         onMouseEnter={() => setOpen(true)}
         onClick={() => setOpen(!open)}
       >
-        <CommandLine />
+        <CommandLine size={21} />
       </button>
 
       <div
-        className={`absolute z-50 ${open ? 'block' : 'hidden'} left-1/2 top-0 -translate-x-1/2 translate-y-8 py-2`}
+        className={`absolute z-50 ${open ? 'block' : 'hidden'} left-1/2 top-0 -translate-x-1/2 translate-y-[35px] py-[6.5px]`}
       >
         <div className='flex min-w-24 flex-col rounded-md border border-gray-10/80 bg-white p-xs text-xs dark:border-gray-120/80 dark:bg-black'>
           {PACKAGE_MANAGERS.map(manager => (
