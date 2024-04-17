@@ -1,0 +1,41 @@
+import { type ParsedUrlQuery } from 'querystring';
+
+export interface SidebarItem {
+  title: string;
+  path?: string;
+  heading?: boolean;
+  children?: SidebarItem[];
+}
+
+export interface Config {
+  sidebar: SidebarItem[];
+}
+
+export interface RepoOpts {
+  params?: ParsedUrlQuery;
+  repo: string;
+  owner: string;
+  branch?: string;
+  contentDirPath: string;
+}
+
+export interface MetaOptions {
+  title: string;
+  description: string;
+}
+
+export interface ConfigFileRepo {
+  contentDirPath: string;
+  lang?: string;
+  repo: string;
+  owner: string;
+  branch?: string;
+}
+
+type ConfigItem = () => Promise<Config>;
+export type ConfigPath = Record<string, ConfigItem>;
+
+export interface ConfigFile {
+  dirPath: string;
+  lang?: string;
+}
