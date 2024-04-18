@@ -11,8 +11,7 @@ export const useDarkMode = () => {
     const theme = isDarkMode ? 'light' : 'dark';
     setCookie('theme', theme, 365);
     setIsDarkMode(state => !state);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isDarkMode]);
 
   return { isDarkMode, toggle };
 };
