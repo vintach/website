@@ -6,7 +6,9 @@ const { locales, defaultLocale } = i18nConfig;
 export const useLocale = (): string => {
   const currentPath = usePathname();
 
-  const locale = locales.find(loc => currentPath?.includes(loc));
+  const locale = locales.find(local => {
+    return currentPath === `/${local}` || currentPath.startsWith(`/${local}/`);
+  });
 
   return locale ?? defaultLocale;
 };
