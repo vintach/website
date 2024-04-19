@@ -1,0 +1,17 @@
+{
+  "sidebar": [
+    {
+      "title": "Empezando",
+      "children": [
+        {
+          "title": "Introducción",
+          "path": "/es/guide/introduction"
+        },
+        {
+          "title": "Instalación",
+          "path": "/es/guide/installation"
+        }
+      ]
+    }
+  ]
+}
