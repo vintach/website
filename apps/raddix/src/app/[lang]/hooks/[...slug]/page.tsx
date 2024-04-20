@@ -2,7 +2,9 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { components } from '@/components/mdx';
 import remarkSlug from 'remark-slug';
 import { rehypeFolderCodeBlock } from '@/lib/rehype-folder-code-block';
-import { getMdxFileRepoBySlug } from '@/lib/content';
+import { getConfigFileRepo, getMdxFileRepoBySlug } from '@/lib/content';
+import { createLocalizedPaths } from '@/utils/routes';
+import { locales } from '@/i18n';
 
 const configRepo = {
   repo: 'raddix',
@@ -12,6 +14,17 @@ const configRepo = {
 
 interface Props {
   params: { slug: string; lang: string };
+}
+
+export async function generateStaticParams() {
+  const config = await getConfigFileRepo({
+    repo: 'raddix',
+    owner: 'vintach',
+    contentDirPath: 'docs'
+  });
+
+  const allHooksPaths = createLocalizedPaths(config.sidebar, locales);
+  return allHooksPaths;
 }
 
 export async function generateMetadata({ params }: Props) {
