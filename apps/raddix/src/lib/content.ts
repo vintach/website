@@ -1,6 +1,6 @@
 import type { ParsedUrlQuery } from 'querystring';
 import path from 'path';
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import { matter } from './matter';
 import { getFile, getRemoteFile } from '@/utils/get-file';
 import type {
@@ -23,9 +23,9 @@ interface FileBySlugOpts {
 }
 
 /** Get configuration file from the local file system */
-export const getConfigFile = ({ lang = '', dirPath }: ConfigFile) => {
+export const getConfigFile = async ({ lang = '', dirPath }: ConfigFile) => {
   const filePath = path.join(process.cwd(), dirPath, lang, '_config.json');
-  const response = fs.readFileSync(filePath, 'utf-8');
+  const response = await fs.readFile(filePath, 'utf-8');
   const configFile: Config = JSON.parse(response);
   return configFile;
 };
@@ -64,7 +64,7 @@ export const getConfigFileRepo = async ({
 };
 
 /** Get mdx file from the local file system by slug */
-export const getMdxFileBySlug = ({
+export const getMdxFileBySlug = async ({
   contentDirPath = 'content',
   filePath,
   params
@@ -80,7 +80,7 @@ export const getMdxFileBySlug = ({
     lang,
     `${flattenedPath}.mdx`
   );
-  const mdxSource = fs.readFileSync(mdxPath, 'utf-8');
+  const mdxSource = await fs.readFile(mdxPath, 'utf-8');
 
   const { meta, content } = matter<MetaOptions>(mdxSource);
 

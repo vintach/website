@@ -1,14 +1,14 @@
 import { getConfigFile } from '@/lib/content';
 import { Sidebar, SidebarMenu, Pagination, PageNav } from 'vintex';
 
-export default function GuideLayout({
+export default async function GuideLayout({
   children,
   params: { lang }
 }: {
   children: React.ReactNode;
   params: { lang: string };
 }) {
-  const config = getConfigFile({ lang, dirPath: 'content/guide' });
+  const config = await getConfigFile({ lang, dirPath: 'content/guide' });
 
   return (
     <main className='mx-auto max-w-std gap-2xl px-sm py-xl md:grid md:grid-cols-ax1 lg:grid-cols-ax1xa'>

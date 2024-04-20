@@ -21,8 +21,8 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: Props) {
-  const { meta } = getMdxFileBySlug({ params, filePath: 'guide' });
+export async function generateMetadata({ params }: Props) {
+  const { meta } = await getMdxFileBySlug({ params, filePath: 'guide' });
 
   return {
     title: meta.title,
@@ -32,7 +32,10 @@ export function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
-  const { content, meta } = getMdxFileBySlug({ params, filePath: 'guide' });
+  const { content, meta } = await getMdxFileBySlug({
+    params,
+    filePath: 'guide'
+  });
 
   const mdxCompile = await compileMDX({
     source: content,
