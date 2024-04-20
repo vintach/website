@@ -4,16 +4,16 @@
     "label": "Menú principal",
     "items": [
       {
-        "name": "Documentación",
-        "path": "/es/docs/getting-started/introduction"
+        "name": "Inicio",
+        "path": "/"
+      },
+      {
+        "name": "Guía",
+        "path": "/es/guide/introduction"
       },
       {
         "name": "Hooks",
-        "path": "/es/docs/hooks/use-keyboard"
-      },
-      {
-        "name": "Blog",
-        "path": "/es/blog"
+        "path": "/es/hooks/use-keyboard"
       }
     ]
   },

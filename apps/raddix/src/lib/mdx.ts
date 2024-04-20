@@ -1,4 +1,3 @@
-import type { SideBar } from '@/types/sidebar';
 import type { ParsedUrlQuery } from 'querystring';
 import fs from 'fs';
 import path from 'path';
@@ -46,18 +45,6 @@ export const getMdxBySlug = ({ params, file }: MDXBySlug) => {
   const { data: meta, content } = matter(mdxSource);
 
   return { slug, meta, content };
-};
-
-export const getSidebarData = (locale?: string) => {
-  const realLocale = locale ?? DEFAULT_LOCALE;
-  const srcDirectory = path.join(ROOT_PATH, 'data', 'sidebar');
-  const sidebarData = fs.readFileSync(
-    `${srcDirectory}/${realLocale}.json`,
-    'utf-8'
-  );
-
-  const sidebar: SideBar = JSON.parse(sidebarData);
-  return sidebar.list;
 };
 
 interface GETMDXData {

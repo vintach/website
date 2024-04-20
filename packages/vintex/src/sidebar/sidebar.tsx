@@ -11,22 +11,22 @@ export const Sidebar = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export const SidebarMenu = ({ menu }: SideBarMenuProps) => {
+export const SidebarMenu = ({ items }: SideBarMenuProps) => {
   const pathname = usePathname();
   return (
     <nav className='overflow-y-auto px-[4.5px] scrollbar-thin scrollbar-track-gray-20/10 scrollbar-thumb-gray-40/50 scrollbar-track-rounded scrollbar-thumb-rounded-lg'>
       <ol>
-        {menu
-          ? menu.map(({ title, items }, i) => (
+        {items
+          ? items.map(({ title, children }, i) => (
               <li key={`${title}-${i}`} className='pb-md'>
                 <span className='mb-sm block  text-sm font-medium'>
                   {title}
                 </span>
 
                 <ol>
-                  {items
-                    ? items.map((item, ii) => {
-                        const isActive = item.route === pathname;
+                  {children
+                    ? children.map((item, ii) => {
+                        const isActive = item.path === pathname;
                         const styleLiActive = `relative before:absolute before:left-[-3.5px] before:top-[50%] before:-translate-y-2/4 before:text-[17px] before:text-purple-40 before:content-["•"]`;
                         const styleLinkActive = `font-medium text-purple-40`;
 
@@ -35,16 +35,22 @@ export const SidebarMenu = ({ menu }: SideBarMenuProps) => {
                             key={`${item.title}${ii}`}
                             className={isActive ? styleLiActive : undefined}
                           >
-                            <Link
-                              className={`block border-l-[1px]  border-gray-100 py-[4.5px] pl-[14px] text-sm tracking-[-0.12px] ${
-                                isActive
-                                  ? styleLinkActive
-                                  : `text-gray-50 hover:text-gray-100 dark:text-gray-30 dark:hover:text-gray-20`
-                              }`}
-                              href={item.route}
-                            >
-                              {item.title}
-                            </Link>
+                            {item.path ? (
+                              <Link
+                                className={`block border-l-[1px] border-gray-100 py-[4.5px] pl-[14px] text-sm tracking-[-0.12px] ${
+                                  isActive
+                                    ? styleLinkActive
+                                    : `text-gray-50 hover:text-gray-100 dark:text-gray-30 dark:hover:text-gray-20`
+                                }`}
+                                href={item.path}
+                              >
+                                {item.title}
+                              </Link>
+                            ) : (
+                              <span className='mb-sm block  text-sm font-medium'>
+                                {item.title}
+                              </span>
+                            )}
                           </li>
                         );
                       })
