@@ -43,7 +43,7 @@
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
     "storybook": "^7.0.26",
-    "turbo": "^1.10.16",
+    "turbo": "1.12.4",
     "@vintach/tsconfig": "workspace:*"
   },
   "engines": {
