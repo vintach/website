@@ -7,8 +7,8 @@ export const useDarkMode = () => {
   const [isDarkMode, setIsDarkMode] = useState(defaultTheme === 'dark');
 
   const toggle = useCallback(() => {
-    document.documentElement.classList.toggle('dark');
     const theme = isDarkMode ? 'light' : 'dark';
+    document.documentElement.dataset.theme = theme;
     setCookie('theme', theme, 365);
     setIsDarkMode(state => !state);
   }, [isDarkMode]);

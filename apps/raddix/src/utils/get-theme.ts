@@ -5,5 +5,5 @@ export const getTheme = () => {
   if (!theme) {
     return 'dark';
   }
-  return theme.value === 'dark' ? 'dark' : '';
+  return theme.value;
 };

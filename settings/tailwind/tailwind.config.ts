@@ -3,7 +3,7 @@ import { colors } from '@vintach/colors';
 import scrollbarPlugin from 'tailwind-scrollbar';
 
 const config: Omit<Config, 'content'> = {
-  darkMode: 'selector',
+  darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
     screens: {
       sm: '40rem', //640px

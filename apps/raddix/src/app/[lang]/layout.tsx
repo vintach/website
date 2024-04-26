@@ -34,7 +34,7 @@ export default async function RootLayout({
   const headerProps = await getHeader(lang);
 
   return (
-    <html lang={lang} className={`${getTheme()} ${fonts}`}>
+    <html lang={lang} data-theme={getTheme()} className={fonts}>
       <body className='font-inter'>
         <Providers
           defaultTheme={getTheme()}
