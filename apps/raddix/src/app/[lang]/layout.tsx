@@ -6,6 +6,7 @@ import { getHeader } from 'data/header/get-header';
 import { getTheme } from '@/utils/get-theme';
 import { Providers } from './providers';
 
+import 'vintex/styles.css';
 import '@/styles/main.css';
 import { getPkgManager } from '@/utils/get-pkg-manager';
 import { fonts } from '../fonts';
