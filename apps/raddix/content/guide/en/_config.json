@@ -2,6 +2,7 @@
   "sidebar": [
     {
       "title": "Getting Started",
+      "heading": true,
       "children": [
         {
           "title": "Introduction",
