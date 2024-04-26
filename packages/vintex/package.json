@@ -1,16 +1,18 @@
 {
   "name": "vintex",
-  "version": "0.3.0",
-  "sideEffects": false,
-  "types": "./dist/index.d.mts",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "files": [
-    "dist/**"
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src",
+    "./styles.css": "./dist/index.css"
+  },
+  "sideEffects": [
+    "**/*.css"
   ],
   "scripts": {
-    "dev": "tsup --watch",
-    "build": "tsup",
+    "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
+    "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
     "lint": "eslint src/",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
@@ -27,6 +29,8 @@
     "react": "^18.2.0",
     "next": "^14.1.0",
     "tailwindcss": "^3.3.5",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
     "tsup": "^8.0.0",
     "@vintach/tsconfig": "workspace:*",
     "@vintach/tailwind": "workspace:*",
