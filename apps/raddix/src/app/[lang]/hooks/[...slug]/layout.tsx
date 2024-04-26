@@ -1,5 +1,6 @@
 import { getConfigFileRepo } from '@/lib/content';
-import { Sidebar, SidebarMenu, Pagination, PageNav } from 'vintex';
+import { Pagination, PageNav } from 'vintex';
+import { Sidebar } from '@/components/sidebar';
 
 export default async function HooksLayout({
   children,
@@ -16,9 +17,7 @@ export default async function HooksLayout({
 
   return (
     <main className='mx-auto max-w-std gap-2xl px-sm py-xl md:grid md:grid-cols-ax1 lg:grid-cols-ax1xa'>
-      <Sidebar>
-        <SidebarMenu items={config.sidebar} />
-      </Sidebar>
+      <Sidebar content={config.sidebar} />
       <div>
         {children}
         <Pagination menu={config.sidebar} />
