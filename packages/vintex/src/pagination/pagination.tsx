@@ -1,3 +1,5 @@
+'use client';
+
 import { usePathname } from 'next/navigation';
 import type { SidebarItems } from '../sidebar';
 import Link from 'next/link';
@@ -25,28 +27,28 @@ export const Pagination = ({ menu }: PaginationProps) => {
   const nextPage = allRoutes[currentPageIndex + 1];
 
   return (
-    <div className='mb-md mt-4xl grid grid-cols-2 gap-x-sm'>
+    <div className='ui-mb-md ui-mt-4xl ui-grid ui-grid-cols-2 ui-gap-x-sm'>
       {prevPage && (
         <Link
           href={prevPage.path}
-          className=' box-border block w-fit rounded-xl p-xs text-start'
+          className='ui-box-border ui-block ui-w-fit ui-rounded-xl ui-p-xs ui-text-start'
         >
-          <span className='mb-xs block text-xs text-gray-40 dark:text-gray-10'>
+          <span className='ui-mb-xs ui-block ui-text-xs ui-text-gray-40 dark:ui-text-gray-10'>
             Previous
           </span>
-          <span className='text-md text-purple-40'>{prevPage.title}</span>
+          <span className='ui-text-md ui-text-purple-40'>{prevPage.title}</span>
         </Link>
       )}
 
       {nextPage && (
         <Link
           href={nextPage.path}
-          className='col-start-2 col-end-3 ml-auto w-fit rounded-xl p-xs text-end'
+          className='ui-col-start-2 ui-col-end-3 ui-ml-auto ui-w-fit ui-rounded-xl ui-p-xs ui-text-end'
         >
-          <span className='mb-xs block text-xs text-gray-40 dark:text-gray-10'>
+          <span className='ui-mb-xs ui-block ui-text-xs ui-text-gray-40 dark:ui-text-gray-10'>
             Next
           </span>
-          <span className=' text-md text-purple-40'>{nextPage.title}</span>
+          <span className='ui-text-md ui-text-purple-40'>{nextPage.title}</span>
         </Link>
       )}
     </div>

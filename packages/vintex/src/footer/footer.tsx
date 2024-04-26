@@ -2,11 +2,11 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='box-border w-full border-t border-gray-100 dark:bg-black'>
-      <div className='mx-auto flex max-w-std flex-col items-center gap-y-xs px-sm py-lg text-xs text-gray-40 md:flex-row md:justify-between dark:text-gray-20'>
+    <footer className='ui-box-border ui-text-ellipsis dark:ui-bg-black ui-w-full ui-border-t ui-border-gray-100 ui-bg-white'>
+      <div className='ui-mx-auto ui-flex ui-max-w-std ui-flex-col ui-items-center ui-gap-y-xs ui-px-sm ui-py-lg ui-text-xs ui-text-gray-40 md:ui-flex-row md:ui-justify-between dark:ui-text-gray-20'>
         <span>
           Made by{' '}
-          <strong className='font-medium text-black dark:text-white'>
+          <strong className='ui-font-medium ui-text-black dark:ui-text-white'>
             Vintach
           </strong>
         </span>

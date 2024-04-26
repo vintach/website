@@ -1,9 +1,13 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { useScrollSpy } from '@raddix/use-scroll-spy';
 import { usePathname } from 'next/navigation';
 
 interface PageNavProps {
   locale: string;
+  showLine?: boolean;
+  group?: boolean;
 }
 
 interface IdentItem {
@@ -19,21 +23,21 @@ interface TreeProps {
 }
 
 const Tree = ({ navData, activeItem }: TreeProps) => {
-  const childStyle = navData.at(0)?.depth ? 'pl-sm pt-[4.5px]' : '';
+  const childStyle = navData.at(0)?.depth ? 'ui-pl-sm ui-pt-[4.5px]' : '';
   return (
     <ul className={`${childStyle}`}>
       {navData.map(item => {
         return (
           <li
             key={`${item.name}-${item.depth}`}
-            className='py-[4.5px] text-sm tracking-[-0.12px]'
+            className='ui-py-[4.5px] ui-text-sm ui-tracking-[-0.12px]'
           >
             <a
               href={`#${item.id}`}
               className={
                 activeItem === item.id
-                  ? 'text-purple-40'
-                  : 'text-gray-50 hover:text-gray-100 dark:text-gray-30 dark:hover:text-gray-20'
+                  ? 'ui-text-purple-40'
+                  : 'ui-text-gray-50 hover:ui-text-gray-100 dark:ui-text-gray-30 dark:hover:ui-text-gray-20'
               }
             >
               {item.name}
@@ -101,8 +105,8 @@ export const PageNav = ({ locale }: PageNavProps) => {
   });
 
   return (
-    <nav className='sticky top-[125px] hidden w-56 self-start lg:block'>
-      <h5 className='mb-sm text-sm font-medium'>{pageNavTitle}</h5>
+    <nav className='ui-sticky ui-top-[125px] ui-hidden ui-w-56 ui-self-start lg:ui-block'>
+      <h5 className='ui-mb-sm ui-text-sm ui-font-medium'>{pageNavTitle}</h5>
       <Tree navData={headings} activeItem={activeHeading} />
     </nav>
   );
