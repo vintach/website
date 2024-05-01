@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 export interface TreeItem {
   title: string;
@@ -16,6 +15,7 @@ export interface TreeProps {
   lang?: string;
   defaultLang?: string;
   showLine?: boolean;
+  activeItem: string;
 }
 
 export const Tree = ({
@@ -23,35 +23,31 @@ export const Tree = ({
   root,
   lang,
   defaultLang,
-  showLine = true
+  showLine = true,
+  activeItem
 }: TreeProps) => {
-  const currentPath = usePathname();
+  const isRoot = root ? '' : 'ui-pl-[15px]';
+  const isShowLine = showLine ? 'ui-border-l-[1px] ui-border-gray-100' : '';
 
   return (
-    <ul
-      className={
-        root
-          ? ''
-          : `mb-sm pl-[15px] ${showLine ? 'border-l-[1px] border-gray-100' : ''}`.trim()
-      }
-    >
+    <ul className={[isRoot, isShowLine].join(' ')}>
       {items.map(({ title, path, heading, children }) => {
         const slug = lang === defaultLang ? path : `/${lang}${path}`;
-        const isActive = slug === currentPath;
+        const isActive = slug === activeItem;
         return (
           <li
             key={`${title}-${path}`}
-            className={`${heading ? 'pb-sm pt-xs' : ''}`}
+            className={`${heading ? 'ui-pb-sm pt-xs' : ''}`}
           >
             {!path ? (
               <span
-                className={`${heading ? 'mb-3 font-semibold text-white' : 'py-xs text-gray-50 hover:text-gray-100 dark:text-gray-30 dark:hover:text-gray-10'} block text-sm font-medium leading-5`}
+                className={`${heading ? 'ui-mb-3 ui-font-semibold ui-text-white' : 'ui-py-xs ui-text-gray-50 hover:ui-text-gray-100 dark:ui-text-gray-30 dark:hover:ui-text-gray-10'} ui-block ui-text-sm ui-font-medium ui-leading-5`}
               >
                 {title}
               </span>
             ) : (
               <Link
-                className={`${isActive ? 'text-purple-40' : 'text-gray-50 hover:text-gray-100 dark:text-gray-30 dark:hover:text-gray-10'} block py-xs text-sm leading-5 tracking-[-0.12px] `}
+                className={`${isActive ? 'ui-text-purple-40' : 'ui-text-gray-50 hover:ui-text-gray-100 dark:ui-text-gray-30 dark:hover:ui-text-gray-10'} ui-block ui-py-xs ui-text-sm ui-leading-5 ui-tracking-[-0.12px] `}
                 href={`${slug}`}
               >
                 {title}
@@ -64,6 +60,7 @@ export const Tree = ({
                 lang={lang}
                 defaultLang={defaultLang}
                 showLine={showLine}
+                activeItem={activeItem}
               />
             ) : null}
           </li>
