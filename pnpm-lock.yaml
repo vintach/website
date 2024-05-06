@@ -132,6 +132,9 @@ importers:
       '@raddix/use-keyboard':
         specifier: 1.2.0
         version: 1.2.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@raddix/use-scroll-spy':
+        specifier: 0.1.2
+        version: 0.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@raddix/use-toggle':
         specifier: 1.0.0
         version: 1.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -141,12 +144,18 @@ importers:
       classnames:
         specifier: 2.3.2
         version: 2.3.2
+      github-slugger:
+        specifier: ^2.0.0
+        version: 2.0.0
       glob:
         specifier: 8.1.0
         version: 8.1.0
       gray-matter:
         specifier: 4.0.3
         version: 4.0.3
+      marked:
+        specifier: ^12.0.2
+        version: 12.0.2
       next:
         specifier: ^14.1.0
         version: 14.2.2(@babel/core@7.24.4)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -216,10 +225,6 @@ importers:
         version: link:../../settings/tsconfig
 
   packages/vintex:
-    dependencies:
-      '@raddix/use-scroll-spy':
-        specifier: 0.1.0
-        version: 0.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     devDependencies:
       '@types/react':
         specifier: ^18.2.5
@@ -1409,8 +1414,8 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
-  '@raddix/use-scroll-spy@0.1.0':
-    resolution: {integrity: sha512-vMy5Lo7YHxB9qocfi1JnsKPYcoGZdZiRVRy+K6rarYsc6SP6feXr4lv+2LRfQhY7ldDbdwfO7bwMGu4RcgZxzA==}
+  '@raddix/use-scroll-spy@0.1.2':
+    resolution: {integrity: sha512-H/LTooueJRAmKvLQ2IF21YXpKTAAm6E0IoWbBAPgLHc+t6TFRZ3VVAdz5sQzleU3Sl2uEivmS08u/gKNvgWhcQ==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -3716,6 +3721,9 @@ packages:
   github-slugger@1.5.0:
     resolution: {integrity: sha512-wIh+gKBI9Nshz2o46B0B3f5k/W+WI9ZAv6y5Dn5WJ5SK1t0TnDimB4WE5rmTD05ZAIn8HALCZVmCsvj0w0v0lw==}
 
+  github-slugger@2.0.0:
+    resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
+
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
@@ -4410,6 +4418,11 @@ packages:
     engines: {node: '>= 10'}
     peerDependencies:
       react: '>= 0.14.0'
+
+  marked@12.0.2:
+    resolution: {integrity: sha512-qXUm7e/YKFoqFPYPa3Ukg9xlI5cyAtGmyEIzMfW//m6kXwCy2Ps9DYf5ioijFKQ8qyuscrHoY04iJGctu2Kg0Q==}
+    engines: {node: '>= 18'}
+    hasBin: true
 
   mdast-util-definitions@4.0.0:
     resolution: {integrity: sha512-k8AJ6aNnUkB7IE+5azR9h81O5EQ/cTDXtWdMq9Kk5KcEW/8ritU5CeLg/9HhOC++nALHBlaogJ5jz0Ybk3kPMQ==}
@@ -7605,7 +7618,7 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@raddix/use-scroll-spy@0.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@raddix/use-scroll-spy@0.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -10751,6 +10764,8 @@ snapshots:
 
   github-slugger@1.5.0: {}
 
+  github-slugger@2.0.0: {}
+
   glob-parent@5.1.2:
     dependencies:
       is-glob: 4.0.3
@@ -11482,6 +11497,8 @@ snapshots:
   markdown-to-jsx@7.4.7(react@18.2.0):
     dependencies:
       react: 18.2.0
+
+  marked@12.0.2: {}
 
   mdast-util-definitions@4.0.0:
     dependencies:
