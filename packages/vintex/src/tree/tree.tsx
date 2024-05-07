@@ -37,13 +37,13 @@ export const Tree = ({
         >
           {!path ? (
             <span
-              className={`${heading ? 'ui-mb-3 ui-font-semibold ui-text-white' : 'ui-py-xs ui-text-gray-50 hover:ui-text-gray-100 dark:ui-text-gray-30 dark:hover:ui-text-gray-10'} ui-block ui-text-sm ui-font-medium ui-leading-5`}
+              className={`${heading ? 'ui-mb-3 ui-font-semibold ui-text-gray-100 dark:ui-text-white' : 'ui-py-xs ui-text-gray-50 hover:ui-text-gray-100 dark:ui-text-gray-30 dark:hover:ui-text-gray-10'} ui-block ui-text-sm ui-font-medium ui-leading-5`}
             >
               {title}
             </span>
           ) : (
             <Link
-              className={`${getLocaleUrl({ lang, defaultLang, path }) === activeItem ? 'ui-text-purple-40' : 'ui-text-gray-50 hover:ui-text-gray-100 dark:ui-text-gray-30 dark:hover:ui-text-gray-10'} ui-block ui-py-xs ui-text-sm ui-leading-5 ui-tracking-[-0.12px] `}
+              className={`${getLocaleUrl({ lang, defaultLang, path }) === activeItem ? 'ui-text-purple-70 dark:ui-text-purple-40' : 'ui-text-gray-50 hover:ui-text-gray-100 dark:ui-text-gray-30 dark:hover:ui-text-gray-10'} ui-block ui-py-xs ui-text-sm ui-leading-5 ui-tracking-[-0.12px] `}
               href={getLocaleUrl({ lang, defaultLang, path })}
             >
               {title}
