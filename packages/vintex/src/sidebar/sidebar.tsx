@@ -5,8 +5,8 @@ import { Tree, type TreeNode } from '../tree';
 
 interface SidebarProps {
   items: TreeNode[];
-  lang: string;
-  defaultLang: string;
+  lang?: string;
+  defaultLang?: string;
 }
 
 export const Sidebar = ({ items, lang, defaultLang }: SidebarProps) => {

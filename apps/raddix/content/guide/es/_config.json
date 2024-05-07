@@ -2,14 +2,15 @@
   "sidebar": [
     {
       "title": "Empezando",
+      "heading": true,
       "children": [
         {
           "title": "Introducción",
-          "path": "/es/guide/introduction"
+          "path": "/guide/introduction"
         },
         {
           "title": "Instalación",
-          "path": "/es/guide/installation"
+          "path": "/guide/installation"
         }
       ]
     }
