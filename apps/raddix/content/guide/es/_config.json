@@ -6,11 +6,11 @@
       "children": [
         {
           "title": "Introducción",
-          "path": "/guide/introduction"
+          "path": "/es/guide/introduction"
         },
         {
           "title": "Instalación",
-          "path": "/guide/installation"
+          "path": "/es/guide/installation"
         }
       ]
     }
