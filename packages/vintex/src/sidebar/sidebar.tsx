@@ -2,11 +2,10 @@
 
 import { usePathname } from 'next/navigation';
 import { Tree, type TreeNode } from '../tree';
+import { type I18nConfig } from '../utils';
 
-interface SidebarProps {
+interface SidebarProps extends I18nConfig {
   items: TreeNode[];
-  lang?: string;
-  defaultLang?: string;
 }
 
 export const Sidebar = ({ items, lang, defaultLang }: SidebarProps) => {
