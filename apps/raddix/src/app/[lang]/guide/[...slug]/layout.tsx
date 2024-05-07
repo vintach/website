@@ -11,7 +11,7 @@ export default function GuideLayout({
   const config = getConfigFile({ lang, dirPath: 'content/guide' });
 
   return (
-    <main className='mx-auto max-w-std gap-2xl px-sm py-xl md:grid md:grid-cols-ax1 lg:grid-cols-ax1xa'>
+    <main className='mx-auto max-w-std gap-2xl px-sm py-xl md:grid md:grid-cols-ax1'>
       <Sidebar items={config.sidebar} />
       {children}
     </main>

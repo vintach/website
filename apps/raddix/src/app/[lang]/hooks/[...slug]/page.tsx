@@ -3,6 +3,7 @@ import { components } from '@/components/mdx';
 import remarkSlug from 'remark-slug';
 import { rehypeFolderCodeBlock } from '@/lib/rehype-folder-code-block';
 import { getMdxFileRepoBySlug } from '@/lib/content';
+import { TableOfContent } from 'vintex';
 
 const configRepo = {
   repo: 'raddix',
@@ -39,8 +40,9 @@ export default async function Page({ params }: Props) {
   });
 
   return (
-    <article className='box-border overflow-hidden'>
-      {mdxCompile.content}
-    </article>
+    <main className='relative grid w-full gap-2xl md:grid-cols-1xa'>
+      <article className='overflow-hidden'>{mdxCompile.content}</article>
+      <TableOfContent content={content} />
+    </main>
   );
 }
