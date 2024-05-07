@@ -1,10 +1,10 @@
-import { getMdxFileBySlug } from '@/lib/content';
+import { getConfigFile, getMdxFileBySlug } from '@/lib/content';
 import { rehypeFolderCodeBlock } from '@/lib/rehype-folder-code-block';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import remarkSlug from 'remark-slug';
 import { components } from '@/components/mdx';
 import { getFiles } from '@/utils/get-file';
-import { TableOfContent } from 'vintex';
+import { Pager, TableOfContent } from 'vintex';
 
 interface Props {
   params: { slug: string; lang: string };
@@ -34,6 +34,7 @@ export function generateMetadata({ params }: Props) {
 
 export default async function Page({ params }: Props) {
   const { content, meta } = getMdxFileBySlug({ params, filePath: 'guide' });
+  const config = getConfigFile({ lang: params.lang, dirPath: 'content/guide' });
 
   const mdxCompile = await compileMDX({
     source: content,
@@ -58,6 +59,7 @@ export default async function Page({ params }: Props) {
           </p>
         </header>
         {mdxCompile.content}
+        <Pager sidebar={config.sidebar} />
       </article>
       <TableOfContent content={content} />
     </main>

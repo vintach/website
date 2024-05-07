@@ -2,8 +2,9 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { components } from '@/components/mdx';
 import remarkSlug from 'remark-slug';
 import { rehypeFolderCodeBlock } from '@/lib/rehype-folder-code-block';
-import { getMdxFileRepoBySlug } from '@/lib/content';
-import { TableOfContent } from 'vintex';
+import { getConfigFileRepo, getMdxFileRepoBySlug } from '@/lib/content';
+import { Pager, TableOfContent } from 'vintex';
+import { defaultLocale } from '@/i18n';
 
 const configRepo = {
   repo: 'raddix',
@@ -26,7 +27,10 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
-  const { content } = await getMdxFileRepoBySlug({ params, ...configRepo });
+  const [{ content }, { sidebar }] = await Promise.all([
+    getMdxFileRepoBySlug({ params, ...configRepo }),
+    getConfigFileRepo(configRepo)
+  ]);
 
   const mdxCompile = await compileMDX({
     source: content,
@@ -41,7 +45,14 @@ export default async function Page({ params }: Props) {
 
   return (
     <main className='relative grid w-full gap-2xl md:grid-cols-1xa'>
-      <article className='overflow-hidden'>{mdxCompile.content}</article>
+      <article className='overflow-hidden'>
+        {mdxCompile.content}
+        <Pager
+          sidebar={sidebar}
+          lang={params.lang}
+          defaultLang={defaultLocale}
+        />
+      </article>
       <TableOfContent content={content} />
     </main>
   );
