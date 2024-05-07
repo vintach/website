@@ -28,7 +28,8 @@ const config: Omit<Config, 'content'> = {
     extend: {
       gridTemplateColumns: {
         ax1xa: 'auto minmax(0, 1fr) auto',
-        ax1: 'auto 1fr'
+        ax1: 'auto 1fr',
+        '1xa': '1fr auto'
       },
       spacing: {
         xs: '.5625rem', //9px

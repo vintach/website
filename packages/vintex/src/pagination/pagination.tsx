@@ -1,8 +1,13 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import type { SidebarItems } from '../sidebar';
 import Link from 'next/link';
+
+export interface SidebarItems {
+  title: string;
+  path?: string;
+  children?: SidebarItems[];
+}
 
 interface PaginationProps {
   menu: SidebarItems[];
