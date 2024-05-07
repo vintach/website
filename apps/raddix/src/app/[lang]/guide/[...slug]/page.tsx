@@ -4,6 +4,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import remarkSlug from 'remark-slug';
 import { components } from '@/components/mdx';
 import { getFiles } from '@/utils/get-file';
+import { TableOfContent } from 'vintex';
 
 interface Props {
   params: { slug: string; lang: string };
@@ -46,16 +47,19 @@ export default async function Page({ params }: Props) {
   });
 
   return (
-    <article className='box-border overflow-hidden'>
-      <header>
-        <h1 className='pb-[3px] text-[2.6rem] font-bold leading-[1.16] tracking-[-.04em] md:pb-[6px] md:text-[3.2rem] md:leading-[1.12] md:tracking-[-.042em]'>
-          {meta.title}
-        </h1>
-        <p className='my-sm text-sm tracking-[-.010em] text-gray-80 md:text-md dark:text-gray-10'>
-          {meta.description}
-        </p>
-      </header>
-      {mdxCompile.content}
-    </article>
+    <main className='relative grid w-full gap-2xl md:grid-cols-1xa'>
+      <article className='overflow-hidden'>
+        <header>
+          <h1 className='pb-[3px] text-[2.6rem] font-bold leading-[1.16] tracking-[-.04em] md:pb-[6px] md:text-[3.2rem] md:leading-[1.12] md:tracking-[-.042em]'>
+            {meta.title}
+          </h1>
+          <p className='my-sm text-sm tracking-[-.010em] text-gray-80 md:text-md dark:text-gray-10'>
+            {meta.description}
+          </p>
+        </header>
+        {mdxCompile.content}
+      </article>
+      <TableOfContent content={content} />
+    </main>
   );
 }
