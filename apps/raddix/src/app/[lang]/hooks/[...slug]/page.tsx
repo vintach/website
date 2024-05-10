@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
-  const [{ content }, { sidebar }] = await Promise.all([
+  const [{ content, meta }, { sidebar }] = await Promise.all([
     getMdxFileRepoBySlug({ params, ...configRepo }),
     getConfigFileRepo(configRepo)
   ]);
@@ -46,6 +46,14 @@ export default async function Page({ params }: Props) {
   return (
     <main className='relative grid w-full gap-2xl md:grid-cols-1xa'>
       <article className='overflow-hidden'>
+        <header className='pb-2'>
+          <h1 className='text-[2.5rem] font-bold leading-[40px] tracking-[-.04em] md:text-[3rem] md:leading-[45px] md:tracking-[-.042em]'>
+            {meta.title}
+          </h1>
+          <p className='mb-sm mt-[24px] text-sm tracking-[-.010em] text-gray-80 md:text-md dark:text-gray-10'>
+            {meta.description}
+          </p>
+        </header>
         {mdxCompile.content}
         <Pager
           sidebar={sidebar}
