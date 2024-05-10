@@ -5,6 +5,7 @@ import { rehypeFolderCodeBlock } from '@/lib/rehype-folder-code-block';
 import { getConfigFileRepo, getMdxFileRepoBySlug } from '@/lib/content';
 import { Pager, TableOfContent } from 'vintex';
 import { defaultLocale } from '@/i18n';
+import { Links } from '@/components/links';
 
 const configRepo = {
   repo: 'raddix',
@@ -53,6 +54,7 @@ export default async function Page({ params }: Props) {
           <p className='mb-sm mt-[24px] text-sm tracking-[-.010em] text-gray-80 md:text-md dark:text-gray-10'>
             {meta.description}
           </p>
+          <Links slug={params.slug} />
         </header>
         {mdxCompile.content}
         <Pager
