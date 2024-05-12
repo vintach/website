@@ -6,6 +6,7 @@ import { getHeader } from 'data/header/get-header';
 import { getTheme } from '@/utils/get-theme';
 import { Providers } from './providers';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import 'vintex/styles.css';
 import '@/styles/main.css';
@@ -46,6 +47,7 @@ export default async function RootLayout({
           <Footer />
         </Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
