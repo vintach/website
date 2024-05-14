@@ -5,6 +5,9 @@ import remarkSlug from 'remark-slug';
 import { components } from '@/components/mdx';
 import { getFiles } from '@/utils/get-file';
 import { Pager, TableOfContent } from 'vintex';
+import { type Metadata } from 'next';
+import { getLocaleUrl, getLocaleUrls } from '@/i18n/utils';
+import { configSite } from 'content/site/_config';
 
 interface Props {
   params: { slug: string; lang: string };
@@ -22,13 +25,25 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: Props) {
+export function generateMetadata({ params }: Props): Metadata {
   const { meta } = getMdxFileBySlug({ params, filePath: 'guide' });
+  const url = `/guide/${params.slug}`;
+  const site = configSite.meta;
 
   return {
     title: meta.title,
     description: meta.description,
-    authors: [{ name: 'Raddix' }]
+    authors: [
+      { name: site?.author?.name, url: site?.author?.url },
+      {
+        name: `${site?.title}`,
+        url: site?.url
+      }
+    ],
+    alternates: {
+      canonical: getLocaleUrl(url, params.lang),
+      languages: getLocaleUrls(url)
+    }
   };
 }
 
