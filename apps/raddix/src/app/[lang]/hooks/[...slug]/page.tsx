@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props) {
   const { meta } = await getMdxFileRepoBySlug({ params, ...configRepo });
 
   return {
-    title: meta.title,
+    title: `${meta.title} React Hook`,
     description: meta.description,
     authors: [{ name: 'Raddix' }]
   };
