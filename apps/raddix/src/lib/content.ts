@@ -70,8 +70,8 @@ export const getMdxFileBySlug = ({
   params
 }: FileBySlugOpts) => {
   const lang = params?.lang ? `${params.lang}` : '';
-  const slug = params?.slug as string[];
-  const flattenedPath = slug.join('/');
+  const slug = params?.slug;
+  const flattenedPath = Array.isArray(slug) ? slug.join('/') : slug;
 
   const mdxPath = path.join(
     process.cwd(),
@@ -100,8 +100,8 @@ export const getMdxFileRepoBySlug = async ({
   contentDirPath
 }: RepoOpts): Promise<ReturnMdxFile> => {
   const lang = params?.lang ? `/${params.lang}` : '';
-  const slug = params?.slug as string[];
-  const flattenedPath = slug.join('/');
+  const slug = params?.slug;
+  const flattenedPath = Array.isArray(slug) ? slug.join('/') : slug;
   const filePath = `../../../${repo}/${contentDirPath}`;
 
   let fileData: string | null = null;
