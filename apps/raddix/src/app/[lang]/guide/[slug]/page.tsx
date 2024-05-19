@@ -20,7 +20,7 @@ export function generateStaticParams() {
   });
 
   return paths.map(({ fileDir, fileName }) => ({
-    slug: [fileName.replace(/\.mdx$/, '')],
+    slug: fileName.replace(/\.mdx$/, ''),
     lang: fileDir
   }));
 }
@@ -43,6 +43,20 @@ export function generateMetadata({ params }: Props): Metadata {
     alternates: {
       canonical: getLocaleUrl(url, params.lang),
       languages: getLocaleUrls(url)
+    },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      type: 'article',
+      authors: [`${site?.author?.name}`],
+      url: getLocaleUrl(url, params.lang),
+      locale: params.lang
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta?.description,
+      creator: `@${site?.author?.username}`
     }
   };
 }

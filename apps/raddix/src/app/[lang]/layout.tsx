@@ -42,7 +42,21 @@ export function generateMetadata({ params: { lang } }: Props): Metadata {
       'Raddix'
     ],
     authors: [{ name: site?.author?.name, url: site?.author?.url }],
-    creator: site?.author?.name
+    creator: site?.author?.name,
+    openGraph: {
+      type: 'website',
+      title: configSite.meta?.title,
+      description: meta?.description,
+      url: configSite.meta?.url,
+      siteName: configSite.meta?.title,
+      locale: lang
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: configSite.meta?.title,
+      description: meta?.description,
+      creator: `@${site?.author?.username}`
+    }
   };
 }
 

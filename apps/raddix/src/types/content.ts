@@ -28,6 +28,7 @@ export interface MetaOptions {
     name?: string;
     email?: string;
     url?: string;
+    username?: string;
   };
 }
 

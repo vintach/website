@@ -44,6 +44,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: getLocaleUrl(url, params.lang),
       languages: getLocaleUrls(url)
+    },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      type: 'article',
+      authors: [`${site?.author?.name}`],
+      url: getLocaleUrl(url, params.lang),
+      locale: params.lang
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta?.description,
+      creator: `@${site?.author?.username}`
     }
   };
 }

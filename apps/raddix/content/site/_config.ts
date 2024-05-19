@@ -7,7 +7,8 @@ export const configSite: Config = {
     url: 'https://raddix.dev',
     author: {
       name: 'Moises Machuca Valverde',
-      url: 'https://moisesmachuca.com'
+      url: 'https://moisesmachuca.com',
+      username: 'immois'
     }
   }
 };
