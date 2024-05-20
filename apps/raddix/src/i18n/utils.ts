@@ -8,6 +8,7 @@ export const getLocaleUrl = (
   prefix?: string
 ): string => {
   url = url === '/' ? '' : url;
+  prefix = !prefix ? '' : prefix;
   return lang === defaultLocale ? `${prefix}${url}` : `${prefix}/${lang}${url}`;
 };
 
