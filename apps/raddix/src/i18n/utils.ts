@@ -2,17 +2,21 @@ import { i18nConfig } from './config';
 
 const { locales, defaultLocale } = i18nConfig;
 
-export const getLocaleUrl = (url: string, lang?: string): string => {
-  const langUrl = url === '/' ? `/${lang}` : `/${lang}${url}`;
-  return lang === defaultLocale ? url : langUrl;
+export const getLocaleUrl = (
+  url: string,
+  lang?: string,
+  prefix?: string
+): string => {
+  url = url === '/' ? '' : url;
+  return lang === defaultLocale ? `${prefix}${url}` : `${prefix}/${lang}${url}`;
 };
 
 type LocaleUrls = Record<string, string>;
-export const getLocaleUrls = (url: string): LocaleUrls => {
+export const getLocaleUrls = (url: string, prefix?: string): LocaleUrls => {
   const urls: LocaleUrls = {};
 
   locales.map(lang => {
-    urls[lang] = getLocaleUrl(url, lang);
+    urls[lang] = getLocaleUrl(url, lang, prefix);
   });
 
   return urls;
