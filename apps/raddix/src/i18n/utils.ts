@@ -9,7 +9,9 @@ export const getLocaleUrl = (
 ): string => {
   url = url === '/' ? '' : url;
   prefix = !prefix ? '' : prefix;
-  return lang === defaultLocale ? `${prefix}${url}` : `${prefix}/${lang}${url}`;
+  return lang === defaultLocale
+    ? `${prefix}/${url}`
+    : `${prefix}/${lang}${url}`;
 };
 
 type LocaleUrls = Record<string, string>;
