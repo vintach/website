@@ -1,6 +1,7 @@
 import path from 'path';
 import fs from 'fs/promises';
 import { glob } from 'glob';
+import { readFileSync } from 'fs';
 
 interface FileOps {
   contentDirPath: string;
@@ -29,6 +30,12 @@ export const getFile = async (filePath: string) => {
   const localFilePath = path.join(process.cwd(), filePath);
   const file = await fs.readFile(localFilePath);
   return file.toString();
+};
+
+export const getFileSync = (...paths: string[]): Buffer => {
+  const filePath = path.join(process.cwd(), ...paths);
+  const file = readFileSync(filePath);
+  return file;
 };
 
 export const getRemoteFile = async ({

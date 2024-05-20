@@ -9,6 +9,7 @@ export interface SidebarItem {
 
 export interface Config {
   sidebar: SidebarItem[];
+  meta?: MetaOptions;
 }
 
 export interface RepoOpts {
@@ -20,8 +21,15 @@ export interface RepoOpts {
 }
 
 export interface MetaOptions {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
+  url?: string;
+  author?: {
+    name?: string;
+    email?: string;
+    url?: string;
+    username?: string;
+  };
 }
 
 export interface ConfigFileRepo {

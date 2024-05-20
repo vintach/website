@@ -6,6 +6,9 @@ import { getConfigFileRepo, getMdxFileRepoBySlug } from '@/lib/content';
 import { Pager, TableOfContent } from 'vintex';
 import { defaultLocale } from '@/i18n';
 import { Links } from '@/components/links';
+import { getLocaleUrl, getLocaleUrls } from '@/i18n/utils';
+import { type Metadata } from 'next';
+import { configSite } from 'content/site/_config';
 
 const configRepo = {
   repo: 'raddix',
@@ -17,13 +20,45 @@ interface Props {
   params: { slug: string; lang: string };
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { meta } = await getMdxFileRepoBySlug({ params, ...configRepo });
+  const url = `/hooks/${params.slug}`;
+  const site = configSite.meta;
 
   return {
-    title: meta.title,
+    title: `${meta.title} React Hook`,
     description: meta.description,
-    authors: [{ name: 'Raddix' }]
+    keywords: [
+      'React Hook',
+      `${meta.title} hook`,
+      `react-${params.slug}`,
+      params.slug
+    ],
+    authors: [
+      { name: site?.author?.name, url: site?.author?.url },
+      {
+        name: `${site?.title}`,
+        url: site?.url
+      }
+    ],
+    alternates: {
+      canonical: getLocaleUrl(url, params.lang),
+      languages: getLocaleUrls(url)
+    },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      type: 'article',
+      authors: [`${site?.author?.name}`],
+      url: getLocaleUrl(url, params.lang),
+      locale: params.lang
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta?.description,
+      creator: `@${site?.author?.username}`
+    }
   };
 }
 

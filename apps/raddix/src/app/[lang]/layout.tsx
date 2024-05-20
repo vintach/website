@@ -12,15 +12,53 @@ import 'vintex/styles.css';
 import '@/styles/main.css';
 import { getPkgManager } from '@/utils/get-pkg-manager';
 import { fonts } from '../fonts';
+import { getConfigFile } from '@/lib/content';
+import { configSite } from 'content/site/_config';
 
-export const metadata: Metadata = {
-  title: {
-    template: '%s | Raddix',
-    default: 'Raddix - The React Hooks Library'
-  },
-  description: 'Collection of Essential React Hooks',
-  keywords: ['react', 'hooks', 'react hooks', 'react hooks library', 'raddix']
-};
+interface Props {
+  params: { lang: string };
+  children?: React.ReactNode;
+}
+
+export function generateMetadata({ params: { lang } }: Props): Metadata {
+  const { meta } = getConfigFile({ lang, dirPath: 'content/site' });
+  const site = configSite.meta;
+
+  return {
+    title: {
+      template: `%s – ${site?.title}`,
+      default: `${site?.title} – ${meta?.title}`
+    },
+    description: meta?.description,
+    metadataBase: new URL(`${site?.url}`),
+    keywords: [
+      'React',
+      'React Hooks',
+      'React Hooks Collection',
+      'React Hooks library',
+      'Collection of React Hooks',
+      'react-use',
+      'Radix',
+      'Raddix'
+    ],
+    authors: [{ name: site?.author?.name, url: site?.author?.url }],
+    creator: site?.author?.name,
+    openGraph: {
+      type: 'website',
+      title: configSite.meta?.title,
+      description: meta?.description,
+      url: configSite.meta?.url,
+      siteName: configSite.meta?.title,
+      locale: lang
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: configSite.meta?.title,
+      description: meta?.description,
+      creator: `@${site?.author?.username}`
+    }
+  };
+}
 
 export function generateStaticParams() {
   return locales.map(locale => ({ lang: locale }));
@@ -29,10 +67,7 @@ export function generateStaticParams() {
 export default async function RootLayout({
   children,
   params: { lang }
-}: {
-  children: React.ReactNode;
-  params: { lang: string };
-}) {
+}: Props) {
   const headerProps = await getHeader(lang);
 
   return (
