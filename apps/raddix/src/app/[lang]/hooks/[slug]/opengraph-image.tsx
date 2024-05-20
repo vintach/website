@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { getMdxFileRepoBySlug } from '@/lib/content';
 import { OG } from '@/components/og';
-import { getFileSync } from '@/utils/get-file';
+import { getFile } from '@/utils/get-file';
 
 const configRepo = {
   repo: 'raddix',
@@ -21,8 +21,8 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image({ params }: Props) {
-  const interBold = getFileSync('assets', 'Inter-Bold.ttf');
-  const interRegular = getFileSync('assets', 'Inter-Regular.ttf');
+  const interBold = await getFile('assets/Inter-Bold.ttf');
+  const interRegular = await getFile('assets/Inter-Regular.ttf');
   const { meta } = await getMdxFileRepoBySlug({ params, ...configRepo });
   const { title, description } = meta;
 

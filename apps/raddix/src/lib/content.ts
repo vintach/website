@@ -43,9 +43,11 @@ export const getConfigFileRepo = async ({
 
   try {
     if (process.env.NODE_ENV === 'development') {
-      fileData = await getFile(
-        `../../../${repo}/${contentDirPath}${isLang}/_config.json`
-      );
+      fileData = (
+        await getFile(
+          `../../../${repo}/${contentDirPath}${isLang}/_config.json`
+        )
+      ).toString();
     } else {
       fileData = await getRemoteFile({
         owner,
@@ -108,7 +110,9 @@ export const getMdxFileRepoBySlug = async ({
 
   try {
     if (process.env.NODE_ENV === 'development') {
-      fileData = await getFile(`${filePath}${lang}/${flattenedPath}.mdx`);
+      fileData = (
+        await getFile(`${filePath}${lang}/${flattenedPath}.mdx`)
+      ).toString();
     } else {
       fileData = await getRemoteFile({
         owner,

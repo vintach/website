@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { getMdxFileBySlug } from '@/lib/content';
 import { OG } from '@/components/og';
-import { getFileSync } from '@/utils/get-file';
+import { getFile } from '@/utils/get-file';
 
 interface Props {
   params: { slug: string; lang: string };
@@ -14,9 +14,9 @@ export const size = {
 };
 export const contentType = 'image/png';
 
-export default function Image({ params }: Props) {
-  const interBold = getFileSync('assets', 'Inter-Bold.ttf');
-  const interRegular = getFileSync('assets', 'Inter-Regular.ttf');
+export default async function Image({ params }: Props) {
+  const interBold = await getFile('assets/Inter-Bold.ttf');
+  const interRegular = await getFile('assets/Inter-Regular.ttf');
   const { meta } = getMdxFileBySlug({ params, filePath: 'guide' });
   const { title, description } = meta;
 
