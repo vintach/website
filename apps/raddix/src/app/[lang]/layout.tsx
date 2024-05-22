@@ -30,6 +30,7 @@ export function generateMetadata({ params: { lang } }: Props): Metadata {
       default: `${site?.title} – ${meta?.title}`
     },
     description: meta?.description,
+    metadataBase: new URL(`${site?.url}`),
     keywords: [
       'React',
       'React Hooks',
