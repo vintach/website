@@ -20,3 +20,5 @@ export const PKG_MANAGER_KEY = 'pkg-manager';
 // themes
 export const DEFAULT_THEME = 'dark';
 export const THEME_KEY = 'theme';
+
+export const IS_DEVELOPMENT = process.env.NODE_ENV === 'development';
