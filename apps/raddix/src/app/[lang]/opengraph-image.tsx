@@ -1,14 +1,14 @@
 import { ImageResponse } from 'next/og';
-import { getConfigFile } from '@/lib/content';
 import { OG } from '@/components/og';
+import { getSiteConfig } from 'content/site/get-config';
 import { configSite } from 'content/site/_config';
-import fs from 'fs';
-import path from 'path';
 
 interface Props {
   params: { lang: string };
 }
 
+// Route segment config
+export const runtime = 'edge';
 export const alt = 'Raddix Home Page';
 export const size = {
   width: 1200,
@@ -16,21 +16,20 @@ export const size = {
 };
 export const contentType = 'image/png';
 
-const interBoldPath = path.join(process.cwd(), 'assets', 'inter-bolder.ttf');
-
-export default function Image({ params: { lang } }: Props) {
-  const interBold = fs.readFileSync(interBoldPath);
-
-  const { meta } = getConfigFile({ lang, dirPath: 'content/site' });
+export default async function Image({ params: { lang } }: Props) {
+  const interSemiBold = fetch(
+    new URL('../../../assets/Inter-Bold.ttf', import.meta.url)
+  ).then(res => res.arrayBuffer());
+  const config = await getSiteConfig(lang);
 
   return new ImageResponse(
-    <OG preTitle={configSite.meta?.title} title={meta?.description} />,
+    <OG preTitle={configSite.meta?.title} title={config.meta?.description} />,
     {
       ...size,
       fonts: [
         {
           name: 'InterBold',
-          data: interBold,
+          data: await interSemiBold,
           style: 'normal'
         }
       ]
