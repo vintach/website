@@ -8,6 +8,7 @@ export const configSite: Config = {
     url: IS_DEVELOPMENT
       ? `http://localhost:${process.env.PORT}`
       : `https://${process.env.VERCEL_URL}`,
+    publicUrl: 'https://raddix.dev',
     author: {
       name: 'Moises Machuca Valverde',
       url: 'https://moisesmachuca.com',

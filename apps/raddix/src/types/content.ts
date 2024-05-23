@@ -24,6 +24,7 @@ export interface MetaOptions {
   title?: string;
   description?: string;
   url?: string;
+  publicUrl?: string;
   author?: {
     name?: string;
     email?: string;

@@ -13,7 +13,7 @@ export const OG = ({ title, preTitle, description }: OGProps) => {
     <div
       style={{
         background: '#0a0a10',
-        backgroundImage: `url("${site?.url}/og_base.png")`,
+        backgroundImage: `url("${site?.publicUrl}/og_base.png")`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         width: 1200,
