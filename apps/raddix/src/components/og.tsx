@@ -33,7 +33,7 @@ export const OG = ({ title, preTitle, description }: OGProps) => {
           <span
             style={{
               display: 'block',
-              fontFamily: 'InterBold',
+              fontFamily: 'Inter',
               fontWeight: 700,
               fontSize: 78,
               letterSpacing: '-.04em',
@@ -50,7 +50,7 @@ export const OG = ({ title, preTitle, description }: OGProps) => {
         )}
         <h1
           style={{
-            fontFamily: 'InterBold',
+            fontFamily: 'Inter',
             fontSize: 78,
             fontWeight: 700,
             letterSpacing: '-.04em',
@@ -64,7 +64,7 @@ export const OG = ({ title, preTitle, description }: OGProps) => {
         {description && (
           <p
             style={{
-              fontFamily: 'InterRegular',
+              fontFamily: 'Inter',
               fontSize: 32,
               color: '#cececf',
               letterSpacing: '-.01em',

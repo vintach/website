@@ -28,7 +28,7 @@ export default async function Image({ params: { lang } }: Props) {
       ...size,
       fonts: [
         {
-          name: 'InterBold',
+          name: 'Inter',
           data: await interSemiBold,
           style: 'normal'
         }

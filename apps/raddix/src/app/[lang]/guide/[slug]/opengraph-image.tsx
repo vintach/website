@@ -15,10 +15,7 @@ export const size = {
 };
 
 export default async function Image({ params: { lang, slug } }: Props) {
-  const interBold = await fetch(
-    new URL('../../../../../assets/Inter-Bold.ttf', import.meta.url)
-  ).then(res => res.arrayBuffer());
-  const interRegular = await fetch(
+  const inter = fetch(
     new URL('../../../../../assets/Inter-Regular.ttf', import.meta.url)
   ).then(res => res.arrayBuffer());
 
@@ -28,13 +25,8 @@ export default async function Image({ params: { lang, slug } }: Props) {
     ...size,
     fonts: [
       {
-        name: 'InterBold',
-        data: interBold,
-        style: 'normal'
-      },
-      {
-        name: 'InterRegular',
-        data: interRegular,
+        name: 'Inter',
+        data: await inter,
         style: 'normal'
       }
     ]

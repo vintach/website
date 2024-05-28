@@ -22,10 +22,7 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image({ params }: Props) {
-  const interBold = fetch(
-    new URL('../../../../../assets/Inter-Bold.ttf', import.meta.url)
-  ).then(res => res.arrayBuffer());
-  const interRegular = fetch(
+  const inter = fetch(
     new URL('../../../../../assets/Inter-Regular.ttf', import.meta.url)
   ).then(res => res.arrayBuffer());
   const response = await getRemoteFile({
@@ -39,13 +36,8 @@ export default async function Image({ params }: Props) {
     ...size,
     fonts: [
       {
-        name: 'InterBold',
-        data: await interBold,
-        style: 'normal'
-      },
-      {
-        name: 'InterRegular',
-        data: await interRegular,
+        name: 'Inter',
+        data: await inter,
         style: 'normal'
       }
     ]
