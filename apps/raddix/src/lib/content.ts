@@ -2,7 +2,7 @@ import type { ParsedUrlQuery } from 'querystring';
 import path from 'path';
 import fs from 'fs';
 import { matter } from './matter';
-import { getFile, getRemoteFile } from '@/utils/get-file';
+import { getFile } from '@/utils/get-file';
 import type {
   Config,
   ConfigFile,
@@ -11,6 +11,7 @@ import type {
   RepoOpts
 } from '@/types/content';
 import { IS_DEVELOPMENT } from '@/utils/constants';
+import { getRemoteFile } from '@/utils/get-remote-file';
 
 interface ReturnMdxFile {
   meta: MetaOptions;

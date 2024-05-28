@@ -1,18 +1,12 @@
 import { ImageResponse } from 'next/og';
-import { getMdxFileRepoBySlug } from '@/lib/content';
 import { OG } from '@/components/og';
-import { getFile } from '@/utils/get-file';
-
-const configRepo = {
-  repo: 'raddix',
-  owner: 'vintach',
-  contentDirPath: 'docs'
-};
-
+import { matter } from '@/lib/matter';
+import { type MetaOptions } from '@/types/content';
 interface Props {
   params: { slug: string; lang: string };
 }
 
+export const runtime = 'edge';
 export const alt = 'Hook Documentation';
 export const size = {
   width: 1200,
@@ -21,9 +15,23 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image({ params }: Props) {
-  const interBold = await getFile('assets/Inter-Bold.ttf');
-  const interRegular = await getFile('assets/Inter-Regular.ttf');
-  const { meta } = await getMdxFileRepoBySlug({ params, ...configRepo });
+  const interBold = fetch(
+    new URL('../../../../../assets/Inter-Bold.ttf', import.meta.url)
+  ).then(res => res.arrayBuffer());
+  const interRegular = fetch(
+    new URL('../../../../../assets/Inter-Regular.ttf', import.meta.url)
+  ).then(res => res.arrayBuffer());
+  const url = new URL(
+    `vintach/raddix/main/docs/${params.lang}/${params.slug}.mdx`,
+    'https://raw.githubusercontent.com/'
+  );
+
+  const response = await fetch(url.toString(), {
+    headers: {
+      Accept: 'application/vnd.github.v3.raw'
+    }
+  });
+  const { meta } = matter<MetaOptions>(await response.text());
   const { title, description } = meta;
 
   return new ImageResponse(<OG title={title} description={description} />, {
@@ -31,12 +39,12 @@ export default async function Image({ params }: Props) {
     fonts: [
       {
         name: 'InterBold',
-        data: interBold,
+        data: await interBold,
         style: 'normal'
       },
       {
         name: 'InterRegular',
-        data: interRegular,
+        data: await interRegular,
         style: 'normal'
       }
     ]

@@ -20,6 +20,13 @@ export interface RepoOpts {
   contentDirPath: string;
 }
 
+export interface RepoFile {
+  repo: string;
+  owner: string;
+  branch?: string;
+  filePath?: string;
+}
+
 export interface MetaOptions {
   title?: string;
   description?: string;
