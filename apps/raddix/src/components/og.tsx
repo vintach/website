@@ -13,6 +13,9 @@ export const OG = ({ title, preTitle, description }: OGProps) => {
     <div
       style={{
         background: '#0a0a10',
+        backgroundImage: `url("${site?.publicUrl}/og_base-min.png")`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
         width: 1200,
         height: 630,
         display: 'flex',
