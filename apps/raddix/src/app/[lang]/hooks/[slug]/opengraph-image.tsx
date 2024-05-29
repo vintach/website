@@ -23,10 +23,7 @@ export const contentType = 'image/png';
 
 export default async function Image({ params }: Props) {
   const inter = fetch(
-    new URL('../../../../../assets/Inter-Regular.ttf', import.meta.url)
-  ).then(res => res.arrayBuffer());
-  const interBold = fetch(
-    new URL('../../../../../assets/Inter-Bold.ttf', import.meta.url)
+    new URL('../../../../../assets/Inter-Medium.ttf', import.meta.url)
   ).then(res => res.arrayBuffer());
   const response = await getRemoteFile({
     ...configRepo,
@@ -38,14 +35,6 @@ export default async function Image({ params }: Props) {
 
   return new ImageResponse(<OG title={title} description={description} />, {
     ...size,
-    fonts: [
-      {
-        name: 'Inter',
-        data: await interBold,
-        style: 'normal',
-        weight: 700
-      },
-      { name: 'Inter', data: await inter, style: 'normal', weight: 400 }
-    ]
+    fonts: [{ name: 'Inter', data: await inter, style: 'normal', weight: 500 }]
   });
 }

@@ -37,8 +37,7 @@ export const OG = ({ title, preTitle, description }: OGProps) => {
             style={{
               display: 'block',
               fontFamily: 'Inter',
-              fontWeight: 700,
-              fontSize: 78,
+              fontSize: 80,
               letterSpacing: '-.04em',
               lineHeight: '78px',
               color: '#00000000',
@@ -54,12 +53,11 @@ export const OG = ({ title, preTitle, description }: OGProps) => {
         <h1
           style={{
             fontFamily: 'Inter',
-            fontSize: 78,
-            fontWeight: 700,
+            fontSize: 80,
             letterSpacing: '-.04em',
             lineHeight: '80px',
             color: '#f0f0f0',
-            marginBottom: '17px'
+            marginBottom: '20px'
           }}
         >
           {title ?? site?.title}
@@ -69,7 +67,6 @@ export const OG = ({ title, preTitle, description }: OGProps) => {
             style={{
               fontFamily: 'Inter',
               fontSize: 32,
-              fontWeight: 400,
               color: '#cececf',
               letterSpacing: '-.01em',
               lineHeight: '40px'
