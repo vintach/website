@@ -69,6 +69,7 @@ export const OG = ({ title, preTitle, description }: OGProps) => {
             style={{
               fontFamily: 'Inter',
               fontSize: 32,
+              fontWeight: 400,
               color: '#cececf',
               letterSpacing: '-.01em',
               lineHeight: '40px'

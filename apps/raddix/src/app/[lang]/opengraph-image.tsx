@@ -17,7 +17,7 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image({ params: { lang } }: Props) {
-  const interSemiBold = fetch(
+  const interBold = fetch(
     new URL('../../../assets/Inter-Bold.ttf', import.meta.url)
   ).then(res => res.arrayBuffer());
   const config = await getSiteConfig(lang);
@@ -29,8 +29,9 @@ export default async function Image({ params: { lang } }: Props) {
       fonts: [
         {
           name: 'Inter',
-          data: await interSemiBold,
-          style: 'normal'
+          data: await interBold,
+          style: 'normal',
+          weight: 700
         }
       ]
     }
