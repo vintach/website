@@ -12,7 +12,6 @@
   "dependencies": {
     "@algolia/autocomplete-core": "1.7.4",
     "@algolia/client-search": "4.17.2",
-    "@fontsource/inter": "5.0.18",
     "@raddix/switch": "1.0.0",
     "@raddix/use-click-outside": "0.1.0",
     "@raddix/use-count-down": "1.0.0",
