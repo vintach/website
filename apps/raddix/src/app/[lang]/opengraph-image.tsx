@@ -18,7 +18,10 @@ export const contentType = 'image/png';
 
 export default async function Image({ params: { lang } }: Props) {
   const interBold = await readFile(
-    join(process.cwd(), 'assets/Inter-Bold.ttf')
+    join(
+      process.cwd(),
+      'node_modules/@fontsource/inter/files/inter-latin-700-normal.woff'
+    )
   );
   const { meta } = getConfigFile({ lang, dirPath: 'content/site' });
 
