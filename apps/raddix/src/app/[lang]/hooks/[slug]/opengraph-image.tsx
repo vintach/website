@@ -1,7 +1,7 @@
+import fetch from 'node-fetch';
 import { ImageResponse } from 'next/og';
 import { getMdxFileRepoBySlug } from '@/lib/content';
 import { OG } from '@/components/og';
-import { getFile } from '@/utils/get-file';
 
 const configRepo = {
   repo: 'raddix',
@@ -21,8 +21,12 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image({ params }: Props) {
-  const interBold = await getFile('assets/Inter-Bold.ttf');
-  const interRegular = await getFile('assets/Inter-Regular.ttf');
+  const interBold = await fetch(
+    'https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-700-normal.ttf'
+  );
+  const interRegular = await fetch(
+    'https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.ttf'
+  );
   const { meta } = await getMdxFileRepoBySlug({ params, ...configRepo });
   const { title, description } = meta;
 
@@ -31,12 +35,12 @@ export default async function Image({ params }: Props) {
     fonts: [
       {
         name: 'InterBold',
-        data: interBold,
+        data: await interBold.arrayBuffer(),
         style: 'normal'
       },
       {
         name: 'InterRegular',
-        data: interRegular,
+        data: await interRegular.arrayBuffer(),
         style: 'normal'
       }
     ]
