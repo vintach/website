@@ -34,7 +34,6 @@ module.exports = {
   ignorePatterns: ['**/*.js'],
   rules: {
     'react/prop-types': 'off',
-    curly: 'error',
     'no-console': 'off',
     'import/no-default-export': ['error'],
     '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
