@@ -1,4 +1,4 @@
-import { configSite } from 'content/site/_config';
+import { SITE_URL } from '@/utils/constants';
 
 interface OGProps {
   preTitle?: string;
@@ -7,13 +7,11 @@ interface OGProps {
 }
 
 export const OG = ({ title, preTitle, description }: OGProps) => {
-  const site = configSite.meta;
-
   return (
     <div
       style={{
         background: '#0a0a10',
-        backgroundImage: `url("${site?.url}/og_base.png")`,
+        backgroundImage: `url("${SITE_URL}/og_base.png")`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         width: 1200,
@@ -62,7 +60,7 @@ export const OG = ({ title, preTitle, description }: OGProps) => {
             marginBottom: '17px'
           }}
         >
-          {title ?? site?.title}
+          {title}
         </h1>
         {description && (
           <p

@@ -1,8 +1,6 @@
 import { ImageResponse } from 'next/og';
-import { getConfigFile } from '@/lib/content';
 import { OG } from '@/components/og';
-import { configSite } from 'content/site/_config';
-import { getFile } from '@/utils/get-file';
+import fetch from 'node-fetch';
 
 interface Props {
   params: { lang: string };
@@ -16,17 +14,18 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image({ params: { lang } }: Props) {
-  const interBold = await getFile('assets/Inter-Bold.ttf');
-  const { meta } = getConfigFile({ lang, dirPath: 'content/site' });
+  const interBold = await fetch(
+    'https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-700-normal.ttf'
+  );
 
   return new ImageResponse(
-    <OG preTitle={configSite.meta?.title} title={meta?.description} />,
+    <OG preTitle={'Raddix'} title={'Collection of essential React Hooks'} />,
     {
       ...size,
       fonts: [
         {
           name: 'InterBold',
-          data: interBold,
+          data: await interBold.arrayBuffer(),
           style: 'normal'
         }
       ]

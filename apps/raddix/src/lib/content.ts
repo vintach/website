@@ -10,6 +10,7 @@ import type {
   MetaOptions,
   RepoOpts
 } from '@/types/content';
+import { DEVELOPMENT_MODE } from '@/utils/constants';
 
 interface ReturnMdxFile {
   meta: MetaOptions;
@@ -42,7 +43,7 @@ export const getConfigFileRepo = async ({
   const isLang = lang ? `/${lang}` : '';
 
   try {
-    if (process.env.NODE_ENV === 'development') {
+    if (DEVELOPMENT_MODE) {
       fileData = (
         await getFile(
           `../../../${repo}/${contentDirPath}${isLang}/_config.json`
@@ -109,7 +110,7 @@ export const getMdxFileRepoBySlug = async ({
   let fileData: string | null = null;
 
   try {
-    if (process.env.NODE_ENV === 'development') {
+    if (DEVELOPMENT_MODE) {
       fileData = (
         await getFile(`${filePath}${lang}/${flattenedPath}.mdx`)
       ).toString();
