@@ -23,6 +23,9 @@ export const THEME_KEY = 'theme';
 
 // environments
 export const DEVELOPMENT_MODE = process.env.NODE_ENV === 'development';
+export const PREVIEW_MODE = process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview';
+export const PRODUCTION_MODE =
+  process.env.NEXT_PUBLIC_VERCEL_ENV === 'production';
 export const PORT = process.env.PORT;
 export const DOMAIN = process.env.VERCEL_URL;
 

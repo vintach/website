@@ -1,11 +1,11 @@
 import { type Config } from '@/types/content';
-import { DEVELOPMENT_MODE, DOMAIN, PORT } from '@/utils/constants';
+import { getSiteUrl } from '@/utils/get-site-url';
 
 export const configSite: Config = {
   sidebar: [],
   meta: {
     title: 'Raddix',
-    url: DEVELOPMENT_MODE ? `http://localhost:${PORT}` : `https://${DOMAIN}`,
+    url: getSiteUrl(),
     author: {
       name: 'Moises Machuca Valverde',
       url: 'https://moisesmachuca.com',
