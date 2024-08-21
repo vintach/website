@@ -223,6 +223,12 @@ importers:
 
   packages/vintex:
     dependencies:
+      '@raddix/use-click-outside':
+        specifier: 0.1.0
+        version: 0.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@raddix/use-scroll-lock':
+        specifier: 1.0.0
+        version: 1.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@raddix/use-scroll-spy':
         specifier: 0.1.2
         version: 0.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -232,10 +238,16 @@ importers:
       marked:
         specifier: ^12.0.2
         version: 12.0.2
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@types/react':
         specifier: ^18.2.5
         version: 18.2.79
+      '@types/react-dom':
+        specifier: ^18.2.4
+        version: 18.2.25
       '@vintach/tailwind':
         specifier: workspace:*
         version: link:../../settings/tailwind
@@ -1417,6 +1429,12 @@ packages:
 
   '@raddix/use-media-query@0.1.2':
     resolution: {integrity: sha512-liI1parls/9dwXhMJgabBitVWU5EFcHGGhlksU0o4jxV2bj/f/5d3ozoNu/6KM7e5/u3z1FfhmPh8N2/aKrFew==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+
+  '@raddix/use-scroll-lock@1.0.0':
+    resolution: {integrity: sha512-B+mD78hJ9kQP7Sr0UV9ADrgyr1CRNbDNSU3XfHIcDu38FdFwvqSaggjuSlAelYx0EjisFQu5fg2c5U6GQDqnRw==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -7677,6 +7695,11 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
 
   '@raddix/use-media-query@0.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+
+  '@raddix/use-scroll-lock@1.0.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
