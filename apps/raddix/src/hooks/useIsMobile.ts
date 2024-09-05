@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useIsMobile = (md = '768px') => {
+export const useIsMobile = (md = '900px') => {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
   useEffect(() => {
