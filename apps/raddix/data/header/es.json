@@ -30,6 +30,13 @@
     },
     "packageManager": {
       "label": "Cambiar el administrador de paquete"
+    },
+    "search": {
+      "label": "Buscar",
+      "errorMessage": [
+        "Ups, no hay coincidencias",
+        "No pudimos encontrar ningún resultado de búsqueda. Inténtalo de nuevo"
+      ]
     }
   }
 }
