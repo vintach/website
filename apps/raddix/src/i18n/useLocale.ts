@@ -9,7 +9,7 @@ export const useLocale = (): string => {
   const currentPath = usePathname();
 
   const locale = locales.find(local => {
-    return currentPath === `/${local}` || currentPath.startsWith(`/${local}/`);
+    return currentPath === `/${local}` || currentPath?.startsWith(`/${local}/`);
   });
 
   return locale ?? defaultLocale;

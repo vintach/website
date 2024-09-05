@@ -30,6 +30,13 @@
     },
     "packageManager": {
       "label": "Change package manager"
+    },
+    "search": {
+      "label": "Search",
+      "errorMessage": [
+        "Whoops, no matches",
+        "We couldn't find any search results. Give it another go"
+      ]
     }
   }
 }
